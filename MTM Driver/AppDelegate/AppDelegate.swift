@@ -12,8 +12,6 @@ import IQKeyboardManagerSwift
 import SideMenuSwift
 import GoogleMaps
 import GooglePlaces
-//import Fabric
-//import Crashlytics
 import SocketIO
 import Firebase
 import FirebaseMessaging
