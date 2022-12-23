@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="trip_cell" rowHeight="756" id="KGk-i7-Jjw" customClass="TripTableViewCell" customModule="MTM_Driver" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="598" height="756"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="598" height="756"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TTV-8W-a3t" customClass="ThemeContainerView" customModule="MTM_Driver" customModuleProvider="target">
+                        <rect key="frame" x="25" y="10" width="548" height="668"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pq5-gf-JoI">
+                                <rect key="frame" x="0.0" y="0.0" width="548" height="668"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZpQ-db-Pe1">
+                                        <rect key="frame" x="20" y="20" width="508" height="305"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="ZpQ-db-Pe1" secondAttribute="height" multiplier="293:176" id="4ED-LJ-idA"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="w5Y-va-X6n">
+                                        <rect key="frame" x="20" y="345" width="508" height="172"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="251" image="ic_pickup_drop" translatesAutoresizingMaskIntoConstraints="NO" id="EXm-pW-GHL">
+                                                <rect key="frame" x="0.0" y="0.0" width="10" height="83"/>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="Hti-XU-TgG">
+                                                <rect key="frame" x="24" y="0.0" width="484" height="172"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="wOJ-f5-NFi">
+                                                        <rect key="frame" x="0.0" y="0.0" width="484" height="67.5"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="gUn-nd-GOf">
+                                                                <rect key="frame" x="0.0" y="0.0" width="484" height="20.5"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pickup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exN-AK-cUB" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="239" height="20.5"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="semibold" value="YES"/>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                                                <real key="value" value="12"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="gray" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pickup" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCb-tz-vQt" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
+                                                                        <rect key="frame" x="245" y="0.0" width="239" height="20.5"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="semibold" value="YES"/>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="gray" value="YES"/>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                                                <real key="value" value="12"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="821 South St, Mabopane 821 South St, Mabopane821 South St, Mabopane" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pwP-fp-Tkb" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="26.5" width="484" height="41"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="semibold14Style" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                                        <real key="value" value="14"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="black" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="semibold" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nb8-fY-1bQ">
+                                                        <rect key="frame" x="0.0" y="85.5" width="484" height="1"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3yH-6m-yky">
+                                                                <rect key="frame" x="0.0" y="0.0" width="457" height="1"/>
+                                                                <color key="backgroundColor" name="themeSeperatorColor"/>
+                                                            </view>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="3yH-6m-yky" secondAttribute="bottom" id="0IG-Hj-iKK"/>
+                                                            <constraint firstItem="3yH-6m-yky" firstAttribute="leading" secondItem="Nb8-fY-1bQ" secondAttribute="leading" id="9tj-Pn-6rU"/>
+                                                            <constraint firstItem="3yH-6m-yky" firstAttribute="top" secondItem="Nb8-fY-1bQ" secondAttribute="top" id="NyO-yJ-CeT"/>
+                                                            <constraint firstAttribute="height" constant="1" id="ZQC-Q1-1Ah"/>
+                                                            <constraint firstAttribute="trailing" secondItem="3yH-6m-yky" secondAttribute="trailing" constant="27" id="pYB-fK-WYp"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="YXf-Hq-7rv">
+                                                        <rect key="frame" x="0.0" y="104.5" width="484" height="67.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drop-off " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AM0-Up-LTV" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="484" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="semiboldGray12Style" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="semibold" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="gray" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                                        <real key="value" value="12"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="1522 Telford Ave, Jan Kempdorp821 South St, Mabopane821 South St, Mabopane" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0l-12-IqH" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="26.5" width="484" height="41"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="semibold14Style" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                                        <real key="value" value="14"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="semibold" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="black" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="giv-Hi-iGM">
+                                        <rect key="frame" x="20" y="537" width="508" height="44"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RQj-31-hOa">
+                                                <rect key="frame" x="0.0" y="8" width="211.5" height="28"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID: 5431443675434214" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYW-v7-3Cz" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
+                                                        <rect key="frame" x="14" y="4" width="183.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="semibold" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="white" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                                <real key="value" value="12"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" name="thmePrimary"/>
+                                                <constraints>
+                                                    <constraint firstItem="FYW-v7-3Cz" firstAttribute="centerY" secondItem="RQj-31-hOa" secondAttribute="centerY" id="6et-Mp-jd9"/>
+                                                    <constraint firstItem="FYW-v7-3Cz" firstAttribute="leading" secondItem="RQj-31-hOa" secondAttribute="leading" constant="14" id="Hd8-bR-NlC"/>
+                                                    <constraint firstAttribute="trailing" secondItem="FYW-v7-3Cz" secondAttribute="trailing" constant="14" id="SNL-sQ-HKW"/>
+                                                    <constraint firstAttribute="height" constant="28" id="Xp6-sb-28R"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="14"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today, 5:15 pm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPr-K4-lk0" customClass="ThemeUnderlinedLabel" customModule="MTM_Driver" customModuleProvider="target">
+                                                <rect key="frame" x="393.5" y="12" width="114.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="3fk-8K-YM8"/>
+                                            <constraint firstItem="sPr-K4-lk0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="RQj-31-hOa" secondAttribute="trailing" constant="10" id="E2q-eL-p3D"/>
+                                            <constraint firstItem="sPr-K4-lk0" firstAttribute="centerY" secondItem="giv-Hi-iGM" secondAttribute="centerY" id="IUA-vP-ehy"/>
+                                            <constraint firstAttribute="trailing" secondItem="sPr-K4-lk0" secondAttribute="trailing" id="IrQ-8x-ENC"/>
+                                            <constraint firstItem="RQj-31-hOa" firstAttribute="leading" secondItem="giv-Hi-iGM" secondAttribute="leading" id="a0P-FR-rtS"/>
+                                            <constraint firstItem="RQj-31-hOa" firstAttribute="centerY" secondItem="giv-Hi-iGM" secondAttribute="centerY" id="sYy-V8-8sx"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I05-8c-uBs">
+                                        <rect key="frame" x="20" y="601" width="508" height="47"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="o12-cQ-f6p">
+                                                <rect key="frame" x="0.0" y="0.0" width="508" height="47"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="dSl-Vl-ZeU">
+                                                        <rect key="frame" x="0.0" y="0.0" width="169.5" height="47"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Total Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6Y-qk-qdC" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="83.5" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="semibold" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="gray" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                                        <real key="value" value="12"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="15m 30s" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qpy-IA-9we" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="26.5" width="65.5" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="semibold" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="black" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                                        <real key="value" value="14"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="1w5-Fs-yRg">
+                                                        <rect key="frame" x="169.5" y="0.0" width="169" height="47"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Distance:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fK1-OQ-aab" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
+                                                                <rect key="frame" x="49" y="0.0" width="71.5" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="semibold" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="gray" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                                        <real key="value" value="12"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="15 Miles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lfr-Id-5hy" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
+                                                                <rect key="frame" x="53.5" y="26.5" width="62" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="semibold" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="black" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                                        <real key="value" value="14"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="bottom" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="0oh-1C-PHK">
+                                                        <rect key="frame" x="338.5" y="0.0" width="169.5" height="47"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Earning" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZ2-t0-zQq" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
+                                                                <rect key="frame" x="111.5" y="0.0" width="58" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="semibold" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="gray" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                                        <real key="value" value="12"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="$19.99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9KR-gV-t1R" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
+                                                                <rect key="frame" x="111.5" y="26.5" width="58" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="semibold" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="black" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                                        <real key="value" value="14"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </label>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="mZ2-t0-zQq" firstAttribute="width" secondItem="9KR-gV-t1R" secondAttribute="width" id="ZCC-yZ-qAN"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tPy-L8-e3u">
+                                                <rect key="frame" x="168.5" y="13.5" width="1" height="20"/>
+                                                <color key="backgroundColor" name="themeGrayColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="1" id="gZ3-6W-Gt2"/>
+                                                    <constraint firstAttribute="height" constant="20" id="iaW-Lq-v3R"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cRQ-Z6-XOn">
+                                                <rect key="frame" x="337.5" y="13.5" width="1" height="20"/>
+                                                <color key="backgroundColor" name="themeGrayColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="8wu-wb-9LW"/>
+                                                    <constraint firstAttribute="width" constant="1" id="YM5-11-wfZ"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="o12-cQ-f6p" secondAttribute="trailing" id="1Cc-Ii-EkA"/>
+                                            <constraint firstItem="tPy-L8-e3u" firstAttribute="trailing" secondItem="dSl-Vl-ZeU" secondAttribute="trailing" id="6Nl-Dd-nhU"/>
+                                            <constraint firstItem="o12-cQ-f6p" firstAttribute="leading" secondItem="I05-8c-uBs" secondAttribute="leading" id="ANt-gk-51s"/>
+                                            <constraint firstItem="cRQ-Z6-XOn" firstAttribute="trailing" secondItem="1w5-Fs-yRg" secondAttribute="trailing" id="EV1-n6-NFs"/>
+                                            <constraint firstItem="cRQ-Z6-XOn" firstAttribute="centerY" secondItem="I05-8c-uBs" secondAttribute="centerY" id="Um0-ih-UXf"/>
+                                            <constraint firstItem="o12-cQ-f6p" firstAttribute="top" secondItem="I05-8c-uBs" secondAttribute="top" id="bQp-vE-uGs"/>
+                                            <constraint firstItem="tPy-L8-e3u" firstAttribute="centerY" secondItem="I05-8c-uBs" secondAttribute="centerY" id="pt8-nF-vuW"/>
+                                            <constraint firstAttribute="bottom" secondItem="o12-cQ-f6p" secondAttribute="bottom" id="uEc-Zb-dZB"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <edgeInsets key="layoutMargins" top="20" left="20" bottom="20" right="20"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" name="themebackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="pq5-gf-JoI" secondAttribute="trailing" id="HKu-ds-ca3"/>
+                            <constraint firstItem="pq5-gf-JoI" firstAttribute="top" secondItem="TTV-8W-a3t" secondAttribute="top" id="TZ7-EJ-jAe"/>
+                            <constraint firstAttribute="bottom" secondItem="pq5-gf-JoI" secondAttribute="bottom" id="UXZ-F9-I2X"/>
+                            <constraint firstItem="pq5-gf-JoI" firstAttribute="leading" secondItem="TTV-8W-a3t" secondAttribute="leading" id="WvO-4u-XZD"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="TTV-8W-a3t" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="04Y-YR-ZfP"/>
+                    <constraint firstItem="TTV-8W-a3t" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="bEk-RK-rm6"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="TTV-8W-a3t" secondAttribute="bottom" constant="10" id="jp1-cG-uia"/>
+                    <constraint firstAttribute="trailing" secondItem="TTV-8W-a3t" secondAttribute="trailing" constant="25" id="xdT-BS-eFC"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="bottomStack" destination="I05-8c-uBs" id="UlT-6S-xuC"/>
+                <outlet property="distanceLabel" destination="Lfr-Id-5hy" id="8JH-Jh-hqB"/>
+                <outlet property="dropLabel" destination="Y0l-12-IqH" id="Zag-7o-J1I"/>
+                <outlet property="imgPickDrop" destination="EXm-pW-GHL" id="2mP-SU-PpS"/>
+                <outlet property="lblStatus" destination="mCb-tz-vQt" id="Ovm-IB-3rL"/>
+                <outlet property="lblTitleDistance" destination="fK1-OQ-aab" id="JFg-w4-X8f"/>
+                <outlet property="lblTitleEarning" destination="mZ2-t0-zQq" id="g07-zn-5EE"/>
+                <outlet property="lblTitlePickup" destination="exN-AK-cUB" id="4xX-HB-HMI"/>
+                <outlet property="lblTitleTotalTime" destination="h6Y-qk-qdC" id="Ts4-OK-xR9"/>
+                <outlet property="lbltitleDropOff" destination="AM0-Up-LTV" id="1oK-lP-CbG"/>
+                <outlet property="mapContainerView" destination="ZpQ-db-Pe1" id="KPM-wv-Pg6"/>
+                <outlet property="pickupLabel" destination="pwP-fp-Tkb" id="N1v-Pm-r3Q"/>
+                <outlet property="timeLabel" destination="sPr-K4-lk0" id="138-Nz-j7P"/>
+                <outlet property="totalPriceLabel" destination="9KR-gV-t1R" id="IzO-A6-uP2"/>
+                <outlet property="totalTimeLabel" destination="Qpy-IA-9we" id="knZ-Hi-RLk"/>
+                <outlet property="tripLabel" destination="FYW-v7-3Cz" id="TXr-UB-9GI"/>
+                <outlet property="viewSeprateLine1" destination="tPy-L8-e3u" id="Bhw-Uh-RZd"/>
+                <outlet property="viewSeprateLine2" destination="cRQ-Z6-XOn" id="f4B-wT-ZPW"/>
+                <outlet property="viewTripId" destination="RQj-31-hOa" id="h8Y-Ld-j6r"/>
+            </connections>
+            <point key="canvasLocation" x="333.33333333333337" y="368.30357142857139"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_pickup_drop" width="10" height="83"/>
+        <namedColor name="themeGrayColor">
+            <color red="0.48199999332427979" green="0.48199999332427979" blue="0.48199999332427979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="themeSeperatorColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.15000000596046448" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="themebackgroundColor">
+            <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="thmePrimary">
+            <color red="0.0" green="0.0" blue="0.50199997425079346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

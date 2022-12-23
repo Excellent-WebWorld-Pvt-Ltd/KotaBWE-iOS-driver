@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CompleteView" customModule="MTM_Driver" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="401" height="258"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nOd-2v-hak" customClass="Gradient" customModule="MTM_Driver" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="401" height="258"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trip Completed!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kcc-Pk-Ker" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
+                            <rect key="frame" x="133" y="20" width="135" height="23"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="23" id="B6u-No-2f2"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                    <real key="value" value="20"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="bold" value="YES"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="white" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XTU-az-8he" customClass="ThemeRoundCornerView" customModule="MTM_Driver" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="63" width="401" height="195"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Please confirm receipt of payment  from your rider. Thank you for driving with Showfa." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKJ-Dt-cYc" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
+                                    <rect key="frame" x="20" y="54.5" width="361" height="65.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="gray" value="YES"/>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                            <real key="value" value="12"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grand total :" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78j-wy-ZoA" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
+                                    <rect key="frame" x="20" y="15" width="361" height="19.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                            <real key="value" value="16"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="bold" value="YES"/>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="black" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P30-FZ-qi5" customClass="ThemeButton" customModule="MTM_Driver" customModuleProvider="target">
+                                    <rect key="frame" x="20" y="135" width="361" height="40"/>
+                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="cyz-ju-bCA"/>
+                                    </constraints>
+                                    <state key="normal" title="Payment Received">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSubmit" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="btnOKAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="d9t-4F-yjd"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="KKJ-Dt-cYc" firstAttribute="centerX" secondItem="XTU-az-8he" secondAttribute="centerX" id="32P-SC-qUU"/>
+                                <constraint firstAttribute="bottom" secondItem="P30-FZ-qi5" secondAttribute="bottom" constant="20" id="7Ts-s1-qbW"/>
+                                <constraint firstItem="KKJ-Dt-cYc" firstAttribute="leading" secondItem="XTU-az-8he" secondAttribute="leading" constant="20" id="BBX-ja-TYO"/>
+                                <constraint firstItem="78j-wy-ZoA" firstAttribute="top" secondItem="XTU-az-8he" secondAttribute="top" constant="15" id="IpO-jz-GhF"/>
+                                <constraint firstAttribute="trailing" secondItem="P30-FZ-qi5" secondAttribute="trailing" constant="20" id="VNB-yo-2qA"/>
+                                <constraint firstAttribute="trailing" secondItem="KKJ-Dt-cYc" secondAttribute="trailing" constant="20" id="XFg-uO-VBx"/>
+                                <constraint firstItem="P30-FZ-qi5" firstAttribute="top" secondItem="KKJ-Dt-cYc" secondAttribute="bottom" constant="15" id="ZIt-45-gx4"/>
+                                <constraint firstItem="78j-wy-ZoA" firstAttribute="leading" secondItem="XTU-az-8he" secondAttribute="leading" constant="20" id="bFU-ic-Bts"/>
+                                <constraint firstAttribute="trailing" secondItem="78j-wy-ZoA" secondAttribute="trailing" constant="20" id="h49-FD-3v7"/>
+                                <constraint firstItem="P30-FZ-qi5" firstAttribute="centerX" secondItem="XTU-az-8he" secondAttribute="centerX" id="jR8-tB-88m"/>
+                                <constraint firstItem="P30-FZ-qi5" firstAttribute="leading" secondItem="XTU-az-8he" secondAttribute="leading" constant="20" id="l8B-Hv-TDG"/>
+                                <constraint firstItem="KKJ-Dt-cYc" firstAttribute="top" secondItem="78j-wy-ZoA" secondAttribute="bottom" constant="20" id="y1y-fC-CTD"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="XTU-az-8he" firstAttribute="leading" secondItem="nOd-2v-hak" secondAttribute="leading" id="14L-07-f3f"/>
+                        <constraint firstAttribute="trailing" secondItem="XTU-az-8he" secondAttribute="trailing" id="3NL-U9-MbR"/>
+                        <constraint firstItem="Kcc-Pk-Ker" firstAttribute="top" secondItem="nOd-2v-hak" secondAttribute="top" constant="20" id="69X-I0-r8X"/>
+                        <constraint firstAttribute="bottom" secondItem="XTU-az-8he" secondAttribute="bottom" id="9fp-pc-gDg"/>
+                        <constraint firstItem="Kcc-Pk-Ker" firstAttribute="centerX" secondItem="nOd-2v-hak" secondAttribute="centerX" id="BkB-Ho-e1K"/>
+                        <constraint firstItem="XTU-az-8he" firstAttribute="top" secondItem="Kcc-Pk-Ker" secondAttribute="bottom" constant="20" id="VSa-mI-MIc"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="nOd-2v-hak" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="BlB-2k-dVa"/>
+                <constraint firstItem="nOd-2v-hak" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="ifc-YZ-zDw"/>
+                <constraint firstItem="nOd-2v-hak" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="oMp-wy-iTv"/>
+                <constraint firstItem="nOd-2v-hak" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="tf1-Lv-cgC"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="lblGrandTotal" destination="78j-wy-ZoA" id="lqj-Im-68f"/>
+                <outlet property="meesageLabel" destination="KKJ-Dt-cYc" id="o0Z-19-P4k"/>
+                <outlet property="submitButton" destination="P30-FZ-qi5" id="caz-cQ-mmb"/>
+            </connections>
+            <point key="canvasLocation" x="125.36231884057972" y="46.875"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

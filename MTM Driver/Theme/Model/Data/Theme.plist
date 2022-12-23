@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API</key>
+	<dict>
+		<key>googleMap</key>
+		<string></string>
+		<key>googlePlaces</key>
+		<string></string>
+		<key>baseURL</key>
+		<string>gfdfjks</string>
+	</dict>
+	<key>colors</key>
+	<dict>
+		<key>group</key>
+		<string>#9a9a9a</string>
+		<key>textLight</key>
+		<string>#9a9a9a</string>
+		<key>textDark</key>
+		<string>#2e2d2e</string>
+		<key>textWhite</key>
+		<string>#FFFFFF</string>
+		<key>theme</key>
+		<string>#2e2d2e</string>
+		<key>buttonTint</key>
+		<string>#f48734</string>
+	</dict>
+	<key>customFonts</key>
+	<dict>
+		<key>semiboldItalic</key>
+		<string>ProximaNova-SemiboldIt</string>
+		<key>boldItalic</key>
+		<string>ProximaNova-BoldIt</string>
+		<key>light</key>
+		<string>ProximaNova-Light</string>
+		<key>regular</key>
+		<string>ProximaNova-Regular</string>
+		<key>bold</key>
+		<string>ProximaNova-Bold</string>
+		<key>extrabold</key>
+		<string>ProximaNova-ExtraBld</string>
+		<key>black</key>
+		<string>ProximaNova-Black</string>
+		<key>semibold</key>
+		<string>ProximaNova-Semibold</string>
+		<key>regularItalic</key>
+		<string>ProximaNova-RegularIt</string>
+		<key>lightItalic</key>
+		<string>ProximaNova-LightIt</string>
+	</dict>
+	<key>fontSize</key>
+	<dict>
+		<key>regular</key>
+		<integer>15</integer>
+		<key>large</key>
+		<integer>18</integer>
+		<key>small</key>
+		<integer>12</integer>
+	</dict>
+</dict>
+</plist>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="promo_code_cell" rowHeight="155" id="KGk-i7-Jjw" customClass="PromoCodeTableViewCell" customModule="DSP_Driver" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="404" height="155"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="404" height="155"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="65e-lk-Kuv" customClass="ThemeContainerView" customModule="DSP_Driver" customModuleProvider="target">
+                        <rect key="frame" x="25" y="9" width="354" height="137"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_promocode" translatesAutoresizingMaskIntoConstraints="NO" id="dqw-N4-55P">
+                                <rect key="frame" x="20" y="56" width="25" height="25"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="lDX-zN-Tmg">
+                                <rect key="frame" x="75" y="20" width="259" height="77"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldK-og-Dt5" customClass="ThemeLabel" customModule="DSP_Driver" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="259" height="41"/>
+                                        <string key="text">10% Off the base rate on 
+your next Ride</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="semibold" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="black" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                <real key="value" value="16"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ggo-14-ARh">
+                                        <rect key="frame" x="0.0" y="47" width="259" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Valid till 12/09/2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3eg-a4-6TT" customClass="ThemeLabel" customModule="DSP_Driver" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="197" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="semibold" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="gray" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                        <real key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tMv-Yj-qyL" customClass="ThemeButton" customModule="DSP_Driver" customModuleProvider="target">
+                                                <rect key="frame" x="197" y="0.0" width="62" height="30"/>
+                                                <state key="normal" title="Use Now"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="blueBold" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="useNowTapped" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Dbb-1o-Ecp"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="lDX-zN-Tmg" firstAttribute="top" secondItem="65e-lk-Kuv" secondAttribute="top" constant="20" id="3tW-Mt-4Oe"/>
+                            <constraint firstAttribute="trailing" secondItem="lDX-zN-Tmg" secondAttribute="trailing" constant="20" id="BYo-wJ-l7F"/>
+                            <constraint firstItem="lDX-zN-Tmg" firstAttribute="leading" secondItem="dqw-N4-55P" secondAttribute="trailing" constant="30" id="MuU-JH-HIS"/>
+                            <constraint firstItem="dqw-N4-55P" firstAttribute="centerY" secondItem="65e-lk-Kuv" secondAttribute="centerY" id="Zrr-wo-HJx"/>
+                            <constraint firstItem="dqw-N4-55P" firstAttribute="leading" secondItem="65e-lk-Kuv" secondAttribute="leading" constant="20" id="dyK-1F-Qnj"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="lDX-zN-Tmg" secondAttribute="bottom" constant="20" id="zEm-jp-eRH"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="65e-lk-Kuv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="N9B-W2-bV2"/>
+                    <constraint firstItem="65e-lk-Kuv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="b6v-Cj-zIO"/>
+                    <constraint firstAttribute="trailing" secondItem="65e-lk-Kuv" secondAttribute="trailing" constant="25" id="dDs-lz-jaP"/>
+                    <constraint firstAttribute="bottom" secondItem="65e-lk-Kuv" secondAttribute="bottom" constant="9" id="rzr-qF-9gc"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="dateLabel" destination="3eg-a4-6TT" id="OKb-Ne-VAu"/>
+                <outlet property="titleLabel" destination="ldK-og-Dt5" id="jvp-lX-ULt"/>
+                <outlet property="useNowButton" destination="tMv-Yj-qyL" id="OVe-Bz-wFm"/>
+            </connections>
+            <point key="canvasLocation" x="192.75362318840581" y="157.70089285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_promocode" width="25" height="25"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
