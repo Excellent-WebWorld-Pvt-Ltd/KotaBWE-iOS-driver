@@ -85,13 +85,24 @@ extension NSMutableAttributedString {
  @discardableResult func bold(_ text:String) -> NSMutableAttributedString {
 
     let attrs : [NSAttributedString.Key : Any] = [
-        NSAttributedString.Key.font : UIFont.bold(ofSize: 18.0),
-        NSAttributedString.Key.foregroundColor : UIColor.themeColor,
+        NSAttributedString.Key.font : UIFont.bold(ofSize: 14.0),
+        NSAttributedString.Key.foregroundColor : UIColor.black,
         NSAttributedString.Key.underlineStyle : NSUnderlineStyle.single.rawValue]
     let boldString = NSMutableAttributedString(string: text, attributes: attrs)
     self.append(boldString)
     return self
  }
+    
+    @discardableResult func boldWithOpacity60(_ text:String) -> NSMutableAttributedString {
+
+       let attrs : [NSAttributedString.Key : Any] = [
+           NSAttributedString.Key.font : UIFont.bold(ofSize: 14.0),
+           NSAttributedString.Key.foregroundColor : UIColor.black.withAlphaComponent(0.6),
+           NSAttributedString.Key.underlineStyle : NSUnderlineStyle.single.rawValue]
+       let boldString = NSMutableAttributedString(string: text, attributes: attrs)
+       self.append(boldString)
+       return self
+    }
     
     @discardableResult func bold14(_ text:String) -> NSMutableAttributedString {
 
@@ -115,14 +126,24 @@ extension NSMutableAttributedString {
     }
 
     @discardableResult func normal(_ text:String , Colour:UIColor , _ size:CGFloat = 18.0)->NSMutableAttributedString {
-    let attrs : [NSAttributedString.Key : Any] = [
-        NSAttributedString.Key.font : UIFont.regular(ofSize: size),
-        NSAttributedString.Key.foregroundColor : Colour
-    ]
-    let normal =  NSAttributedString(string: text,  attributes:attrs)
-    self.append(normal)
-    return self
- }
+        let attrs : [NSAttributedString.Key : Any] = [
+            NSAttributedString.Key.font : UIFont.medium(ofSize: size),
+            NSAttributedString.Key.foregroundColor : Colour
+        ]
+        let normal =  NSAttributedString(string: text,  attributes:attrs)
+        self.append(normal)
+        return self
+    }
+    
+    @discardableResult func regular(_ text:String , Colour:UIColor , _ size:CGFloat = 18.0)->NSMutableAttributedString {
+        let attrs : [NSAttributedString.Key : Any] = [
+            NSAttributedString.Key.font : UIFont.regular(ofSize: size),
+            NSAttributedString.Key.foregroundColor : Colour
+        ]
+        let normal =  NSAttributedString(string: text,  attributes:attrs)
+        self.append(normal)
+        return self
+    }
 }
 
 extension UIButton {

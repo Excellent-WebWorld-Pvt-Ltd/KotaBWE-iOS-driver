@@ -10,11 +10,10 @@ import UIKit
 
 class SplashScreenViewController: BaseViewController {
     
-    //MARK:- ===== Outlets =======
-    @IBOutlet weak var staringImageView: UIImageView!
+    //MARK: - ===== Outlets =======
    
     
-    //MARK:- ===== View Controller Life Cycle ======
+    //MARK: - ===== View Controller Life Cycle ======
     override func viewDidLoad() {
         super.viewDidLoad()
         NetworkManager.shared.startNetworkReachabilityObserver()
@@ -27,7 +26,7 @@ class SplashScreenViewController: BaseViewController {
         self.navigationController?.isNavigationBarHidden = true
     }
 
-    //MARK:- ====== WebService Call Init ======
+    //MARK: - ====== WebService Call Init ======
     func webserviceCallForInit() {
         var dictData = [String: Any]()
         if SessionManager.shared.isUserLoggedIn {

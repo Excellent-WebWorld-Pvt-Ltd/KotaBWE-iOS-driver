@@ -62,7 +62,11 @@ extension UIColor {
 extension UIColor {
     
     static var themeColor: UIColor {
-        return #colorLiteral(red: 0, green: 0, blue: 0.5019607843, alpha: 1)
+        return #colorLiteral(red: 0.8, green: 0.2, blue: 0, alpha: 1)
+    }
+    
+    static var themeBlue: UIColor {
+        return #colorLiteral(red: 0.2, green: 0, blue: 0.4, alpha: 1)
     }
 
     static var themeGray: UIColor {

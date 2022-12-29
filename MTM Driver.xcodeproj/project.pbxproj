@@ -33,6 +33,20 @@
 		18FFC30C292BA6290052A504 /* ThemeBorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FFC30B292BA6290052A504 /* ThemeBorderedButton.swift */; };
 		18FFC30E292BAD9E0052A504 /* MTSLider+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FFC30D292BAD9E0052A504 /* MTSLider+ext.swift */; };
 		4656018522EB36E900CB4445 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4656018422EB36E900CB4445 /* UserNotifications.framework */; };
+		47953EE52959804800FE3965 /* Magdelin-ExtraLightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 47953EE42959804800FE3965 /* Magdelin-ExtraLightItalic.otf */; };
+		47953EE72959805700FE3965 /* Magdelin-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 47953EE62959805700FE3965 /* Magdelin-Italic.otf */; };
+		47953EE92959807000FE3965 /* Magdelin-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 47953EE82959807000FE3965 /* Magdelin-Light.otf */; };
+		47953EEB2959809200FE3965 /* Magdelin-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 47953EEA2959809200FE3965 /* Magdelin-LightItalic.otf */; };
+		47953EED295980B200FE3965 /* Magdelin-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 47953EEC295980B200FE3965 /* Magdelin-Medium.otf */; };
+		47953EEF295980CE00FE3965 /* Magdelin-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 47953EEE295980CE00FE3965 /* Magdelin-MediumItalic.otf */; };
+		47953EF1295980E300FE3965 /* Magdelin-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 47953EF0295980E200FE3965 /* Magdelin-Regular.otf */; };
+		47953EF3295980FF00FE3965 /* Magdelin-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 47953EF2295980FF00FE3965 /* Magdelin-SemiBold.otf */; };
+		47953EF52959811400FE3965 /* Magdelin-SemiBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 47953EF42959811400FE3965 /* Magdelin-SemiBoldItalic.otf */; };
+		47953EF72959812300FE3965 /* Magdelin-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 47953EF62959812300FE3965 /* Magdelin-Thin.otf */; };
+		47953EF92959813400FE3965 /* Magdelin-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 47953EF82959813400FE3965 /* Magdelin-ThinItalic.otf */; };
+		47953EFB2959815A00FE3965 /* Magdelin-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 47953EFA2959815A00FE3965 /* Magdelin-Bold.otf */; };
+		47953EFD2959817800FE3965 /* Magdelin-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 47953EFC2959817800FE3965 /* Magdelin-BoldItalic.otf */; };
+		47953EFF2959819D00FE3965 /* Magdelin-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 47953EFE2959819D00FE3965 /* Magdelin-ExtraLight.otf */; };
 		84023ECF27562E170091499C /* ChartMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84023ECE27562E170091499C /* ChartMarker.swift */; };
 		84023ED1275643E30091499C /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84023ED0275643E30091499C /* BarChartView.swift */; };
 		84023ED527564F9B0091499C /* CustomMarkerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84023ED427564F9B0091499C /* CustomMarkerView.xib */; };
@@ -66,20 +80,6 @@
 		842EDDB528E309C7002B5AFB /* SubscriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842EDDB328E309C7002B5AFB /* SubscriptionCell.xib */; };
 		843443032797FAF300177365 /* ShimmerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843443022797FAF300177365 /* ShimmerExt.swift */; };
 		8437DE15270D656100016D6D /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437DE14270D656100016D6D /* LoginVC.swift */; };
-		8448D06A270B12AD0068E360 /* JosefinSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8448D05C270B12AC0068E360 /* JosefinSans-MediumItalic.ttf */; };
-		8448D06B270B12AD0068E360 /* JosefinSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8448D05D270B12AD0068E360 /* JosefinSans-Italic.ttf */; };
-		8448D06C270B12AD0068E360 /* JosefinSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8448D05E270B12AD0068E360 /* JosefinSans-SemiBold.ttf */; };
-		8448D06D270B12AD0068E360 /* JosefinSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8448D05F270B12AD0068E360 /* JosefinSans-BoldItalic.ttf */; };
-		8448D06E270B12AD0068E360 /* JosefinSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8448D060270B12AD0068E360 /* JosefinSans-Light.ttf */; };
-		8448D06F270B12AD0068E360 /* JosefinSans-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8448D061270B12AD0068E360 /* JosefinSans-ThinItalic.ttf */; };
-		8448D070270B12AD0068E360 /* JosefinSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8448D062270B12AD0068E360 /* JosefinSans-LightItalic.ttf */; };
-		8448D071270B12AD0068E360 /* JosefinSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8448D063270B12AD0068E360 /* JosefinSans-Regular.ttf */; };
-		8448D072270B12AD0068E360 /* JosefinSans-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8448D064270B12AD0068E360 /* JosefinSans-ExtraLightItalic.ttf */; };
-		8448D073270B12AD0068E360 /* JosefinSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8448D065270B12AD0068E360 /* JosefinSans-SemiBoldItalic.ttf */; };
-		8448D074270B12AD0068E360 /* JosefinSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8448D066270B12AD0068E360 /* JosefinSans-Medium.ttf */; };
-		8448D075270B12AD0068E360 /* JosefinSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8448D067270B12AD0068E360 /* JosefinSans-ExtraLight.ttf */; };
-		8448D076270B12AD0068E360 /* JosefinSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8448D068270B12AD0068E360 /* JosefinSans-Bold.ttf */; };
-		8448D077270B12AD0068E360 /* JosefinSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8448D069270B12AD0068E360 /* JosefinSans-Thin.ttf */; };
 		8448D080270B1F9C0068E360 /* ThemeDashedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448D079270B1F9B0068E360 /* ThemeDashedButton.swift */; };
 		8448D081270B1F9C0068E360 /* ThemeTouchableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448D07A270B1F9B0068E360 /* ThemeTouchableView.swift */; };
 		8448D082270B1F9C0068E360 /* ThemeContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448D07B270B1F9B0068E360 /* ThemeContainerView.swift */; };
@@ -363,6 +363,20 @@
 		34E8B3EB22C3AAE000C33A94 /* MTM Driver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MTM Driver.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4656018422EB36E900CB4445 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		46C5F985602C5B02CFA0756E /* Pods-Pappea Driver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pappea Driver.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pappea Driver/Pods-Pappea Driver.release.xcconfig"; sourceTree = "<group>"; };
+		47953EE42959804800FE3965 /* Magdelin-ExtraLightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Magdelin-ExtraLightItalic.otf"; sourceTree = "<group>"; };
+		47953EE62959805700FE3965 /* Magdelin-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Magdelin-Italic.otf"; sourceTree = "<group>"; };
+		47953EE82959807000FE3965 /* Magdelin-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Magdelin-Light.otf"; sourceTree = "<group>"; };
+		47953EEA2959809200FE3965 /* Magdelin-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Magdelin-LightItalic.otf"; sourceTree = "<group>"; };
+		47953EEC295980B200FE3965 /* Magdelin-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Magdelin-Medium.otf"; sourceTree = "<group>"; };
+		47953EEE295980CE00FE3965 /* Magdelin-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Magdelin-MediumItalic.otf"; sourceTree = "<group>"; };
+		47953EF0295980E200FE3965 /* Magdelin-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Magdelin-Regular.otf"; sourceTree = "<group>"; };
+		47953EF2295980FF00FE3965 /* Magdelin-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Magdelin-SemiBold.otf"; sourceTree = "<group>"; };
+		47953EF42959811400FE3965 /* Magdelin-SemiBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Magdelin-SemiBoldItalic.otf"; sourceTree = "<group>"; };
+		47953EF62959812300FE3965 /* Magdelin-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Magdelin-Thin.otf"; sourceTree = "<group>"; };
+		47953EF82959813400FE3965 /* Magdelin-ThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Magdelin-ThinItalic.otf"; sourceTree = "<group>"; };
+		47953EFA2959815A00FE3965 /* Magdelin-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Magdelin-Bold.otf"; sourceTree = "<group>"; };
+		47953EFC2959817800FE3965 /* Magdelin-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Magdelin-BoldItalic.otf"; sourceTree = "<group>"; };
+		47953EFE2959819D00FE3965 /* Magdelin-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Magdelin-ExtraLight.otf"; sourceTree = "<group>"; };
 		84023ECE27562E170091499C /* ChartMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartMarker.swift; sourceTree = "<group>"; };
 		84023ED0275643E30091499C /* BarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
 		84023ED427564F9B0091499C /* CustomMarkerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomMarkerView.xib; sourceTree = "<group>"; };
@@ -397,20 +411,6 @@
 		843443022797FAF300177365 /* ShimmerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerExt.swift; sourceTree = "<group>"; };
 		8434CFDFF1B613A42CEF2141 /* Pods-Pappea Driver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pappea Driver.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pappea Driver/Pods-Pappea Driver.debug.xcconfig"; sourceTree = "<group>"; };
 		8437DE14270D656100016D6D /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
-		8448D05C270B12AC0068E360 /* JosefinSans-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-MediumItalic.ttf"; sourceTree = "<group>"; };
-		8448D05D270B12AD0068E360 /* JosefinSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Italic.ttf"; sourceTree = "<group>"; };
-		8448D05E270B12AD0068E360 /* JosefinSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-SemiBold.ttf"; sourceTree = "<group>"; };
-		8448D05F270B12AD0068E360 /* JosefinSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-BoldItalic.ttf"; sourceTree = "<group>"; };
-		8448D060270B12AD0068E360 /* JosefinSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Light.ttf"; sourceTree = "<group>"; };
-		8448D061270B12AD0068E360 /* JosefinSans-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-ThinItalic.ttf"; sourceTree = "<group>"; };
-		8448D062270B12AD0068E360 /* JosefinSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-LightItalic.ttf"; sourceTree = "<group>"; };
-		8448D063270B12AD0068E360 /* JosefinSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Regular.ttf"; sourceTree = "<group>"; };
-		8448D064270B12AD0068E360 /* JosefinSans-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
-		8448D065270B12AD0068E360 /* JosefinSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
-		8448D066270B12AD0068E360 /* JosefinSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Medium.ttf"; sourceTree = "<group>"; };
-		8448D067270B12AD0068E360 /* JosefinSans-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-ExtraLight.ttf"; sourceTree = "<group>"; };
-		8448D068270B12AD0068E360 /* JosefinSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Bold.ttf"; sourceTree = "<group>"; };
-		8448D069270B12AD0068E360 /* JosefinSans-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Thin.ttf"; sourceTree = "<group>"; };
 		8448D079270B1F9B0068E360 /* ThemeDashedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeDashedButton.swift; sourceTree = "<group>"; };
 		8448D07A270B1F9B0068E360 /* ThemeTouchableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeTouchableView.swift; sourceTree = "<group>"; };
 		8448D07B270B1F9B0068E360 /* ThemeContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeContainerView.swift; sourceTree = "<group>"; };
@@ -739,6 +739,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		47D87936295C252100EC257F /* CustomTextField */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomTextField;
+			sourceTree = "<group>";
+		};
 		83C6381A79622B0C84407A8C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -954,6 +961,7 @@
 		8470F4C2270AD61A00E05AF7 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				47D87936295C252100EC257F /* CustomTextField */,
 				84ACB8C427214168008E5C23 /* Credit card validator */,
 				8470F4C3270AD61A00E05AF7 /* SwipeCellKit */,
 				8470F4DD270AD61A00E05AF7 /* CreditCardValidator */,
@@ -1443,11 +1451,11 @@
 		8470F5C4270AD61B00E05AF7 /* Theme */ = {
 			isa = PBXGroup;
 			children = (
-				842019C02718464D008A3007 /* MTSlideToOpenView.swift */,
+				8470F5C7270AD61B00E05AF7 /* Model */,
 				8448D078270B1F9B0068E360 /* Custom views */,
+				842019C02718464D008A3007 /* MTSlideToOpenView.swift */,
 				8470F5C5270AD61B00E05AF7 /* BackgroundImageView.swift */,
 				8470F5C6270AD61B00E05AF7 /* Language.swift */,
-				8470F5C7270AD61B00E05AF7 /* Model */,
 				8470F5DF270AD61B00E05AF7 /* AppTheme.swift */,
 				8470F5E0270AD61B00E05AF7 /* ThemeButton.swift */,
 				84023ED0275643E30091499C /* BarChartView.swift */,
@@ -1468,20 +1476,20 @@
 			isa = PBXGroup;
 			children = (
 				849C7FC1272AC2EB00EB7258 /* digitalnumbers-regular.ttf */,
-				8448D068270B12AD0068E360 /* JosefinSans-Bold.ttf */,
-				8448D05F270B12AD0068E360 /* JosefinSans-BoldItalic.ttf */,
-				8448D067270B12AD0068E360 /* JosefinSans-ExtraLight.ttf */,
-				8448D064270B12AD0068E360 /* JosefinSans-ExtraLightItalic.ttf */,
-				8448D05D270B12AD0068E360 /* JosefinSans-Italic.ttf */,
-				8448D060270B12AD0068E360 /* JosefinSans-Light.ttf */,
-				8448D062270B12AD0068E360 /* JosefinSans-LightItalic.ttf */,
-				8448D066270B12AD0068E360 /* JosefinSans-Medium.ttf */,
-				8448D05C270B12AC0068E360 /* JosefinSans-MediumItalic.ttf */,
-				8448D063270B12AD0068E360 /* JosefinSans-Regular.ttf */,
-				8448D05E270B12AD0068E360 /* JosefinSans-SemiBold.ttf */,
-				8448D065270B12AD0068E360 /* JosefinSans-SemiBoldItalic.ttf */,
-				8448D069270B12AD0068E360 /* JosefinSans-Thin.ttf */,
-				8448D061270B12AD0068E360 /* JosefinSans-ThinItalic.ttf */,
+				47953EFA2959815A00FE3965 /* Magdelin-Bold.otf */,
+				47953EFC2959817800FE3965 /* Magdelin-BoldItalic.otf */,
+				47953EFE2959819D00FE3965 /* Magdelin-ExtraLight.otf */,
+				47953EE42959804800FE3965 /* Magdelin-ExtraLightItalic.otf */,
+				47953EE62959805700FE3965 /* Magdelin-Italic.otf */,
+				47953EE82959807000FE3965 /* Magdelin-Light.otf */,
+				47953EEA2959809200FE3965 /* Magdelin-LightItalic.otf */,
+				47953EEC295980B200FE3965 /* Magdelin-Medium.otf */,
+				47953EEE295980CE00FE3965 /* Magdelin-MediumItalic.otf */,
+				47953EF0295980E200FE3965 /* Magdelin-Regular.otf */,
+				47953EF2295980FF00FE3965 /* Magdelin-SemiBold.otf */,
+				47953EF42959811400FE3965 /* Magdelin-SemiBoldItalic.otf */,
+				47953EF62959812300FE3965 /* Magdelin-Thin.otf */,
+				47953EF82959813400FE3965 /* Magdelin-ThinItalic.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -1962,23 +1970,19 @@
 				8470F69C270AD61C00E05AF7 /* MyTrips.storyboard in Resources */,
 				849C7FBF272AA0F200EB7258 /* TripDetails.storyboard in Resources */,
 				8427929128D3424F0059A84B /* Help.storyboard in Resources */,
-				8448D06C270B12AD0068E360 /* JosefinSans-SemiBold.ttf in Resources */,
 				84ACB8D027214723008E5C23 /* PromoCodeTableViewCell.xib in Resources */,
-				8448D06A270B12AD0068E360 /* JosefinSans-MediumItalic.ttf in Resources */,
+				47953EEF295980CE00FE3965 /* Magdelin-MediumItalic.otf in Resources */,
 				849E1996274D1C62007C46EB /* NotificationCell.xib in Resources */,
 				187E7DC02924FF4400552E53 /* connecting.json in Resources */,
-				8448D076270B12AD0068E360 /* JosefinSans-Bold.ttf in Resources */,
+				47953EE72959805700FE3965 /* Magdelin-Italic.otf in Resources */,
+				47953EFF2959819D00FE3965 /* Magdelin-ExtraLight.otf in Resources */,
 				84ACB8DB27216A4B008E5C23 /* SettingTableViewCell.xib in Resources */,
 				8470F649270AD61C00E05AF7 /* LICENSE.md in Resources */,
 				8486C29E28DDDED900C7CD1A /* PickNGo.mp3 in Resources */,
 				8470F6A9270AD61C00E05AF7 /* CompleteView.xib in Resources */,
-				8448D071270B12AD0068E360 /* JosefinSans-Regular.ttf in Resources */,
 				84ACB8E127216A81008E5C23 /* ProfileInfoTableViewCell.xib in Resources */,
-				8448D074270B12AD0068E360 /* JosefinSans-Medium.ttf in Resources */,
 				84ED291B2716F95900800A11 /* DutyOnOffView.xib in Resources */,
-				8448D073270B12AD0068E360 /* JosefinSans-SemiBoldItalic.ttf in Resources */,
 				8470F68E270AD61C00E05AF7 /* CompletedTrip.storyboard in Resources */,
-				8448D06E270B12AD0068E360 /* JosefinSans-Light.ttf in Resources */,
 				849C7FC6272AC64000EB7258 /* digitalnumbers-regular.ttf in Resources */,
 				18168B18292B7CE100B8B1EE /* Loading.json in Resources */,
 				8470F68B270AD61C00E05AF7 /* Picker.storyboard in Resources */,
@@ -1987,30 +1991,34 @@
 				84234C67274E54830074EE80 /* NoDataFoundTblCell.xib in Resources */,
 				8470F6B4270AD61C00E05AF7 /* UpdateProfile.storyboard in Resources */,
 				8470F62F270AD61C00E05AF7 /* LICENSE in Resources */,
-				8448D06D270B12AD0068E360 /* JosefinSans-BoldItalic.ttf in Resources */,
 				8470F692270AD61C00E05AF7 /* Payment.storyboard in Resources */,
 				84BCFCA027203D33009685A6 /* CreditCardTableViewCell.xib in Resources */,
 				8470F6EF270AD61D00E05AF7 /* Theme.plist in Resources */,
+				47953EF92959813400FE3965 /* Magdelin-ThinItalic.otf in Resources */,
 				84BCFC9627201ABC009685A6 /* WalletHistoryTableViewCell.xib in Resources */,
 				8470F727270AD61D00E05AF7 /* Launch Screen.storyboard in Resources */,
 				8470F62E270AD61C00E05AF7 /* Location.gpx in Resources */,
-				8448D072270B12AD0068E360 /* JosefinSans-ExtraLightItalic.ttf in Resources */,
-				8448D070270B12AD0068E360 /* JosefinSans-LightItalic.ttf in Resources */,
+				47953EF72959812300FE3965 /* Magdelin-Thin.otf in Resources */,
+				47953EF3295980FF00FE3965 /* Magdelin-SemiBold.otf in Resources */,
 				84023ED527564F9B0091499C /* CustomMarkerView.xib in Resources */,
 				84063ECE27881AE4005589EB /* PaymentMethodTableViewCell.xib in Resources */,
+				47953EFB2959815A00FE3965 /* Magdelin-Bold.otf in Resources */,
 				84C5163F2766FB81006942F2 /* collectionPhotos.xib in Resources */,
-				8448D06F270B12AD0068E360 /* JosefinSans-ThinItalic.ttf in Resources */,
 				8470F6A6270AD61C00E05AF7 /* DriverInfoView.xib in Resources */,
-				8448D077270B12AD0068E360 /* JosefinSans-Thin.ttf in Resources */,
 				84A35ABE2726AF26003078C1 /* Popups.storyboard in Resources */,
+				47953EE92959807000FE3965 /* Magdelin-Light.otf in Resources */,
 				849FA54D272289D4000BF8D5 /* TripTableViewCell.xib in Resources */,
+				47953EFD2959817800FE3965 /* Magdelin-BoldItalic.otf in Resources */,
 				18F81DEC292E1CE7001E3B81 /* VehicleDocTableViewCell.xib in Resources */,
 				1858E95E294C5889004A222E /* GoogleService-Info.plist in Resources */,
+				47953EE52959804800FE3965 /* Magdelin-ExtraLightItalic.otf in Resources */,
 				187E7DBD2924FD4900552E53 /* styleMap.json in Resources */,
-				8448D075270B12AD0068E360 /* JosefinSans-ExtraLight.ttf in Resources */,
-				8448D06B270B12AD0068E360 /* JosefinSans-Italic.ttf in Resources */,
+				47953EEB2959809200FE3965 /* Magdelin-LightItalic.otf in Resources */,
+				47953EED295980B200FE3965 /* Magdelin-Medium.otf in Resources */,
+				47953EF52959811400FE3965 /* Magdelin-SemiBoldItalic.otf in Resources */,
 				842EDDAD28E307C6002B5AFB /* Subscription.storyboard in Resources */,
 				8470F62D270AD61C00E05AF7 /* Assets.xcassets in Resources */,
+				47953EF1295980E300FE3965 /* Magdelin-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2479,10 +2487,11 @@
 			baseConfigurationReference = B8EF87CD38D7536E40D11F30 /* Pods-MTM Driver.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "MTM Driver/MTM DriverDebug.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.0.0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 2WX9UWNBJZ;
 				EXCLUDED_ARCHS = "";
@@ -2510,10 +2519,11 @@
 			baseConfigurationReference = CB1BCE1F9874A01E67B85680 /* Pods-MTM Driver.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "MTM Driver/MTM Driver.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.0.0;
 				DEVELOPMENT_TEAM = 2WX9UWNBJZ;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/MTM Driver/Info.plist";

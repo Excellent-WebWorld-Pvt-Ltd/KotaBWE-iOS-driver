@@ -42,8 +42,9 @@ class OTPVC: BaseViewController , OTPTextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        viewTimer.isHidden = true
         startTimer()
+        viewResendCode.isHidden = false
         self.navigationController?.navigationBar.isHidden = true
        // txtOTPCollection[0].becomeFirstResponder()
         buttonSetup()
@@ -75,8 +76,6 @@ class OTPVC: BaseViewController , OTPTextFieldDelegate{
     //MARK:- === Start Timer ======
     func startTimer(){
         lblTimer.text = "00.00"
-        viewTimer.isHidden = false
-        viewResendCode.isHidden = true
         self.timer = Timer.scheduledTimer(timeInterval: 1 ,
                                                       target: self,
                                                       selector: #selector(self.countdown),
@@ -91,14 +90,29 @@ class OTPVC: BaseViewController , OTPTextFieldDelegate{
 
         if totalSecond == 0 {
             timer?.invalidate()
-            viewResendCode.isHidden = false
-            viewTimer.isHidden = true
+            let FormattedText = NSMutableAttributedString()
+            FormattedText
+                .regular("Didn’t receive code? ", Colour: UIColor.black.withAlphaComponent(0.7), 14)
+                .bold("Resend")
+            btnResendCode.setAttributedTitle(FormattedText, for: .normal)
+            btnResendCode.isUserInteractionEnabled = true
         }
         else {
+            UIView.setAnimationsEnabled(false)
             totalSecond = totalSecond - 1
             minutes = (totalSecond % 3600) / 60
             seconds = (totalSecond % 3600) % 60
             lblTimer.text = String(format: "%02d:%02d", minutes, seconds)
+           
+            UIView.performWithoutAnimation {
+                let FormattedText = NSMutableAttributedString()
+                FormattedText
+                    .regular("Didn’t receive code? ", Colour: UIColor.black.withAlphaComponent(0.7), 14)
+                    .boldWithOpacity60("Resend in \(lblTimer.text ?? "")")
+                btnResendCode.setAttributedTitle(FormattedText, for: .normal)
+                btnResendCode.isUserInteractionEnabled = false
+                UIView.setAnimationsEnabled(true)
+            }
         }
         
     }
@@ -135,7 +149,7 @@ class OTPVC: BaseViewController , OTPTextFieldDelegate{
             Loader.hideHUD()
             if status {
                 print(response)
-                AlertMessage.showMessageForSuccess(response["otp"].stringValue  + response["message"].stringValue)
+                AlertMessage.showMessageForSuccess(response["message"].stringValue)
                 self.strOTP = response["otp"].stringValue
                 self.filledOTP()
                 self.totalSecond = 30
@@ -163,6 +177,7 @@ class OTPVC: BaseViewController , OTPTextFieldDelegate{
         for i in txtOTPCollection {
             i.textColor = UIColor.black
             i.font = UIFont.regular(ofSize: 20.0)
+            i.borderColor = UIColor.themeColor.withAlphaComponent(0.3)
         }
         lblOTPTitle.font = UIFont.regular(ofSize: 15.0)
         
@@ -210,6 +225,7 @@ class OTPVC: BaseViewController , OTPTextFieldDelegate{
     func clearAllFields() {
         for index in 0 ..< txtOTPCollection.count {
             txtOTPCollection[index].text = ""
+            txtOTPCollection[index].borderColor = UIColor.themeColor.withAlphaComponent(0.3)
          }
     }
     
@@ -217,9 +233,9 @@ class OTPVC: BaseViewController , OTPTextFieldDelegate{
     func buttonSetup(){
         let FormattedText = NSMutableAttributedString()
         
-            FormattedText
-                .normal("Didn’t receive code? ", Colour: UIColor.black.withAlphaComponent(0.7))
-                   .bold("Resend")
+        FormattedText
+            .normal("Didn’t receive code? ", Colour: UIColor.black.withAlphaComponent(0.7))
+            .bold("Resend")
         btnResendCode.setAttributedTitle(FormattedText, for: .normal)
     }
     
@@ -288,10 +304,12 @@ extension OTPVC : UITextFieldDelegate{
         if range.length == 0 {
             self.setNextResponder(textFieldsIndexes[textField as! OTPTextField], direction: .right)
             textField.text = string
+            textField.borderColor = UIColor.themeColor.withAlphaComponent(1)
             return true
         } else if range.length == 1 {
             self.setNextResponder(textFieldsIndexes[textField as! OTPTextField], direction: .left)
             textField.text = ""
+            textField.borderColor = UIColor.themeColor.withAlphaComponent(0.3)
             return false
         }
         return false
@@ -307,5 +325,8 @@ extension OTPVC : UITextFieldDelegate{
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        if(textField.text == ""){
+            textField.borderColor = UIColor.themeColor.withAlphaComponent(0.3)
+        }
     }
 }

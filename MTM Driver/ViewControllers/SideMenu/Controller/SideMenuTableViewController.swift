@@ -33,7 +33,7 @@ class SideMenuCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     
     fileprivate func setValues(_ info: SideMenuItem) {
-        iconImageView.image = info.icon.image.withTintColor(.black, renderingMode: .alwaysTemplate)
+        iconImageView.image = info.icon.image.withTintColor(UIColor.themeBlue, renderingMode: .alwaysTemplate)
         titleLabel.text = info.title
     }
 }
@@ -64,7 +64,7 @@ class SideMenuTableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        deleteButton.titleLabel?.font = FontBook.regular.font(ofSize: 16)
+        deleteButton.titleLabel?.font = FontBook.bold.font(ofSize: 16)
         logoutTouchView.setOnClickListener { [weak self] in
             self?.logoutUser()
         }

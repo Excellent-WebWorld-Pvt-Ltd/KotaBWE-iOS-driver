@@ -94,8 +94,8 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
         let FormattedText = NSMutableAttributedString()
         
               FormattedText
-                .normal("Already a Showfa user? ", Colour: UIColor.black.withAlphaComponent(0.7))
-                   .bold("Sign In")
+                .normal("Already a Kota user? ", Colour: UIColor.black.withAlphaComponent(0.7), 14)
+                .bold("Sign In")
         let termAttributed = NSMutableAttributedString()
         let color = UIColor.hexStringToUIColor(hex: "#7D7D7D").withAlphaComponent(0.7)
         termAttributed

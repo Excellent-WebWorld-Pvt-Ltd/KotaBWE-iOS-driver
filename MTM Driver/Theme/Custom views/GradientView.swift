@@ -10,10 +10,10 @@ import Foundation
 import UIKit
 
 public class Gradient: UIView {
-    var startColor: UIColor = .themeColor {
+    var startColor: UIColor = .themeBlue {
         didSet { updateColors() }
     }
-    var endColor: UIColor = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1) {
+    var endColor: UIColor = .themeColor {
         didSet { updateColors() }
     }
     @IBInspectable var startLocation: Double = 0.05 {

@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Showfa Driver</string>
+	<string>KotaBWE Driver</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -59,17 +59,17 @@
 	<string>Photo Library access required for using photos!</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>digitalnumbers-regular.ttf</string>
-		<string>JosefinSans-MediumItalic.ttf</string>
-		<string>JosefinSans-SemiBoldItalic.ttf</string>
-		<string>JosefinSans-Thin.ttf</string>
-		<string>JosefinSans-SemiBold.ttf</string>
-		<string>JosefinSans-ExtraLightItalic.ttf</string>
-		<string>JosefinSans-ExtraLight.ttf</string>
-		<string>JosefinSans-BoldItalic.ttf</string>
-		<string>JosefinSans-Bold.ttf</string>
-		<string>JosefinSans-Medium.ttf</string>
-		<string>JosefinSans-Regular.ttf</string>
+		<string>digitalnumbers-regular.otf</string>
+		<string>Magdelin-MediumItalic.otf</string>
+		<string>Magdelin-SemiBoldItalic.otf</string>
+		<string>Magdelin-Thin.otf</string>
+		<string>Magdelin-SemiBold.otf</string>
+		<string>Magdelin-ExtraLightItalic.otf</string>
+		<string>Magdelin-ExtraLight.otf</string>
+		<string>Magdelin-BoldItalic.otf</string>
+		<string>Magdelin-Bold.otf</string>
+		<string>Magdelin-Medium.otf</string>
+		<string>Magdelin-Regular.otf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

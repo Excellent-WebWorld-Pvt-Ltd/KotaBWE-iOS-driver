@@ -115,6 +115,36 @@ PODS:
   - Kingfisher (7.1.2)
   - lottie-ios (3.3.0)
   - MarqueeLabel/Swift (3.2.1)
+  - MaterialComponents/AnimationTiming (124.2.0)
+  - MaterialComponents/Availability (124.2.0)
+  - MaterialComponents/private/Math (124.2.0)
+  - "MaterialComponents/private/TextControlsPrivate+BaseStyle (124.2.0)":
+    - MaterialComponents/AnimationTiming
+    - MaterialComponents/private/Math
+    - "MaterialComponents/private/TextControlsPrivate+Shared"
+  - "MaterialComponents/private/TextControlsPrivate+OutlinedStyle (124.2.0)":
+    - MaterialComponents/AnimationTiming
+    - MaterialComponents/Availability
+    - MaterialComponents/private/Math
+    - "MaterialComponents/private/TextControlsPrivate+Shared"
+  - "MaterialComponents/private/TextControlsPrivate+Shared (124.2.0)":
+    - MaterialComponents/AnimationTiming
+    - MaterialComponents/private/Math
+    - "MaterialComponents/TextControls+Enums"
+  - "MaterialComponents/private/TextControlsPrivate+TextFields (124.2.0)":
+    - MaterialComponents/private/Math
+    - "MaterialComponents/private/TextControlsPrivate+Shared"
+  - "MaterialComponents/TextControls+BaseTextFields (124.2.0)":
+    - "MaterialComponents/private/TextControlsPrivate+BaseStyle"
+    - "MaterialComponents/private/TextControlsPrivate+Shared"
+    - "MaterialComponents/private/TextControlsPrivate+TextFields"
+    - MDFInternationalization
+  - "MaterialComponents/TextControls+Enums (124.2.0)"
+  - "MaterialComponents/TextControls+OutlinedTextFields (124.2.0)":
+    - MaterialComponents/Availability
+    - "MaterialComponents/private/TextControlsPrivate+OutlinedStyle"
+    - "MaterialComponents/TextControls+BaseTextFields"
+  - MDFInternationalization (3.0.0)
   - MKToolTip (1.0.6)
   - nanopb (2.30909.0):
     - nanopb/decode (= 2.30909.0)
@@ -155,6 +185,7 @@ DEPENDENCIES:
   - Kingfisher (~> 7.1.1)
   - lottie-ios (~> 3.3.0)
   - MarqueeLabel/Swift (~> 3.2.1)
+  - "MaterialComponents/TextControls+OutlinedTextFields"
   - MKToolTip (~> 1.0.6)
   - QRCodeReader.swift (~> 10.1.0)
   - SDWebImage (= 4.4.6)
@@ -192,6 +223,8 @@ SPEC REPOS:
     - Kingfisher
     - lottie-ios
     - MarqueeLabel
+    - MaterialComponents
+    - MDFInternationalization
     - MKToolTip
     - nanopb
     - PromisesObjC
@@ -231,6 +264,8 @@ SPEC CHECKSUMS:
   Kingfisher: 44ed6a8504763f27bab46163adfac83f5deb240c
   lottie-ios: 6ac74dcc09904798f59b18cb3075c089d76be9ae
   MarqueeLabel: 2daf039bf916937c8a4c9adfc13577cc5e51b4ce
+  MaterialComponents: 1a9b2d9d45b1601ae544de85089adc4c464306d4
+  MDFInternationalization: d697c55307816222a55685c4ccb1044ffb030c12
   MKToolTip: 69509b1cada10f96bd9f4ab559a768e7c6557933
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: 99b6f43f9e1044bd87a95a60beff28c2c44ddb72
@@ -245,6 +280,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   UIView-Shimmer: ff0a32c73d67c7dbdea3d9e530538b10d18aea56
 
-PODFILE CHECKSUM: 9a760189e62f439abeb20cdd6e0e7187812baf8e
+PODFILE CHECKSUM: ea8f1f58cc480377e1b507ade3047bb88c5b4dd8
 
 COCOAPODS: 1.11.3

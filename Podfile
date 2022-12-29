@@ -34,6 +34,7 @@ pod 'MKToolTip', '~> 1.0.6'
 pod 'EasyTipView', '~> 2.1'
 pod 'UIView-Shimmer', '~> 1.0'
 
+
 #pod 'Charts'
 #pod 'XYChart'
 

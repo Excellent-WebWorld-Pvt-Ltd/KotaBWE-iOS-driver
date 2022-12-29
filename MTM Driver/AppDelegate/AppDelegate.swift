@@ -149,19 +149,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate
             if #available(iOS 15, *) {
                 let appearance = UINavigationBarAppearance()
                 appearance.configureWithOpaqueBackground()
-                appearance.backgroundColor = .themeColor
+                appearance.backgroundColor = .themeBlue
                 appearance.titleTextAttributes = [.font: UIFont.themeNavigationTitle,
-                                                  .foregroundColor: darkStyle ? UIColor.white : UIColor.themeColor]
+                                                  .foregroundColor: darkStyle ? UIColor.white : UIColor.themeBlue]
                 UINavigationBar.appearance().standardAppearance = appearance
                 UINavigationBar.appearance().scrollEdgeAppearance = appearance
             }
             UINavigationBar.appearance().shadowImage = UIImage()
-            UINavigationBar.appearance().barTintColor = darkStyle ? .themeColor : .white
+            UINavigationBar.appearance().barTintColor = darkStyle ? .themeBlue : .white
             UINavigationBar.appearance().isTranslucent = true
-            UIBarButtonItem.appearance().tintColor = darkStyle ? .white : .themeColor
+            UIBarButtonItem.appearance().tintColor = darkStyle ? .white : .themeBlue
             UINavigationBar.appearance().titleTextAttributes = [
                 .font: UIFont.themeNavigationTitle,
-                .foregroundColor: darkStyle ? UIColor.white : UIColor.themeColor]
+                .foregroundColor: darkStyle ? UIColor.white : UIColor.themeBlue]
         } else {
             setSystemNavigationStyle()
         }
@@ -183,7 +183,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         barAppearance.barTintColor = .white
         barAppearance.tintColor = system.tintColor
         barAppearance.titleTextAttributes = system.titleTextAttributes
-        UIBarButtonItem.appearance().tintColor = .themeColor
+        UIBarButtonItem.appearance().tintColor = .themeBlue
     }
     
     var backgroundUpdateTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier(rawValue: 0)

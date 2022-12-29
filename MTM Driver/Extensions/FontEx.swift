@@ -10,15 +10,19 @@ import UIKit
 
 //MARK:- UIFont
 
-let AppRegularFont:String = "JosefinSans-Regular"
-let AppBoldFont:String = "JosefinSans-Bold"
-let AppSemiboldFont:String = "JosefinSans-SemiBold"
+let AppRegularFont:String = "Magdelin-Regular"
+let AppMediumFont:String = "Magdelin-Medium"
+let AppBoldFont:String = "Magdelin-Bold"
+let AppSemiboldFont:String = "Magdelin-SemiBold"
 let DigiteRegular:String = "digital_numbers_regular"
 
 extension UIFont{
 
     class func regular(ofSize size: CGFloat) -> UIFont {
         return UIFont(name:  AppRegularFont, size: size)!
+    }
+    class func medium(ofSize size: CGFloat) -> UIFont {
+        return UIFont(name:  AppMediumFont, size: size)!
     }
     class func semiBold(ofSize size: CGFloat) -> UIFont {
         return UIFont(name: AppSemiboldFont, size: size)!
@@ -82,11 +86,11 @@ enum FontBook {
     func font(ofSize fontSize: CGFloat) -> UIFont {
         switch self{
         case .regular:
-            return UIFont(name: "JosefinSans-Regular", size: fontSize)!
+            return UIFont(name: "Magdelin-Regular", size: fontSize)!
         case .semibold:
-            return UIFont(name: "JosefinSans-SemiBold", size: fontSize)!
+            return UIFont(name: "Magdelin-SemiBold", size: fontSize)!
         case .bold:
-            return UIFont(name: "JosefinSans-Bold", size: fontSize)!
+            return UIFont(name: "Magdelin-Bold", size: fontSize)!
         case .digitNumber:
             return UIFont(name: "digitalnumbers-regular", size: fontSize)!
         }

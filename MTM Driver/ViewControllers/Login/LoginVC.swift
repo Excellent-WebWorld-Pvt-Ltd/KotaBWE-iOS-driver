@@ -58,8 +58,8 @@ class LoginVC: UIViewController {
     func TermsAndCondtionSetup(){
         let formattedText = NSMutableAttributedString()
         formattedText
-            .normal("Not a Showfa user? ", Colour: UIColor.black.withAlphaComponent(0.7))
-            .bold("Register")
+            .normal("Not a Kota user? ", Colour: UIColor.black.withAlphaComponent(0.7), 14)
+            .bold("Sign Up")
         let termAttributed = NSMutableAttributedString()
         let color = UIColor.hexStringToUIColor(hex: "#7D7D7D").withAlphaComponent(0.7)
         termAttributed

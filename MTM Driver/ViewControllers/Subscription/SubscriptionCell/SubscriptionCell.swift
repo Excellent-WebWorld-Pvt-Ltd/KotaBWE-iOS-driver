@@ -22,8 +22,7 @@ class SubscriptionCell: UITableViewCell {
         selectionStyle = .none
     }
     
-    func configCell(_ info: SubscriptionDetailsModel,
-                    subscriptionAction: @escaping (() -> Void)) {
+    func configCell(_ info: SubscriptionDetailsModel, subscriptionAction: @escaping (() -> Void)) {
         self.subscriptionAction = subscriptionAction
         titleLabel.text = info.name
         amountLabel.text = info.amount.toCurrencyString()

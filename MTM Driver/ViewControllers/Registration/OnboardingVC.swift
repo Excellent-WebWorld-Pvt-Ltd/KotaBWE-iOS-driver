@@ -10,10 +10,9 @@ import UIKit
 
 class OnboardingVC: BaseViewController {
 
-    @IBOutlet weak var headerContainer: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigation(.auth(title: "Welcome to Showfa", contentView: headerContainer))
+       
     }
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dPN-AQ-iOv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dPN-AQ-iOv">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -21,18 +21,46 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FoR-sN-WGZ">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_Splash" translatesAutoresizingMaskIntoConstraints="NO" id="kZ1-mF-Bg1">
-                                        <rect key="frame" x="62" y="373" width="290" height="150"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Cw-cu-6hZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="197"/>
+                                        <color key="backgroundColor" name="themeBlue"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jtl-s1-Ktw">
+                                        <rect key="frame" x="0.0" y="860" width="414" height="36"/>
+                                        <color key="backgroundColor" name="themeRed"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wmc-K9-ljM">
+                                        <rect key="frame" x="0.0" y="197" width="414" height="663"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_AppIcon" translatesAutoresizingMaskIntoConstraints="NO" id="7i2-TD-Tu9">
+                                                <rect key="frame" x="103.5" y="228" width="207" height="207"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="7i2-TD-Tu9" secondAttribute="height" id="6yD-b9-4Wb"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="B0c-wa-AW6"/>
+                                            <constraint firstItem="7i2-TD-Tu9" firstAttribute="centerY" secondItem="wmc-K9-ljM" secondAttribute="centerY" id="FpX-SW-u9e"/>
+                                            <constraint firstItem="7i2-TD-Tu9" firstAttribute="centerX" secondItem="wmc-K9-ljM" secondAttribute="centerX" id="I3m-kk-nTe"/>
+                                            <constraint firstItem="7i2-TD-Tu9" firstAttribute="width" secondItem="wmc-K9-ljM" secondAttribute="width" multiplier="0.5" id="J28-o5-coo"/>
                                         </constraints>
-                                    </imageView>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" name="thmePrimary"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="kZ1-mF-Bg1" firstAttribute="width" secondItem="FoR-sN-WGZ" secondAttribute="width" multiplier="0.7" id="1xb-TF-a0z"/>
-                                    <constraint firstItem="kZ1-mF-Bg1" firstAttribute="centerX" secondItem="FoR-sN-WGZ" secondAttribute="centerX" id="LWM-2S-B2B"/>
-                                    <constraint firstItem="kZ1-mF-Bg1" firstAttribute="centerY" secondItem="FoR-sN-WGZ" secondAttribute="centerY" id="ORb-4M-zmO"/>
+                                    <constraint firstItem="0Cw-cu-6hZ" firstAttribute="leading" secondItem="FoR-sN-WGZ" secondAttribute="leading" id="0zR-pF-KRb"/>
+                                    <constraint firstAttribute="trailing" secondItem="wmc-K9-ljM" secondAttribute="trailing" id="ApJ-XO-ib9"/>
+                                    <constraint firstItem="0Cw-cu-6hZ" firstAttribute="height" secondItem="FoR-sN-WGZ" secondAttribute="height" multiplier="0.22" id="C4a-Hj-HNu"/>
+                                    <constraint firstAttribute="bottom" secondItem="Jtl-s1-Ktw" secondAttribute="bottom" id="QLI-OX-aZc"/>
+                                    <constraint firstAttribute="trailing" secondItem="Jtl-s1-Ktw" secondAttribute="trailing" id="SGQ-Wr-sv2"/>
+                                    <constraint firstItem="0Cw-cu-6hZ" firstAttribute="top" secondItem="FoR-sN-WGZ" secondAttribute="top" id="Vn6-3P-Opr"/>
+                                    <constraint firstAttribute="trailing" secondItem="0Cw-cu-6hZ" secondAttribute="trailing" id="XJa-AM-WAk"/>
+                                    <constraint firstItem="Jtl-s1-Ktw" firstAttribute="leading" secondItem="FoR-sN-WGZ" secondAttribute="leading" id="ec3-uL-Oob"/>
+                                    <constraint firstItem="wmc-K9-ljM" firstAttribute="leading" secondItem="FoR-sN-WGZ" secondAttribute="leading" id="kY8-ad-zL9"/>
+                                    <constraint firstItem="Jtl-s1-Ktw" firstAttribute="top" secondItem="wmc-K9-ljM" secondAttribute="bottom" id="rJu-DU-6rn"/>
+                                    <constraint firstItem="wmc-K9-ljM" firstAttribute="top" secondItem="0Cw-cu-6hZ" secondAttribute="bottom" id="uI1-PL-gis"/>
+                                    <constraint firstItem="Jtl-s1-Ktw" firstAttribute="height" secondItem="FoR-sN-WGZ" secondAttribute="height" multiplier="0.04" id="ypz-iv-ncZ"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -52,9 +80,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ic_Splash" width="900" height="223"/>
-        <namedColor name="thmePrimary">
-            <color red="0.0" green="0.0" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="ic_AppIcon" width="250" height="240"/>
+        <namedColor name="themeBlue">
+            <color red="0.20000000000000001" green="0.0" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="themeRed">
+            <color red="0.80000000000000004" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
