@@ -82,7 +82,7 @@ extension UIColor {
     }
 
     static var themeBackground: UIColor {
-        return #colorLiteral(red: 0.968627451, green: 0.968627451, blue: 0.968627451, alpha: 1) // F7F7F7
+        return #colorLiteral(red: 0.9607843137, green: 0.9725490196, blue: 1, alpha: 1) // F7F7F7 F5F8FF
     }
 
     static var themeSuccess: UIColor {

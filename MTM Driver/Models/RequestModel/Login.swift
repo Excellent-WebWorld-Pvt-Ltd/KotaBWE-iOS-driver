@@ -16,5 +16,7 @@ class loginModel : RequestModel {
     var lng : String = ""
     var device_type : String = ""
     var device_token : String = ""
-    var username : String = ""
+    var email : String = ""
+    var password : String = ""
+    
 }

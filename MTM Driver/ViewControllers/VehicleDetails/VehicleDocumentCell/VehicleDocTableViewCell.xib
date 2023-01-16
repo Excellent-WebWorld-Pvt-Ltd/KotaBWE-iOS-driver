@@ -11,21 +11,21 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="vehicle_doc_cell" rowHeight="262" id="KGk-i7-Jjw" customClass="VehicleDocTableViewCell" customModule="MTM_Driver" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="374" height="262"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="vehicle_doc_cell" rowHeight="309" id="KGk-i7-Jjw" customClass="VehicleDocTableViewCell" customModule="MTM_Driver" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="413" height="309"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="374" height="262"/>
+                <rect key="frame" x="0.0" y="0.0" width="413" height="309"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FUn-59-bzD">
-                        <rect key="frame" x="20" y="10" width="334" height="220.33333333333334"/>
+                        <rect key="frame" x="20" y="9.9999999999999858" width="373" height="253.66666666666663"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Jxm-BZ-TZc">
-                                <rect key="frame" x="16" y="18" width="302" height="184.33333333333334"/>
+                                <rect key="frame" x="16" y="18" width="341" height="217.66666666666666"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGs-c0-eRJ" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="302" height="20.333333333333332"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGs-c0-eRJ" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="341" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -38,14 +38,14 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q32-h5-oBa">
-                                        <rect key="frame" x="0.0" y="36.333333333333329" width="302" height="1"/>
+                                        <rect key="frame" x="0.0" y="36.333333333333329" width="341" height="1"/>
                                         <color key="backgroundColor" systemColor="systemGray3Color"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="yfM-pj-8IW"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vo6-Av-7hE">
-                                        <rect key="frame" x="0.0" y="53.333333333333329" width="302" height="22"/>
+                                        <rect key="frame" x="0.0" y="53.333333333333329" width="341" height="22"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="jHU-A3-e6l" customClass="ThemeTouchableView" customModule="MTM_Driver" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="272" height="22"/>
@@ -74,7 +74,7 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n75-bG-49F">
-                                                <rect key="frame" x="272" y="0.0" width="30" height="22"/>
+                                                <rect key="frame" x="272" y="0.0" width="69" height="22"/>
                                                 <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" image="Edit"/>
@@ -84,8 +84,48 @@
                                             </button>
                                         </subviews>
                                     </stackView>
+                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ggh-q3-NyY">
+                                        <rect key="frame" x="0.0" y="83.333333333333329" width="341" height="0.0"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="gfd-yL-G6P" customClass="ThemeTouchableView" customModule="MTM_Driver" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="272" height="0.0"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CRb-mK-hL6">
+                                                        <rect key="frame" x="0.0" y="0.0" width="272" height="0.0"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_attach" translatesAutoresizingMaskIntoConstraints="NO" id="z64-TD-qIj">
+                                                                <rect key="frame" x="0.0" y="0.0" width="15" height="0.0"/>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="200" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcC-Ri-HRI">
+                                                                <rect key="frame" x="15" y="0.0" width="257" height="0.0"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="CRb-mK-hL6" firstAttribute="leading" secondItem="gfd-yL-G6P" secondAttribute="leading" id="1pP-dv-LgW"/>
+                                                    <constraint firstAttribute="bottom" secondItem="CRb-mK-hL6" secondAttribute="bottom" id="DhM-vT-FVj"/>
+                                                    <constraint firstItem="CRb-mK-hL6" firstAttribute="top" secondItem="gfd-yL-G6P" secondAttribute="top" id="Kkn-Ll-W6n"/>
+                                                    <constraint firstAttribute="trailing" secondItem="CRb-mK-hL6" secondAttribute="trailing" id="Qe1-Nr-HEv"/>
+                                                </constraints>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3pV-vK-of0">
+                                                <rect key="frame" x="272" y="0.0" width="69" height="0.0"/>
+                                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="Edit"/>
+                                                <connections>
+                                                    <action selector="editTapped" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Nne-m7-jiK"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uploading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cct-lX-Ljy" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="91.333333333333329" width="302" height="20.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="91.333333333333329" width="341" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -97,10 +137,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="MD6-Rf-fZ9">
-                                        <rect key="frame" x="0.0" y="127.66666666666666" width="302" height="22"/>
+                                        <rect key="frame" x="0.0" y="127.66666666666666" width="341" height="22"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wjb-Jh-HMh" customClass="ThemePlainButton" customModule="MTM_Driver" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="224" height="22"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="263" height="22"/>
                                                 <inset key="contentEdgeInsets" minX="0.0" minY="2" maxX="0.0" maxY="2"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Button"/>
@@ -109,7 +149,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expired!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KA1-B5-uCr" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
-                                                <rect key="frame" x="240" y="0.0" width="62" height="22"/>
+                                                <rect key="frame" x="279" y="0.0" width="62" height="22"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -125,17 +165,20 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wfo-ZL-T3r" customClass="ThemeUnderLineTextField" customModule="MTM_Driver" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="165.66666666666666" width="302" height="18.666666666666657"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rfm-RS-ptO" customClass="CustomViewOutlinedTxtField" customModule="MTM_Driver" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="165.66666666666666" width="341" height="52"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="ZaP-ZW-Z1u"/>
+                                        </constraints>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="smallStyle" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="textFieldCorners">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Enter National Id Number"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Enter National Id Number"/>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <outlet property="delegate" destination="KGk-i7-Jjw" id="1eR-R6-VEv"/>
-                                        </connections>
-                                    </textField>
+                                    </view>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -163,17 +206,21 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="attachFileView" destination="jHU-A3-e6l" id="8lS-U4-zIE"/>
+                <outlet property="attachFileViewSecond" destination="gfd-yL-G6P" id="KDU-I3-Zuh"/>
                 <outlet property="attachmentLabel" destination="FMG-y0-ddI" id="A5q-qa-20A"/>
                 <outlet property="attachmentStack" destination="Vo6-Av-7hE" id="eeB-8b-MXD"/>
                 <outlet property="datePickerButton" destination="wjb-Jh-HMh" id="qGM-qg-37R"/>
                 <outlet property="editButton" destination="n75-bG-49F" id="Ar9-N6-p6E"/>
+                <outlet property="editButtonSecond" destination="3pV-vK-of0" id="MFo-RF-2Nz"/>
                 <outlet property="expiredDateLabel" destination="KA1-B5-uCr" id="F52-iv-EWe"/>
                 <outlet property="expiredDateStack" destination="MD6-Rf-fZ9" id="yUR-2s-z8G"/>
-                <outlet property="textField" destination="Wfo-ZL-T3r" id="xZC-Uq-Lpc"/>
+                <outlet property="lblattachtitleSecond" destination="pcC-Ri-HRI" id="F0f-nR-x4t"/>
+                <outlet property="stackViewSecond" destination="ggh-q3-NyY" id="aDX-7j-wDm"/>
+                <outlet property="textField" destination="Rfm-RS-ptO" id="zfr-qj-zcV"/>
                 <outlet property="titleLabel" destination="XGs-c0-eRJ" id="JPI-W1-pSP"/>
                 <outlet property="uploadingLabel" destination="cct-lX-Ljy" id="mNo-ub-EgT"/>
             </connections>
-            <point key="canvasLocation" x="83.969465648854964" y="96.478873239436624"/>
+            <point key="canvasLocation" x="113.74045801526717" y="113.02816901408451"/>
         </tableViewCell>
     </objects>
     <resources>

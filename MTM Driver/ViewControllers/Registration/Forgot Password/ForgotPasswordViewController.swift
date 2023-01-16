@@ -9,12 +9,13 @@
 import UIKit
 import SkyFloatingLabelTextField
 
-class ForgotPasswordViewController: UIViewController {
+class ForgotPasswordViewController: BaseViewController {
 
     // ----------------------------------------------------
     // MARK: - Outlets
     // ----------------------------------------------------
-    @IBOutlet weak var txtEmail: SkyFloatingLabelTextField!
+  
+    @IBOutlet weak var txtEmail: CustomViewOutlinedTxtField!
     
     
     // ----------------------------------------------------
@@ -22,9 +23,14 @@ class ForgotPasswordViewController: UIViewController {
     // ----------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        txtEmail.textField.keyboardType = .emailAddress
+        txtEmail.textField.autocapitalizationType = .none
+        self.setupNavigation(.normal(title: "Forgot Password", leftItem: .back))
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.navigationBar.isHidden = false
+    }
     @IBAction func btnGoBack(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -33,23 +39,46 @@ class ForgotPasswordViewController: UIViewController {
     // MARK: - Actions
     // ----------------------------------------------------
     @IBAction func btnResetPassword(_ sender: UIButton) {
+        self.goBack()
+//        guard validations() else { return }
+//        webserviceForForrgotPassword()
+       
+    }
+    //MARK:- ===== Validation =======
+    func validateFields() -> Bool{
         
-        if txtEmail.text!.isBlank {
-            AlertMessage.showMessageForError("Please enter email id")
-        } else {
-            webserviceForForrgotPassword()
+        let validationParameter :[(String?,String, ValidatiionType)] =  [(txtEmail.textField.text,emailEmptyErrorString,.isEmpty),
+                                                                         (txtEmail.textField.text,emailErrorString,.email)]
+        guard Validator.validate(validationParameter) else{
+            return false
         }
+        return true
     }
     
+    func validations() -> (Bool) {
+        
+        let emailValidation = InputValidation.email.isValid(input: txtEmail.textField.unwrappedText, field: "email address")
+        txtEmail.textField.leadingAssistiveLabel.text = emailValidation.error
+        txtEmail.textField.setOutlineColor(emailValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
+        
+        if emailValidation.isValid{
+            return true
+        }else{
+            return false
+        }
+        
+    }
     
     // ----------------------------------------------------
     // MARK: - Webservice Methods
     // ----------------------------------------------------
     func webserviceForForrgotPassword() {
-        WebServiceCalls.forgotPassword(strType: ["email": txtEmail.text!]) { (response, status) in
+        Loader.showHUD()
+        WebServiceCalls.forgotPassword(strType: ["email": txtEmail.textField.text!]) { (response, status) in
+            Loader.hideHUD()
             if status {
                 AlertMessage.showMessageForSuccess(response["message"].stringValue)
-                
+                self.goBack()
             } else {
                 AlertMessage.showMessageForError(response["message"].stringValue)
             }

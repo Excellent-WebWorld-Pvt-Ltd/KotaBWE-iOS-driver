@@ -60,87 +60,90 @@ class VehicleDocRequestModel: RequestModel {
 extension VehicleDocRequestModel {
     
     func setDocURL(url: String, for type: VehicleDoc) {
-        switch type {
-        case .nationalId:
-            national_id_image = url
-        case .driverLicense:
-            driver_licence_image = url
-        case .drivrPsvLicense:
-            driver_psv_license = url
-        case .vehiclePsvLicense:
-            vehicle_psv_license = url
-        case .goodConductCerti:
-            police_clearance_certi = url
-        case .vehicleLogbook:
-            vehicle_log_book_image = url
-        case .ntsaInspectionCert:
-            ntsa_inspection_image = url
-        case .psvComprehensiveInsurance:
-            psv_comprehensive_insurance = url
-        }
+//        switch type {
+//        case .nationalId:
+//            national_id_image = url
+//        case .driverLicense:
+//            driver_licence_image = url
+//        case .drivrPsvLicense:
+//            driver_psv_license = url
+//        case .vehiclePsvLicense:
+//            vehicle_psv_license = url
+//        case .goodConductCerti:
+//            police_clearance_certi = url
+//        case .vehicleLogbook:
+//            vehicle_log_book_image = url
+//        case .ntsaInspectionCert:
+//            ntsa_inspection_image = url
+//        case .psvComprehensiveInsurance:
+//            psv_comprehensive_insurance = url
+//        }
     }
     
     func setExpiry(date: String, for type: VehicleDoc) {
-        switch type {
-        case .nationalId:
-            break
-        case .driverLicense:
-            driver_licence_exp_date = date
-        case .drivrPsvLicense:
-            driver_psv_license_exp_date = date
-        case .vehiclePsvLicense:
-            vehicle_psv_license_exp_date = date
-        case .goodConductCerti:
-            break
-        case .vehicleLogbook:
-            break
-        case .ntsaInspectionCert:
-            ntsa_exp_date = date
-        case .psvComprehensiveInsurance:
-            psv_comprehensive_insurance_exp_date = date
-        }
+//        switch type {
+//        case .nationalId:
+//            break
+//        case .driverLicense:
+//            driver_licence_exp_date = date
+//        case .drivrPsvLicense:
+//            driver_psv_license_exp_date = date
+//        case .vehiclePsvLicense:
+//            vehicle_psv_license_exp_date = date
+//        case .goodConductCerti:
+//            break
+//        case .vehicleLogbook:
+//            break
+//        case .ntsaInspectionCert:
+//            ntsa_exp_date = date
+//        case .psvComprehensiveInsurance:
+//            psv_comprehensive_insurance_exp_date = date
+//        }
+        
     }
     
     func getDocUrl(_ type: VehicleDoc) -> String {
-        switch type {
-        case .nationalId:
-            return self.national_id_image
-        case .driverLicense:
-            return self.driver_licence_image
-        case .drivrPsvLicense:
-            return self.driver_psv_license
-        case .vehiclePsvLicense:
-            return self.vehicle_psv_license
-        case .goodConductCerti:
-            return self.police_clearance_certi
-        case .vehicleLogbook:
-            return self.vehicle_log_book_image
-        case .ntsaInspectionCert:
-            return self.ntsa_inspection_image
-        case .psvComprehensiveInsurance:
-            return self.psv_comprehensive_insurance
-        }
+//        switch type {
+//        case .nationalId:
+//            return self.national_id_image
+//        case .driverLicense:
+//            return self.driver_licence_image
+//        case .drivrPsvLicense:
+//            return self.driver_psv_license
+//        case .vehiclePsvLicense:
+//            return self.vehicle_psv_license
+//        case .goodConductCerti:
+//            return self.police_clearance_certi
+//        case .vehicleLogbook:
+//            return self.vehicle_log_book_image
+//        case .ntsaInspectionCert:
+//            return self.ntsa_inspection_image
+//        case .psvComprehensiveInsurance:
+//            return self.psv_comprehensive_insurance
+//        }
+        return ""
     }
     
     func getDocExpiryDate(_ type: VehicleDoc) -> String {
-        switch type {
-        case .nationalId:
-            return ""
-        case .driverLicense:
-            return self.driver_licence_exp_date
-        case .drivrPsvLicense:
-            return self.driver_psv_license_exp_date
-        case .vehiclePsvLicense:
-            return self.vehicle_psv_license_exp_date
-        case .goodConductCerti:
-            return ""
-        case .vehicleLogbook:
-            return ""
-        case .ntsaInspectionCert:
-            return self.ntsa_exp_date
-        case .psvComprehensiveInsurance:
-            return self.psv_comprehensive_insurance_exp_date
-        }
+//        switch type {
+//        case .nationalId:
+//            return ""
+//        case .driverLicense:
+//            return self.driver_licence_exp_date
+//        case .drivrPsvLicense:
+//            return self.driver_psv_license_exp_date
+//        case .vehiclePsvLicense:
+//            return self.vehicle_psv_license_exp_date
+//        case .goodConductCerti:
+//            return ""
+//        case .vehicleLogbook:
+//            return ""
+//        case .ntsaInspectionCert:
+//            return self.ntsa_exp_date
+//        case .psvComprehensiveInsurance:
+//            return self.psv_comprehensive_insurance_exp_date
+//        }
+        return ""
     }
     
     func isValidDocuments() -> Bool {

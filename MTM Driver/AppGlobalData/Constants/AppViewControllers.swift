@@ -55,6 +55,10 @@ class AppViewControllers {
         getViewController(.registration)
     }
     
+    var forgotpassword: ForgotPasswordViewController {
+        getViewController(.registration)
+    }
+    
     var registration: RegistrationViewController {
         getViewController(.registration)
     }
@@ -75,6 +79,9 @@ class AppViewControllers {
     
     var vehicleInfo: VehicleInfoVC {
         getViewController(.registration)
+    }
+    var changePassword: ChangePasswordVC {
+        getViewController(.updateProfile)
     }
     
     func vehicleDocs(isFromSettings: Bool) -> VehicleDocumentVC {

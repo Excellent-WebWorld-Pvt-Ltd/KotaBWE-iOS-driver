@@ -25,8 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     var window: UIWindow?
     var resetMap : (() -> ())?
     
-    let googlApiKey = "AIzaSyDcug87uBhFLMo1KlqyaO10shE-sNTBCmw"
-    let googlPlacesApiKey = "AIzaSyDcug87uBhFLMo1KlqyaO10shE-sNTBCmw"
+    let googlApiKey = "AIzaSyD3XBB16aYLWvlKyQ5DRh1gpAt31IIA9lI"
+    let googlPlacesApiKey = "AIzaSyD3XBB16aYLWvlKyQ5DRh1gpAt31IIA9lI"
     
     var gcmMessageIDKey = String()
     var notificationInfo: [AnyHashable: Any]?

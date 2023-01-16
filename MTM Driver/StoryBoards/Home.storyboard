@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LJF-3h-ctD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LJF-3h-ctD">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -190,7 +190,7 @@
                                             <constraint firstAttribute="height" constant="40" id="Tx9-F8-1iD"/>
                                             <constraint firstAttribute="width" secondItem="D6O-kC-3gu" secondAttribute="height" multiplier="1:1" id="Xxv-UG-7I8"/>
                                         </constraints>
-                                        <state key="normal" image="ic_my_location"/>
+                                        <state key="normal" image="ic_my_location_org"/>
                                         <connections>
                                             <action selector="btnCurrentLocation:" destination="lWb-mh-YOO" eventType="touchUpInside" id="2Fy-Fr-cve"/>
                                         </connections>
@@ -416,7 +416,7 @@
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="side_menu_cell" rowHeight="60" id="TgE-0n-QtN" customClass="SideMenuCell" customModule="MTM_Driver" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="44.5" width="315" height="60"/>
+                                                <rect key="frame" x="0.0" y="50" width="315" height="60"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TgE-0n-QtN" id="oRh-ax-uab">
                                                     <rect key="frame" x="0.0" y="0.0" width="315" height="60"/>
@@ -523,7 +523,7 @@
                                                 <rect key="frame" x="0.0" y="60" width="205" height="32"/>
                                                 <fontDescription key="fontDescription" name="Magdelin-Bold" family="Magdelin" pointSize="16"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Delete my Account">
+                                                <state key="normal" title="Delete My Account">
                                                     <color key="titleColor" systemColor="systemRedColor"/>
                                                 </state>
                                                 <connections>
@@ -581,7 +581,7 @@
         <image name="Moon" width="170" height="170"/>
         <image name="ic_logout" width="24" height="24"/>
         <image name="ic_mn_history" width="20" height="20"/>
-        <image name="ic_my_location" width="124" height="125"/>
+        <image name="ic_my_location_org" width="40" height="40"/>
         <image name="iconSelectedstar" width="42" height="42"/>
         <namedColor name="themeSeperatorColor">
             <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>

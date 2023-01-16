@@ -119,16 +119,18 @@ class OTPVC: BaseViewController , OTPTextFieldDelegate{
     
     //MARK:- ===== Btn Action Next =====
     @IBAction func btnActionNext(_ sender: UIButton) {
-        guard validation() else { return }
+ //       guard validation() else { return }
         if isFromRegister {
-            parameterArray.setNextRegistrationIndex(from: .registration)
-            SessionManager.shared.registrationParameter = parameterArray
+//            parameterArray.setNextRegistrationIndex(from: .registration)
+//            SessionManager.shared.registrationParameter = parameterArray
             let profileInfo = AppViewControllers.shared.profile()
             navigationController?.isNavigationBarHidden = false
             self.push(profileInfo)
         }
         else {
-            saveLoginData()
+//            saveLoginData()
+            AppDelegate.shared.setHome()
+            
         }
     }
     

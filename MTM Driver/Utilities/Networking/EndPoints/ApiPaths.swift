@@ -14,8 +14,12 @@ typealias NetworkRouterCompletion = ((Data?,[String:Any]?, Bool) -> ())
 
 enum NetworkEnvironment {
    
-    static let serverURL = "https://www.showfaride.com/"
-    
+    static let serverURL = "http://52.66.86.25/"
+//Socket: http://52.66.86.25:8080
+//Admin
+//http://52.66.86.25/administrator
+//mailto:developer.eww@gmail.com
+//12345678
     static let apiURL = "\(serverURL)api/driver_api/"
    
     static var baseImageURL = NetworkEnvironment.serverURL
@@ -115,8 +119,7 @@ enum ParameterKey{
 
 enum socketApiKeys: String, CaseIterable {
     
-    case kSocketBaseURL = "https://showfaride.com:8080/"
-    
+    case kSocketBaseURL = "http://52.66.86.25:8080/"
     
     case CancelBeforeAccept = "cancel_booking_before_accept"
     case updateDriverLocation = "update_driver_location"

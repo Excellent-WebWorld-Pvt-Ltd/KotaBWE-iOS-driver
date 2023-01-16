@@ -25,7 +25,7 @@ class TicketsViewController: BaseViewController {
         tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self
-        webserviceForGettingAllTicketList()
+       // webserviceForGettingAllTicketList()
     }
     
     // MARK: - Actions
@@ -58,7 +58,7 @@ class TicketsViewController: BaseViewController {
 extension TicketsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return aryData.count
+        return 10//aryData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -66,8 +66,8 @@ extension TicketsViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TicketsCell", for: indexPath) as! TicketsCell
         cell.selectionStyle = .none
 //
-        let currentItem = aryData[indexPath.row]
-       cell.setupData(currentItem: currentItem)
+//        let currentItem = aryData[indexPath.row]
+//       cell.setupData(currentItem: currentItem)
         return cell
     }
     

@@ -213,7 +213,10 @@ extension UIViewController {
         let controller = SFSafariViewController(url: url)
         self.present(controller, animated: true, completion: nil)
     }
-    
+    func isSecureText(_ textfield: UITextField,  _ buttonTapped: UIButton) {
+            textfield.isSecureTextEntry = !textfield.isSecureTextEntry
+            buttonTapped.setImage(textfield.isSecureTextEntry ? UIImage(named: "ic_hidePasswordRed") : UIImage(named: "ic_showPasswordRed"), for: .normal)
+        }
 }
 
 

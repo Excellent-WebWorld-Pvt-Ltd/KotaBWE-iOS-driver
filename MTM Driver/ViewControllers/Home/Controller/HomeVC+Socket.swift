@@ -53,7 +53,7 @@ extension HomeViewController: SocketConnected {
         onSocket_CancelTrip()
         onSocketDriverArrived()
         onSocketDriverArrivedAtPickupLocaction()
-        onSocketError()
+       // onSocketError()
         // Socket On 6
     }
     

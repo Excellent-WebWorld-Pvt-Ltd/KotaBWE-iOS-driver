@@ -18,10 +18,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="gjh-pj-q14">
-                        <rect key="frame" x="18" y="18" width="414" height="73.5"/>
+                        <rect key="frame" x="18" y="18" width="414" height="47"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="B9d-5u-jFi">
-                                <rect key="frame" x="0.0" y="0.0" width="343.5" height="73.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="343.5" height="47"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Received Money From Johannes" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9J2-7c-P4o" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="343.5" height="20.5"/>
@@ -36,8 +36,8 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction failed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iA8-Og-Urw" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="26.5" width="343.5" height="20.5"/>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction failed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iA8-Og-Urw" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="23.5" width="343.5" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -52,7 +52,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 Jan 2020, 5:15 pm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R4y-PG-eKb" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="53" width="343.5" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="26.5" width="343.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -67,7 +67,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="+52.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k7y-7A-goM" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
-                                <rect key="frame" x="359.5" y="0.0" width="54.5" height="73.5"/>
+                                <rect key="frame" x="359.5" y="0.0" width="54.5" height="47"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

@@ -46,7 +46,7 @@ class TripDetailsVC: BaseViewController {
         super.viewDidLoad()
        
         DataSetup()
-        WebServiceCallTripDetail()
+//        WebServiceCallTripDetail()
         setdata()
         setUpSwipeView(vwSwipe: vwSlider)
         self.setupNavigation(.normal(title: "Trip Detail", leftItem: .back))

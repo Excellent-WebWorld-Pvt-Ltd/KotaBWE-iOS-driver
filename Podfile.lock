@@ -122,6 +122,12 @@ PODS:
     - MaterialComponents/AnimationTiming
     - MaterialComponents/private/Math
     - "MaterialComponents/private/TextControlsPrivate+Shared"
+  - "MaterialComponents/private/TextControlsPrivate+FilledStyle (124.2.0)":
+    - MaterialComponents/AnimationTiming
+    - MaterialComponents/Availability
+    - MaterialComponents/private/Math
+    - "MaterialComponents/private/TextControlsPrivate+Shared"
+    - "MaterialComponents/private/TextControlsPrivate+UnderlinedStyle"
   - "MaterialComponents/private/TextControlsPrivate+OutlinedStyle (124.2.0)":
     - MaterialComponents/AnimationTiming
     - MaterialComponents/Availability
@@ -134,12 +140,33 @@ PODS:
   - "MaterialComponents/private/TextControlsPrivate+TextFields (124.2.0)":
     - MaterialComponents/private/Math
     - "MaterialComponents/private/TextControlsPrivate+Shared"
+  - "MaterialComponents/private/TextControlsPrivate+UnderlinedStyle (124.2.0)":
+    - MaterialComponents/AnimationTiming
+    - MaterialComponents/Availability
+    - MaterialComponents/private/Math
+    - "MaterialComponents/private/TextControlsPrivate+Shared"
+  - "MaterialComponents/TextControls+BaseTextAreas (124.2.0)":
+    - "MaterialComponents/private/TextControlsPrivate+BaseStyle"
+    - "MaterialComponents/private/TextControlsPrivate+Shared"
+    - MDFInternationalization
   - "MaterialComponents/TextControls+BaseTextFields (124.2.0)":
     - "MaterialComponents/private/TextControlsPrivate+BaseStyle"
     - "MaterialComponents/private/TextControlsPrivate+Shared"
     - "MaterialComponents/private/TextControlsPrivate+TextFields"
     - MDFInternationalization
   - "MaterialComponents/TextControls+Enums (124.2.0)"
+  - "MaterialComponents/TextControls+FilledTextAreas (124.2.0)":
+    - MaterialComponents/Availability
+    - "MaterialComponents/private/TextControlsPrivate+FilledStyle"
+    - "MaterialComponents/TextControls+BaseTextAreas"
+  - "MaterialComponents/TextControls+FilledTextFields (124.2.0)":
+    - MaterialComponents/Availability
+    - "MaterialComponents/private/TextControlsPrivate+FilledStyle"
+    - "MaterialComponents/TextControls+BaseTextFields"
+  - "MaterialComponents/TextControls+OutlinedTextAreas (124.2.0)":
+    - MaterialComponents/Availability
+    - "MaterialComponents/private/TextControlsPrivate+OutlinedStyle"
+    - "MaterialComponents/TextControls+BaseTextAreas"
   - "MaterialComponents/TextControls+OutlinedTextFields (124.2.0)":
     - MaterialComponents/Availability
     - "MaterialComponents/private/TextControlsPrivate+OutlinedStyle"
@@ -185,6 +212,9 @@ DEPENDENCIES:
   - Kingfisher (~> 7.1.1)
   - lottie-ios (~> 3.3.0)
   - MarqueeLabel/Swift (~> 3.2.1)
+  - "MaterialComponents/TextControls+FilledTextAreas"
+  - "MaterialComponents/TextControls+FilledTextFields"
+  - "MaterialComponents/TextControls+OutlinedTextAreas"
   - "MaterialComponents/TextControls+OutlinedTextFields"
   - MKToolTip (~> 1.0.6)
   - QRCodeReader.swift (~> 10.1.0)
@@ -280,6 +310,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   UIView-Shimmer: ff0a32c73d67c7dbdea3d9e530538b10d18aea56
 
-PODFILE CHECKSUM: ea8f1f58cc480377e1b507ade3047bb88c5b4dd8
+PODFILE CHECKSUM: 5deeadff2eed203e2d252ffd7e0e798ab9288a41
 
 COCOAPODS: 1.11.3

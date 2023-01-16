@@ -81,8 +81,8 @@ extension UIFont{
 
 enum FontBook {
     
-    case regular, semibold, bold , digitNumber
-
+    case regular, semibold, bold, medium, digitNumber
+    
     func font(ofSize fontSize: CGFloat) -> UIFont {
         switch self{
         case .regular:
@@ -91,6 +91,8 @@ enum FontBook {
             return UIFont(name: "Magdelin-SemiBold", size: fontSize)!
         case .bold:
             return UIFont(name: "Magdelin-Bold", size: fontSize)!
+        case .medium:
+            return UIFont(name: "Magdelin-Medium", size: fontSize)!
         case .digitNumber:
             return UIFont(name: "digitalnumbers-regular", size: fontSize)!
         }

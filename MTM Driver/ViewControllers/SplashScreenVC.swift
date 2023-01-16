@@ -17,11 +17,12 @@ class SplashScreenViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NetworkManager.shared.startNetworkReachabilityObserver()
+        webserviceCallForInit()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        webserviceCallForInit()
+        //webserviceCallForInit()
         navType = .transparent
         self.navigationController?.isNavigationBarHidden = true
     }

@@ -8,40 +8,72 @@
 
 import UIKit
 import CountryPickerView
+import SwiftyJSON
 
 class LoginVC: UIViewController {
     
     //MARK:- ==== outlet =======
+    @IBOutlet weak var txtEmail: CustomViewOutlinedTxtField!
+    
+    @IBOutlet weak var txtPassword: CustomViewOutlinedTxtField!
+    
+    
+    @IBOutlet weak var btnHidePassword: UIButton!
+   
+    @IBOutlet weak var btnForgotPassword: UnderlineTextButton!
+    
     @IBOutlet weak var tvTermPrivacy: UITextView!
     @IBOutlet weak var viewCountryPicker: CountryPickerView!
     @IBOutlet weak var btnNotUser: UnderlineTextButton!
     @IBOutlet weak var viewBGLine: UIView!
-    @IBOutlet weak var txtPhoneNumber: UITextField!
+  //  @IBOutlet weak var txtPhoneNumber: UITextField!
     
     
     //MARK:- ===== Variables =====
     var selectedCounty : Country?
     var registerPram = RegistrationParameter.shared
+    var iconPasswordClick = true
+    var objLoginData : LoginModel!
+    var objResponseJSON : JSON!
     
     
     //MARK:- ==== View Controller Life Cycle =====
     override func viewDidLoad() {
         super.viewDidLoad()
 #if targetEnvironment(simulator)
-        txtPhoneNumber.text = "9876543210"
+  //      txtPhoneNumber.text = "9876543210"
 #endif
-        txtPhoneNumber.font = UIFont.regular(ofSize: 18.0)
-        txtPhoneNumber.delegate = self
-        setupCountryPicker()
-        TermsAndCondtionSetup()
+  //      txtPhoneNumber.font = UIFont.regular(ofSize: 18.0)
+   //     txtPhoneNumber.delegate = self
+   //     setupCountryPicker()
+        setupTextfields()
+        formattedTextSetup()
+        setupInitView()
         setupRegisterVC()
+    
+    }
+    
+    func setupTextfields() {
+        
+        txtEmail.textField.delegate = self
+        txtPassword.textField.delegate = self
+        
+        txtEmail.textField.keyboardType = .emailAddress
+        txtEmail.textField.autocapitalizationType = .none
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.navigationBar.isHidden = true
     }
-    
+   
+    func setupInitView() {
+        txtEmail.textField.updateInputType(.email)
+        txtPassword.textField.updateInputType(.password)
+        txtPassword.textField.setRightPaddingPoints(25)
+        self.isPasswordSecure(isSecure: true)
+    }
     
     //MARK:- ==== Registration ======
     func setupRegisterVC() {
@@ -55,42 +87,90 @@ class LoginVC: UIViewController {
     }
     
     //MARK:- ==== Terms And Condition =====
-    func TermsAndCondtionSetup(){
+    func formattedTextSetup(){
         let formattedText = NSMutableAttributedString()
         formattedText
-            .normal("Not a Kota user? ", Colour: UIColor.black.withAlphaComponent(0.7), 14)
+            .normal("Not a Kota user?  ", Colour: UIColor.black.withAlphaComponent(0.7), 14)
             .bold("Sign Up")
-        let termAttributed = NSMutableAttributedString()
-        let color = UIColor.hexStringToUIColor(hex: "#7D7D7D").withAlphaComponent(0.7)
-        termAttributed
-            .normal("By creating an account, you agree to our\n", Colour: color, 14)
-            .Semibold("Terms of Service")
-            .normal(" and ", Colour:color, 14)
-            .Semibold("Privacy Policy")
-        termAttributed.setAsLink(textToFind: "Terms of Service", linkURL: Singleton.shared.termsAndConditionURL)
-        termAttributed.setAsLink(textToFind: "Privacy Policy", linkURL: Singleton.shared.privacyURL)
-        tvTermPrivacy.attributedText = termAttributed
-        tvTermPrivacy.textAlignment = .center
-        tvTermPrivacy.linkTextAttributes = [.foregroundColor: color]
+        
+        let forgotformattedText = NSMutableAttributedString()
+        forgotformattedText
+            .medium("Forgot Password?")
+        
         btnNotUser.setAttributedTitle(formattedText, for: .normal)
+        btnForgotPassword.setAttributedTitle(forgotformattedText, for: .normal)
     }
+    
     
     //MARK:- ===== Validation =======
     func validateFields() -> Bool{
-        let validation = InputValidation.mobile.isValid(input: txtPhoneNumber.unwrappedText, field: "mobile number")
-        if validation.isValid == false {
-            AlertMessage.showMessageForError(validation.error ?? "")
+        
+        let validationParameter :[(String?,String, ValidatiionType)] =  [(txtEmail.textField.text,emailEmptyErrorString,.isEmpty),
+                                                                         (txtEmail.textField.text,emailErrorString,.email),
+                                                                         (txtPassword.textField.text,passwordEmptyErrorString,.isEmpty),
+                                                                         (txtPassword.textField.text,passwordValidErrorString,.password)]
+        guard Validator.validate(validationParameter) else{
+            return false
         }
-        return validation.isValid
+        return true
+    }
+    func validations() -> (Bool) {
+        
+        let emailValidation = InputValidation.email.isValid(input: txtEmail.textField.unwrappedText, field: "email address")
+            txtEmail.textField.leadingAssistiveLabel.text = emailValidation.error
+        let passwordValidation = InputValidation.password.isValid(input: txtPassword.textField.unwrappedText, field: "password")
+            txtPassword.textField.leadingAssistiveLabel.text = passwordValidation.error ?? ""
+        txtPassword.textField.setOutlineColor(passwordValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
+        txtEmail.textField.setOutlineColor(emailValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
+        
+//        if model.lat.isBlank || model.lng.isBlank {
+//            AlertMessage.showMessageForError("Please enable your location to move forward")
+//        }
+        if emailValidation.isValid && passwordValidation.isValid {
+            return true
+        }else{
+            return false
+        }
+        
     }
     
     
     //MARK:- ===== Btn Action Next =====
     @IBAction func btnActionNext(_ sender: UIButton) {
-        guard validateFields() else { return }
-        webServiceCallLogin()
+        AppDelegate.shared.setHome()
+//        guard validations() else { return }
+////        let validate = validations()
+////        if validate {
+//            webServiceCallLogin()
+////        }
+////
+////
     }
     
+    
+    
+    @IBAction func btnForgotPassword(_ sender: Any) {
+        
+        let forgotVC = AppViewControllers.shared.forgotpassword
+        self.navigationController?.pushViewController(forgotVC, animated: true)
+        
+    }
+    
+    
+    
+    @IBAction func btnActionPasswordShow(_ sender: Any) {
+        iconPasswordClick = !iconPasswordClick
+        self.isPasswordSecure(isSecure:iconPasswordClick)
+    }
+    func isPasswordSecure(isSecure:Bool){
+        if iconPasswordClick {
+            txtPassword.textField.isSecureTextEntry = true
+            btnHidePassword.setImage(UIImage(named: "ic_hidePasswordRed"), for: .normal)
+        } else {
+            txtPassword.textField.isSecureTextEntry = false
+            btnHidePassword.setImage(UIImage(named: "ic_showPasswordRed"), for: .normal)
+        }
+    }
     
     @IBAction func btnActionRegister(_ sender: UnderlineTextButton) {
         if navigationViewController(contains: RegistrationViewController.self) {
@@ -101,44 +181,51 @@ class LoginVC: UIViewController {
         }
     }
     
-    //MARK:- ====== Country Picker setup ===
-    func setupCountryPicker(){
-        viewCountryPicker.delegate = self
-        viewCountryPicker.dataSource = self
-        viewCountryPicker.textColor = .black
-        viewCountryPicker.font = UIFont.regular(ofSize: 15.0)
-        viewCountryPicker.setCountryByCode("KE")
-        viewCountryPicker.flagSpacingInView = 10
-        viewCountryPicker.hostViewController = self
-        viewCountryPicker.showCountryCodeInView = false
-        viewCountryPicker.isUserInteractionEnabled = false
-        
+//    //MARK:- ====== Country Picker setup ===
+//    func setupCountryPicker(){
+//        viewCountryPicker.delegate = self
+//        viewCountryPicker.dataSource = self
+//        viewCountryPicker.textColor = .black
+//        viewCountryPicker.font = UIFont.regular(ofSize: 15.0)
+//        viewCountryPicker.setCountryByCode("KE")
+//        viewCountryPicker.flagSpacingInView = 10
+//        viewCountryPicker.hostViewController = self
+//        viewCountryPicker.showCountryCodeInView = false
+//        viewCountryPicker.isUserInteractionEnabled = false
+//
+//    }
+    
+    //MARK:- === Save Login Data =====
+    func saveLoginData(responseObj:JSON!){
+        SessionManager.shared.saveSession(json: responseObj)
     }
     
     //MARK:- ===== Webservice Call For Login  ====
     func webServiceCallLogin(){
-        
+
         let loginModel : loginModel = loginModel()
-        
-        if txtPhoneNumber.text!.isEmail
+
+        if txtEmail.textField.text!.isEmail
         {
-            loginModel.username = txtPhoneNumber.text ?? ""
+            loginModel.email = txtEmail.textField.text ?? ""
         }
         else
         {
-            if txtPhoneNumber.text!.count < 9
+            if txtPassword.textField.text!.count < 6
             {
-                
-                AlertMessage.showMessageForError(phoneNumberErrorString)
-                
+
+                AlertMessage.showMessageForError(passwordValidErrorString)
+
             }
             else
             {
-                loginModel.username = "254" + txtPhoneNumber.text!
+                loginModel.email = txtEmail.textField.text ?? ""
+                //"254" + txtPhoneNumber.text!
             }
         }
-        
-        loginModel.username = txtPhoneNumber.text ?? ""
+
+        loginModel.email = txtEmail.textField.text ?? ""//txtPhoneNumber.text ?? ""
+        loginModel.password = txtPassword.textField.text ?? ""
         loginModel.device_type = "ios"
         guard let location = Singleton.shared.driverLocation else {
             LocationManager.shared.openSettingsDialog()
@@ -153,21 +240,50 @@ class LoginVC: UIViewController {
             if Status {
                 print(response)
                 let obj = LoginModel(fromJson: response)
-                AlertMessage.showMessageForSuccess(obj.message)
-                print(obj.otp)
-                let otpVC = AppViewControllers.shared.otp
-                otpVC.strOTP = obj.otp
-                otpVC.objResponseJSON = response
-                otpVC.strMobileNo = self.txtPhoneNumber.text ?? ""
-                self.navigationController?.pushViewController(otpVC, animated: true)
+                
+                self.saveLoginData(responseObj: response)
+                
+//                AlertMessage.showMessageForSuccess(obj.message)
+//                print(obj.otp)
+//                let otpVC = AppViewControllers.shared.otp
+//                otpVC.strOTP = obj.otp
+//                otpVC.objResponseJSON = response
+//                otpVC.strMobileNo = obj.responseObject.mobileNo
+//                self.navigationController?.pushViewController(otpVC, animated: true)
             }
             else{
                 ThemeAlertVC.present(from: self, ofType: .simple(title: "Alert", message: response.getApiMessage()))
-                
+
             }
         }
     }
 }
+
+extension LoginVC {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+            var validation: InputValidation?
+            switch textField {
+            case txtEmail.textField:
+                validation = .email
+           
+            case txtPassword.textField:
+                validation = .password
+                if (string == " " || string == "  ") {
+                    return false
+                }
+           
+            default:
+                break
+            }
+            if let validation = validation {
+                return validation.textField(textField, shouldChangeCharactersIn: range, replacementString: string)
+            }
+            return true
+        }
+}
+
+
 
 //MARK:- Country Picker Methods
 extension LoginVC : CountryPickerViewDelegate,CountryPickerViewDataSource {
@@ -185,19 +301,19 @@ extension LoginVC : CountryPickerViewDelegate,CountryPickerViewDataSource {
 extension LoginVC : UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
-        if textField == txtPhoneNumber {
-            viewBGLine.backgroundColor = .themeColor
-        }
+//        if textField == txtPhoneNumber {
+//            viewBGLine.backgroundColor = .themeColor
+//        }
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        return InputValidation.mobile.textField(textField, shouldChangeCharactersIn: range, replacementString: string)
-    }
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        return InputValidation.mobile.textField(textField, shouldChangeCharactersIn: range, replacementString: string)
+//    }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField == txtPhoneNumber {
-            viewBGLine.backgroundColor = .themeLightGray
-        }
+//        if textField == txtPhoneNumber {
+//            viewBGLine.backgroundColor = .themeLightGray
+//        }
     }
 }
 

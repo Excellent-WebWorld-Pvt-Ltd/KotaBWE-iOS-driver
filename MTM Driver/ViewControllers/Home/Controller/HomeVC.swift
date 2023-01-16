@@ -324,7 +324,9 @@ class HomeViewController: BaseViewController {
     }
     
     func setNavbar(){
-        setupNavigation(.normal(title: "Home", leftItem: .menu, hasNotification: true))
+       // setupNavigation(.normal(title: "Home", leftItem: .menu, hasNotification: true))
+        setupNavigation(.normal(title: "Hi, Robert D", leftItem: .menu, hasNotification: true))
+        
     }
 
     // ----------------------------------------------------

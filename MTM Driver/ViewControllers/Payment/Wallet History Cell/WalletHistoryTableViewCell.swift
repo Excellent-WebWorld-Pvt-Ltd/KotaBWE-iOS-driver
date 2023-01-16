@@ -36,7 +36,7 @@ class WalletHistoryTableViewCell: UITableViewCell {
         } else {
             titleLabel.text = info.descriptionField
         }
-        transactionFailedLabel.isHidden = info.status == "success"
+        transactionFailedLabel.isHidden = true//info.status == "success"
         amountLable.textColor = info.type == "+" ? .themeSuccess : .themeFailed
         amountLable.text = "\(info.type ?? "")" + (info.amount.toCurrencyString())
 

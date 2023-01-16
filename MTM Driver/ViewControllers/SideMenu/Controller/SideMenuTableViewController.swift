@@ -54,9 +54,9 @@ class SideMenuTableViewController: UIViewController {
     private let menuItemArray: [SideMenuItem] = [
        // .init(icon: .menuIncome, title: "Meter", type: .meter),
         .init(icon: .menuHistory, title: "Trip history", type: .tripHistory),
-        .init(icon: .menuPeoplePlus, title: "Earnings", type: .earnings),
-        .init(icon: .subscription, title: "Membership", type: .subscription),
-        .init(icon: .menuIncome, title: "Wallet", type: .wallet),
+        .init(icon: .menuIncome, title: "Earnings", type: .earnings),
+        //.init(icon: .subscription, title: "Membership", type: .subscription),
+        //.init(icon: .menuIncome, title: "Wallet", type: .wallet),
         .init(icon: .menuSettings, title: "Settings", type: .settings),
         .init(icon: .menuHeadphones, title: "Support", type: .support),
         .init(icon: .file, title: "Privcy Policy", type: .privacy),
@@ -84,7 +84,9 @@ class SideMenuTableViewController: UIViewController {
     func setData() {
         
         let userName = "\(Singleton.shared.userProfile?.responseObject.firstName ?? "")" +  " " + "\(Singleton.shared.userProfile?.responseObject.lastName  ?? "")"
-        lblName.text = userName
+        //lblName.text = userName
+        lblName.text = "Robert D"
+        
         let strImage = NetworkEnvironment.baseImageURL + (Singleton.shared.userProfile?.responseObject.profileImage ?? "")
         self.imgProfile.sd_setImage(with: URL(string: strImage), completed: nil)
         tableView.reloadData()
@@ -146,7 +148,9 @@ class SideMenuTableViewController: UIViewController {
         let alertCtr = UIAlertController(title: Helper.appName, message: "Are you sure to logout from \(Helper.appName) App?", preferredStyle: .alert)
         
         let okAction = UIAlertAction(title: "Logout", style: .destructive) { [unowned self] _ in
-            self.webserviceForLogout()
+//            self.webserviceForLogout()
+            SessionManager.shared.logout()
+           
         }
         let cancelAction = UIAlertAction(title: "Not Now", style: .cancel, handler: nil)
         alertCtr.addAction(okAction)
@@ -160,7 +164,8 @@ class SideMenuTableViewController: UIViewController {
     
     @IBAction func deleteAccountAction() {
         let okAction = UIAlertAction(title: "Delete", style: .destructive) { [unowned self] _ in
-            self.deleteAccountRequest()
+           // self.deleteAccountRequest()
+            SessionManager.shared.logout()
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .default)
         

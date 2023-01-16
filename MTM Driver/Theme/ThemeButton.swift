@@ -124,6 +124,17 @@ extension NSMutableAttributedString {
        self.append(boldString)
        return self
     }
+    
+    @discardableResult func medium(_ text:String) -> NSMutableAttributedString {
+
+       let attrs : [NSAttributedString.Key : Any] = [
+           NSAttributedString.Key.font : UIFont.medium(ofSize: 14.0),
+        NSAttributedString.Key.foregroundColor : UIColor.hexStringToUIColor(hex: "#18022E"),
+           NSAttributedString.Key.underlineStyle : NSUnderlineStyle.single.rawValue]
+       let boldString = NSMutableAttributedString(string: text, attributes: attrs)
+       self.append(boldString)
+       return self
+    }
 
     @discardableResult func normal(_ text:String , Colour:UIColor , _ size:CGFloat = 18.0)->NSMutableAttributedString {
         let attrs : [NSAttributedString.Key : Any] = [

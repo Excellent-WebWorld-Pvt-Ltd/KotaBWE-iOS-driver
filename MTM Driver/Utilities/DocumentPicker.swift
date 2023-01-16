@@ -68,7 +68,7 @@ class DocumentPickerController: NSObject {
         AppDelegate.hasPhotoLibraryAccess { [unowned self] granted in
             if granted {
                 AppDelegate.shared.setupNavigationAppearance(darkStyle: false)
-                self.pickerController.mediaTypes = ["public.image"]
+                self.pickerController.mediaTypes = ["public.image"] // check error and crash
                 self.pickerController.delegate = self
                 self.pickerController.sourceType = .photoLibrary
                 self.pickerController.allowsEditing = self.allowEditing

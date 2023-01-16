@@ -47,6 +47,11 @@
 		47953EFB2959815A00FE3965 /* Magdelin-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 47953EFA2959815A00FE3965 /* Magdelin-Bold.otf */; };
 		47953EFD2959817800FE3965 /* Magdelin-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 47953EFC2959817800FE3965 /* Magdelin-BoldItalic.otf */; };
 		47953EFF2959819D00FE3965 /* Magdelin-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 47953EFE2959819D00FE3965 /* Magdelin-ExtraLight.otf */; };
+		6700F6AD2970391300F96209 /* TripDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6700F6AC2970391300F96209 /* TripDetailVC.swift */; };
+		675241F0295D61F60039B466 /* CustomOutlinedTxtField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675241EF295D61F60039B466 /* CustomOutlinedTxtField.swift */; };
+		6753A081297138630019A28E /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6753A080297138630019A28E /* ChangePasswordVC.swift */; };
+		6753A0842971593A0019A28E /* CustomSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6753A0822971593A0019A28E /* CustomSwitch.swift */; };
+		6753A0852971593A0019A28E /* CustomThumbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6753A0832971593A0019A28E /* CustomThumbView.swift */; };
 		84023ECF27562E170091499C /* ChartMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84023ECE27562E170091499C /* ChartMarker.swift */; };
 		84023ED1275643E30091499C /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84023ED0275643E30091499C /* BarChartView.swift */; };
 		84023ED527564F9B0091499C /* CustomMarkerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84023ED427564F9B0091499C /* CustomMarkerView.xib */; };
@@ -377,6 +382,11 @@
 		47953EFA2959815A00FE3965 /* Magdelin-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Magdelin-Bold.otf"; sourceTree = "<group>"; };
 		47953EFC2959817800FE3965 /* Magdelin-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Magdelin-BoldItalic.otf"; sourceTree = "<group>"; };
 		47953EFE2959819D00FE3965 /* Magdelin-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Magdelin-ExtraLight.otf"; sourceTree = "<group>"; };
+		6700F6AC2970391300F96209 /* TripDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripDetailVC.swift; sourceTree = "<group>"; };
+		675241EF295D61F60039B466 /* CustomOutlinedTxtField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOutlinedTxtField.swift; sourceTree = "<group>"; };
+		6753A080297138630019A28E /* ChangePasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
+		6753A0822971593A0019A28E /* CustomSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSwitch.swift; sourceTree = "<group>"; };
+		6753A0832971593A0019A28E /* CustomThumbView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomThumbView.swift; sourceTree = "<group>"; };
 		84023ECE27562E170091499C /* ChartMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartMarker.swift; sourceTree = "<group>"; };
 		84023ED0275643E30091499C /* BarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
 		84023ED427564F9B0091499C /* CustomMarkerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomMarkerView.xib; sourceTree = "<group>"; };
@@ -746,6 +756,15 @@
 			path = CustomTextField;
 			sourceTree = "<group>";
 		};
+		6700F6702970119D00F96209 /* CustomUISwitch */ = {
+			isa = PBXGroup;
+			children = (
+				6753A0822971593A0019A28E /* CustomSwitch.swift */,
+				6753A0832971593A0019A28E /* CustomThumbView.swift */,
+			);
+			path = CustomUISwitch;
+			sourceTree = "<group>";
+		};
 		83C6381A79622B0C84407A8C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -858,6 +877,7 @@
 		8448D078270B1F9B0068E360 /* Custom views */ = {
 			isa = PBXGroup;
 			children = (
+				675241EF295D61F60039B466 /* CustomOutlinedTxtField.swift */,
 				8448D079270B1F9B0068E360 /* ThemeDashedButton.swift */,
 				8448D07A270B1F9B0068E360 /* ThemeTouchableView.swift */,
 				8448D07B270B1F9B0068E360 /* ThemeContainerView.swift */,
@@ -1076,6 +1096,7 @@
 		8470F4F5270AD61A00E05AF7 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				6700F6702970119D00F96209 /* CustomUISwitch */,
 				8470F561270AD61A00E05AF7 /* SocketAndWebservice */,
 				8470F4B0270AD61A00E05AF7 /* Networking */,
 				8470F4BC270AD61A00E05AF7 /* Enums */,
@@ -1707,6 +1728,7 @@
 		849FA54F27228A56000BF8D5 /* TripHistory */ = {
 			isa = PBXGroup;
 			children = (
+				6700F6AC2970391300F96209 /* TripDetailVC.swift */,
 				849FA55027228A56000BF8D5 /* PastTripHistoryVC.swift */,
 				849FA55227228A56000BF8D5 /* TripHistoryVC.swift */,
 				849FA55327228A56000BF8D5 /* UpComingTripHistoryVc.swift */,
@@ -1812,6 +1834,7 @@
 				84ACB8D927216A4B008E5C23 /* SettingTableViewCell.xib */,
 				84ACB8DE27216A81008E5C23 /* ProfileInfoTableViewCell.swift */,
 				84ACB8DF27216A81008E5C23 /* ProfileInfoTableViewCell.xib */,
+				6753A080297138630019A28E /* ChangePasswordVC.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -2127,6 +2150,7 @@
 				84A35AB92726AF26003078C1 /* BottomSheetViewController.swift in Sources */,
 				8470F703270AD61D00E05AF7 /* AddMoney.swift in Sources */,
 				8470F720270AD61D00E05AF7 /* BookingInfo.swift in Sources */,
+				6700F6AD2970391300F96209 /* TripDetailVC.swift in Sources */,
 				8470F64E270AD61C00E05AF7 /* InputValidatable.swift in Sources */,
 				8470F631270AD61C00E05AF7 /* SwipeAnimator.swift in Sources */,
 				8470F64D270AD61C00E05AF7 /* InputValidator.swift in Sources */,
@@ -2165,6 +2189,7 @@
 				8470F706270AD61D00E05AF7 /* WalletHistory.swift in Sources */,
 				8470F69E270AD61C00E05AF7 /* SocketConnected.swift in Sources */,
 				8470F66E270AD61C00E05AF7 /* GlobalMethods.swift in Sources */,
+				6753A081297138630019A28E /* ChangePasswordVC.swift in Sources */,
 				8448D083270B1F9C0068E360 /* ThemeLabels.swift in Sources */,
 				8470F63B270AD61C00E05AF7 /* SwipeActionTransitioning.swift in Sources */,
 				8470F633270AD61C00E05AF7 /* Swipeable.swift in Sources */,
@@ -2203,6 +2228,7 @@
 				8470F718270AD61D00E05AF7 /* VehicleListResultModel.swift in Sources */,
 				8470F704270AD61D00E05AF7 /* Register.swift in Sources */,
 				18E2BB63291CCE1A00B49558 /* HomeVC+Observer.swift in Sources */,
+				6753A0842971593A0019A28E /* CustomSwitch.swift in Sources */,
 				849E1997274D1C62007C46EB /* NotificationCell.swift in Sources */,
 				8470F708270AD61D00E05AF7 /* MobileNoDetail.swift in Sources */,
 				8470F6AB270AD61C00E05AF7 /* CompleteView.swift in Sources */,
@@ -2210,6 +2236,7 @@
 				8470F700270AD61D00E05AF7 /* Logout.swift in Sources */,
 				84A35ABB2726AF26003078C1 /* AddMoneyView.swift in Sources */,
 				84BCFCA227204C8C009685A6 /* AppViewControllers.swift in Sources */,
+				6753A0852971593A0019A28E /* CustomThumbView.swift in Sources */,
 				18E2BB65291CCF1B00B49558 /* Notification+Ext.swift in Sources */,
 				8470F717270AD61D00E05AF7 /* CompanyListModel.swift in Sources */,
 				841007EE2747BD830029BDDD /* RootBookingHistory.swift in Sources */,
@@ -2331,6 +2358,7 @@
 				8470F6DC270AD61D00E05AF7 /* Language.swift in Sources */,
 				8470F6F7270AD61D00E05AF7 /* DeviceSizes.swift in Sources */,
 				84ACB8C927214168008E5C23 /* String+RemoveCharacters.swift in Sources */,
+				675241F0295D61F60039B466 /* CustomOutlinedTxtField.swift in Sources */,
 				8470F728270AD61D00E05AF7 /* AppDelegate.swift in Sources */,
 				84955A35275111D100F0AE07 /* ChatReqModel.swift in Sources */,
 				8470F6F3270AD61D00E05AF7 /* ThemeButton.swift in Sources */,
@@ -2493,7 +2521,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.0.0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 2WX9UWNBJZ;
+				DEVELOPMENT_TEAM = FK8XXB5H32;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/MTM Driver/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Showfa Driver";
@@ -2503,7 +2531,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.showfa.driver;
+				PRODUCT_BUNDLE_IDENTIFIER = com.populaw.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -2524,7 +2552,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.0.0;
-				DEVELOPMENT_TEAM = 2WX9UWNBJZ;
+				DEVELOPMENT_TEAM = FK8XXB5H32;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/MTM Driver/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Showfa Driver";
@@ -2534,7 +2562,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.showfa.driver;
+				PRODUCT_BUNDLE_IDENTIFIER = com.populaw.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

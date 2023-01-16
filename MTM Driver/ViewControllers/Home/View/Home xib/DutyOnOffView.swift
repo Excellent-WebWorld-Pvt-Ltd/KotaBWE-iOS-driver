@@ -43,14 +43,19 @@ class DutyOnOffView: UIView {
         }
     }
     
+    
     @IBAction func btnActionDutyChange(_ sender: UISwitch) {
-        Singleton.shared.isDriverOnline.toggle()
-        if let vc = self.parentViewController as? HomeViewController{
-            vc.setRightSwitch()
-        }
-        updateUI()
+//        Singleton.shared.isDriverOnline.toggle()
+//        if let vc = self.parentViewController as? HomeViewController{
+//            vc.setRightSwitch()
+//        }
+//        updateUI()
     }
   
+    @IBAction func btnActionOnOff(_ sender: CustomSwitch) {
+        Singleton.shared.isDriverOnline = sender.isOn
+        updateUI()
+    }
     @IBAction func btnActionDutyOnOff(_ sender: UIButton) {
         if let vc: UIViewController = self.parentViewController {
     
@@ -65,8 +70,8 @@ class DutyOnOffView: UIView {
     }
     
     func updateUI() {
-        self.switchBtn.setOn(Singleton.shared.isDriverOnline, animated: true)
+//        self.switchBtn.setOn(Singleton.shared.isDriverOnline, animated: true)
         lblTitle.text = Singleton.shared.isDriverOnline ? "You're Online" : "You're Offline"
-        lblEarning.text = Singleton.shared.totalDriverEarning.toCurrencyString()
+        lblEarning.text = "Ksh 0" //Singleton.shared.totalDriverEarning.toCurrencyString()
     }
 }

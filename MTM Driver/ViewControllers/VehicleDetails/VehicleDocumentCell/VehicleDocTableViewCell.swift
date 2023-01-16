@@ -10,20 +10,29 @@ import UIKit
 
 enum VehicleDoc: String {
     case nationalId = "National Id Card"
-    case driverLicense = "Driver's License"
+    case driverLicense = "Driving license(front and back)"
     case drivrPsvLicense = "Driver PSV License"
+    case drivrCriminalRecord = "Criminal record"
+    case drivrResidenceCertificate = "Residence certificate"
     case vehiclePsvLicense = "Vehicle PSV License"
     case goodConductCerti = "Good Conduct Certificate / Police Clearance"
     case vehicleLogbook = "Vehicle Logbook"
     case ntsaInspectionCert = "NTSA Inspection Certificate"
     case psvComprehensiveInsurance = "PSV Comprehensive Insurance"
+    case rentalLicense = "Rental license"
+    case booklet = "Booklet"
+    case civilLiabilityInsurance = "Civil liability insurance"
+    case biFrontAndBack = "BI (front and back)"
     
     var hasExpiryDate: Bool {
         switch self {
-        case .driverLicense,
+        case    .driverLicense,
                 .drivrPsvLicense,
                 .vehiclePsvLicense,
                 .ntsaInspectionCert,
+                .rentalLicense,
+                .civilLiabilityInsurance,
+                .biFrontAndBack,
                 .psvComprehensiveInsurance:
             return true
         default:
@@ -56,9 +65,25 @@ class VehicleDocTableViewCell: UITableViewCell {
     @IBOutlet weak var datePickerButton: ThemePlainButton!
     @IBOutlet weak var expiredDateLabel: ThemeLabel!
     @IBOutlet weak var expiredDateStack: UIStackView!
-    @IBOutlet weak var textField: ThemeUnderLineTextField!
+    
+    @IBOutlet weak var lblattachtitleFirst: UILabel!
+    
+    @IBOutlet weak var lblattachtitleSecond: UILabel!
+    
+    @IBOutlet weak var editButtonSecond: UIButton!
+    
+    
+    
+  //  @IBOutlet weak var textField: ThemeUnderLineTextField!
+    
+    @IBOutlet weak var textField: CustomViewOutlinedTxtField!
+    
+    @IBOutlet weak var stackViewSecond: UIStackView!
+    
     @IBOutlet weak var attachmentLabel: UILabel!
     @IBOutlet weak var attachFileView: ThemeTouchableView!
+    
+    @IBOutlet weak var attachFileViewSecond: ThemeTouchableView!
     @IBOutlet weak var attachmentStack: UIStackView!
     @IBOutlet weak var uploadingLabel: UILabel!
     @IBOutlet weak var titleLabel: ThemeLabel!
@@ -81,6 +106,15 @@ class VehicleDocTableViewCell: UITableViewCell {
                                           for: self.type)
             }
         }
+        attachFileViewSecond.setOnClickListener { [unowned self] in
+            if uploadStatus == .uploaded {
+                self.delegate?.vehicleDoc(viewDocumentOf: type)
+            } else {
+                self.delegate?.vehicleDoc(documentUploadRequestAt: self.indexPath,
+                                          for: self.type)
+            }
+        }
+        
     }
     
     func configure(type: VehicleDoc,
@@ -93,6 +127,7 @@ class VehicleDocTableViewCell: UITableViewCell {
         self.uploadStatus = uploadStatus
         self.expiryDate = expiryDate
         self.textFieldValue = textFieldValue
+        self.textField.textField.delegate = self
         self.indexPath = indexPath
         self.delegate = delegate
         refreshValues()
@@ -106,17 +141,30 @@ class VehicleDocTableViewCell: UITableViewCell {
     }
     
     func updateAttachUI() {
-        let title = uploadStatus == .uploaded ? "View document" : "Attach document"
-        attachmentLabel.text = title
+        let title = uploadStatus == .uploaded ? "View document" : "Attach Document(Front)"
+        
+        let titleSecond = uploadStatus == .uploaded ? "View document" : "Attach Document(Back)"
+        attachmentLabel.text = "Attach Document(Front)"//title
+        lblattachtitleSecond.text = "Attach Document(Back)"
         let attr: [NSAttributedString.Key: Any] = [
             .underlineStyle: NSUnderlineStyle.single.rawValue,
             .font: FontBook.regular.font(ofSize: 15),
             .foregroundColor: uploadStatus == .uploaded ? UIColor.themeFailed: UIColor.black
         ]
         attachmentLabel.attributedText = NSAttributedString(string: title, attributes: attr)
+        
+        lblattachtitleSecond.attributedText = NSAttributedString(string: titleSecond, attributes: attr)
         editButton.isHidden = uploadStatus != .uploaded
         attachmentStack.isHidden = uploadStatus == .uploading
         uploadingLabel.isHidden = uploadStatus != .uploading
+        editButtonSecond.isHidden = true
+        
+        if (type.rawValue == "Driving license(front and back)") ||  (type.rawValue == "BI (front and back)") {
+            stackViewSecond.isHidden = false
+        }else {
+            stackViewSecond.isHidden = true
+        }
+        
     }
     
     func updateExpiryDateUI() {
@@ -136,9 +184,9 @@ class VehicleDocTableViewCell: UITableViewCell {
     }
     
     func updateTextFieldUI() {
-        textField.text = textFieldValue
+        textField.textField.text = textFieldValue
         textField.isHidden = type.textFieldPlaceholder == nil
-        textField.placeholder = type.textFieldPlaceholder
+        textField.textField.placeholder = type.textFieldPlaceholder
     }
     
     @IBAction func datePickerTapped(_ sender: UIButton) {

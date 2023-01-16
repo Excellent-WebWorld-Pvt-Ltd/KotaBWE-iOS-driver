@@ -15,4 +15,11 @@ class OnboardingVC: BaseViewController {
         super.viewDidLoad()
        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    
 }

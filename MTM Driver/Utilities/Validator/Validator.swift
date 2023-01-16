@@ -14,6 +14,7 @@ enum ValidatiionType{
     case isEmpty
     case numeric
     case password
+    case isPasswordMatch
     case isPhoneNumber
 }
 
@@ -37,7 +38,10 @@ class Validator {
             
             case .password:
                 guard isPassword(string: value.string, errorString: value.errorString) else { return false }
-          
+                
+            case .isPasswordMatch:
+                guard isPasswordMatch(string: value.string,confstring: value.string, errorString: value.errorString) else { return false }
+                
             case .isPhoneNumber:
                 guard isPhoneNumber(string: value.string, errorString: value.errorString) else { return false }
             }
@@ -75,6 +79,14 @@ class Validator {
   
     static private func isPassword(string: String?, errorString: String) -> Bool{
         if string!.count < 6 {
+            AlertMessage.showMessageForError(errorString)
+            return false
+        }
+        return true
+    }
+    
+    static private func isPasswordMatch(string: String?,confstring: String?, errorString: String) -> Bool{
+        if string! != confstring {
             AlertMessage.showMessageForError(errorString)
             return false
         }

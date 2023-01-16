@@ -54,14 +54,14 @@ class WeeklyUpdateCollectionCell: UICollectionViewCell {
     //MARK:- === Previous btn Click =====
     @IBAction func btnActionPrevious(_ sender: UIButton) {
         anchorView?.removeFromSuperview()
-        previousBtnClick?()
+       // previousBtnClick?()
         
     }
     
     //MARK:- === Next btn Click =====
     @IBAction func btnActionNext(_ sender: UIButton) {
         anchorView?.removeFromSuperview()
-        nextBtnClick?()
+      //  nextBtnClick?()
     }
     
     

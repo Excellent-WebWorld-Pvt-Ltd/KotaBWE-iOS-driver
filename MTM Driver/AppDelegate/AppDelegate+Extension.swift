@@ -35,7 +35,7 @@ extension AppDelegate {
             openSettingsDialog(title: Messages.cameraAccess, message: Messages.cameraAccessMsg)
             result(false)
         case .denied:
-            AppDelegate.showAlert(title: Messages.cameraAccess, message: Messages.cameraAccessMsg)
+            openSettingsDialog(title: Messages.cameraAccess, message: Messages.cameraAccessMsg)
                 result(false)
 
         case .authorized:

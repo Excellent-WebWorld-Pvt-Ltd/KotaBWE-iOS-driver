@@ -11,9 +11,17 @@ import UIKit
 class HelpViewController: BaseViewController, UITextViewDelegate {
 
     // MARK: - Outlets
-    @IBOutlet weak var txtSubject: UITextField!
-    @IBOutlet weak var txtView: UITextView!
     
+    @IBOutlet weak var txtSubject: CustomViewOutlinedTxtField!
+    
+    @IBOutlet weak var txtView: CustomViewOutlinedTxtView!
+    
+    
+    
+    
+//    @IBOutlet weak var txtSubject: UITextField!
+//    @IBOutlet weak var txtView: UITextView!
+//
     // MARK: - Variable Declaration
     
     // MARK: - View Lifecycle
@@ -21,18 +29,16 @@ class HelpViewController: BaseViewController, UITextViewDelegate {
         super.viewDidLoad()
         self.setupNavigation(.normal(title: "Help", leftItem: .back, hasNotification: false))
     
-        txtView.delegate = self
-        txtView.text = "Description"
-        txtView.textColor = UIColor.lightGray
+//        txtView.delegate = self
+//        txtView.text = "Description"
+//        txtView.textColor = UIColor.lightGray
     }
     
     // MARK: - Actions
     @IBAction func btnDoneAction(_ sender: UIButton) {
-        if validation().status {
-            webserviceForGenerateTicket()
-        } else {
-            UtilityClass.showAlert(message: validation().message)
-        }
+       // guard validations() else { return }
+//        webserviceForGenerateTicket()
+        self.goBack()
     }
     
     @IBAction func btnViewTicketAction(_ sender: UIButton) {
@@ -69,34 +75,55 @@ class HelpViewController: BaseViewController, UITextViewDelegate {
     
     func validation() -> (status: Bool, message: String) {
         
-        if txtSubject.text?.trimmingCharacters(in: .whitespacesAndNewlines).count == 0 {
+        if txtSubject.textField.text?.trimmingCharacters(in: .whitespacesAndNewlines).count == 0 {
             return (false, "Please enter subject")
         }
-        else if txtView.text?.trimmingCharacters(in: .whitespacesAndNewlines).count == 0 {
+        else if txtView.textArea.textView.text.trimmingCharacters(in: .whitespacesAndNewlines).count == 0 {
             return (false, "Please enter description")
         }
-        else if txtView.text == "Description" {
+        else if txtView.textArea.textView.text == "Description" {
             return (false, "Please enter description")
         }
         
         return (true, "")
     }
     
+    func validations() -> (Bool) {
+        
+        let subjectValidation = InputValidation.nonEmpty.isValid(input: txtSubject.textField.unwrappedText, field: "subject")
+        
+        let descriptionValidation = InputValidation.nonEmpty.isValid(input: txtView.textArea.textView.unwrappedText, field: "description")
+        
+        txtSubject.textField.leadingAssistiveLabel.text = subjectValidation.error
+        txtSubject.textField.setOutlineColor(subjectValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
+        
+        txtView.textArea.leadingAssistiveLabel.text = descriptionValidation.error
+        txtView.textArea.setOutlineColor(descriptionValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
+       
+        if subjectValidation.isValid && descriptionValidation.isValid {
+            return true
+        }else{
+            return false
+        }
+
+        
+    }
+    
     func webserviceForGenerateTicket() {
         
         let model = GenerateTicketModel()
         model.user_id = Singleton.shared.driverId
-        model.ticket_title = txtSubject.text ?? ""
-        model.description = txtView.text ?? ""
+        model.ticket_title = txtSubject.textField.text ?? ""
+        model.description = txtView.textArea.textView.text ?? ""
         Loader.showHUD(with: view)
         WebServiceCalls.GenerateTicketService(param: model) { (response, status) in
             Loader.hideHUD()
             print(response)
             if status {
                 
-                self.txtSubject.text = ""
-                self.txtView.text = "Description"
-                self.txtView.textColor = UIColor.lightGray
+                self.txtSubject.textField.text = ""
+                self.txtView.textArea.textView.text = "Description"
+                self.txtView.textArea.textView.textColor = UIColor.lightGray
                 
                 UtilityClass.showAlert(message: response.dictionary?["message"]?.string ?? "Your ticket is generated successfully. We will contact to you soon.")
             } else {

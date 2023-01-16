@@ -102,6 +102,7 @@ class VehicleDetailsVC: BaseViewController {
     
     
     @IBAction func btnActionNext(_ sender: UIButton) {
+        print("txtNational Number :\(txtNationalIDNumber.text)")
         guard validateInputs() else {
             return
         }
@@ -167,7 +168,7 @@ class VehicleDetailsVC: BaseViewController {
     
     func validateInputs() -> Bool {
         let validator = BunchEmptyValidator()
-        
+        print("====== Vaslidation ==========")
         validator.append(input: parameterArray.driver_licence_image, message: DrivingLicenseImageMissing)
         validator.append(input: txtDriverLicenceDate.text, message: DrivingLicenseDateMissing)
         

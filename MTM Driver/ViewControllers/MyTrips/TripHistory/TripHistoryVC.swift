@@ -41,7 +41,7 @@ class TripHistoryVC: BaseViewController {
     func btnSetup(){
         upcommingButton.setTitleColor(UIColor.white, for: .normal)
         upcommingButton.titleLabel?.font = UIFont.bold(ofSize: 16.0)
-        pastButton.setTitleColor(UIColor.themeBlue, for: .normal)
+        pastButton.setTitleColor(UIColor.themeTextFieldFilledBorderColor, for: .normal)
         pastButton.titleLabel?.font = UIFont.bold(ofSize: 16.0)
         
     }
@@ -66,7 +66,7 @@ class TripHistoryVC: BaseViewController {
     @IBAction func tabButtonTapped(_ sender: UIButton) {
         tabLeftContraint.constant = sender.frame.origin.x
         [upcommingButton, pastButton].forEach({ button in
-            button?.setTitleColor(button == sender ? .white : .themeBlue, for: .normal)
+            button?.setTitleColor(button == sender ? .white : .themeTextFieldFilledBorderColor, for: .normal)
         })
         UIView.animate(withDuration: 0.3) {
             sender.superview?.superview?.layoutIfNeeded()

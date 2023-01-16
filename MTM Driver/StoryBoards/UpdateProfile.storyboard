@@ -173,9 +173,159 @@
             </objects>
             <point key="canvasLocation" x="5415" y="159"/>
         </scene>
+        <!--Change PasswordVC-->
+        <scene sceneID="eZy-4H-121">
+            <objects>
+                <viewController storyboardIdentifier="ChangePasswordVC" id="1ZJ-Wg-cUW" customClass="ChangePasswordVC" customModule="MTM_Driver" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ntE-wU-U6J">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="xBR-Oh-6T3">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKj-cS-69U">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="404"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="42" translatesAutoresizingMaskIntoConstraints="NO" id="OqO-aA-RSy">
+                                                <rect key="frame" x="24" y="40" width="327" height="234"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tOz-bF-eJa" customClass="CustomViewOutlinedTxtField" customModule="MTM_Driver" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="327" height="50"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="KU1-yh-bGf"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Enter Old Password"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Old Password"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hmj-tk-Hfq" customClass="CustomViewOutlinedTxtField" customModule="MTM_Driver" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="92" width="327" height="50"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="n8d-XK-Vlz"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Enter New Password"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="New Password"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T1q-ch-8wq" customClass="CustomViewOutlinedTxtField" customModule="MTM_Driver" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="184" width="327" height="50"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="B8d-54-Qm9"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Enter Confirm New Password"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Confirm New Password"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htv-BU-dA3" customClass="ThemePrimaryButton" customModule="MTM_Driver" customModuleProvider="target">
+                                                <rect key="frame" x="24" y="314" width="327" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="yAv-gP-C3I"/>
+                                                </constraints>
+                                                <state key="normal" title="Submit"/>
+                                                <connections>
+                                                    <action selector="btnSubmitTapped:" destination="1ZJ-Wg-cUW" eventType="touchUpInside" id="LxY-dh-62Q"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mO7-fr-Zij">
+                                                <rect key="frame" x="297" y="56" width="34" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="mO7-fr-Zij" secondAttribute="height" multiplier="1:1" id="Hl7-dw-tYI"/>
+                                                    <constraint firstAttribute="height" constant="34" id="gpf-xZ-G84"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="ic_hidePasswordRed"/>
+                                                <connections>
+                                                    <action selector="btnOldPasswordTapped:" destination="1ZJ-Wg-cUW" eventType="touchUpInside" id="Kqi-le-pGI"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p95-zI-olm">
+                                                <rect key="frame" x="297" y="148" width="34" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="p95-zI-olm" secondAttribute="height" multiplier="1:1" id="FOb-QM-Mhc"/>
+                                                    <constraint firstAttribute="height" constant="34" id="yRi-QY-5W6"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="ic_hidePasswordRed"/>
+                                                <connections>
+                                                    <action selector="btnNewPasswordTapped:" destination="1ZJ-Wg-cUW" eventType="touchUpInside" id="ETs-7P-kJb"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEb-jA-M9I">
+                                                <rect key="frame" x="297" y="240" width="34" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="34" id="1hb-Um-Lyo"/>
+                                                    <constraint firstAttribute="width" secondItem="HEb-jA-M9I" secondAttribute="height" multiplier="1:1" id="wwK-eQ-4mb"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="ic_hidePasswordRed"/>
+                                                <connections>
+                                                    <action selector="btnConfirmNewPasswordTapped:" destination="1ZJ-Wg-cUW" eventType="touchUpInside" id="Vtp-sh-Rbs"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="OqO-aA-RSy" firstAttribute="leading" secondItem="wKj-cS-69U" secondAttribute="leading" constant="24" id="35s-ix-pC9"/>
+                                            <constraint firstItem="htv-BU-dA3" firstAttribute="top" secondItem="OqO-aA-RSy" secondAttribute="bottom" constant="40" id="DAN-u6-zjQ"/>
+                                            <constraint firstItem="mO7-fr-Zij" firstAttribute="centerY" secondItem="tOz-bF-eJa" secondAttribute="centerY" constant="8" id="Gl0-fO-Exi"/>
+                                            <constraint firstAttribute="trailing" secondItem="htv-BU-dA3" secondAttribute="trailing" constant="24" id="Ht6-zD-5Rn"/>
+                                            <constraint firstItem="OqO-aA-RSy" firstAttribute="top" secondItem="wKj-cS-69U" secondAttribute="top" constant="40" id="Lkw-cn-M0i"/>
+                                            <constraint firstItem="HEb-jA-M9I" firstAttribute="centerY" secondItem="T1q-ch-8wq" secondAttribute="centerY" constant="8" id="Sx4-q4-fHh"/>
+                                            <constraint firstItem="p95-zI-olm" firstAttribute="centerY" secondItem="hmj-tk-Hfq" secondAttribute="centerY" constant="8" id="Xj2-9E-N8S"/>
+                                            <constraint firstItem="htv-BU-dA3" firstAttribute="leading" secondItem="wKj-cS-69U" secondAttribute="leading" constant="24" id="cWK-Pp-KSY"/>
+                                            <constraint firstAttribute="trailing" secondItem="OqO-aA-RSy" secondAttribute="trailing" constant="24" id="mh6-Mq-DMp"/>
+                                            <constraint firstItem="HEb-jA-M9I" firstAttribute="trailing" secondItem="T1q-ch-8wq" secondAttribute="trailing" constant="-20" id="nAr-rL-xAI"/>
+                                            <constraint firstItem="mO7-fr-Zij" firstAttribute="trailing" secondItem="tOz-bF-eJa" secondAttribute="trailing" constant="-20" id="rxM-Sm-Yb9"/>
+                                            <constraint firstItem="p95-zI-olm" firstAttribute="trailing" secondItem="hmj-tk-Hfq" secondAttribute="trailing" constant="-20" id="tpz-mY-3QU"/>
+                                            <constraint firstAttribute="bottom" secondItem="htv-BU-dA3" secondAttribute="bottom" constant="40" id="xba-CG-HgR"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="wKj-cS-69U" secondAttribute="trailing" id="5s7-ix-GDG"/>
+                                    <constraint firstAttribute="bottom" secondItem="wKj-cS-69U" secondAttribute="bottom" id="7tI-pn-T4e"/>
+                                    <constraint firstItem="wKj-cS-69U" firstAttribute="top" secondItem="xBR-Oh-6T3" secondAttribute="top" id="hZg-ke-nFm"/>
+                                    <constraint firstItem="wKj-cS-69U" firstAttribute="width" secondItem="xBR-Oh-6T3" secondAttribute="width" id="iiL-HL-gkC"/>
+                                    <constraint firstItem="wKj-cS-69U" firstAttribute="leading" secondItem="xBR-Oh-6T3" secondAttribute="leading" id="smg-fA-8YC"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Qdr-g6-0w6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xBR-Oh-6T3" firstAttribute="leading" secondItem="Qdr-g6-0w6" secondAttribute="leading" id="5v3-QB-PDO"/>
+                            <constraint firstItem="xBR-Oh-6T3" firstAttribute="top" secondItem="Qdr-g6-0w6" secondAttribute="top" id="Qdc-2h-9rW"/>
+                            <constraint firstItem="Qdr-g6-0w6" firstAttribute="bottom" secondItem="xBR-Oh-6T3" secondAttribute="bottom" id="gmm-F4-ybP"/>
+                            <constraint firstItem="Qdr-g6-0w6" firstAttribute="trailing" secondItem="xBR-Oh-6T3" secondAttribute="trailing" id="lWb-id-BVG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnHideShowConfirmNewPassword" destination="HEb-jA-M9I" id="Wrd-Bm-8bd"/>
+                        <outlet property="btnHideShowNewPassword" destination="p95-zI-olm" id="5IQ-Kd-ynj"/>
+                        <outlet property="btnHideShowOldPassword" destination="mO7-fr-Zij" id="28B-zJ-GRU"/>
+                        <outlet property="btnSubmit" destination="htv-BU-dA3" id="KIH-Mr-M3k"/>
+                        <outlet property="txtConfirmNewPassword" destination="T1q-ch-8wq" id="Y3t-Gy-Kim"/>
+                        <outlet property="txtNewPassword" destination="hmj-tk-Hfq" id="EvO-cI-ikH"/>
+                        <outlet property="txtOldPassword" destination="tOz-bF-eJa" id="MXh-T7-O4K"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hhs-1h-y6W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6262" y="548"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ic_DownArrow" width="10" height="6"/>
+        <image name="ic_hidePasswordRed" width="18" height="15"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

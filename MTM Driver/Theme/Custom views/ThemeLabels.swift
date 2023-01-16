@@ -12,6 +12,7 @@ class ThemeLabel: UILabel {
     @IBInspectable var Colour : UIColor = .white
     @IBInspectable var regular: Bool = false
     @IBInspectable var semibold: Bool = false
+    @IBInspectable var medium: Bool = false
     @IBInspectable var bold: Bool = false
     @IBInspectable var objAlpha:CGFloat = 1
     @IBInspectable var white: Bool = false
@@ -28,12 +29,14 @@ class ThemeLabel: UILabel {
         if semibold {
             font = FontBook.semibold.font(ofSize: fontSize)
         } else if regular {
-            font = FontBook.semibold.font(ofSize: fontSize)
+            font = FontBook.regular.font(ofSize: fontSize)
         } else if bold {
             font = FontBook.bold.font(ofSize: fontSize)
         }
         else if digitNumber{
             font = FontBook.digitNumber.font(ofSize: fontSize)
+        }else if medium{
+            font = FontBook.medium.font(ofSize: fontSize)
         }
 
         if white {

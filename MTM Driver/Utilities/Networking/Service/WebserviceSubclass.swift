@@ -112,7 +112,7 @@ class WebServiceCalls
         WebService.shared.requestMethod(api: .changePassword, httpMethod: .post, parameters: params, completion: completion)
     }
     class func forgotPassword(strType : [String: Any]  ,completion: @escaping CompletionResponse ) {
-        WebService.shared.requestMethod(api: .forgotPassword, httpMethod: .get, parameters: strType, completion: completion)
+        WebService.shared.requestMethod(api: .forgotPassword, httpMethod: .post, parameters: strType, completion: completion)
     }
     
     class func vehicleTypeModelList(strType : [String: Any]  ,completion: @escaping CompletionResponse ) {

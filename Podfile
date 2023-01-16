@@ -34,6 +34,11 @@ pod 'MKToolTip', '~> 1.0.6'
 pod 'EasyTipView', '~> 2.1'
 pod 'UIView-Shimmer', '~> 1.0'
 
+pod 'MaterialComponents/TextControls+FilledTextAreas'
+pod 'MaterialComponents/TextControls+FilledTextFields'
+pod 'MaterialComponents/TextControls+OutlinedTextAreas'
+pod 'MaterialComponents/TextControls+OutlinedTextFields'
+
 
 #pod 'Charts'
 #pod 'XYChart'

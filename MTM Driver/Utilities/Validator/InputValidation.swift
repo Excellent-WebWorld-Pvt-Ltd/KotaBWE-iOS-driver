@@ -17,15 +17,17 @@ enum InputValidation {
     case name
     case nonEmpty
     case username
+    case bankaccount
 }
 
 extension InputValidation {
 
     var maxLimit: Int {
         switch self {
-        case .mobile:   return 12
+        case .mobile:   return 10
         case .name:     return 25
-        case .password: return 15
+        case .password: return 25
+        case .bankaccount: return 10
         default:        return 200
         }
     }
@@ -36,6 +38,10 @@ extension InputValidation {
             return "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!#$%&'*+-/=?^_`{|}~;@."
         case .mobile:
             return "0123456789"
+        case .bankaccount:
+            return "0123456789"
+        case .name:
+            return "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
         default:
             return ""
         }
@@ -44,14 +50,16 @@ extension InputValidation {
     var pattern: String {
         switch self {
         case .email:
-            return "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,15}"
+            return "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$"
         case .username:
             return "^\\w{7,18}$"
         case .password:
-            return "[a-zA-Z0-9!@#$%^&*]{8,15}"
+            return "[a-zA-Z0-9!@#$%^&*]{8,25}"
             // [a-zA-Z0-9!@#$%^&*]
           //  return "(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,15}"
         case .mobile:
+            return "[0-9]{10}"
+        case .bankaccount:
             return "[0-9]{9,12}"
         case .name:
             return "[A-Za-z]{2,25}"
@@ -67,6 +75,8 @@ extension InputValidation {
         case .password:
             return validatePassword(input: input, field: field)
         case .mobile:
+            return validateMobile(input: input, field: field)
+        case .bankaccount:
             return validateMobile(input: input, field: field)
         case .name:
             return validateName(input: input, field: field)
@@ -125,7 +135,7 @@ extension InputValidation {
         guard isValidForPattern(input: input) else {
             return (false, "\(Messages.pleaseEnterValid) \(field)")
         }
-        return (true, "")
+        return (true, nil)
     }
     
     // MARK: - Email
@@ -137,7 +147,7 @@ extension InputValidation {
         guard isValidForPattern(input: input) else {
             return (false, "\(Messages.pleaseEnterValid) \(field)")
         }
-        return (true, "")
+        return (true, nil)
     }
     
     // MARK: - Mobile
@@ -149,7 +159,18 @@ extension InputValidation {
         guard isValidForPattern(input: input) else {
             return (false, "\(Messages.pleaseEnterValid) \(field)")
         }
-        return (true, "")
+        return (true, nil)
+    }
+    // MARK: - account
+    func validateAccount(input: String, field: String) -> ValidationResult {
+        let emptyValidation = validateNoEmpty(input: input, field: field)
+        guard emptyValidation.isValid else {
+            return emptyValidation
+        }
+        guard isValidForPattern(input: input) else {
+            return (false, "\(Messages.pleaseEnterValid) \(field)")
+        }
+        return (true, nil)
     }
     
     // MARK: - UserName
@@ -164,7 +185,7 @@ extension InputValidation {
         guard isValidForPattern(input: input) else {
             return (false, "\(Messages.specialCharacterNotAllowed) \(field)")
         }
-        return (true, "")
+        return (true, nil)
     }
     
     // MARK: - Password
@@ -180,7 +201,7 @@ extension InputValidation {
         guard isValidForPattern(input: input) else {
             return (false, "\(Messages.pleaseEnterValid) \(field)")
         }
-        return (true, "")
+        return (true, nil)
     }
 }
 
@@ -201,11 +222,11 @@ extension InputValidation {
 }
 
 enum Messages {
-    static let pleaseEnter = "Please Enter"
-    static let pleaseEnterValid = "Please Enter valid"
+    static let pleaseEnter = "Please enter"
+    static let pleaseEnterValid = "Please enter valid"
     static let specialCharacterNotAllowed = "Special characters are not allowed in"
-    static let invalidUsernameRange = "Username must be between 8 and 18 characters"
-    static let invalidPasswordRange = "Password must be between 8 and 25 characters"
+    static let invalidUsernameRange = "Username must be between 8 to 18 characters"
+    static let invalidPasswordRange = "Password must be between 8 to 25 characters"
     static let cameraAccess = "Unable to access the Camera"
     static let cameraAccessMsg = "To enable access, go to Settings > Privacy > Camera and turn on Camera access for this app."
     static let photoAccess = "Unable to access the Photos"

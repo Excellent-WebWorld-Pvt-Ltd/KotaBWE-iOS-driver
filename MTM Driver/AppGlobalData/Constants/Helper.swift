@@ -18,6 +18,10 @@ let Currency = "Ksh"
 let measurement = "mi"
 let zoomLevel: Float = 16.0
 
+
+let hidePasswordImg = UIImage(named: "ic_hidePasswordRed")
+let showPasswordImg = UIImage(named: "ic_showPasswordRed")
+
 let PaymentSuccessURL = "https://showfaride.com/panel/flutterwave/payment_success"
 let PaymentFailureURL = "https://showfaride.com/panel/flutterwave/payment_failed"
 

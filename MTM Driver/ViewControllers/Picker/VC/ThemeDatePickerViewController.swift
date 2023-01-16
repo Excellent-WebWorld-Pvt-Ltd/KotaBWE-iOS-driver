@@ -45,9 +45,12 @@ class ThemeDatePickerViewController: UIViewController {
         datePicker.date = selectedDate ?? Date()
         datePicker.datePickerMode = .date
         if type == .birthDate {
-            datePicker.maximumDate = Date()
+            let date = Calendar.current.date(byAdding: .year, value: -18, to: Date())
+            datePicker.maximumDate = date
         } else if type == .expiryDate {
-            datePicker.minimumDate = Date()
+            let date = Calendar.current.date(byAdding: .day, value: 1, to: Date())
+            
+            datePicker.minimumDate = date
         }
         blurryView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         blurryView.layer.cornerRadius = 16

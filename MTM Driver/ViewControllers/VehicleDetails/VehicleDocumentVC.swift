@@ -26,18 +26,18 @@ class VehicleDocumentVC: BaseViewController, UIViewControllerTransitioningDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         if isFromSettings {
-            if let model = SessionManager.shared.userProfile?.responseObject.driverDocs  {
-                sessionParameter.set(driverDoc: model)
-            } else {
-                self.goBack()
-                return
-            }
+//            if let model = SessionManager.shared.userProfile?.responseObject.driverDocs  {
+//                sessionParameter.set(driverDoc: model)
+//            } else {
+//                self.goBack()
+//                return
+//            }
         }
         setupUI()
     }
     
     private func setupUI() {
-        self.setupNavigation(.normal(title: "Vehicle Details", leftItem: .back))
+        self.setupNavigation(.normal(title: "Vehicle Document", leftItem: .back))
         tableView.contentInset.top = 24
         tableView.registerNibCell(type: .vehicleDoc)
         let buttonTitle = isFromSettings ? "Save" : "Submit"
@@ -50,13 +50,15 @@ class VehicleDocumentVC: BaseViewController, UIViewControllerTransitioningDelega
             UtilityClass.showAlert(message: "Document getting uploaded, please wait till finish the process")
             return
         }
-        guard validateInputs() else {
-            return
-        }
+//        guard validateInputs() else {
+//            return
+//        }
         if isFromSettings {
-            sendUpdateRequest()
+//            sendUpdateRequest()
+            self.navigationController?.popViewController(animated: true)
         } else {
-            sendRegistrationRequest()
+//            sendRegistrationRequest()
+            AppDelegate.shared.setHome()
         }
     }
     
@@ -122,7 +124,7 @@ class VehicleDocumentVC: BaseViewController, UIViewControllerTransitioningDelega
         documentPicker = DocumentPickerController(from: self,
                                  allowEditing: false,
                                  fileType: DocumentPickerFileType.allCases) { [unowned self] data in
-            self.uploadDocument(data, type: type)
+           // self.uploadDocument(data, type: type)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
                 self.documentPicker = nil
             })
@@ -221,6 +223,9 @@ extension VehicleDocumentVC: UITableViewDelegate, UITableViewDataSource {
         } else {
             setValueForRegistration(cell: cell, type: type, indexPath: indexPath)
         }
+        
+        
+        
         return cell
     }
 }
@@ -303,16 +308,22 @@ extension VehicleDocumentVC {
         
         static var all: [DocSection] = [
             .init(title: "Driver Details", types: [
-                .nationalId,
+//                .nationalId,
                 .driverLicense,
-                .drivrPsvLicense,
-                .goodConductCerti
+                //.drivrPsvLicense,
+                .drivrCriminalRecord,
+                .drivrResidenceCertificate,
+               // .goodConductCerti
             ]),
             .init(title: "Vehicle Details", types: [
-                .vehiclePsvLicense,
-                .vehicleLogbook,
-                .ntsaInspectionCert,
-                .psvComprehensiveInsurance
+                //.vehiclePsvLicense,
+                //.vehicleLogbook,
+                //.ntsaInspectionCert,
+                //.psvComprehensiveInsurance
+                .rentalLicense,
+                .booklet,
+                .civilLiabilityInsurance,
+                .biFrontAndBack
             ])
         ]
     }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="743" height="215"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XhP-cz-rW7" customClass="Gradient" customModule="MTM_Driver" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XhP-cz-rW7">
                     <rect key="frame" x="0.0" y="0.0" width="743" height="215"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You're Offline " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Hw-kk-8zS" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
@@ -30,7 +30,7 @@
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="bold" value="YES"/>
                                 <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                    <real key="value" value="20"/>
+                                    <real key="value" value="18"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="white" value="YES"/>
                             </userDefinedRuntimeAttributes>
@@ -81,7 +81,7 @@
                                     <nil key="highlightedColor"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                            <real key="value" value="20"/>
+                                            <real key="value" value="36"/>
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="semibold" value="YES"/>
                                     </userDefinedRuntimeAttributes>
@@ -101,8 +101,39 @@
                                 <action selector="btnActionSeeMore:" destination="iN0-l3-epB" eventType="touchUpInside" id="KrR-gx-X5I"/>
                             </connections>
                         </button>
-                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8nJ-Ij-udD">
-                            <rect key="frame" x="663" y="29.5" width="52" height="31"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qhh-8f-iTH" customClass="CustomSwitch" customModule="MTM_Driver" customModuleProvider="target">
+                            <rect key="frame" x="663" y="34" width="50" height="22"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="oIk-Ab-g9g"/>
+                                <constraint firstAttribute="height" constant="22" id="p91-1Q-DRZ"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="onTintColor">
+                                    <color key="value" red="1" green="0.90588235294117647" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="offTintColor">
+                                    <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="onThumbTintColor">
+                                    <color key="value" name="themeRed"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="offThumbTintColor">
+                                    <color key="value" red="0.89411764705882346" green="0.89411764705882346" blue="0.89411764705882346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="size" keyPath="thumbSize">
+                                    <size key="value" width="30" height="30"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="padding">
+                                    <real key="value" value="-2"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="btnActionOnOff:" destination="iN0-l3-epB" eventType="valueChanged" id="dkb-5M-l5h"/>
+                            </connections>
+                        </view>
+                        <switch hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8nJ-Ij-udD">
+                            <rect key="frame" x="1000" y="29.5" width="52" height="31"/>
                             <color key="backgroundColor" red="0.0" green="0.41965230305989581" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="50" id="gRb-4G-vaf"/>
@@ -129,6 +160,8 @@
                         <constraint firstItem="4Hw-kk-8zS" firstAttribute="top" secondItem="XhP-cz-rW7" secondAttribute="top" constant="20" id="dn2-MY-kfW"/>
                         <constraint firstItem="Xdl-Pp-tDH" firstAttribute="centerY" secondItem="4Hw-kk-8zS" secondAttribute="centerY" id="dwA-OB-MzU"/>
                         <constraint firstItem="pRc-5h-E0m" firstAttribute="leading" secondItem="3EL-U5-OLC" secondAttribute="leading" id="iqw-qL-E25"/>
+                        <constraint firstItem="Qhh-8f-iTH" firstAttribute="centerY" secondItem="4Hw-kk-8zS" secondAttribute="centerY" id="kYl-VP-lEQ"/>
+                        <constraint firstAttribute="trailing" secondItem="Qhh-8f-iTH" secondAttribute="trailing" constant="30" id="yrQ-03-QfX"/>
                     </constraints>
                     <variation key="default">
                         <mask key="subviews">
@@ -160,6 +193,9 @@
         <image name="ic_SwitchOff" width="43" height="38"/>
         <namedColor name="themeBlue">
             <color red="0.20000000298023224" green="0.0" blue="0.40000000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="themeRed">
+            <color red="0.80000001192092896" green="0.20000000298023224" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

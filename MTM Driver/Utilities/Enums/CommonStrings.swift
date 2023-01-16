@@ -40,6 +40,7 @@ let manufactureYearErrorString = "Please select year of manufacture"
 let carTypeErrorString = "Please enter valid car type."
 let noOfPassengerErrorString = "Please enter number of passengers"
 let companyNameErrorString = "Please enter company name"
+let vehicleColoErrorString = "Please enter vehivle color"
 
 
 let driverRoleErrorString = "Please select driver Role"

@@ -13,30 +13,55 @@ import CountryPickerView
 class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UIImagePickerControllerDelegate{
   
     // MARK: - ===== Outlets =======
+    @IBOutlet weak var btnHidePassword: UIButton!
+    @IBOutlet weak var btnHideConfomPassword: UIButton!
     @IBOutlet weak var tvTermPrivacy: UITextView!
     @IBOutlet weak var btnAlreadyhaveAccount: UIButton!
     @IBOutlet weak var viewCountryPicker: CountryPickerView!
     @IBOutlet weak var viewBgLine: UIView!
-    @IBOutlet weak var txtPhoneNumber: UITextField!
-    @IBOutlet weak var txtEmail: ThemeUnderLineTextField!
+  //  @IBOutlet weak var txtPhoneNumber: UITextField!
+ //   @IBOutlet weak var txtEmail: ThemeUnderLineTextField!
+    @IBOutlet weak var txtPhoneNumber: CustomViewOutlinedTxtField!
+    
+    @IBOutlet weak var txtPassword: CustomViewOutlinedTxtField!
+    
+    @IBOutlet weak var txtConformPassword: CustomViewOutlinedTxtField!
+    
+    @IBOutlet weak var txtEmail: CustomViewOutlinedTxtField!
+    
     
     // MARK: - ===== Variables ======
     var selectedCounty : Country?
     lazy var parameterArray = RegistrationParameter.shared
-
+    private lazy var registerParameters = RegistrationParameter.shared
+    var iconPasswordClick = true
+    var iconConformPasswordClick = true
     
     //MARK: - ======= ViewController Life Cycle ======
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.isHidden = true
-        setupCountryPicker()
-        txtPhoneNumber.font = UIFont.regular(ofSize: 18.0)
-        txtPhoneNumber.delegate = self
-        txtPhoneNumber.delegate = self
-    
+//        setupCountryPicker()
+        
+        setupTextfields()
         TermsAndCondtionSetup()
         setupRegisterVC()
+        self.isPasswordSecure(isSecure: true)
+        self.isConformPasswordSecure(isSecure: true)
+        txtPassword.textField.setRightPaddingPoints(25)
+        txtConformPassword.textField.setRightPaddingPoints(25)
+    }
+    
+    func setupTextfields() {
+        
+        txtPhoneNumber.textField.keyboardType = .phonePad
+        txtPhoneNumber.textField.delegate = self
+        txtEmail.textField.delegate = self
+        txtPassword.textField.delegate = self
+        txtConformPassword.textField.delegate = self
+        txtEmail.textField.keyboardType = .emailAddress
+        txtEmail.textField.autocapitalizationType = .none
         
     }
     
@@ -52,8 +77,10 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
     }
     
     func navigateToVC(){
-        txtEmail.text = parameterArray.email
-        txtPhoneNumber.text = parameterArray.mobile_no
+        txtEmail.textField.text = parameterArray.email
+        txtPassword.textField.text = parameterArray.password
+        registerParameters.password = txtPassword.textField.text!
+        txtPhoneNumber.textField.text =  parameterArray.mobile_no
         if parameterArray.shouldAutomaticallyMoveToPage(from: .registration) {
             let profileVC = AppViewControllers
                 .shared
@@ -65,9 +92,14 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
     //MARK:- ===== Validation ========
     func validateFields() -> Bool{
         
-        let validationParameter :[(String?,String, ValidatiionType)] =  [(txtEmail.text,emailEmptyErrorString,.isEmpty),(txtEmail.text,emailErrorString,.email),
-                                                                         (txtPhoneNumber.text,phoneNumberEmptyErrorString,.isEmpty),
-                                                                         (txtPhoneNumber.text,phoneNumberErrorString, .isPhoneNumber)]
+        let validationParameter :[(String?,String, ValidatiionType)] =  [
+            (txtEmail.textField.text,emailEmptyErrorString,.isEmpty),(txtEmail.textField.text,emailErrorString,.email),
+            (txtPhoneNumber.textField.text,phoneNumberEmptyErrorString,.isEmpty),
+            (txtPassword.textField.text,passwordEmptyErrorString,.isEmpty),
+            (txtPassword.textField.text,passwordValidErrorString,.password),
+            (txtConformPassword.textField.text,confirmPasswordEmptyErrorString,.isEmpty),
+            (txtConformPassword.textField.text,confirmPasswordValidErrorString,.password),
+            (txtPhoneNumber.textField.text,phoneNumberErrorString, .isPhoneNumber)]
         guard Validator.validate(validationParameter) else{
             return false
         }
@@ -111,6 +143,60 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
         btnAlreadyhaveAccount.setAttributedTitle(FormattedText, for: .normal)
     }
     
+    
+    func isPasswordSecure(isSecure:Bool){
+        if iconPasswordClick {
+            txtPassword.textField.isSecureTextEntry = true
+            btnHidePassword.setImage(UIImage(named: "ic_hidePasswordRed"), for: .normal)
+        } else {
+            txtPassword.textField.isSecureTextEntry = false
+            btnHidePassword.setImage(UIImage(named: "ic_showPasswordRed"), for: .normal)
+        }
+    }
+    func isConformPasswordSecure(isSecure:Bool){
+        if iconConformPasswordClick {
+            txtConformPassword.textField.isSecureTextEntry = true
+            btnHideConfomPassword.setImage(UIImage(named: "ic_hidePasswordRed"), for: .normal)
+        } else {
+            txtConformPassword.textField.isSecureTextEntry = false
+            btnHideConfomPassword.setImage(UIImage(named: "ic_showPasswordRed"), for: .normal)
+        }
+    }
+    
+    private func isValidInputes() -> Bool {
+
+           let emailValidation = InputValidation.email.isValid(input: txtEmail.textField.unwrappedText, field: "email")
+           txtEmail.textField.leadingAssistiveLabel.text = emailValidation.error
+           txtEmail.textField.setOutlineColor(emailValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
+           
+           let mobileValidation = InputValidation.mobile.isValid(input: txtPhoneNumber.textField.unwrappedText, field: "mobile number")
+            txtPhoneNumber.textField.leadingAssistiveLabel.text = mobileValidation.error
+            txtPhoneNumber.textField.setOutlineColor(mobileValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
+
+           let passwordValidation = InputValidation.password.isValid(input: txtPassword.textField.unwrappedText, field: "password")
+           txtPassword.textField.leadingAssistiveLabel.text = passwordValidation.error
+           txtPassword.textField.setOutlineColor(passwordValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
+           
+           let confirmPasswordValidation = InputValidation.password.isValid(input: txtConformPassword.textField.unwrappedText, field: "confirm password")
+           txtConformPassword.textField.leadingAssistiveLabel.text = confirmPasswordValidation.error
+           txtConformPassword.textField.setOutlineColor(confirmPasswordValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
+           if confirmPasswordValidation.isValid {
+               if txtConformPassword.textField.text != txtPassword.textField.text {
+                   txtConformPassword.textField.leadingAssistiveLabel.text = "Your password and confirmation password do not match."
+                   txtConformPassword.textField.setOutlineColor(.red, for: .normal)
+               }else{
+                   txtConformPassword.textField.leadingAssistiveLabel.text = ""
+                   txtConformPassword.textField.setOutlineColor(.themeTextFieldDefaultBorderColor, for: .normal)
+               }
+           }
+           
+           if emailValidation.isValid && mobileValidation.isValid && passwordValidation.isValid && confirmPasswordValidation.isValid && txtConformPassword.textField.text == txtPassword.textField.text {
+               return true
+           }else{
+               return false
+           }
+       }
+    
     @IBAction func btnActionSignIn(_ sender: UnderlineTextButton) {
         if navigationViewController(contains: LoginVC.self) {
             self.goBack()
@@ -120,9 +206,27 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
     }
     
     @IBAction func btnNextClick(_ sender: Any) {
-        guard validateFields() else { return }
-         webserviceCallRegisterOTP()
+        
+        let otpVC = AppViewControllers.shared.otp
+        otpVC.isFromRegister = true
+        otpVC.strMobileNo = self.txtPhoneNumber.textField.text ?? ""
+        otpVC.strOTP = ""
+        self.navigationController?.pushViewController(otpVC, animated: true)
+        
+//        guard isValidInputes() else { return }
+//        webserviceCallRegisterOTP()
+
     }
+    @IBAction func btnActionPasswordShow(_ sender: Any) {
+        iconPasswordClick = !iconPasswordClick
+        self.isPasswordSecure(isSecure:iconPasswordClick)
+    }
+    
+    @IBAction func btnActionConformPasswordShow(_ sender: Any) {
+        iconConformPasswordClick = !iconConformPasswordClick
+        self.isConformPasswordSecure(isSecure:iconConformPasswordClick)
+    }
+    
     
     func setupViews(){
         let main_string = "Already a Showfa user? Sign In"
@@ -140,10 +244,11 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
     func webserviceCallRegisterOTP(){
         Loader.showHUD(with: Helper.currentWindow)
         let otpReqModel = OTPModel()
-        otpReqModel.email = txtEmail.text ?? ""
-        otpReqModel.mobile_no = txtPhoneNumber.text ?? ""
-        parameterArray.email = txtEmail.text ?? ""
-        parameterArray.mobile_no = txtPhoneNumber.text ?? ""
+        otpReqModel.email = txtEmail.textField.text ?? ""
+        otpReqModel.mobile_no = txtPhoneNumber.textField.text ?? ""
+        parameterArray.email = txtEmail.textField.text ?? ""
+        parameterArray.password = txtPassword.textField.text ?? ""
+        parameterArray.mobile_no = txtPhoneNumber.textField.text ?? ""
         
         WebServiceCalls.registerOTP(otpModel:otpReqModel) { response, status in
             Loader.hideHUD()
@@ -152,7 +257,7 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
                 AlertMessage.showMessageForSuccess(response["otp"].stringValue  + response["message"].stringValue)
                 let otpVC = AppViewControllers.shared.otp
                 otpVC.isFromRegister = true
-                otpVC.strMobileNo = self.txtPhoneNumber.text ?? ""
+                otpVC.strMobileNo = self.txtPhoneNumber.textField.text ?? ""
                 otpVC.strOTP = response["otp"].stringValue
                 self.navigationController?.pushViewController(otpVC, animated: true)
             }
@@ -209,29 +314,30 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
 extension RegistrationViewController : UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let validation: InputValidation = {
-            if textField == txtEmail {
-                return .email
-            } else {
-                return .mobile
+            var validation: InputValidation?
+            switch textField {
+            case txtEmail.textField:
+                validation = .email
+            case txtPhoneNumber.textField:
+                validation = .mobile
+            case txtPassword.textField:
+                validation = .password
+                if (string == " " || string == "  ") {
+                    return false
+                }
+            case txtConformPassword.textField:
+                validation = .password
+                if (string == " " || string == "  ") {
+                    return false
+                }
+            default:
+                break
             }
-        }()
-        return validation.textField(textField, shouldChangeCharactersIn: range, replacementString: string)
-    }
-    
-    
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        if textField == txtPhoneNumber {
-            viewBgLine.backgroundColor = .themeColor
+            if let validation = validation {
+                return validation.textField(textField, shouldChangeCharactersIn: range, replacementString: string)
+            }
+            return true
         }
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField == txtPhoneNumber {
-            viewBgLine.backgroundColor = .themeLightGray
-        }
-    }
 }
 
 //MARK:- Country Picker Methods
