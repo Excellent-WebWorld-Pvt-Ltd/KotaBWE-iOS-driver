@@ -177,12 +177,13 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
            txtPassword.textField.leadingAssistiveLabel.text = passwordValidation.error
            txtPassword.textField.setOutlineColor(passwordValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
            
-           let confirmPasswordValidation = InputValidation.password.isValid(input: txtConformPassword.textField.unwrappedText, field: "confirm password")
+           var confirmPasswordValidation = InputValidation.nonEmpty.isValid(input: txtConformPassword.textField.unwrappedText, field: "confirm password")
            txtConformPassword.textField.leadingAssistiveLabel.text = confirmPasswordValidation.error
            txtConformPassword.textField.setOutlineColor(confirmPasswordValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
            if confirmPasswordValidation.isValid {
                if txtConformPassword.textField.text != txtPassword.textField.text {
                    txtConformPassword.textField.leadingAssistiveLabel.text = "Your password and confirmation password do not match."
+                   confirmPasswordValidation.isValid = false
                    txtConformPassword.textField.setOutlineColor(.red, for: .normal)
                }else{
                    txtConformPassword.textField.leadingAssistiveLabel.text = ""
@@ -190,7 +191,7 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
                }
            }
            
-           if emailValidation.isValid && mobileValidation.isValid && passwordValidation.isValid && confirmPasswordValidation.isValid && txtConformPassword.textField.text == txtPassword.textField.text {
+           if emailValidation.isValid && mobileValidation.isValid && passwordValidation.isValid && confirmPasswordValidation.isValid{
                return true
            }else{
                return false
@@ -207,14 +208,14 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
     
     @IBAction func btnNextClick(_ sender: Any) {
         
-        let otpVC = AppViewControllers.shared.otp
-        otpVC.isFromRegister = true
-        otpVC.strMobileNo = self.txtPhoneNumber.textField.text ?? ""
-        otpVC.strOTP = ""
-        self.navigationController?.pushViewController(otpVC, animated: true)
+//        let otpVC = AppViewControllers.shared.otp
+//        otpVC.isFromRegister = true
+//        otpVC.strMobileNo = self.txtPhoneNumber.textField.text ?? ""
+//        otpVC.strOTP = ""
+//        self.navigationController?.pushViewController(otpVC, animated: true)
         
-//        guard isValidInputes() else { return }
-//        webserviceCallRegisterOTP()
+        guard isValidInputes() else { return }
+        webserviceCallRegisterOTP()
 
     }
     @IBAction func btnActionPasswordShow(_ sender: Any) {
@@ -253,8 +254,7 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
         WebServiceCalls.registerOTP(otpModel:otpReqModel) { response, status in
             Loader.hideHUD()
             if status {
-                print(response)
-                AlertMessage.showMessageForSuccess(response["otp"].stringValue  + response["message"].stringValue)
+                AlertMessage.showMessageForSuccess(response["message"].stringValue)
                 let otpVC = AppViewControllers.shared.otp
                 otpVC.isFromRegister = true
                 otpVC.strMobileNo = self.txtPhoneNumber.textField.text ?? ""

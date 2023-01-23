@@ -20,6 +20,7 @@ class Singleton {
     var menufacturingYearList = [String]()
     //var CountryList : [CountryDatum]?
     var registrationModel : RegistrationModel!
+    var truckTypeList = [TruckType]()
     
     /// Driver login details
     var userProfile: LoginModel?

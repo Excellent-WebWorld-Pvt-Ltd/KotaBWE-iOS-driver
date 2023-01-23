@@ -119,7 +119,7 @@ class OTPVC: BaseViewController , OTPTextFieldDelegate{
     
     //MARK:- ===== Btn Action Next =====
     @IBAction func btnActionNext(_ sender: UIButton) {
- //       guard validation() else { return }
+        guard validation() else { return }
         if isFromRegister {
 //            parameterArray.setNextRegistrationIndex(from: .registration)
 //            SessionManager.shared.registrationParameter = parameterArray
@@ -176,26 +176,15 @@ class OTPVC: BaseViewController , OTPTextFieldDelegate{
     
     //MARK:- ===== UISetup ======
     func UISetup(){
-        for i in txtOTPCollection {
+        lblOTPTitle.font = UIFont.regular(ofSize: 15.0)
+        for (count,i) in txtOTPCollection.enumerated() {
+            textFieldsIndexes[txtOTPCollection[count]] = count
             i.textColor = UIColor.black
             i.font = UIFont.regular(ofSize: 20.0)
             i.borderColor = UIColor.themeColor.withAlphaComponent(0.3)
-        }
-        lblOTPTitle.font = UIFont.regular(ofSize: 15.0)
-        
-        for index in 0 ..< txtOTPCollection.count {
-            textFieldsIndexes[txtOTPCollection[index]] = index
-         }
-        
-        for i in txtOTPCollection {
             i.delegate = self
+            i.myDelegate = self
         }
-            txtOTPCollection[0].myDelegate = self
-            txtOTPCollection[1].myDelegate = self
-            txtOTPCollection[2].myDelegate = self
-            txtOTPCollection[3].myDelegate = self
-            txtOTPCollection[4].myDelegate = self
-            txtOTPCollection[5].myDelegate = self
     }
     
     
@@ -234,7 +223,6 @@ class OTPVC: BaseViewController , OTPTextFieldDelegate{
     //MARK:- ==== Terms And Condition =====
     func buttonSetup(){
         let FormattedText = NSMutableAttributedString()
-        
         FormattedText
             .normal("Didn’t receive code? ", Colour: UIColor.black.withAlphaComponent(0.7))
             .bold("Resend")
@@ -246,24 +234,23 @@ class OTPVC: BaseViewController , OTPTextFieldDelegate{
             guard let index = index else { return }
             
             if direction == .left {
-                index == 0 ?
-                    (_ = txtOTPCollection.first?.resignFirstResponder()) :
-                    (_ = txtOTPCollection[(index - 1)].becomeFirstResponder())
+                if index == 0{
+                    txtOTPCollection.first?.resignFirstResponder()
+                }else{
+                    txtOTPCollection[(index - 1)].becomeFirstResponder()
+                }
                 if index > 0 {
                     let neIndex = index + 1
                     for i in neIndex..<txtOTPCollection.count {
                         txtOTPCollection[i].text = ""
                     }
-                    
-                    //                let prevIndex = index - 1
-                    //                for i in 0..<prevIndex {
-                    //                    txtOtpOutletCollection[i].isUserInteractionEnabled = false
-                    //                }
                 }
             } else {
-                index == txtOTPCollection.count - 1 ?
-                    (_ = txtOTPCollection.last?.resignFirstResponder()) :
-                    (_ = txtOTPCollection[(index + 1)].becomeFirstResponder())
+                if index == txtOTPCollection.count - 1{
+                    txtOTPCollection.last?.resignFirstResponder()
+                }else{
+                    txtOTPCollection[(index + 1)].becomeFirstResponder()
+                }
             }
         }
         

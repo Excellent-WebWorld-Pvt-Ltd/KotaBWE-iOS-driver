@@ -73,6 +73,7 @@ class ProfileInfoVC: BaseViewController {
     
     @IBOutlet weak var txtAddress: CustomViewOutlinedTxtField!
     
+    @IBOutlet weak var txtPostalCode: CustomViewOutlinedTxtField!
     
     @IBOutlet weak var txtInviteCode: CustomViewOutlinedTxtField!
     
@@ -189,6 +190,7 @@ class ProfileInfoVC: BaseViewController {
         txtEmail.textField.delegate = self
         txtPaymentMethod.textField.delegate = self
         txtFirstName.textField.delegate = self
+        txtPostalCode.textField.delegate = self
         txtLastName.textField.delegate = self
         txtDOB.textField.delegate = self
         txtAddress.textField.delegate = self
@@ -206,58 +208,54 @@ class ProfileInfoVC: BaseViewController {
         //setDobField()
         gender = .male
         carType = .own
-        if let parameterArray = SessionManager.shared.registrationParameter {
-            print("----------------------------------------------------------")
-            print("----------------------------------------------------------")
-            print("SCREEN User Info")
-            print("----------------------------------------------------------")
-            print("----------------------------------------------------------")
-            print(parameterArray as Any)
-            print("----------------------------------------------------------")
-            print("----------------------------------------------------------")
-            txtOwnerName.textField.text = parameterArray.owner_name
-            txtOwnerMobile.textField.text = parameterArray.owner_mobile_no != "" ? parameterArray.owner_mobile_no.replacingOccurrences(of: "254", with: "") : ""
-            txtownerEmail.textField.text = parameterArray.owner_email
-            //            txtdriverRole.text = parameterArray.driver_role.replacingOccurrences(of: "_", with: " ").capitalized ?? ""
-            carType = parameterArray.car_type == CarType.own.rawValue ? .own : .rent
-            gender = parameterArray.gender == Gender.female.rawValue ? .female : .male
-            if let savedImage = SessionManager.shared.savedProfileImage {
-                imgProfile.image = savedImage
-                RegistrationImageParameter.shared.profileImage = savedImage
+        if isFromSetting{
+            if let profile = SessionManager.shared.userProfile {
+               txtOwnerName.textField.text = profile.responseObject.ownerName ?? ""
+               txtOwnerMobile.textField.text = profile.responseObject.ownerMobileNo != "" ? profile.responseObject.ownerMobileNo.replacingOccurrences(of: "254", with: "") : ""
+               txtownerEmail.textField.text = profile.responseObject.ownerEmail ?? ""
+               //            txtdriverRole.text = profile.driver_role.replacingOccurrences(of: "_", with: " ").capitalized ?? ""
+               guard let url = profile.responseObject.profileImage else { return }
+               let imgurl = NetworkEnvironment.baseImageURL + url
+               UtilityClass.imageGet(url:imgurl, img: imgProfile, UIColor.black, UIImage(named: "Profile") ?? UIImage())
+               //txtdriverRole.text = "Driver"
+               txtEmail.textField.isUserInteractionEnabled = false
+               txtEmail.textField.text = profile.responseObject.email
+               txtMobileNumber.textField.text = profile.responseObject.mobileNo
+               // txtMobileNumber.isUserInteractionEnabled = false
+               carType = profile.responseObject.carType == CarType.own.rawValue ? .own : .rent
+               gender = profile.responseObject.gender == Gender.male.rawValue ? .male : .female
+               
+               txtPaymentMethod.textField.text = profile.responseObject.paymentMethod.capitalized
+               txtFirstName.textField.text = profile.responseObject.firstName ?? ""
+               txtLastName.textField.text = profile.responseObject.lastName ?? ""
+               selectedBirthDate = profile.responseObject.dob.getDate(format: .digitDate)
+               txtDOB.textField.text = selectedBirthDate?.getDateString(format: .fullDate)
+               txtAddress.textField.text = profile.responseObject.address ?? ""
+               txtInviteCode.textField.text = profile.responseObject.inviteCode ?? ""
+           }
+        }else{
+            if let parameterArray = SessionManager.shared.registrationParameter {
+                print(parameterArray as Any)
+                txtOwnerName.textField.text = parameterArray.owner_name
+                txtOwnerMobile.textField.text = parameterArray.owner_mobile_no != "" ? parameterArray.owner_mobile_no.replacingOccurrences(of: "254", with: "") : ""
+                txtownerEmail.textField.text = parameterArray.owner_email
+                //            txtdriverRole.text = parameterArray.driver_role.replacingOccurrences(of: "_", with: " ").capitalized ?? ""
+                carType = parameterArray.car_type == CarType.own.rawValue ? .own : .rent
+                gender = parameterArray.gender == Gender.female.rawValue ? .female : .male
+                if let savedImage = SessionManager.shared.savedProfileImage {
+                    imgProfile.image = savedImage
+                    RegistrationImageParameter.shared.profileImage = savedImage
+                }
+                txtPaymentMethod.textField.text = parameterArray.payment_method.capitalized
+                txtFirstName.textField.text = parameterArray.first_name
+                txtLastName.textField.text = parameterArray.last_name
+                self.selectedBirthDate = parameterArray.dob.getDate(format: .digitDate)
+                txtDOB.textField.text = selectedBirthDate?.getDateString(format: .fullDate)
+                txtAddress.textField.text = parameterArray.address
+                txtInviteCode.textField.text = parameterArray.invite_code
+                txtEmail.textField.text = parameterArray.email
+                txtMobileNumber.textField.text = parameterArray.mobile_no
             }
-            txtPaymentMethod.textField.text = parameterArray.payment_method.capitalized
-            txtFirstName.textField.text = parameterArray.first_name
-            txtLastName.textField.text = parameterArray.last_name
-            self.selectedBirthDate = parameterArray.dob.getDate(format: .digitDate)
-            txtAddress.textField.text = parameterArray.address
-            txtInviteCode.textField.text = parameterArray.invite_code
-            txtEmail.textField.text = parameterArray.email
-            txtMobileNumber.textField.text = parameterArray.mobile_no
-            
-        } else if let profile = SessionManager.shared.userProfile {
-            
-            txtOwnerName.textField.text = profile.responseObject.ownerName ?? ""
-            txtOwnerMobile.textField.text = profile.responseObject.ownerMobileNo != "" ? profile.responseObject.ownerMobileNo.replacingOccurrences(of: "254", with: "") : ""
-            txtownerEmail.textField.text = profile.responseObject.ownerEmail ?? ""
-            //            txtdriverRole.text = profile.driver_role.replacingOccurrences(of: "_", with: " ").capitalized ?? ""
-            guard let url = profile.responseObject.profileImage else { return }
-            let imgurl = NetworkEnvironment.baseImageURL + url
-            UtilityClass.imageGet(url:imgurl, img: imgProfile, UIColor.black, UIImage(named: "Profile") ?? UIImage())
-            //txtdriverRole.text = "Driver"
-            txtEmail.textField.isUserInteractionEnabled = false
-            txtEmail.textField.text = profile.responseObject.email
-            txtMobileNumber.textField.text = profile.responseObject.mobileNo
-            // txtMobileNumber.isUserInteractionEnabled = false
-            carType = profile.responseObject.carType == CarType.own.rawValue ? .own : .rent
-            gender = profile.responseObject.gender == Gender.male.rawValue ? .male : .female
-            
-            txtPaymentMethod.textField.text = profile.responseObject.paymentMethod.capitalized
-            txtFirstName.textField.text = profile.responseObject.firstName ?? ""
-            txtLastName.textField.text = profile.responseObject.lastName ?? ""
-            selectedBirthDate = profile.responseObject.dob.getDate(format: .digitDate)
-            txtDOB.textField.text = selectedBirthDate?.getDateString(format: .fullDate)
-            txtAddress.textField.text = profile.responseObject.address ?? ""
-            txtInviteCode.textField.text = profile.responseObject.inviteCode ?? ""
         }
         
     }
@@ -358,9 +356,9 @@ class ProfileInfoVC: BaseViewController {
     
     //MARK:- ======= Btn Action ProfileInfo ====
     @IBAction func btnActionProfileInfo(_ sender: UIButton) {
-//        guard isValidInputes() else {
-//            return
-//        }
+        guard isValidInputes() else {
+            return
+        }
         if self.isFromSetting {
             self.navigationController?.popViewController(animated: true)
 //            let objData = UpdatePersonalInfo()
@@ -380,23 +378,24 @@ class ProfileInfoVC: BaseViewController {
 //            self.webserviceForSavePersonalProfile(uerData: objData)
         }
         else {
-//            if btnRent.isSelected{
-//                parameterArray.owner_name = txtOwnerName.textField.text!
-//                parameterArray.owner_mobile_no =  txtOwnerMobile.textField.text!
-//                parameterArray.owner_email = txtEmail.textField.text!
-//            }
-//            parameterArray.payment_method = txtPaymentMethod.textField.text!.lowercased()
-//            parameterArray.first_name = txtFirstName.textField.text!
-//            parameterArray.last_name =  txtLastName.textField.text!
-//            parameterArray.dob = selectedBirthDate?.getDateString(format: .digitDate) ?? ""
-//            parameterArray.address = txtAddress.textField.text!
-//            parameterArray.invite_code = txtInviteCode.textField.text!
-//
-//            let loginData = SessionManager.shared.userProfile
-//            let parameter = loginData?.responseObject.driverDocs
-//            parameterArray.driver_id = parameter?.driver_id ?? ""
-//            parameterArray.setNextRegistrationIndex(from: .profile)
-//            SessionManager.shared.registrationParameter = parameterArray
+            if btnRent.isSelected{
+                parameterArray.owner_name = txtOwnerName.textField.text!
+                parameterArray.owner_mobile_no =  txtOwnerMobile.textField.text!
+                parameterArray.owner_email = txtEmail.textField.text!
+            }
+            parameterArray.payment_method = txtPaymentMethod.textField.text!.lowercased()
+            parameterArray.first_name = txtFirstName.textField.text!
+            parameterArray.last_name =  txtLastName.textField.text!
+            parameterArray.postal_code = txtPostalCode.textField.text!
+            parameterArray.dob = selectedBirthDate?.getDateString(format: .digitDate) ?? ""
+            parameterArray.address = txtAddress.textField.text!
+            parameterArray.invite_code = txtInviteCode.textField.text!
+
+            let loginData = SessionManager.shared.userProfile
+            let parameter = loginData?.responseObject.driverDocs
+            parameterArray.driver_id = parameter?.driver_id ?? ""
+            parameterArray.setNextRegistrationIndex(from: .profile)
+            SessionManager.shared.registrationParameter = parameterArray
             
             let bankInfoVC = AppViewControllers.shared.bankInfo
             self.push(bankInfoVC)
@@ -407,7 +406,7 @@ class ProfileInfoVC: BaseViewController {
           
             let firstNameValidation = InputValidation.name.isValid(input: txtFirstName.textField.unwrappedText, field: "first name")
             let lastNameValidation = InputValidation.name.isValid(input: txtLastName.textField.unwrappedText, field: "last name")
-        
+            let postalValidation = InputValidation.nonEmpty.isValid(input: txtPostalCode.textField.unwrappedText, field: "Postal code")
             txtFirstName.textField.leadingAssistiveLabel.text = firstNameValidation.error
             txtFirstName.textField.setOutlineColor(firstNameValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
             
@@ -426,6 +425,9 @@ class ProfileInfoVC: BaseViewController {
             let addressValidation = InputValidation.nonEmpty.isValid(input: txtAddress.textField.unwrappedText, field: "address")
             txtAddress.textField.leadingAssistiveLabel.text = addressValidation.error
             txtAddress.textField.setOutlineColor(addressValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
+        
+            txtPostalCode.textField.leadingAssistiveLabel.text = postalValidation.error
+            txtPostalCode.textField.setOutlineColor(postalValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
         
         let emailValidation = InputValidation.email.isValid(input: txtEmail.textField.unwrappedText, field: "email address")
         
@@ -473,17 +475,17 @@ class ProfileInfoVC: BaseViewController {
         }
         
         if btnRent.isSelected {
-            if !isFromSetting && firstNameValidation.isValid && lastNameValidation.isValid  && ownerNameValidation.isValid && ownerEmailValidation.isValid && ownermobileValidation.isValid && RegistrationImageParameter.shared.profileImage != nil && txtPaymentMethod.textField.text != "" && txtDOB.textField.text != nil && addressValidation.isValid {
+            if !isFromSetting && firstNameValidation.isValid && postalValidation.isValid && lastNameValidation.isValid  && ownerNameValidation.isValid && ownerEmailValidation.isValid && ownermobileValidation.isValid && RegistrationImageParameter.shared.profileImage != nil && txtPaymentMethod.textField.text != "" && txtDOB.textField.text != nil && addressValidation.isValid {
                 return true
-            } else if isFromSetting && firstNameValidation.isValid && lastNameValidation.isValid  && ownerNameValidation.isValid && ownerEmailValidation.isValid && ownermobileValidation.isValid &&  txtPaymentMethod.textField.text != "" && txtDOB.textField.text != nil  && addressValidation.isValid {
+            } else if isFromSetting && firstNameValidation.isValid && postalValidation.isValid && lastNameValidation.isValid  && ownerNameValidation.isValid && ownerEmailValidation.isValid && ownermobileValidation.isValid &&  txtPaymentMethod.textField.text != "" && txtDOB.textField.text != nil  && addressValidation.isValid {
                 return true
             }else {
                 return false
             }
         }else {
-            if !isFromSetting && firstNameValidation.isValid && lastNameValidation.isValid  && RegistrationImageParameter.shared.profileImage != nil &&  txtPaymentMethod.textField.text != "" && txtDOB.textField.text != nil && addressValidation.isValid {
+            if !isFromSetting && firstNameValidation.isValid && postalValidation.isValid && lastNameValidation.isValid  && RegistrationImageParameter.shared.profileImage != nil &&  txtPaymentMethod.textField.text != "" && txtDOB.textField.text != nil && addressValidation.isValid {
                 return true
-            }else if isFromSetting && firstNameValidation.isValid && lastNameValidation.isValid  && SessionManager.shared.userProfile != nil && txtPaymentMethod.textField.text != "" && txtDOB.textField.text != nil && addressValidation.isValid {
+            }else if isFromSetting && firstNameValidation.isValid && postalValidation.isValid && lastNameValidation.isValid  && SessionManager.shared.userProfile != nil && txtPaymentMethod.textField.text != "" && txtDOB.textField.text != nil && addressValidation.isValid {
                 return true
             }else {
                 return false
@@ -506,6 +508,7 @@ class ProfileInfoVC: BaseViewController {
             (txtLastName.textField.text,lastNameErrorString, .isEmpty),
             
             (selectedBirthDate?.getDateString(format: .digitDate), dobErrorString, .isEmpty),
+            (txtPostalCode.textField.text,postalCodeErrorString, .isEmpty),
             (txtAddress.textField.text,addressErrorString, .isEmpty)]
         
         guard Validator.validate(validationParameter2) else {

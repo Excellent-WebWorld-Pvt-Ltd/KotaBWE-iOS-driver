@@ -325,7 +325,8 @@ class HomeViewController: BaseViewController {
     
     func setNavbar(){
        // setupNavigation(.normal(title: "Home", leftItem: .menu, hasNotification: true))
-        setupNavigation(.normal(title: "Hi, Robert D", leftItem: .menu, hasNotification: true))
+        let userName = "\(Singleton.shared.userProfile?.responseObject.firstName ?? "")" +  " " + "\(Singleton.shared.userProfile?.responseObject.lastName  ?? "")"
+        setupNavigation(.normal(title: "Hi, \(userName)", leftItem: .menu, hasNotification: true))
         
     }
 

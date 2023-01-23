@@ -107,8 +107,8 @@ class WebServiceCalls
     class func VehicleTypeListApi(strType : [String: Any]  ,completion: @escaping CompletionResponse ) {
         WebService.shared.requestMethod(api: .vehicleTypeList, httpMethod: .get, parameters: strType, completion: completion)
     }
-    class func changePassword(transferMoneyModel: [String: Any], completion: @escaping CompletionResponse) {
-        let params : [String:String] = transferMoneyModel as! [String:String]
+    class func changePassword(ChangePasswordModel: ChangePassword, completion: @escaping CompletionResponse) {
+        let params = ChangePasswordModel.generatPostParams()
         WebService.shared.requestMethod(api: .changePassword, httpMethod: .post, parameters: params, completion: completion)
     }
     class func forgotPassword(strType : [String: Any]  ,completion: @escaping CompletionResponse ) {

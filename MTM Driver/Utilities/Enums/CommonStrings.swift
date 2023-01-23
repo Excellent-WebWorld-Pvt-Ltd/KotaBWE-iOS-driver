@@ -46,6 +46,7 @@ let vehicleColoErrorString = "Please enter vehivle color"
 let driverRoleErrorString = "Please select driver Role"
 let nameErrorString = "Please enter owner name"
 let firstNameErrorString = "Please enter first name"
+let postalCodeErrorString = "Please enter Postal code"
 
 let lastNameErrorString = "Please enter last name"
 let accountHolderNameErrorString = "Please enter account holder name"

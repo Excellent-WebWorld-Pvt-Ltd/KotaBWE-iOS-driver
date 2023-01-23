@@ -39,9 +39,9 @@ class ForgotPasswordViewController: BaseViewController {
     // MARK: - Actions
     // ----------------------------------------------------
     @IBAction func btnResetPassword(_ sender: UIButton) {
-        self.goBack()
-//        guard validations() else { return }
-//        webserviceForForrgotPassword()
+//        self.goBack()
+        guard validations() else { return }
+        webserviceForForrgotPassword()
        
     }
     //MARK:- ===== Validation =======

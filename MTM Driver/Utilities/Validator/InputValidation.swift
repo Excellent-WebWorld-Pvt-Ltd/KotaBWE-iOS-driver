@@ -233,9 +233,19 @@ enum Messages {
     static let photoAccessMsg = "To enable access, go to Settings > Privacy > Photos and turn on Photos access for this app."
     static let chooseSource = "Choose A Source"
 
+    
+    static let emptyDriverLicenseFront = "Please select driver's license front"
+    static let emptyDriverLicenseBack = "Please select driver's license back"
+    static let emptyCriminalRecord = "Please select Criminal record"
+    static let emptyResidenceCertificate = "Please select Residence certificate"
+    static let emptyRentalLicense = "Please select Rental license"
+    static let emptyBooklet = "Please select Booklet"
+    static let emptyCivilLiabilityInsurance = "Please select Civil liability insurance"
+    static let emptyBIFront = "Please select BI front"
+    static let emptyBIBack = "Please select BI back"
+    
     static let emptyNationalCard = "Please select national id card"
     static let emptyNationalId = "Please enter national ID card number"
-    static let emptyDriverLicense = "Please select driver's license"
     static let emptyDriverPSVLicense = "Please select driver PSV license"
     static let emptyGoodConductCertificate = "Please select good conduct certificate / Police clearance"
     static let emptyVehiclePSVLicense = "Please select vehicle PSV license"
@@ -244,9 +254,9 @@ enum Messages {
     static let emptyPSVComprehensiveInsurance = "Please select PSV comprehensive insurance"
 
     static let emptyDriverLicenseExpire = "Please enter driver's license expiry date"
-    static let emptyDriverPSVLicenseExpire = "Please enter driver PSV license expiry date"
-    static let emptyVehiclePSVLicenseExpire = "Please enter vehicle PSV license expiry date"
-    static let emptyNTSAInspectionCertExpire = "Please enter NTSA Inspection certificate expiry date"
+    static let emptyRentalLicenseExpire = "Please enter Rental license expiry date"
+    static let emptyCivilLiabilityInsuranceExpire = "Please enter Civil liability insurance expiry date"
+    static let emptyBIExpire = "Please enter BI expiry date"
     static let emptyPSVComprehensiveInsuranceExpire = "Please enter PSV comprehensive insurance expiry date"
     
 }

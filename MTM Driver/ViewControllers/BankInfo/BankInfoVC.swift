@@ -127,8 +127,8 @@ class BankInfoVC: BaseViewController {
     }
     private func isValidInputes() -> Bool {
       
-        let bankNameValidation = InputValidation.name.isValid(input: txtBankName.textField.unwrappedText, field: "bank name")
-        let bankHolderNameValidation = InputValidation.name.isValid(input: txtBankHolderName.textField.unwrappedText, field: "account holder name")
+        let bankNameValidation = InputValidation.nonEmpty.isValid(input: txtBankName.textField.unwrappedText, field: "bank name")
+        let bankHolderNameValidation = InputValidation.nonEmpty.isValid(input: txtBankHolderName.textField.unwrappedText, field: "account holder name")
         
         txtBankName.textField.leadingAssistiveLabel.text = bankNameValidation.error
         txtBankName.textField.setOutlineColor(bankNameValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
@@ -137,11 +137,11 @@ class BankInfoVC: BaseViewController {
         txtBankHolderName.textField.setOutlineColor(bankHolderNameValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
         
         
-        let accountValidation = InputValidation.bankaccount.isValid(input: txtAccountNumber.textField.unwrappedText, field: "account number")
+        let accountValidation = InputValidation.nonEmpty.isValid(input: txtAccountNumber.textField.unwrappedText, field: "account number")
          txtAccountNumber.textField.leadingAssistiveLabel.text = accountValidation.error
          txtAccountNumber.textField.setOutlineColor(accountValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
         
-        let brnachCodeValidation = InputValidation.bankaccount.isValid(input: txtBranchCode.textField.unwrappedText, field: "branch code")
+        let brnachCodeValidation = InputValidation.nonEmpty.isValid(input: txtBranchCode.textField.unwrappedText, field: "branch code")
         txtBranchCode.textField.leadingAssistiveLabel.text = brnachCodeValidation.error
         txtBranchCode.textField.setOutlineColor(brnachCodeValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
         
@@ -165,16 +165,12 @@ class BankInfoVC: BaseViewController {
         }else {
             return false
         }
-        
-        
-        
-        
     }
     
     //MARK:- ===== Btn Action Save ====
     @IBAction func btnActionSave(_ sender: UIButton) {
-         //   guard isValidInputes() else { return }
-            if isFromSetting == true {
+            guard isValidInputes() else { return }
+            if isFromSetting{
                // webserviceForUpdateAccount()
                 self.navigationController?.popViewController(animated: true)
             }

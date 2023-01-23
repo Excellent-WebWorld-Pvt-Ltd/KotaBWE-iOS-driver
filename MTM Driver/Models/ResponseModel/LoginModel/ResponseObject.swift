@@ -54,6 +54,7 @@ class ResponseObject : Codable {
     var walletBalance : String!
     var workWithOtherCompany : String!
     var xApiKey : String!
+    var postalCode : String!
 
     var fullName: String {
         [firstName, lastName].compactMap { $0 }.joined(separator: " ")
@@ -117,5 +118,6 @@ class ResponseObject : Codable {
         walletBalance = json["wallet_balance"].stringValue
         workWithOtherCompany = json["work_with_other_company"].stringValue
         xApiKey = json["x-api-key"].stringValue
+        postalCode = json["postal_code"].stringValue
 	}
 }

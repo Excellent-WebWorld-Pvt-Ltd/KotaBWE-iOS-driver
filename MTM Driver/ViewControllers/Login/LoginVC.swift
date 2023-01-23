@@ -137,14 +137,8 @@ class LoginVC: UIViewController {
     
     //MARK:- ===== Btn Action Next =====
     @IBAction func btnActionNext(_ sender: UIButton) {
-        AppDelegate.shared.setHome()
-//        guard validations() else { return }
-////        let validate = validations()
-////        if validate {
-//            webServiceCallLogin()
-////        }
-////
-////
+        guard validations() else { return }
+        webServiceCallLogin()
     }
     
     
@@ -204,26 +198,6 @@ class LoginVC: UIViewController {
     func webServiceCallLogin(){
 
         let loginModel : loginModel = loginModel()
-
-        if txtEmail.textField.text!.isEmail
-        {
-            loginModel.email = txtEmail.textField.text ?? ""
-        }
-        else
-        {
-            if txtPassword.textField.text!.count < 6
-            {
-
-                AlertMessage.showMessageForError(passwordValidErrorString)
-
-            }
-            else
-            {
-                loginModel.email = txtEmail.textField.text ?? ""
-                //"254" + txtPhoneNumber.text!
-            }
-        }
-
         loginModel.email = txtEmail.textField.text ?? ""//txtPhoneNumber.text ?? ""
         loginModel.password = txtPassword.textField.text ?? ""
         loginModel.device_type = "ios"
@@ -240,9 +214,7 @@ class LoginVC: UIViewController {
             if Status {
                 print(response)
                 let obj = LoginModel(fromJson: response)
-                
                 self.saveLoginData(responseObj: response)
-                
 //                AlertMessage.showMessageForSuccess(obj.message)
 //                print(obj.otp)
 //                let otpVC = AppViewControllers.shared.otp

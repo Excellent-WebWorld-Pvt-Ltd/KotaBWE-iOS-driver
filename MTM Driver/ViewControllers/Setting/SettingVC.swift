@@ -59,12 +59,12 @@ extension SettingVC : UITableViewDataSource,UITableViewDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellType.ProfileInfo.rawValue, for: indexPath) as! ProfileInfoTableViewCell
         
                  let userName = "\(Singleton.shared.userProfile?.responseObject.firstName ?? "")" +  " " + "\(Singleton.shared.userProfile?.responseObject.lastName  ?? "")"
-                cell.lblName.text = "Robert D"//userName
+                cell.lblName.text = userName
         
-            cell.lblEmail.text = "test@gmail.com"//Singleton.shared.userProfile?.responseObject.email
+            cell.lblEmail.text = Singleton.shared.userProfile?.responseObject.email
             cell.lblMobileNo.text = "9876543210 \(Singleton.shared.userProfile?.responseObject.mobileNo ?? "")"  //Singleton.shared.userProfile?.responseObject.mobileNo
             if let imageStr = Singleton.shared.userProfile?.responseObject.profileImage.toImageUrl(), let imageUrl = URL(string: imageStr) {
-               // cell.imgProfile.sd_setImage(with: imageUrl, placeholderImage: AppImages.userPlaceholder.image)
+                cell.imgProfile.sd_setImage(with: imageUrl, placeholderImage: AppImages.userPlaceholder.image)
             }
            
             cell.editClicked = { [weak self] in

@@ -111,6 +111,11 @@ class VehicleList : Codable
     var trash : String!
     var unselectImage : String!
     var updatedAt : String!
+    var minimumFare: String!
+    var waitingTimePerMinCharge: String!
+    var freeCancallationTime: String!
+    var description: String!
+    var bulkMileRate: String!
     
     /**
      * Instantiate the instance using the passed json values to set the properties values
@@ -141,6 +146,11 @@ class VehicleList : Codable
         trash = json["trash"].stringValue
         unselectImage = json["unselect_image"].stringValue
         updatedAt = json["updated_at"].stringValue
+        minimumFare = json["minimum_fare"].stringValue
+        waitingTimePerMinCharge = json["waiting_time_per_min_charge"].stringValue
+        freeCancallationTime = json["free_cancallation_time"].stringValue
+        description = json["description"].stringValue
+        bulkMileRate = json["bulk_mile_rate"].stringValue
     }
     init()
     {

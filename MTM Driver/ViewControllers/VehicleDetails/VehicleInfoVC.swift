@@ -65,7 +65,7 @@ class VehicleInfoVC: BaseViewController {
     var isFromSetting = false
     var arrYearMenufacList = [String]()
     var arrVehicleTypeName = [String]()
-    var arrCompanyName = [String]()
+    var arrCompanyName = [VehicleList]()
     var arrVehicleData = [VehicleData]()
     var vehicleUpdatedType = String()
     var vehicleSelectedManuID = String()
@@ -96,12 +96,6 @@ class VehicleInfoVC: BaseViewController {
         webserviceForVehicleMenufactureYearList()
         dismissPickerView()
         assignDelegate()
-        
-        arrCompanyName = ["DRY CONTAINER 35 TONS",
-                          "TRUCK FLAT TRAILER",
-                          "FIXED BOX 2 AXLES OF 15-20 TONS",
-                          "HEAVY FIXED RATE DRY LOAD 15 TONS",
-                          "COMFORT PLUS"]
     }
     
     
@@ -139,23 +133,22 @@ class VehicleInfoVC: BaseViewController {
         if txtCompanyName.textField.isFirstResponder {
             if arrCompanyName.count != 0{
                 let row = pickerViewComapanyName.selectedRow(inComponent: 0)
-                let strSelectCompanyName = arrCompanyName[row] // vehicleTypeName
-                txtCompanyName.textField.text = "\(strSelectCompanyName)"
-                txtCarType.textField.text = ""
-                txtVehicleModel.textField.text = ""
+                let strSelectCompanyName = arrCompanyName[row].name // vehicleTypeName
+                txtCompanyName.textField.text = strSelectCompanyName
+                vehicleUpdatedType = arrCompanyName[row].id
+                parameterArray.vehicle_type = vehicleUpdatedType
 //                let tempDic = (arrVehicleData.filter({$0.manufacturerName == strSelectCompanyName}).first)
 //                arrVehicleModel = tempDic!
 //                vehicleSelectedManuID = arrVehicleModel.id
 //                parameterArray.vehicle_type_manufacturer_name = strSelectCompanyName
 //                parameterArray.vehicle_type_manufacturer_id = vehicleSelectedManuID
             }
-            
-            
-        }else if txtVehicleModel.textField.isFirstResponder {
-            if arrVehicleModel.vehicleModel.count != 0 {
-                let row = pickerViewVehicleModel.selectedRow(inComponent: 0)
-                let strSelectSubName = arrVehicleModel.vehicleModel[row].vehicleTypeModelName ?? ""
-                txtVehicleModel.textField.text = "\(strSelectSubName)"
+        }
+//        else if txtVehicleModel.textField.isFirstResponder {
+//            if arrVehicleModel.vehicleModel.count != 0 {
+//                let row = pickerViewVehicleModel.selectedRow(inComponent: 0)
+//                let strSelectSubName = arrVehicleModel.vehicleModel[row].vehicleTypeModelName ?? ""
+//                txtVehicleModel.textField.text = "\(strSelectSubName)"
 //                parameterArray.vehicle_type_model_name = strSelectSubName
 //                parameterArray.vehicle_type_model_id = arrVehicleModel.vehicleModel[row].id ?? ""
 //                parameterArray.vehicleTypeString = arrVehicleModel.vehicleModel[row].vehicleTypeName ?? ""
@@ -164,25 +157,27 @@ class VehicleInfoVC: BaseViewController {
 //                vehicleUpdatedType = arrVehicleModel.vehicleModel[row].vehicleTypeId
 //                parameterArray.vehicleTypeString = arrVehicleModel.vehicleModel[row].vehicleTypeName
 //                parameterArray.vehicle_type = vehicleUpdatedType
-            }
-            
-        }else if txtCarType.textField.isFirstResponder {
-            
-            if arrVehicleModel.vehicleModel.count  != 0{
-                
-                let row = pickerViewVehicleName.selectedRow(inComponent: 0)
-                let strSelectName = arrVehicleData[row].manufacturerName ?? "" // vc.arrVehicleTypeName[row]
-                txtCarType.textField.text = ""
-                
-                let tempDic = (arrVehicleData.filter({$0.manufacturerName == strSelectName}).first)
-                arrVehicleModel = tempDic!
-                
-             //   parameterArray.vehicleTypeString = strSelectName
-            }
-            
-            
-            
-        }else if txtVehicleManufactureYear.textField.isFirstResponder {
+//            }
+//
+//        }
+//        else if txtCarType.textField.isFirstResponder {
+//
+//            if arrVehicleModel.vehicleModel.count  != 0{
+//
+//                let row = pickerViewVehicleName.selectedRow(inComponent: 0)
+//                let strSelectName = arrVehicleData[row].manufacturerName ?? "" // vc.arrVehicleTypeName[row]
+//                txtCarType.textField.text = ""
+//
+//                let tempDic = (arrVehicleData.filter({$0.manufacturerName == strSelectName}).first)
+//                arrVehicleModel = tempDic!
+//
+//             //   parameterArray.vehicleTypeString = strSelectName
+//            }
+//
+//
+//
+//        }
+        else if txtVehicleManufactureYear.textField.isFirstResponder {
             if arrYearMenufacList.count != 0{
                 let row = pickerViewManufYear.selectedRow(inComponent: 0)
                 let strSelectYear =  arrYearMenufacList[row]
@@ -245,14 +240,6 @@ class VehicleInfoVC: BaseViewController {
             btnNext.setTitle("Next", for: .normal)
             
             // collectionview.imageDataSource = false
-            print("----------------------------------------------------------")
-            print("----------------------------------------------------------")
-            print("SCREEN Vehicle Info ")
-            print("----------------------------------------------------------")
-            print("----------------------------------------------------------")
-            print(parameterArray as Any)
-            print("----------------------------------------------------------")
-            print("----------------------------------------------------------")
             
             self.arrYearMenufacList = Singleton.shared.menufacturingYearList
             
@@ -287,19 +274,19 @@ class VehicleInfoVC: BaseViewController {
                 arrVehicleModel = tempDic!
                 
             }
-            if profile.car_left != "" {
-                imagesTypes[0].parameter = profile.car_left
+            if profile.vehicle_left != "" {
+                imagesTypes[0].parameter = profile.vehicle_left
             }
-            if profile.car_right != "" {
-                imagesTypes[1].parameter = profile.car_right
-            }
-            
-            if profile.car_front != "" {
-                imagesTypes[2].parameter = profile.car_front
+            if profile.vehicle_right != "" {
+                imagesTypes[1].parameter = profile.vehicle_right
             }
             
-            if profile.car_right != ""{
-                imagesTypes[3].parameter = profile.car_back
+            if profile.vehicle_front != "" {
+                imagesTypes[2].parameter = profile.vehicle_front
+            }
+            
+            if profile.vehicle_back != ""{
+                imagesTypes[3].parameter = profile.vehicle_back
             }
             
         } else if let profile = SessionManager.shared.userProfile {
@@ -411,25 +398,13 @@ class VehicleInfoVC: BaseViewController {
             txtVehicleColor.textField.setOutlineColor(.themeTextFieldDefaultBorderColor, for: .normal)
         }
         
-        if txtVehicleNumber.textField.text != "" &&
-            
-            (txtCompanyName.textField.text != nil || txtCompanyName.textField.text != "" ) &&
-            
-            txtVehicleModel.textField.text != "" && txtCarType.textField.text != "" &&
-            
-            (txtVehicleManufactureYear.textField.text != nil || txtVehicleManufactureYear.textField.text != "")
-            &&
-            (txtNoOfPassenger.textField.text != nil || txtNoOfPassenger.textField.text != "") &&
-            
-            txtVehicleColor.textField.text != "" && imagesTypes.first?.image != #imageLiteral(resourceName: "car-1") && imagesTypes[1].image != #imageLiteral(resourceName: "car-2") && imagesTypes[2].image != #imageLiteral(resourceName: "car-3") && imagesTypes[3].image != #imageLiteral(resourceName: "car-4") {
+        if txtVehicleNumber.textField.text != "" && (txtCompanyName.textField.text != nil || txtCompanyName.textField.text != "" ) && (txtVehicleManufactureYear.textField.text != nil || txtVehicleManufactureYear.textField.text != "") && (txtNoOfPassenger.textField.text != nil || txtNoOfPassenger.textField.text != "") && txtVehicleColor.textField.text != "" && imagesTypes.first?.image != #imageLiteral(resourceName: "car-1") && imagesTypes[1].image != #imageLiteral(resourceName: "car-2") && imagesTypes[2].image != #imageLiteral(resourceName: "car-3") && imagesTypes[3].image != #imageLiteral(resourceName: "car-4") {
             return true
         } else if imagesTypes.first?.image == #imageLiteral(resourceName: "car-1") {
             AlertMessage.showMessageForError(vehicleLeftImageErrorString)
-            
             return false
         } else if imagesTypes[1].image == #imageLiteral(resourceName: "car-2") {
             AlertMessage.showMessageForError(vehicleRightImageErrorString)
-            
             return false
         } else if imagesTypes[2].image == #imageLiteral(resourceName: "car-3") {
             AlertMessage.showMessageForError(vehicleFrontImageErrorString)
@@ -437,7 +412,6 @@ class VehicleInfoVC: BaseViewController {
             return false
         } else if imagesTypes[3].image == #imageLiteral(resourceName: "car-4") {
             AlertMessage.showMessageForError(vehicleBackImageErrorString)
-            
             return false
         }else {
             return false
@@ -565,6 +539,7 @@ class VehicleInfoVC: BaseViewController {
                 print(json)
                 let VehicleListDetails = VehicleListResultModel.init(fromJson: json)
                 Singleton.shared.vehicleListData = VehicleListDetails
+                self.arrCompanyName = VehicleListDetails.data
                 self.setupTextField()
                 if !self.isFromSetting {
                     self.navigateToVC()
@@ -594,15 +569,13 @@ class VehicleInfoVC: BaseViewController {
     //MARK- ===== Btn Action Next ======
     @IBAction func btnActionNext(_ sender: UIButton) {
         
-//        guard isValidInputes() else {
-//            return
-//
-//        }
+        guard isValidInputes() else {
+            return
+        }
         if self.isFromSetting {
 //            self.webserviceForVehicleInfo()
             self.navigationController?.popViewController(animated: true)
-        }
-        else {
+        }else {
             let vehicleDetailVC = AppViewControllers.shared.vehicleDocs(isFromSettings: false)
             self.push(vehicleDetailVC)
         }
@@ -665,24 +638,6 @@ extension VehicleInfoVC: UITextFieldDelegate {
         case txtVehicleManufactureYear.textField:
             openDatePicker()
             return true
-            
-        case txtCarType.textField:
-            return false
-            
-        case txtVehicleModel.textField:
-            self.view.endEditing(true)
-            
-            if txtCompanyName.textField.text == "" {
-                AlertMessage.showMessageForError("Please select Vehicle Manufacture")
-                return false
-            } else if arrVehicleModel.vehicleModel.isEmpty {
-                AlertMessage.showMessageForError("Vehicle models not available!")
-                return false
-            } else {
-                txtVehicleModel.textField.inputView = pickerViewVehicleModel
-                return true
-            }
-            
         case txtNoOfPassenger.textField :
             self.view.endEditing(true)
             txtNoOfPassenger.textField.inputView = pickerViewPassenger
@@ -711,13 +666,13 @@ extension VehicleInfoVC{
                 if self.isFromSetting == false {
                     switch index{
                     case 0:
-                        self.parameterArray.car_left = urlString
+                        self.parameterArray.vehicle_left = urlString
                     case 1:
-                        self.parameterArray.car_right = urlString
+                        self.parameterArray.vehicle_right = urlString
                     case 2:
-                        self.parameterArray.car_front = urlString
+                        self.parameterArray.vehicle_front = urlString
                     case 3:
-                        self.parameterArray.car_back = urlString
+                        self.parameterArray.vehicle_back = urlString
                     default:
                         break
                     }
@@ -734,9 +689,7 @@ extension VehicleInfoVC: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         
-        if pickerView == pickerViewVehicleModel{
-            return 1
-        }else if pickerView == pickerViewComapanyName{
+        if pickerView == pickerViewComapanyName{
             return 1
         }else if pickerView == pickerViewPassenger {
             return 1
@@ -749,9 +702,7 @@ extension VehicleInfoVC: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
-        if pickerView == pickerViewVehicleModel {
-            return vehicleSelectedManuID != "" ? arrVehicleModel.vehicleModel.count : 0
-        }else if pickerView == pickerViewComapanyName {
+        if pickerView == pickerViewComapanyName {
             return arrCompanyName.count
         }else if pickerView == pickerViewPassenger {
             return arrayNoOfPassenger.count
@@ -765,9 +716,7 @@ extension VehicleInfoVC: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         if pickerView == pickerViewComapanyName{
-            return arrCompanyName[row]
-        }else if pickerView == pickerViewVehicleModel {
-            return arrVehicleModel.vehicleModel[row].vehicleTypeModelName
+            return arrCompanyName[row].name
         }else if pickerView == pickerViewPassenger {
             return "\(arrayNoOfPassenger[row])"
         }else if pickerView == pickerViewManufYear {

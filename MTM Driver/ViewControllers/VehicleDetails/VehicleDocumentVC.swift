@@ -50,15 +50,15 @@ class VehicleDocumentVC: BaseViewController, UIViewControllerTransitioningDelega
             UtilityClass.showAlert(message: "Document getting uploaded, please wait till finish the process")
             return
         }
-//        guard validateInputs() else {
-//            return
-//        }
+        guard validateInputs() else {
+            return
+        }
         if isFromSettings {
 //            sendUpdateRequest()
             self.navigationController?.popViewController(animated: true)
         } else {
-//            sendRegistrationRequest()
-            AppDelegate.shared.setHome()
+            sendRegistrationRequest()
+//            AppDelegate.shared.setHome()
         }
     }
     
@@ -84,9 +84,9 @@ class VehicleDocumentVC: BaseViewController, UIViewControllerTransitioningDelega
                                          type: VehicleDoc,
                                          indexPath: IndexPath) {
         let info = self.registerParameters
-        let isUploaded = info.getDocUrl(type).isNotEmpty
+        let isUploaded = info.getDocUrl(type, side: true).isNotEmpty
         let expiryDate = info.getDocExpiryDate(type)
-        let textFieldValue = type == .nationalId ? info.national_id_number : ""
+        let textFieldValue = ""
         var uploadStatus: FileUploadStatus = isUploaded ? .uploaded : .notUploaded
         if self.uploadingDoc == type {
             uploadStatus = .uploading
@@ -105,7 +105,7 @@ class VehicleDocumentVC: BaseViewController, UIViewControllerTransitioningDelega
         let info = self.sessionParameter
         let isUploaded = info.getDocUrl(type).isNotEmpty
         let expiryDate = info.getDocExpiryDate(type)
-        let textFieldValue = type == .nationalId ? info.national_id_number : ""
+        let textFieldValue = ""
         var uploadStatus: FileUploadStatus = isUploaded ? .uploaded : .notUploaded
         if self.uploadingDoc == type {
             uploadStatus = .uploading
@@ -120,11 +120,11 @@ class VehicleDocumentVC: BaseViewController, UIViewControllerTransitioningDelega
     
     private var documentPicker: DocumentPickerController?
     
-    private func openDocumentPicker(for type: VehicleDoc) {
+    private func openDocumentPicker(for type: VehicleDoc, side:Bool) {
         documentPicker = DocumentPickerController(from: self,
                                  allowEditing: false,
                                  fileType: DocumentPickerFileType.allCases) { [unowned self] data in
-           // self.uploadDocument(data, type: type)
+            self.uploadDocument(data, type: type,side:side)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
                 self.documentPicker = nil
             })
@@ -132,7 +132,7 @@ class VehicleDocumentVC: BaseViewController, UIViewControllerTransitioningDelega
         documentPicker?.present(from: self.view)
     }
     
-    private func uploadDocument(_ data: Any, type: VehicleDoc) {
+    private func uploadDocument(_ data: Any, type: VehicleDoc,side: Bool) {
         self.uploadingDoc = type
         self.refreshDocument(for: type)
         WebService.shared.uploadDocument(data) { url in
@@ -141,7 +141,7 @@ class VehicleDocumentVC: BaseViewController, UIViewControllerTransitioningDelega
                 if self.isFromSettings {
                     self.sessionParameter.setDocURL(url: url, for: type)
                 } else {
-                    self.registerParameters.setDocURL(url: url, for: type)
+                    self.registerParameters.setDocURL(url: url, for: type, side: side)
                     self.saveRegistrationProcess()
                 }
             }
@@ -168,12 +168,12 @@ class VehicleDocumentVC: BaseViewController, UIViewControllerTransitioningDelega
         }
     }
     
-    private func openDocumentPreview(for type: VehicleDoc) {
+    private func openDocumentPreview(for type: VehicleDoc,side:Bool) {
         var urlString: String = ""
         if isFromSettings {
             urlString = sessionParameter.getDocUrl(type)
         } else {
-            urlString = registerParameters.getDocUrl(type)
+            urlString = registerParameters.getDocUrl(type, side: side)
         }
         guard let url = URL(serverPath: urlString),
         UIApplication.shared.canOpenURL(url) else {
@@ -223,22 +223,18 @@ extension VehicleDocumentVC: UITableViewDelegate, UITableViewDataSource {
         } else {
             setValueForRegistration(cell: cell, type: type, indexPath: indexPath)
         }
-        
-        
-        
         return cell
     }
 }
 
 // MARK: - Vehicle doc delegate
-extension VehicleDocumentVC: VehicleDocCellDelegate {
-    
-    func vehicleDoc(viewDocumentOf type: VehicleDoc) {
-        self.openDocumentPreview(for: type)
+extension VehicleDocumentVC: VehicleDocCellDelegate {   
+    func vehicleDoc(viewDocumentOf type: VehicleDoc,side: Bool) {
+        self.openDocumentPreview(for: type, side: side)
     }
     
-    func vehicleDoc(documentUploadRequestAt indexPath: IndexPath, for type: VehicleDoc) {
-        self.openDocumentPicker(for: type)
+    func vehicleDoc(documentUploadRequestAt indexPath: IndexPath, for type: VehicleDoc,side: Bool) {
+        self.openDocumentPicker(for: type, side:side)
     }
     
     func vehicleDoc(didTapOnExpiryButtonAt indexPath: IndexPath, title: String, for type: VehicleDoc) {
@@ -246,22 +242,22 @@ extension VehicleDocumentVC: VehicleDocCellDelegate {
     }
     
     func vehicleDoc(didChangeTextFieldValueAt indexPath: IndexPath, value: String, for type: VehicleDoc) {
-        guard type == .nationalId else {
-            return
-        }
-        if isFromSettings {
-            self.sessionParameter.national_id_number = value
-        } else {
-            self.registerParameters.national_id_number = value
-            self.saveRegistrationProcess()
-        }
+//        guard type == .nationalId else {
+//            return
+//        }
+//        if isFromSettings {
+//            self.sessionParameter.national_id_number = value
+//        } else {
+//            self.registerParameters.national_id_number = value
+//            self.saveRegistrationProcess()
+//        }
     }
 }
 
 // MARK: - Webservices
 extension VehicleDocumentVC {
  
-    private func sendRegistrationRequest() {
+    private func sendRegistrationRequest(){
         registerParameters.driver_role = "Driver"
         registerParameters.lat = LocationManager.shared.latitude?.toString() ?? ""
         registerParameters.lng = LocationManager.shared.longitude?.toString() ?? ""
@@ -275,7 +271,6 @@ extension VehicleDocumentVC {
             if status{
                 AlertMessage.showMessageForSuccess(json["message"].arrayValue.first?.stringValue ?? json["message"].stringValue)
                 SessionManager.shared.saveSession(json: json)
-                
             }else{
                 AlertMessage.showMessageForError(json["message"].array?.first?.stringValue ?? json["message"].stringValue)
             }

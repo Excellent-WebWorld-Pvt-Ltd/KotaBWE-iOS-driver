@@ -84,8 +84,7 @@ class SideMenuTableViewController: UIViewController {
     func setData() {
         
         let userName = "\(Singleton.shared.userProfile?.responseObject.firstName ?? "")" +  " " + "\(Singleton.shared.userProfile?.responseObject.lastName  ?? "")"
-        //lblName.text = userName
-        lblName.text = "Robert D"
+        lblName.text = userName
         
         let strImage = NetworkEnvironment.baseImageURL + (Singleton.shared.userProfile?.responseObject.profileImage ?? "")
         self.imgProfile.sd_setImage(with: URL(string: strImage), completed: nil)

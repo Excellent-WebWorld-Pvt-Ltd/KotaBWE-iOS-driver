@@ -152,20 +152,20 @@ extension VehicleDocRequestModel {
         validator.append(input: national_id_image, message: Messages.emptyNationalCard)
         validator.append(input: national_id_number, message: Messages.emptyNationalId)
         
-        validator.append(input: driver_licence_image, message: Messages.emptyDriverLicense)
-        validator.append(input: driver_licence_exp_date, message: Messages.emptyDriverLicenseExpire)
-        
-        validator.append(input: driver_psv_license, message: Messages.emptyDriverPSVLicense)
-        validator.append(input: driver_psv_license_exp_date, message: Messages.emptyDriverPSVLicenseExpire)
-        
-        validator.append(input: police_clearance_certi, message: Messages.emptyGoodConductCertificate)
-        
-        validator.append(input: vehicle_psv_license, message: Messages.emptyVehiclePSVLicense)
-        validator.append(input: vehicle_psv_license_exp_date, message: Messages.emptyVehiclePSVLicenseExpire)
-        
-        validator.append(input: ntsa_inspection_image, message: Messages.emptyNTSAInspectionCert)
-        validator.append(input: ntsa_exp_date, message: Messages.emptyNTSAInspectionCertExpire)
-        
+//        validator.append(input: driver_licence_image, message: Messages.emptyDriverLicense)
+//        validator.append(input: driver_licence_exp_date, message: Messages.emptyDriverLicenseExpire)
+//        
+//        validator.append(input: driver_psv_license, message: Messages.emptyDriverPSVLicense)
+//        validator.append(input: driver_psv_license_exp_date, message: Messages.emptyDriverPSVLicenseExpire)
+//
+//        validator.append(input: police_clearance_certi, message: Messages.emptyGoodConductCertificate)
+//
+//        validator.append(input: vehicle_psv_license, message: Messages.emptyVehiclePSVLicense)
+//        validator.append(input: vehicle_psv_license_exp_date, message: Messages.emptyVehiclePSVLicenseExpire)
+//
+//        validator.append(input: ntsa_inspection_image, message: Messages.emptyNTSAInspectionCert)
+//        validator.append(input: ntsa_exp_date, message: Messages.emptyNTSAInspectionCertExpire)
+//
         validator.append(input: psv_comprehensive_insurance, message: Messages.emptyPSVComprehensiveInsurance)
         validator.append(input: psv_comprehensive_insurance_exp_date, message: Messages.emptyPSVComprehensiveInsuranceExpire)
         
