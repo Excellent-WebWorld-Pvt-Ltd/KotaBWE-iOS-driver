@@ -11,27 +11,20 @@ class DriverDoc: Codable {
     let id: String
     let driver_id: String
     
-    let national_id_image: String
-    let national_id_number: String
+    let driver_licence_image_front : String
+    let driver_licence_image_back : String
+    let driver_licence_exp_date : String
     
-    let driver_licence_image: String
-    let driver_licence_exp_date: String
-    
-    let driver_psv_license: String
-    let driver_psv_license_exp_date: String
-    
-    let police_clearance_certi: String
-    
-    let vehicle_psv_license: String
-    let vehicle_psv_license_exp_date: String
-    
-    let vehicle_log_book_image: String
-    
-    let ntsa_inspection_image: String
-    let ntsa_exp_date: String
-    
-    let psv_comprehensive_insurance: String
-    let psv_comprehensive_insurance_exp_date: String
+    let criminal_record_image : String
+    let residence_certificate : String
+    let rental_license_image : String
+    let rental_license_exp_date : String
+    let booklet_image : String
+    let civil_liability_insurance_image : String
+    let civil_liability_insurance_exp_date : String
+    let bi_image_front : String
+    let bi_image_back : String
+    let bi_exp_date : String
 
     init?(fromJson json: JSON){
         if json.isEmpty {
@@ -39,20 +32,19 @@ class DriverDoc: Codable {
         }
         id = json["id"].stringValue
         driver_id = json["driver_id"].stringValue
-        national_id_image = json["national_id_image"].stringValue
-        national_id_number = json["national_id_number"].stringValue
-        driver_licence_image = json["driver_licence_image"].stringValue
+        driver_licence_image_front = json["driver_licence_image"].stringValue
+        driver_licence_image_back = json["driver_licence_image_back"].stringValue
         driver_licence_exp_date = json["driver_licence_exp_date"].stringValue
-        driver_psv_license = json["driver_psv_license"].stringValue
-        driver_psv_license_exp_date = json["driver_psv_license_exp_date"].stringValue
-        police_clearance_certi = json["police_clearance_certi"].stringValue
-        vehicle_psv_license = json["vehicle_psv_license"].stringValue
-        vehicle_psv_license_exp_date = json["vehicle_psv_license_exp_date"].stringValue
-        vehicle_log_book_image = json["vehicle_log_book_image"].stringValue
-        ntsa_inspection_image = json["ntsa_inspection_image"].stringValue
-        ntsa_exp_date = json["ntsa_exp_date"].stringValue
-        psv_comprehensive_insurance = json["psv_comprehensive_insurance"].stringValue
-        psv_comprehensive_insurance_exp_date = json["psv_comprehensive_insurance_exp_date"].stringValue
+        criminal_record_image = json["criminal_record_image"].stringValue
+        residence_certificate = json["residence_certificate"].stringValue
+        rental_license_image = json["rental_license_image"].stringValue
+        rental_license_exp_date = json["rental_license_exp_date"].stringValue
+        booklet_image = json["booklet_image"].stringValue
+        civil_liability_insurance_image = json["civil_liability_insurance_image"].stringValue
+        civil_liability_insurance_exp_date = json["civil_liability_insurance_exp_date"].stringValue
+        bi_image_front = json["bi_image_front"].stringValue
+        bi_image_back = json["bi_image_back"].stringValue
+        bi_exp_date = json["bi_exp_date"].stringValue
     }
 
 

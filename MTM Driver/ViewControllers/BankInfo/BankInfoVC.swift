@@ -171,8 +171,7 @@ class BankInfoVC: BaseViewController {
     @IBAction func btnActionSave(_ sender: UIButton) {
             guard isValidInputes() else { return }
             if isFromSetting{
-               // webserviceForUpdateAccount()
-                self.navigationController?.popViewController(animated: true)
+                webserviceForUpdateAccount()
             }
             else {
                 self.push(AppViewControllers.shared.vehicleInfo)

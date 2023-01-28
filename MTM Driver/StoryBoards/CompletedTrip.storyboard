@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -65,10 +65,10 @@
                                         <rect key="frame" x="0.0" y="154" width="375" height="513"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eti-ph-KHD">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="419.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="510.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYF-sp-DsB" customClass="ThemePrimaryButton" customModule="MTM_Driver" customModuleProvider="target">
-                                                        <rect key="frame" x="30" y="369.5" width="315" height="30"/>
+                                                        <rect key="frame" x="30" y="460.5" width="315" height="30"/>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Submit">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -410,7 +410,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T6n-cw-6ov">
-                                                        <rect key="frame" x="20" y="195" width="335" height="144.5"/>
+                                                        <rect key="frame" x="20" y="195" width="335" height="235.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Rate your Passenger" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="84m-ip-OLZ" userLabel="Rate your Passenger" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="109.5" y="15" width="116.5" height="14.5"/>
@@ -460,43 +460,27 @@
                                                                     <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="ic_unfillStar"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
-                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XKR-ic-rBW" customClass="IQTextView" customModule="IQKeyboardManagerSwift">
-                                                                <rect key="frame" x="20" y="83.5" width="295" height="30"/>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JvA-VR-vSR" customClass="CustomViewOutlinedTxtView" customModule="MTM_Driver" customModuleProvider="target">
+                                                                <rect key="frame" x="24" y="100.5" width="287" height="120"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="30" id="IBd-8I-vO4"/>
+                                                                    <constraint firstAttribute="height" constant="120" id="yQm-eg-0Uv"/>
                                                                 </constraints>
-                                                                <color key="textColor" white="0.0" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                 <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Additional Note"/>
-                                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderTextColor">
-                                                                        <color key="value" white="0.0" alpha="0.20142297031117135" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Additional Note"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Additional Note"/>
                                                                 </userDefinedRuntimeAttributes>
-                                                            </textView>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V3d-hx-AeG">
-                                                                <rect key="frame" x="20" y="118.5" width="295" height="1"/>
-                                                                <color key="backgroundColor" white="0.0" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="1" id="XIT-AT-PYY"/>
-                                                                </constraints>
                                                             </view>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                         <constraints>
                                                             <constraint firstItem="84m-ip-OLZ" firstAttribute="top" secondItem="T6n-cw-6ov" secondAttribute="top" constant="15" id="5TU-lv-Tt2"/>
                                                             <constraint firstItem="0Sg-WK-NhT" firstAttribute="top" secondItem="84m-ip-OLZ" secondAttribute="bottom" constant="15" id="6cA-By-zrf"/>
-                                                            <constraint firstItem="XKR-ic-rBW" firstAttribute="top" secondItem="0Sg-WK-NhT" secondAttribute="bottom" constant="15" id="BuU-kg-yXP"/>
+                                                            <constraint firstItem="JvA-VR-vSR" firstAttribute="leading" secondItem="T6n-cw-6ov" secondAttribute="leading" constant="24" id="DLD-UQ-fzP"/>
+                                                            <constraint firstAttribute="trailing" secondItem="JvA-VR-vSR" secondAttribute="trailing" constant="24" id="EtN-Nf-vPW"/>
                                                             <constraint firstItem="0Sg-WK-NhT" firstAttribute="centerX" secondItem="T6n-cw-6ov" secondAttribute="centerX" id="KBD-Wu-pBv"/>
-                                                            <constraint firstItem="V3d-hx-AeG" firstAttribute="top" secondItem="XKR-ic-rBW" secondAttribute="bottom" constant="5" id="Nmf-Rs-bGp"/>
-                                                            <constraint firstItem="XKR-ic-rBW" firstAttribute="leading" secondItem="T6n-cw-6ov" secondAttribute="leading" constant="20" id="QqQ-cK-tdt"/>
-                                                            <constraint firstItem="V3d-hx-AeG" firstAttribute="leading" secondItem="T6n-cw-6ov" secondAttribute="leading" constant="20" id="QwK-Al-TIH"/>
-                                                            <constraint firstItem="V3d-hx-AeG" firstAttribute="leading" secondItem="XKR-ic-rBW" secondAttribute="leading" id="Vkj-jj-LDe"/>
-                                                            <constraint firstAttribute="bottom" secondItem="V3d-hx-AeG" secondAttribute="bottom" constant="25" id="XHT-Zw-0BO"/>
-                                                            <constraint firstItem="V3d-hx-AeG" firstAttribute="trailing" secondItem="XKR-ic-rBW" secondAttribute="trailing" id="bw9-gz-Lko"/>
-                                                            <constraint firstAttribute="trailing" secondItem="XKR-ic-rBW" secondAttribute="trailing" constant="20" id="kHW-vW-XoX"/>
+                                                            <constraint firstAttribute="bottom" secondItem="JvA-VR-vSR" secondAttribute="bottom" constant="15" id="OWz-eu-h6z"/>
+                                                            <constraint firstItem="JvA-VR-vSR" firstAttribute="top" secondItem="0Sg-WK-NhT" secondAttribute="bottom" constant="32" id="S7W-ft-SJX"/>
                                                             <constraint firstItem="84m-ip-OLZ" firstAttribute="centerX" secondItem="T6n-cw-6ov" secondAttribute="centerX" id="vDq-2f-IPi"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
@@ -565,7 +549,7 @@
                         <outlet property="lblTripTime" destination="zXg-qo-Bah" id="3Cw-gw-TG4"/>
                         <outlet property="lblWaitingFees" destination="JiA-G1-5Vq" id="TNY-lx-9Ij"/>
                         <outlet property="lblWaitingTime" destination="nVD-uW-OSI" id="UdV-dg-p4f"/>
-                        <outlet property="txtReview" destination="XKR-ic-rBW" id="9kU-4H-wVP"/>
+                        <outlet property="txtvReview" destination="JvA-VR-vSR" id="Owo-tz-WJN"/>
                         <outlet property="viewRating" destination="0Sg-WK-NhT" id="5Ct-IQ-9M6"/>
                     </connections>
                 </viewController>
@@ -580,8 +564,8 @@
         </designable>
     </designables>
     <resources>
-        <image name="ic_filledStar" width="21.5" height="21.5"/>
-        <image name="ic_unfillStar" width="21.5" height="21.5"/>
+        <image name="ic_filledStar" width="23" height="23"/>
+        <image name="ic_unfillStar" width="22" height="22"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

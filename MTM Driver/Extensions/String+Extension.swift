@@ -13,7 +13,8 @@ extension Double {
         let currencyFormatter = NumberFormatter()
         currencyFormatter.usesGroupingSeparator = true
         currencyFormatter.numberStyle = .currency
-        currencyFormatter.locale = Locale(identifier: "en_KE")
+        //currencyFormatter.locale = Locale(identifier: "en_KE")
+        currencyFormatter.currencySymbol = "Kzs"
         currencyFormatter.minimumFractionDigits = 0
         currencyFormatter.maximumFractionDigits = 2
         let priceString = currencyFormatter.string(from: NSNumber(value: self))!
@@ -36,6 +37,28 @@ extension Int {
         let restMinutes = minutes % 60
         return "\(hours)h \(restMinutes)m"
     }
+    func secondsToTimeFormat() -> String? {
+            let seconds = self
+            if seconds < 60 {
+                if seconds < 10 {
+                    return "00m 0\(seconds)s"
+                }else{
+                    return "00m \(seconds)s"
+                }
+            }
+            let minutes = seconds / 60
+            if minutes < 60 {
+                let restSeconds = seconds % 60
+                if minutes < 10 {
+                    return "0\(minutes)m \(restSeconds)s"
+                }else{
+                    return "\(minutes)m \(restSeconds)s"
+                }
+            }
+            let hours = minutes / 60
+            let restMinutes = minutes % 60
+            return "\(hours)h \(restMinutes)m"
+        }
 }
 
 extension String {

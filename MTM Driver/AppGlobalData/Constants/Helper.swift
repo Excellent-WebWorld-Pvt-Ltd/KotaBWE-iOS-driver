@@ -14,7 +14,7 @@ let kAPPVesion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionS
 let SCREEN_WIDTH = UIScreen.main.bounds.width
 let SCREEN_HEIGHT = UIScreen.main.bounds.height
 
-let Currency = "Ksh"
+let Currency = "Kzs"
 let measurement = "mi"
 let zoomLevel: Float = 16.0
 

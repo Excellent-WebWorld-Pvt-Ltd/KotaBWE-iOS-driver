@@ -137,40 +137,46 @@ extension AppDelegate {
 }
 
 // MARK: - User notification center delegate
-@available(iOS 15.0.0, *)
 extension AppDelegate: UNUserNotificationCenterDelegate {
     
     // Without touch on notification
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         self.notificationInfo = nil
         let userInfo = notification.request.content.userInfo
         print("Notification content", userInfo)
         guard let notificationType = getNotificationTypeFrom(userInfo: userInfo) else {
-            return ([.alert, .sound])
+            completionHandler([.alert, .sound])
+            return
         }
         if notificationType == .bookingChat {
             if handleChatNotificationIfVCPresented(userInfo: userInfo) {
-                return ([])
+                completionHandler([])
+                return
             } else {
-                return ([.alert, .sound])
+                completionHandler([.alert, .sound])
+                return
             }
         }
        else if notificationType == .logout {
            SessionManager.shared.logout()
-            return ([.alert, .sound])
+        completionHandler([.alert, .sound])
+           return
         }
        else if notificationType == .bookLater {
-          return ([.alert, .sound])
+          completionHandler([.alert, .sound])
+           return
        }
         else {
-            return ([.alert, .sound])
+            completionHandler([.alert, .sound])
+            return
         }
     }
     
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
         print("Notification content", userInfo)
         guard let notificationType = getNotificationTypeFrom(userInfo: userInfo) else {
+            completionHandler()
             return 
         }
         switch notificationType {

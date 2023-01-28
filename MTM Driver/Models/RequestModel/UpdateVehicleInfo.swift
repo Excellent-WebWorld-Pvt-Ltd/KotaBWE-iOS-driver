@@ -21,10 +21,10 @@ class UpdateVehicleInfo : RequestModel {
     var vehicle_type_manufacturer_name: String = ""
     var vehicle_type_manufacturer_id: String = ""
     var no_of_passenger: String = ""
-    var car_left: String = ""
-    var car_right: String = ""
-    var car_front: String = ""
-    var car_back: String = ""
+    var vehicle_left = ""
+    var vehicle_right = ""
+    var vehicle_front = ""
+    var vehicle_back = ""
     
 //    vehicle_type_model_name:Premio
 //    vehicle_type_model_id: 1

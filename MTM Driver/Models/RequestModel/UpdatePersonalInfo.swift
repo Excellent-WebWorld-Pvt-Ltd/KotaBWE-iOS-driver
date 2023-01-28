@@ -23,6 +23,7 @@ class UpdatePersonalInfo : RequestModel {
     var owner_name:String = ""
     var owner_email:String = ""
     var owner_mobile_no:String = ""
+    var postal_code: String = ""
     
     
 }

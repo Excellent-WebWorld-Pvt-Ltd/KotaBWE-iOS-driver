@@ -13,7 +13,7 @@ public class Gradient: UIView {
     var startColor: UIColor = .themeBlue {
         didSet { updateColors() }
     }
-    var endColor: UIColor = .themeColor {
+    var endColor: UIColor = .themeBlue {
         didSet { updateColors() }
     }
     @IBInspectable var startLocation: Double = 0.05 {

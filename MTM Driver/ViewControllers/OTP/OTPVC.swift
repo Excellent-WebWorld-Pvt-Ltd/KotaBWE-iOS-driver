@@ -126,9 +126,8 @@ class OTPVC: BaseViewController , OTPTextFieldDelegate{
             let profileInfo = AppViewControllers.shared.profile()
             navigationController?.isNavigationBarHidden = false
             self.push(profileInfo)
-        }
-        else {
-//            saveLoginData()
+        }else {
+            saveLoginData()
             AppDelegate.shared.setHome()
             
         }

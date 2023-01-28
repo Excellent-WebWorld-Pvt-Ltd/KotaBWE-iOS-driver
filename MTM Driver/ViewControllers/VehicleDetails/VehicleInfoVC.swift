@@ -18,7 +18,6 @@ class VehicleInfoVC: BaseViewController {
     @IBOutlet weak var txtVehicleColor: CustomViewOutlinedTxtField!
     @IBOutlet weak var lblVehicleManufactureType: UILabel!
     @IBOutlet weak var lblVehicleModel: UILabel!
-    @IBOutlet weak var lblVehicleNumberOfPassenger: UILabel!
     @IBOutlet weak var lblVehicleManufactureYear: UILabel!
     @IBOutlet weak var lblVehicleType: UILabel!
     
@@ -35,14 +34,6 @@ class VehicleInfoVC: BaseViewController {
     
     
     @IBOutlet weak var txtCarType: CustomViewOutlinedTxtField!
-    
-    
-    
-    @IBOutlet weak var txtNoOfPassenger: CustomViewOutlinedTxtField!
-    
-    
-    
-    
     
     @IBOutlet weak var txtCompanyName: CustomViewOutlinedTxtField!
     
@@ -126,7 +117,6 @@ class VehicleInfoVC: BaseViewController {
         txtVehicleModel.textField.inputAccessoryView = toolBar
         txtCarType.textField.inputAccessoryView = toolBar
         txtVehicleManufactureYear.textField.inputAccessoryView = toolBar
-        txtNoOfPassenger.textField.inputAccessoryView = toolBar
     }
     
     @objc func onDoneButtonTappedService() {
@@ -184,12 +174,6 @@ class VehicleInfoVC: BaseViewController {
                 txtVehicleManufactureYear.textField.text = "\(strSelectYear)"
                // parameterArray.year_of_manufacture = strSelectYear
             }
-        }else if txtNoOfPassenger.textField.isFirstResponder {
-            if arrayNoOfPassenger.count != 0{
-                let row = pickerViewPassenger.selectedRow(inComponent: 0)
-                txtNoOfPassenger.textField.text = "\(arrayNoOfPassenger[row])"
-               // parameterArray.no_of_passenger = "\(arrayNoOfPassenger[row])"
-            }
         }
         self.view.endEditing(true)
     }
@@ -228,7 +212,6 @@ class VehicleInfoVC: BaseViewController {
         txtVehicleManufactureYear.textField.delegate = self
         // txtVehicleSubName.delegate = self
         txtCarType.textField.delegate = self
-        txtNoOfPassenger.textField.delegate = self
         txtCompanyName.textField.delegate = self
     }
     
@@ -252,7 +235,6 @@ class VehicleInfoVC: BaseViewController {
             txtVehicleNumber.textField.text = profile.plate_number
             txtVehicleManufactureYear.textField.text = profile.year_of_manufacture
             txtCarType.textField.text = profile.vehicleTypeString
-            txtNoOfPassenger.textField.text = profile.no_of_passenger
             txtCompanyName.textField.text = profile.vehicle_type_manufacturer_name
             
             // ----------------------------------------------------------
@@ -260,7 +242,6 @@ class VehicleInfoVC: BaseViewController {
             
             txtVehicleModel.textField.text = profile.vehicle_type_model_name
             txtVehicleManufactureYear.textField.text = profile.year_of_manufacture
-            txtNoOfPassenger.textField.text = profile.no_of_passenger
             txtVehicleNumber.textField.text = profile.plate_number
             txtVehicleColor.textField.text = profile.vehicle_color
             txtVehicleModel.textField.text = profile.vehicle_type_model_name
@@ -290,18 +271,16 @@ class VehicleInfoVC: BaseViewController {
             }
             
         } else if let profile = SessionManager.shared.userProfile {
-            
             let vehicleInfo = profile.responseObject.vehicleInfo[0]
             txtCarType.textField.text = vehicleInfo.vehicleTypeName
-            txtCompanyName.textField.text = vehicleInfo.vehicleTypeManufacturerName
+            txtCompanyName.textField.text = vehicleInfo.vehicleTypeName
             txtVehicleModel.textField.text = vehicleInfo.vehicleTypeModelName
             txtVehicleManufactureYear.textField.text = vehicleInfo.yearOfManufacture
-            txtNoOfPassenger.textField.text = vehicleInfo.noOfPassenger
             txtVehicleNumber.textField.text = vehicleInfo.plateNumber
             txtVehicleColor.textField.text = vehicleInfo.vehicleColor
             self.vehicleUpdatedType = vehicleInfo.vehicleType ?? ""
             self.vehicleSelectedSubModelID = vehicleInfo.vehicleTypeModelId ?? ""
-            self.vehicleSelectedManuID = vehicleInfo.vehicleTypeManufacturerId ?? ""
+            self.vehicleSelectedManuID = vehicleInfo.vehicleType ?? ""
             if let imageStr = vehicleInfo.carLeft{
                 imagesTypes[0].parameter = imageStr
             }
@@ -323,7 +302,6 @@ class VehicleInfoVC: BaseViewController {
         if !isFromSetting {
             parameterArray.vehicle_type_model_name = txtVehicleModel.textField.text!
             parameterArray.year_of_manufacture = txtVehicleManufactureYear.textField.text!
-            parameterArray.no_of_passenger = txtNoOfPassenger.textField.text!
             parameterArray.other_company_name = txtCompanyName.textField.text!
             parameterArray.plate_number = txtVehicleNumber.textField.text!
             parameterArray.vehicle_color = txtVehicleColor.textField.text ?? ""
@@ -380,15 +358,6 @@ class VehicleInfoVC: BaseViewController {
             txtVehicleManufactureYear.textField.leadingAssistiveLabel.text = ""
             txtVehicleManufactureYear.textField.setOutlineColor(.themeTextFieldDefaultBorderColor, for: .normal)
         }
-        
-        if txtNoOfPassenger.textField.text == nil || txtNoOfPassenger.textField.text == ""  {
-            
-            txtNoOfPassenger.textField.leadingAssistiveLabel.text = noOfPassengerErrorString
-            txtNoOfPassenger.textField.setOutlineColor(UIColor.red, for: .normal)
-        } else {
-            txtNoOfPassenger.textField.leadingAssistiveLabel.text = ""
-            txtNoOfPassenger.textField.setOutlineColor(.themeTextFieldDefaultBorderColor, for: .normal)
-        }
         if txtVehicleColor.textField.text == nil || txtVehicleColor.textField.text == ""  {
             
             txtVehicleColor.textField.leadingAssistiveLabel.text = vehicleColoErrorString
@@ -398,7 +367,7 @@ class VehicleInfoVC: BaseViewController {
             txtVehicleColor.textField.setOutlineColor(.themeTextFieldDefaultBorderColor, for: .normal)
         }
         
-        if txtVehicleNumber.textField.text != "" && (txtCompanyName.textField.text != nil || txtCompanyName.textField.text != "" ) && (txtVehicleManufactureYear.textField.text != nil || txtVehicleManufactureYear.textField.text != "") && (txtNoOfPassenger.textField.text != nil || txtNoOfPassenger.textField.text != "") && txtVehicleColor.textField.text != "" && imagesTypes.first?.image != #imageLiteral(resourceName: "car-1") && imagesTypes[1].image != #imageLiteral(resourceName: "car-2") && imagesTypes[2].image != #imageLiteral(resourceName: "car-3") && imagesTypes[3].image != #imageLiteral(resourceName: "car-4") {
+        if txtVehicleNumber.textField.text != "" && (txtCompanyName.textField.text != nil || txtCompanyName.textField.text != "" ) && (txtVehicleManufactureYear.textField.text != nil || txtVehicleManufactureYear.textField.text != "") && txtVehicleColor.textField.text != "" && imagesTypes.first?.image != #imageLiteral(resourceName: "car-1") && imagesTypes[1].image != #imageLiteral(resourceName: "car-2") && imagesTypes[2].image != #imageLiteral(resourceName: "car-3") && imagesTypes[3].image != #imageLiteral(resourceName: "car-4") {
             return true
         } else if imagesTypes.first?.image == #imageLiteral(resourceName: "car-1") {
             AlertMessage.showMessageForError(vehicleLeftImageErrorString)
@@ -433,8 +402,7 @@ class VehicleInfoVC: BaseViewController {
         [(txtVehicleNumber.textField.text,vehicleNumberErrorString, .isEmpty),
          (txtCompanyName.textField.text,companyNameErrorString, .isEmpty),
          (txtVehicleModel.textField.text,vehicleModelErrorString, .isEmpty),
-         (txtVehicleManufactureYear.textField.text,manufactureYearErrorString, .isEmpty),
-         (txtNoOfPassenger.textField.text,noOfPassengerErrorString, .numeric)]
+         (txtVehicleManufactureYear.textField.text,manufactureYearErrorString, .isEmpty)]
         
         
         //        (txtCarType.text,carTypeErrorString, .isEmpty),
@@ -472,7 +440,6 @@ class VehicleInfoVC: BaseViewController {
         if !isFromSetting {
             parameterArray.vehicle_type_model_name = txtVehicleModel.textField.text!
             parameterArray.year_of_manufacture = txtVehicleManufactureYear.textField.text!
-            parameterArray.no_of_passenger = txtNoOfPassenger.textField.text!
             parameterArray.other_company_name = txtCompanyName.textField.text!
             parameterArray.plate_number = txtVehicleNumber.textField.text!
             parameterArray.vehicle_color = txtVehicleColor.textField.text ?? ""
@@ -573,8 +540,7 @@ class VehicleInfoVC: BaseViewController {
             return
         }
         if self.isFromSetting {
-//            self.webserviceForVehicleInfo()
-            self.navigationController?.popViewController(animated: true)
+            self.webserviceForVehicleInfo()
         }else {
             let vehicleDetailVC = AppViewControllers.shared.vehicleDocs(isFromSettings: false)
             self.push(vehicleDetailVC)
@@ -606,21 +572,6 @@ extension VehicleInfoVC: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
     {
-        if textField == txtNoOfPassenger
-        {
-            let maxLength = 1
-            let currentString: NSString = textField.text! as NSString
-            let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
-            
-            if newString.length <= maxLength
-            {
-                let aSet = NSCharacterSet(charactersIn:"12345678").inverted
-                let compSepByCharInSet = string.components(separatedBy: aSet)
-                let numberFiltered = compSepByCharInSet.joined(separator: "")
-                return string == numberFiltered
-            }
-            return false
-        }
         return true
     }
     
@@ -638,11 +589,6 @@ extension VehicleInfoVC: UITextFieldDelegate {
         case txtVehicleManufactureYear.textField:
             openDatePicker()
             return true
-        case txtNoOfPassenger.textField :
-            self.view.endEditing(true)
-            txtNoOfPassenger.textField.inputView = pickerViewPassenger
-            return true
-            
         case txtCompanyName.textField:
             self.view.endEditing(true)
             txtCompanyName.textField.inputView = pickerViewComapanyName
@@ -739,7 +685,6 @@ extension VehicleInfoVC: UIPickerViewDelegate, UIPickerViewDataSource {
         let parameter = loginData?.responseObject.driverDocs
         updateVehicleInfoData.driver_id = parameter?.driver_id ?? ""
         updateVehicleInfoData.vehicle_color = txtVehicleColor.textField.unwrappedText
-        updateVehicleInfoData.no_of_passenger = txtNoOfPassenger.textField.text!
         updateVehicleInfoData.plate_number = txtVehicleNumber.textField.text!
         updateVehicleInfoData.vehicle_type_model_name = txtVehicleModel.textField.text!
         updateVehicleInfoData.vehicle_type_manufacturer_name = txtCompanyName.textField.text!
@@ -749,10 +694,10 @@ extension VehicleInfoVC: UIPickerViewDelegate, UIPickerViewDataSource {
         updateVehicleInfoData.vehicle_type_model_id = self.vehicleSelectedSubModelID
         updateVehicleInfoData.vehicle_type_manufacturer_id = self.vehicleSelectedManuID
         
-        updateVehicleInfoData.car_left = imagesTypes[0].parameter
-        updateVehicleInfoData.car_right = imagesTypes[1].parameter
-        updateVehicleInfoData.car_front = imagesTypes[2].parameter
-        updateVehicleInfoData.car_back = imagesTypes[3].parameter
+        updateVehicleInfoData.vehicle_left = imagesTypes[0].parameter
+        updateVehicleInfoData.vehicle_right = imagesTypes[1].parameter
+        updateVehicleInfoData.vehicle_front = imagesTypes[2].parameter
+        updateVehicleInfoData.vehicle_back = imagesTypes[3].parameter
         
         Loader.showHUD(with: self.view)
         

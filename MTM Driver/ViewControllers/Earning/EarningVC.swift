@@ -40,11 +40,11 @@ class EarningVC: BaseViewController {
             case .daily:
                 conHeightOfCollection.constant = 220
                 underLineBtnSetup(Type:.weekly)
-              //  webserviceCallTotalEarning(Type: earningType.rawValue.lowercased(), FromDate: DateFormatHelper.digitDate.getDateString(from: Todaydata), ToDate: "")
+                webserviceCallTotalEarning(Type: earningType.rawValue.lowercased(), FromDate: DateFormatHelper.digitDate.getDateString(from: Todaydata), ToDate: "")
             case .weekly :
-                conHeightOfCollection.constant = 320
+                conHeightOfCollection.constant = 350
                 underLineBtnSetup(Type: .daily)
-             //   webserviceCallTotalEarning(Type: earningType.rawValue.lowercased(), FromDate: weekDays.first?.FullDateFormateString ?? "", ToDate: weekDays.last?.FullDateFormateString ?? "")
+                webserviceCallTotalEarning(Type: earningType.rawValue.lowercased(), FromDate: weekDays.first?.FullDateFormateString ?? "", ToDate: weekDays.last?.FullDateFormateString ?? "")
             }
         }
     }
@@ -67,7 +67,7 @@ class EarningVC: BaseViewController {
     //MARK:- Add Shimmer effect  ====
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-       // view.setTemplateWithSubviews(true, viewBackgroundColor: .lightGray)
+//        view.setTemplateWithSubviews(true, viewBackgroundColor: .lightGray)
       }
     
     //MARK:- ==== Stop Shimmer Effect ====
@@ -84,12 +84,12 @@ class EarningVC: BaseViewController {
     
     //MARK:- ====== Btn Action weekly =======
     @IBAction func btnActionWeekly(_ sender: UIButton) {
-//        switch earningType {
-//        case .daily:
-//            earningType = .weekly
-//        case .weekly :
-//            earningType = .daily
-//        }
+        switch earningType {
+        case .daily:
+            earningType = .weekly
+        case .weekly :
+            earningType = .daily
+        }
     }
     
     //MARK:- ======== Btn action withDraw ========
@@ -136,7 +136,7 @@ extension EarningVC : UICollectionViewDataSource , UICollectionViewDelegate ,UIC
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = colWeeklyUpdates.dequeueReusableCell(withReuseIdentifier: "WeeklyUpdateCollectionCell", for: indexPath) as! WeeklyUpdateCollectionCell
-        //cell.chartData()
+//        cell.chartData()
         cell.days = days
         cell.conHeightOfChart.constant = self.earningType == .daily ? 0 : 100
         cell.segmentContrl.isHidden = self.earningType == .daily ? true : false
@@ -146,66 +146,70 @@ extension EarningVC : UICollectionViewDataSource , UICollectionViewDelegate ,UIC
             i.isHidden =  self.earningType == .daily ? true : false
         }
 //
-//        if isShowGraph == true {
-//            DispatchQueue.main.async {
-//                cell.segmentContrl.isHidden = false
-//                cell.segmentContrl.layoutIfNeeded()
-//                cell.segmentContrl.frame.size.height = 30
-//            }
-//
-//            cell.ViewbarChart.isHidden = false
-//            let arrOfDoubles = task.map { (value) -> Double in
-//                return Double(value)!
-//            }
-//            cell.dataSetup(dataPoints:arrOfDoubles)
-//        }
-//        else {
-//            for i in cell.lblDays {
-//                i.isHidden =  true
-//            }
-//            cell.conHeightOfChart.constant = 0
-//            cell.segmentContrl.frame.size.height = 0
-//            cell.ViewbarChart.isHidden = true
-//
-//        }
-//        cell.nextBtnClick = { [unowned self] in
-//            switch self.earningType {
-//            case .daily:
-//                let date = self.currentDate.dayAfter
-//                self.currentDate = date
-//                self.webserviceCallTotalEarning(Type: self.earningType.rawValue.lowercased(), FromDate: DateFormatHelper.digitDate.getDateString(from: self.currentDate), ToDate: "")
-//            case .weekly:
-//                let nextWeekDate = self.weekDays.last?.FullDateFormateString
-//                let dateFormatter = DateFormatter()
-//                dateFormatter.dateFormat = DateFormatHelper.digitDate.rawValue
-//                let DateDigit =  dateFormatter.date(from: nextWeekDate ?? "")
-//                //weekDays?.get(direction: .previous, dayName: .monday, considerToday: true)
-//                self.getWeekDays(FromDate:DateDigit ?? Date())
-//                self.webserviceCallTotalEarning(Type: self.earningType.rawValue.lowercased(), FromDate: self.weekDays.first?.FullDateFormateString ?? "", ToDate: self.weekDays.last?.FullDateFormateString ?? "")
-//            }
-//        }
-//        cell.previousBtnClick = { [unowned self] in
-//            switch self.earningType {
-//            case .daily:
-//                let date = self.currentDate.dayBefore
-//                self.currentDate = date
-//                self.webserviceCallTotalEarning(Type: self.earningType.rawValue.lowercased(), FromDate: DateFormatHelper.digitDate.getDateString(from: self.currentDate), ToDate: "")
-//            case.weekly :
-//                let nextWeekDate = self.weekDays.first?.FullDateFormateString
-//                let dateFormatter = DateFormatter()
-//                dateFormatter.dateFormat = DateFormatHelper.digitDate.rawValue
-//                let DateDigit =  dateFormatter.date(from: nextWeekDate ?? "")
-//                let weekDays = DateDigit?.dayBeforeWeek
-//
-//                self.getWeekDays(FromDate:weekDays ?? Date())
-//                self.webserviceCallTotalEarning(Type: self.earningType.rawValue.lowercased(), FromDate: self.weekDays.first?.FullDateFormateString ?? "", ToDate: self.weekDays.last?.FullDateFormateString ?? "")
-//            }
-//        }
-        cell.lblTimes.text = "10:45"//objEarning?.totalTime.secondsToTimeFormate()
-        cell.lblDate.text = "13 jan 2023"//objEarning?.currentDate
-        cell.lblTips.text = "$80.00"//objEarning?.totalTips
-        cell.lblRides.text = "10"//"\(objEarning?.totalBooking ?? 0)"
-        cell.lblTotal.text = "Ksh 0.00"//"Ksh \(objEarning?.totalPrice ?? "")"
+        if isShowGraph == true {
+            DispatchQueue.main.async {
+                cell.segmentContrl.isHidden = false
+                cell.segmentContrl.layoutIfNeeded()
+                cell.segmentContrl.frame.size.height = 30
+            }
+
+            cell.ViewbarChart.isHidden = false
+            let arrOfDoubles = task.map { (value) -> Double in
+                return Double(value)!
+            }
+            cell.dataSetup(dataPoints:arrOfDoubles)
+        }
+        else {
+            for i in cell.lblDays {
+                i.isHidden =  true
+            }
+            cell.conHeightOfChart.constant = 0
+            cell.segmentContrl.frame.size.height = 0
+            cell.ViewbarChart.isHidden = true
+
+        }
+        cell.nextBtnClick = { [unowned self] in
+            switch self.earningType {
+            case .daily:
+                let date = self.currentDate.dayAfter
+                if date < Date(){
+                    self.currentDate = date
+                    self.webserviceCallTotalEarning(Type: self.earningType.rawValue.lowercased(), FromDate: DateFormatHelper.digitDate.getDateString(from: self.currentDate), ToDate: "")
+                }
+            case .weekly:
+                let nextWeekDate = self.weekDays.last?.FullDateFormateString
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = DateFormatHelper.digitDate.rawValue
+                let DateDigit =  dateFormatter.date(from: nextWeekDate ?? "")
+                //weekDays?.get(direction: .previous, dayName: .monday, considerToday: true)
+                if DateDigit ?? Date() < Date(){
+                    self.getWeekDays(FromDate:DateDigit ?? Date())
+                    self.webserviceCallTotalEarning(Type: self.earningType.rawValue.lowercased(), FromDate: self.weekDays.first?.FullDateFormateString ?? "", ToDate: self.weekDays.last?.FullDateFormateString ?? "")
+                }
+            }
+        }
+        cell.previousBtnClick = { [unowned self] in
+            switch self.earningType {
+            case .daily:
+                let date = self.currentDate.dayBefore
+                self.currentDate = date
+                self.webserviceCallTotalEarning(Type: self.earningType.rawValue.lowercased(), FromDate: DateFormatHelper.digitDate.getDateString(from: self.currentDate), ToDate: "")
+            case.weekly :
+                let nextWeekDate = self.weekDays.first?.FullDateFormateString
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = DateFormatHelper.digitDate.rawValue
+                let DateDigit =  dateFormatter.date(from: nextWeekDate ?? "")
+                let weekDays = DateDigit?.dayBeforeWeek
+
+                self.getWeekDays(FromDate:weekDays ?? Date())
+                self.webserviceCallTotalEarning(Type: self.earningType.rawValue.lowercased(), FromDate: self.weekDays.first?.FullDateFormateString ?? "", ToDate: self.weekDays.last?.FullDateFormateString ?? "")
+            }
+        }
+        cell.lblTimes.text = objEarning?.totalTime.secondsToTimeFormate()
+        cell.lblDate.text = objEarning?.currentDate
+        cell.lblTips.text = objEarning?.totalTips
+        cell.lblRides.text = "\(objEarning?.totalBooking ?? 0)"
+        cell.lblTotal.text = "Kzs \(objEarning?.totalPrice ?? "")"
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -216,7 +220,7 @@ extension EarningVC : UICollectionViewDataSource , UICollectionViewDelegate ,UIC
 extension EarningVC : UITableViewDataSource , UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return showNoDataCell ? 1 : 10//arrEarningHistory.count
+        return showNoDataCell ? 1 : arrEarningHistory.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -229,9 +233,9 @@ extension EarningVC : UITableViewDataSource , UITableViewDelegate {
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellType.walletHistory.cellId, for: indexPath) as! WalletHistoryTableViewCell
             cell.amountLable.textColor = .themeSuccess
-            cell.amountLable.text = "10.99"//"+" + (arrEarningHistory[indexPath.row].driverAmount.toCurrencyString())
-            cell.timeLabel.text = "10 jan 2023 5:35 pm"//arrEarningHistory[indexPath.row].dropoffTime
-            cell.titleLabel.text = "ID #1(Cash)"//"ID #\(arrEarningHistory[indexPath.row].id ?? "0")  \(arrEarningHistory[indexPath.row].paymentType ?? "")"
+            cell.amountLable.text = "+" + (arrEarningHistory[indexPath.row].driverAmount.toCurrencyString())
+            cell.timeLabel.text = arrEarningHistory[indexPath.row].dropoffTime
+            cell.titleLabel.text = "ID #\(arrEarningHistory[indexPath.row].id ?? "0")  \(arrEarningHistory[indexPath.row].paymentType ?? "")"
             return cell
 
         }
@@ -252,13 +256,12 @@ extension EarningVC {
         reqmodel.to_date = ToDate
         reqmodel.type = Type
         WebServiceCalls.totalEarningReport(reqmodel: reqmodel) { response, status in
-//            DispatchQueue.main.async {
-//                self.stopShimmer()
-//            }
+            DispatchQueue.main.async {
+                self.stopShimmer()
+            }
             Loader.hideHUD()
             if status {
                 print(response)
-              
                 if response["graph"].dictionary  != nil {
                     //self.conHeightOfCollection.constant = 320
                     self.isShowGraph = true

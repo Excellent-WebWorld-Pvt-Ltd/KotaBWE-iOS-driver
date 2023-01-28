@@ -72,6 +72,10 @@ class BookingHistoryResponse : NSObject{
     var waitingTimeCharge : String!
     var customerImage : String!
     var customerMobileNumber : String!
+    var cargoImage: [JSON]?
+    var cargoWeightKg: String?
+    var itemQuantity: String?
+    var truckLoadType: String?
 
     /**
      * Instantiate the instance using the passed json values to set the properties values
@@ -144,6 +148,10 @@ class BookingHistoryResponse : NSObject{
         waitingTimeCharge = json["waiting_time_charge"].stringValue
         customerImage = json["customer_profile_image"].stringValue
         customerMobileNumber = json["customer_mobile_no"].stringValue
+        cargoImage = json["cargo_image"].arrayValue
+        cargoWeightKg = json["cargo_weight_kg"].stringValue
+        itemQuantity = json["item_quantity"].stringValue
+        truckLoadType = json["truck_load_type"].stringValue
     }
 
     
@@ -159,13 +167,13 @@ enum TripCompletedStatus: String {
     var color: UIColor {
         switch self {
         case .pending:
-            return UIColor.hexStringToUIColor(hex: "#EC3636")
+            return UIColor.hexStringToUIColor(hex: "#F0C44B")
         case .cancelled:
-            return UIColor.red
+            return UIColor.hexStringToUIColor(hex: "#FF0000")
         case .accepted, .traveling:
             return UIColor.hexStringToUIColor(hex: "#006CB5")
         case .completed:
-            return UIColor.green
+            return UIColor.hexStringToUIColor(hex: "#53CB3D")
         }
     }
 

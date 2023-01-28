@@ -15,7 +15,16 @@ extension UIImageView{
                                 isProfileImage: Bool = false) {
         let url = URL(serverPath: suffix)
         let finalPlaceholder = isProfileImage ? AppImages.userPlaceholder.image : placeholder
+        
         self.sd_setImage(with: url, placeholderImage: finalPlaceholder)
+    }
+    
+    func setImageWithUrl(byAdding suffix: String,
+                         placeholder: UIImage? = nil) {
+        let url = URL(string: suffix)
+        self.kf.indicatorType = .activity
+        self.kf.setImage(with: url, placeholder: placeholder)
+        // self.sd_setImage(with: url, placeholderImage: finalPlaceholder)
     }
 }
 

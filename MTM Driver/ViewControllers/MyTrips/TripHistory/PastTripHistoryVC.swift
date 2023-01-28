@@ -19,11 +19,11 @@ class PastTripHistoryVC: UIViewController {
     var PageLimit = 10
     var PageNumber = 1
     var arrPastHistory = [BookingHistoryResponse]()
-   // private var showNoDataCell = false
+    private var showNoDataCell = false
     var isLoading = true {
             didSet {
-//                TblPastTrip.isUserInteractionEnabled = !isLoading
-//                TblPastTrip.reloadData()
+                TblPastTrip.isUserInteractionEnabled = !isLoading
+                TblPastTrip.reloadData()
             }
         }
     
@@ -35,10 +35,10 @@ class PastTripHistoryVC: UIViewController {
         NotificationCenter.default.removeObserver(self, name: .refresh, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(DataRefresh), name: .refresh, object: nil)
         
-       // TblPastTrip.refreshControl = refreshControl
-       // pastBookingHistory(ShowHud: true, PageNo: PageNumber)
-//        refreshControl.addTarget(self, action: #selector(self.refreshWeatherData(_:)), for: .valueChanged)
-//        refreshControl.tintColor = UIColor.lightGray //
+        TblPastTrip.refreshControl = refreshControl
+        pastBookingHistory(ShowHud: true, PageNo: PageNumber)
+        refreshControl.addTarget(self, action: #selector(self.refreshWeatherData(_:)), for: .valueChanged)
+        refreshControl.tintColor = UIColor.lightGray //
         TblPastTrip.registerNibCell(type: .trip)
         TblPastTrip.reloadData()
     }
@@ -70,51 +70,44 @@ class PastTripHistoryVC: UIViewController {
 //MARK:- ======= Tablview dataSource and Delegate Methods ======
 extension PastTripHistoryVC : UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        if isLoading == false && arrPastHistory.isEmpty{
-//            return 1
-//        } else {
-//            return arrPastHistory.count
-//        }
-        return 5
+        if isLoading == false && arrPastHistory.isEmpty{
+            return 1
+        } else {
+            return arrPastHistory.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellType.trip.cellId, for: indexPath) as! TripTableViewCell
-        cell.mapContainerView.isHidden = true
-        cell.mapContainerView.frame.size.height = 0
-        //                    cell.configuration(hasMap: false, info: arrPastHistory[indexPath.row])
-        return cell
-//        if arrPastHistory.count != 0 {
-//            let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellType.trip.cellId, for: indexPath) as! TripTableViewCell
-//            cell.mapContainerView.isHidden = true
-//            cell.mapContainerView.frame.size.height = 0
-//            cell.configuration(hasMap: false, info: arrPastHistory[indexPath.row])
-//            return cell
-//        }
-//        else {
-//            let cell: NoDataFoundTblCell = tableView.dequeueReusableCell(withType: .noData, for: indexPath)
-//            cell.setMessage("No record found!")
-//            return cell
-//        }
+        if arrPastHistory.count != 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellType.trip.cellId, for: indexPath) as! TripTableViewCell
+            cell.mapContainerView.isHidden = true
+            cell.mapContainerView.frame.size.height = 0
+            cell.configuration(hasMap: false, info: arrPastHistory[indexPath.row])
+            return cell
+        }
+        else {
+            let cell: NoDataFoundTblCell = tableView.dequeueReusableCell(withType: .noData, for: indexPath)
+            cell.setMessage("No record found!")
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return arrPastHistory.count != 0 ? UITableView.automaticDimension : self.TblPastTrip.frame.size.height
-       return UITableView.automaticDimension
+        return arrPastHistory.count != 0 ? UITableView.automaticDimension : self.TblPastTrip.frame.size.height
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let TripDetailsVC : TripDetailVC = UIViewController.viewControllerInstance(storyBoard: .myTrips)
-      //  TripDetailsVC.objDetail = arrPastHistory[indexPath.row]
+        TripDetailsVC.objDetail = arrPastHistory[indexPath.row]
         TripDetailsVC.isFromPast =  true
         self.navigationController?.pushViewController(TripDetailsVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
-//        if indexPath.row == arrPastHistory.count - 4 && NeedToReload == true {
-//            loadMoreData()
-//        }
+        cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
+        if indexPath.row == arrPastHistory.count - 4 && NeedToReload == true {
+            loadMoreData()
+        }
     }
 
 }
@@ -145,13 +138,13 @@ extension PastTripHistoryVC  {
                 else {
                     self.arrPastHistory.append(contentsOf: objResponse.data)
                 }
-                if objResponse.data.isEmpty || objResponse.data.count == self.PageLimit {
+                if objResponse.data.isEmpty || objResponse.data.count < self.PageLimit {
                     self.NeedToReload = false
                 }
                 else {
                     self.NeedToReload = true
                 }
-                //self.showNoDataCell = self.arrPastHistory.isEmpty
+                self.showNoDataCell = self.arrPastHistory.isEmpty
                 self.TblPastTrip.reloadData()
             }
             else {

@@ -38,7 +38,7 @@ class SplashScreenViewController: BaseViewController {
     
         WebService.shared.requestMethod(api: .Init, httpMethod: .get, parameters: dictData) { (json, status) in
             let model = InitResponse(json: json)
-           
+            Singleton.shared.bookingInfo = nil
             if(model.isUpdateApp != ""){
                 self.handleAPIRepsonse(model, updateCheck: true)
             }else if model.maintenance{

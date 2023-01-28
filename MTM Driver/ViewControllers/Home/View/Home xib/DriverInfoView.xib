@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="UKQ-GH-PEn" customClass="DriverInfoView" customModule="MTM_Driver" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="579" height="670"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UKQ-GH-PEn" customClass="DriverInfoView" customModule="MTM_Driver" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="587" height="670"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xcF-b5-pvO" customClass="Gradient" customModule="MTM_Driver" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="579" height="670"/>
+                    <rect key="frame" x="0.0" y="0.0" width="587" height="670"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J8u-8Y-HLi">
-                            <rect key="frame" x="0.0" y="0.0" width="579" height="90"/>
+                            <rect key="frame" x="0.0" y="0.0" width="587" height="90"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Jg-IU-cci">
                                     <rect key="frame" x="15" y="20" width="50" height="50"/>
@@ -36,7 +35,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Johannes Smith" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOB-HE-YAf" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
-                                    <rect key="frame" x="77" y="25" width="407.5" height="20"/>
+                                    <rect key="frame" x="77" y="25" width="415.5" height="20"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -49,7 +48,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="saj-j5-qZe">
-                                    <rect key="frame" x="77" y="50" width="407.5" height="20"/>
+                                    <rect key="frame" x="77" y="50" width="415.5" height="20"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LlA-N0-v9N" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
                                             <rect key="frame" x="17" y="3" width="18.5" height="14.5"/>
@@ -81,7 +80,7 @@
                                     </constraints>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="jHM-W9-UT5">
-                                    <rect key="frame" x="494.5" y="25" width="69.5" height="34"/>
+                                    <rect key="frame" x="502.5" y="25" width="69.5" height="34"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 Jan 2020" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1tN-4U-1RO" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="69.5" height="14.5"/>
@@ -128,51 +127,58 @@
                                 <constraint firstAttribute="bottom" secondItem="9Jg-IU-cci" secondAttribute="bottom" constant="20" id="v6n-Dw-CDe"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MHz-Sh-U1k" customClass="ThemeRoundCorenrView" customModule="MTM_Driver" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="90" width="579" height="170"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MHz-Sh-U1k">
+                            <rect key="frame" x="0.0" y="90" width="587" height="180"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="puX-Mk-Yty">
-                                    <rect key="frame" x="20" y="15" width="539" height="140"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="puX-Mk-Yty">
+                                    <rect key="frame" x="20" y="15" width="547" height="150"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MNp-WF-NZF">
-                                            <rect key="frame" x="0.0" y="0.0" width="539" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="547" height="80"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5o9-Bq-95M">
-                                                    <rect key="frame" x="0.0" y="0.0" width="539" height="69"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="547" height="79"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~ $20.5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ofh-Yh-O2L" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="20" width="58.5" height="29"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                                                    <real key="value" value="24"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="semibold" value="YES"/>
-                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="black" value="YES"/>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="LdR-ga-zVX">
-                                                            <rect key="frame" x="488" y="17.5" width="51" height="34"/>
+                                                            <rect key="frame" x="467" y="18" width="80" height="43"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.5 Miles" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qa8-f6-kbc" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="51" height="14.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                    <color key="textColor" white="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                    <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="regular" value="YES"/>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                                                            <real key="value" value="12"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="color" keyPath="Colour">
-                                                                            <color key="value" white="0.0" alpha="0.60338587339232563" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                    </userDefinedRuntimeAttributes>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~ 20 Min" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8Z-wd-onJ" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="19.5" width="51" height="14.5"/>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PMP-Ka-2kf">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="19"/>
+                                                                    <subviews>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_Location" translatesAutoresizingMaskIntoConstraints="NO" id="7ij-QD-54b">
+                                                                            <rect key="frame" x="0.0" y="2" width="15" height="15"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="15" id="2Fp-7H-XWI"/>
+                                                                                <constraint firstAttribute="width" secondItem="7ij-QD-54b" secondAttribute="height" multiplier="1:1" id="zId-7S-fGJ"/>
+                                                                            </constraints>
+                                                                        </imageView>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.5 Miles" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qa8-f6-kbc" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
+                                                                            <rect key="frame" x="17" y="2.5" width="51" height="14.5"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                            <color key="textColor" white="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="regular" value="YES"/>
+                                                                                <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                                                    <real key="value" value="12"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                                <userDefinedRuntimeAttribute type="color" keyPath="Colour">
+                                                                                    <color key="value" white="0.0" alpha="0.60338587339232563" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                            </userDefinedRuntimeAttributes>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                    <constraints>
+                                                                        <constraint firstItem="Qa8-f6-kbc" firstAttribute="centerY" secondItem="7ij-QD-54b" secondAttribute="centerY" id="HWO-2t-Np6"/>
+                                                                        <constraint firstItem="7ij-QD-54b" firstAttribute="top" secondItem="PMP-Ka-2kf" secondAttribute="top" constant="2" id="TE5-uF-0f1"/>
+                                                                        <constraint firstItem="7ij-QD-54b" firstAttribute="leading" secondItem="PMP-Ka-2kf" secondAttribute="leading" id="XAx-mB-QXl"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="7ij-QD-54b" secondAttribute="bottom" constant="2" id="bqf-TF-mdm"/>
+                                                                        <constraint firstItem="Qa8-f6-kbc" firstAttribute="leading" secondItem="7ij-QD-54b" secondAttribute="trailing" constant="2" id="wiq-O3-cVi"/>
+                                                                    </constraints>
+                                                                </view>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~ 20 Min" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8Z-wd-onJ" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="24" width="80" height="19"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <color key="textColor" white="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -187,20 +193,87 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="80" id="bxj-rS-OaP"/>
+                                                            </constraints>
                                                         </stackView>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zd7-R3-k9M">
+                                                            <rect key="frame" x="0.0" y="0.0" width="462" height="79"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cargo weight:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7Y-Mc-tal" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="462" height="20"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="20" id="ljA-cu-mBQ"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                                            <real key="value" value="12"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="black" value="YES"/>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item quantity:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgR-cu-xBW" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="25" width="462" height="20"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="20" id="qiG-dF-ftE"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                                            <real key="value" value="12"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="black" value="YES"/>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Truck load type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rSY-h9-6rw" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="50" width="462" height="20"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="20" id="Gq8-0A-6mG"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                                            <real key="value" value="12"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="black" value="YES"/>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <constraints>
+                                                                <constraint firstItem="rSY-h9-6rw" firstAttribute="leading" secondItem="Zd7-R3-k9M" secondAttribute="leading" id="5xz-Rd-7La"/>
+                                                                <constraint firstItem="j7Y-Mc-tal" firstAttribute="top" secondItem="Zd7-R3-k9M" secondAttribute="top" id="7C8-Xg-xyS"/>
+                                                                <constraint firstAttribute="trailing" secondItem="rSY-h9-6rw" secondAttribute="trailing" id="8j0-Po-6A5"/>
+                                                                <constraint firstAttribute="trailing" secondItem="j7Y-Mc-tal" secondAttribute="trailing" id="F3E-iE-5gx"/>
+                                                                <constraint firstItem="rSY-h9-6rw" firstAttribute="top" secondItem="fgR-cu-xBW" secondAttribute="bottom" constant="5" id="NST-bH-ehD"/>
+                                                                <constraint firstItem="fgR-cu-xBW" firstAttribute="leading" secondItem="Zd7-R3-k9M" secondAttribute="leading" id="Ozl-gr-jlt"/>
+                                                                <constraint firstAttribute="trailing" secondItem="fgR-cu-xBW" secondAttribute="trailing" id="ekd-fC-fws"/>
+                                                                <constraint firstItem="fgR-cu-xBW" firstAttribute="top" secondItem="j7Y-Mc-tal" secondAttribute="bottom" constant="5" id="fuN-91-9oV"/>
+                                                                <constraint firstItem="j7Y-Mc-tal" firstAttribute="leading" secondItem="Zd7-R3-k9M" secondAttribute="leading" id="tLZ-we-P8O"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
-                                                        <constraint firstItem="Ofh-Yh-O2L" firstAttribute="top" secondItem="5o9-Bq-95M" secondAttribute="top" constant="20" id="Gp0-Uy-Xsg"/>
-                                                        <constraint firstAttribute="bottom" secondItem="Ofh-Yh-O2L" secondAttribute="bottom" constant="20" id="R7j-ff-Lzf"/>
-                                                        <constraint firstItem="Ofh-Yh-O2L" firstAttribute="leading" secondItem="5o9-Bq-95M" secondAttribute="leading" id="fAJ-vc-eqa"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Zd7-R3-k9M" secondAttribute="bottom" id="E4r-2S-gup"/>
+                                                        <constraint firstItem="LdR-ga-zVX" firstAttribute="centerY" secondItem="5o9-Bq-95M" secondAttribute="centerY" id="Pk1-kd-rv0"/>
+                                                        <constraint firstItem="Zd7-R3-k9M" firstAttribute="top" secondItem="5o9-Bq-95M" secondAttribute="top" id="RBi-kE-Des"/>
                                                         <constraint firstAttribute="trailing" secondItem="LdR-ga-zVX" secondAttribute="trailing" id="iO2-ev-o55"/>
-                                                        <constraint firstItem="Ofh-Yh-O2L" firstAttribute="centerY" secondItem="LdR-ga-zVX" secondAttribute="centerY" id="tZf-oM-3Vv"/>
+                                                        <constraint firstItem="LdR-ga-zVX" firstAttribute="leading" secondItem="Zd7-R3-k9M" secondAttribute="trailing" constant="5" id="iUf-7A-w3E"/>
+                                                        <constraint firstItem="Zd7-R3-k9M" firstAttribute="leading" secondItem="5o9-Bq-95M" secondAttribute="leading" id="wes-LJ-lwV"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.1488368235477785" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
+                                                <constraint firstAttribute="height" constant="80" id="HQh-Q4-FNB"/>
                                                 <constraint firstItem="5o9-Bq-95M" firstAttribute="leading" secondItem="MNp-WF-NZF" secondAttribute="leading" id="LqL-Po-LtW"/>
                                                 <constraint firstAttribute="trailing" secondItem="5o9-Bq-95M" secondAttribute="trailing" id="TZe-l5-pgJ"/>
                                                 <constraint firstItem="5o9-Bq-95M" firstAttribute="top" secondItem="MNp-WF-NZF" secondAttribute="top" id="WMF-fZ-nph"/>
@@ -208,16 +281,16 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vgy-R7-9Ob">
-                                            <rect key="frame" x="0.0" y="70" width="539" height="70"/>
+                                            <rect key="frame" x="0.0" y="80" width="547" height="70"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="GGa-kI-z86">
-                                                    <rect key="frame" x="0.0" y="15" width="519" height="40"/>
+                                                    <rect key="frame" x="0.0" y="15" width="527" height="40"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7oM-jW-gAn">
-                                                            <rect key="frame" x="0.0" y="0.0" width="252" height="40"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="256" height="40"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="j5s-Wo-Q0e">
-                                                                    <rect key="frame" x="94" y="9" width="64" height="22"/>
+                                                                    <rect key="frame" x="96" y="9" width="64" height="22"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uso-hW-fda" customClass="ThemeBorderedButton" customModule="MTM_Driver" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
@@ -246,17 +319,17 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yn0-L4-L0v">
-                                                            <rect key="frame" x="267" y="0.0" width="252" height="40"/>
+                                                            <rect key="frame" x="271" y="0.0" width="256" height="40"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iXm-QH-U76">
-                                                                    <rect key="frame" x="66" y="-2.5" width="120" height="45"/>
+                                                                    <rect key="frame" x="68" y="-2.5" width="120" height="45"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="120" id="A7e-09-bwB"/>
                                                                         <constraint firstAttribute="height" constant="45" id="XVB-d7-dBi"/>
                                                                     </constraints>
                                                                     <state key="normal" title="Cancel">
-                                                                        <color key="titleColor" name="thmePrimary"/>
+                                                                        <color key="titleColor" name="themeRed"/>
                                                                     </state>
                                                                     <connections>
                                                                         <action selector="btnCancelAction:" destination="UKQ-GH-PEn" eventType="touchUpInside" id="bAc-x3-zA8"/>
@@ -277,7 +350,7 @@
                                                                     <real key="value" value="1"/>
                                                                 </userDefinedRuntimeAttribute>
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                    <color key="value" name="thmePrimary"/>
+                                                                    <color key="value" name="themeRed"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
@@ -307,13 +380,13 @@
                             </constraints>
                         </view>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="QfD-lc-4y6">
-                            <rect key="frame" x="0.0" y="260" width="579" height="216"/>
+                            <rect key="frame" x="0.0" y="270" width="587" height="206"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P1N-iD-ck4">
-                                    <rect key="frame" x="0.0" y="0.0" width="509" height="216"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="448.5" height="206"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pickup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vKG-59-zdB" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="15" width="469" height="20.5"/>
+                                            <rect key="frame" x="20" y="15" width="408.5" height="20.5"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -327,7 +400,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="821 South St, Mabopane" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vP4-AW-jZZ" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="43.5" width="469" height="157.5"/>
+                                            <rect key="frame" x="20" y="43.5" width="408.5" height="147.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -351,69 +424,59 @@
                                         <constraint firstItem="vKG-59-zdB" firstAttribute="leading" secondItem="P1N-iD-ck4" secondAttribute="leading" constant="20" id="w1N-Xi-Lob"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YoO-hK-cWm">
-                                    <rect key="frame" x="519" y="0.0" width="60" height="216"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lYM-Ud-VfY">
-                                            <rect key="frame" x="5" y="83" width="50" height="50"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="50" id="HgW-oa-uMR"/>
-                                                <constraint firstAttribute="width" constant="50" id="alq-Sa-TDI"/>
-                                            </constraints>
-                                            <state key="normal" image="ic_SOS"/>
-                                            <connections>
-                                                <action selector="btnActionSOS:" destination="UKQ-GH-PEn" eventType="touchUpInside" id="AgE-Qb-pEQ"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="60" id="XZe-N4-gRr"/>
-                                        <constraint firstItem="lYM-Ud-VfY" firstAttribute="centerX" secondItem="YoO-hK-cWm" secondAttribute="centerX" id="aR6-Jf-7me"/>
-                                        <constraint firstItem="lYM-Ud-VfY" firstAttribute="centerY" secondItem="YoO-hK-cWm" secondAttribute="centerY" id="vkB-zT-I6m"/>
-                                    </constraints>
-                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~ $20.5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ofh-Yh-O2L" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
+                                    <rect key="frame" x="458.5" y="0.0" width="128.5" height="206"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                            <real key="value" value="24"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="semibold" value="YES"/>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="black" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </stackView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s4D-At-f3q">
-                            <rect key="frame" x="0.0" y="476" width="579" height="194"/>
+                            <rect key="frame" x="0.0" y="476" width="587" height="194"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2CI-rZ-RWK">
-                                    <rect key="frame" x="20" y="15" width="539" height="164"/>
+                                    <rect key="frame" x="20" y="15" width="547" height="164"/>
                                     <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7l7-pY-K4j" customClass="MTSlideToOpenView" customModule="MTM_Driver" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="547" height="40"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="Nlc-nc-5P6"/>
+                                            </constraints>
+                                        </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kmh-Qn-UrA" customClass="MTSlideToOpenView" customModule="MTM_Driver" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="539" height="40"/>
+                                            <rect key="frame" x="0.0" y="40" width="547" height="40"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="484-uL-MTx"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wzu-Xc-W6K" customClass="MTSlideToOpenView" customModule="MTM_Driver" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="40" width="539" height="40"/>
+                                            <rect key="frame" x="0.0" y="80" width="547" height="40"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="T53-uc-g8l"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7l7-pY-K4j" customClass="MTSlideToOpenView" customModule="MTM_Driver" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="80" width="539" height="40"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="40" id="Nlc-nc-5P6"/>
-                                            </constraints>
-                                        </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ia8-MC-hx0">
-                                            <rect key="frame" x="0.0" y="120" width="539" height="44"/>
+                                            <rect key="frame" x="0.0" y="120" width="547" height="44"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QKk-Ux-I5s" customClass="MTSlideToOpenView" customModule="MTM_Driver" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="494" height="44"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="502" height="44"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" systemColor="systemYellowColor"/>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9gi-oi-yZ9">
-                                                    <rect key="frame" x="499" y="2.5" width="40" height="39"/>
+                                                    <rect key="frame" x="507" y="2.5" width="40" height="39"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="dob-0m-Ptt"/>
                                                         <constraint firstAttribute="width" secondItem="9gi-oi-yZ9" secondAttribute="height" multiplier="1:1" id="oT8-3q-9rp"/>
@@ -472,30 +535,31 @@
                     </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
-            <viewLayoutGuide key="safeArea" id="7w2-Vu-AIM"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="xcF-b5-pvO" firstAttribute="trailing" secondItem="7w2-Vu-AIM" secondAttribute="trailing" id="Gbe-Dy-mGG"/>
-                <constraint firstItem="xcF-b5-pvO" firstAttribute="top" secondItem="7w2-Vu-AIM" secondAttribute="top" id="NAb-xa-IAY"/>
-                <constraint firstItem="xcF-b5-pvO" firstAttribute="leading" secondItem="7w2-Vu-AIM" secondAttribute="leading" id="ZRE-gu-Ysv"/>
-                <constraint firstItem="xcF-b5-pvO" firstAttribute="bottom" secondItem="7w2-Vu-AIM" secondAttribute="bottom" id="d2V-eg-zax"/>
+                <constraint firstItem="xcF-b5-pvO" firstAttribute="trailing" secondItem="UKQ-GH-PEn" secondAttribute="trailing" id="Gbe-Dy-mGG"/>
+                <constraint firstItem="xcF-b5-pvO" firstAttribute="top" secondItem="UKQ-GH-PEn" secondAttribute="top" id="NAb-xa-IAY"/>
+                <constraint firstItem="xcF-b5-pvO" firstAttribute="leading" secondItem="UKQ-GH-PEn" secondAttribute="leading" id="ZRE-gu-Ysv"/>
+                <constraint firstItem="xcF-b5-pvO" firstAttribute="bottom" secondItem="UKQ-GH-PEn" secondAttribute="bottom" id="d2V-eg-zax"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="ViewSOS" destination="YoO-hK-cWm" id="K2O-0W-Hmr"/>
                 <outlet property="ViewWithInMiles" destination="MNp-WF-NZF" id="VUl-Je-u41"/>
                 <outlet property="btnCancel" destination="9gi-oi-yZ9" id="jSR-W1-Q5p"/>
-                <outlet property="btnSos" destination="lYM-Ud-VfY" id="Kcb-gR-l6R"/>
-                <outlet property="conWidthOfViewSoS" destination="XZe-N4-gRr" id="KSZ-Vk-343"/>
                 <outlet property="iconDriverProfilePic" destination="9Jg-IU-cci" id="KRr-Sb-EUO"/>
+                <outlet property="lblCargoWeight" destination="j7Y-Mc-tal" id="r5X-z8-eCU"/>
                 <outlet property="lblDate" destination="1tN-4U-1RO" id="tae-f4-blG"/>
                 <outlet property="lblDriverName" destination="BOB-HE-YAf" id="guf-p6-vig"/>
                 <outlet property="lblDriverRatings" destination="LlA-N0-v9N" id="Ia8-3y-Kbd"/>
                 <outlet property="lblEarning" destination="Ofh-Yh-O2L" id="8vW-TK-HIu"/>
+                <outlet property="lblItemQuantity" destination="fgR-cu-xBW" id="LFC-zY-TE0"/>
+                <outlet property="lblLoadType" destination="rSY-h9-6rw" id="nYB-r7-8tL"/>
                 <outlet property="lblLocationTitle" destination="vKG-59-zdB" id="1S2-Lt-QgF"/>
+                <outlet property="lblMiles" destination="Qa8-f6-kbc" id="D7T-c6-XY3"/>
                 <outlet property="lblMin" destination="k8Z-wd-onJ" id="g2T-Ye-ERX"/>
                 <outlet property="lblPickup" destination="vP4-AW-jZZ" id="2X1-IU-A5h"/>
                 <outlet property="lblTime" destination="fwL-MR-x0X" id="WnR-X1-ggE"/>
+                <outlet property="secondView" destination="MHz-Sh-U1k" id="vTb-Rh-MVX"/>
                 <outlet property="viewBtnArrivedTrip" destination="7l7-pY-K4j" id="DPg-hZ-2ap"/>
                 <outlet property="viewBtnCompleteTrip" destination="wzu-Xc-W6K" id="b3G-56-Il7"/>
                 <outlet property="viewBtnStartRide" destination="kmh-Qn-UrA" id="kUx-GZ-VlY"/>
@@ -503,20 +567,20 @@
                 <outlet property="viewRequestButton" destination="QKk-Ux-I5s" id="3CK-Xf-hT2"/>
                 <outlet property="viewRequestTrip" destination="ia8-MC-hx0" id="los-m3-WWV"/>
             </connections>
-            <point key="canvasLocation" x="333.60000000000002" y="618.89055472263874"/>
+            <point key="canvasLocation" x="308" y="564.91754122938539"/>
         </view>
     </objects>
     <resources>
+        <image name="ic_Location" width="14" height="18"/>
         <image name="ic_Phone" width="15" height="15"/>
-        <image name="ic_Rating" width="14" height="14"/>
-        <image name="ic_SOS" width="30" height="30"/>
+        <image name="ic_Rating" width="23" height="23"/>
         <image name="ic_message" width="15" height="13"/>
-        <image name="xmark.circle.fill" catalog="system" width="128" height="123"/>
-        <namedColor name="thmePrimary">
-            <color red="0.0" green="0.0" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
+        <namedColor name="themeRed">
+            <color red="0.80000001192092896" green="0.20000000298023224" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

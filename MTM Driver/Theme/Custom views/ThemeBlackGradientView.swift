@@ -11,7 +11,7 @@ import UIKit
 
 class ThemeBlackGradientView: UIView {
 
-    private let color1 = UIColor.themeColor
+    private let color1 = #colorLiteral(red: 0.1764705926, green: 0.01176470611, blue: 0.5607843399, alpha: 1)
     private let color2 = #colorLiteral(red: 0.1764705926, green: 0.01176470611, blue: 0.5607843399, alpha: 1)
 
     override class var layerClass: AnyClass {
@@ -48,7 +48,7 @@ class ThemeBlackGradientView: UIView {
 
 class ThemeBlackGradientBar: UIView {
 
-    private let color1 = UIColor.themeColor
+    private let color1 = #colorLiteral(red: 0.1764705926, green: 0.01176470611, blue: 0.5607843399, alpha: 1)
     private let color2 = #colorLiteral(red: 0.1764705926, green: 0.01176470611, blue: 0.5607843399, alpha: 1)
 
     override class var layerClass: AnyClass {

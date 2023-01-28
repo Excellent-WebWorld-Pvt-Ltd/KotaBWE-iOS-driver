@@ -3,23 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>411731822423-a85vbtkhr4k35dk3gpbegsk92bspqd1v.apps.googleusercontent.com</string>
+	<string>931170622069-r3t3na0h8bhh4g44q8s86imff1r38sd8.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.411731822423-a85vbtkhr4k35dk3gpbegsk92bspqd1v</string>
-	<key>ANDROID_CLIENT_ID</key>
-	<string>411731822423-7o48cu0shob6mh0ak568vlha9ec3edmu.apps.googleusercontent.com</string>
+	<string>com.googleusercontent.apps.931170622069-r3t3na0h8bhh4g44q8s86imff1r38sd8</string>
 	<key>API_KEY</key>
-	<string>AIzaSyA4i3FzmtvwIGES_wa1RKQlBeHLm1YBcZ4</string>
+	<string>AIzaSyAYKmCDuoVIWtyOw0MmOtunB7jTa_p1NHI</string>
 	<key>GCM_SENDER_ID</key>
-	<string>411731822423</string>
+	<string>931170622069</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.showfa.driver</string>
+	<string>com.kota.driver</string>
 	<key>PROJECT_ID</key>
-	<string>showfa-76ea0</string>
+	<string>kota-bwe-ac549</string>
 	<key>STORAGE_BUCKET</key>
-	<string>showfa-76ea0.appspot.com</string>
+	<string>kota-bwe-ac549.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -31,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:411731822423:ios:e2b97ab433289b8a2ce012</string>
+	<string>1:931170622069:ios:ca913fd7ea01601a7c763c</string>
 </dict>
 </plist>

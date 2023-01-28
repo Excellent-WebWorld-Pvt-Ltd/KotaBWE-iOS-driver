@@ -24,14 +24,32 @@ extension ChatVC : UITableViewDataSource , UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let objIndex = arrSection[indexPath.section].chatData[indexPath.row]
         if objIndex.isSender {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SenderTblCell", for: indexPath) as!  SenderTblCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "sender_chat_cell", for: indexPath) as!  MessageTableCell
             cell.lblMessage.text = objIndex.message
             cell.lblTime.text = objIndex.time
+            cell.chatImage.setImageWithBaseImageUrl(byAdding: objIndex.chatImage, isProfileImage: false)
+
+            if objIndex.chatType == "text" {
+                cell.viewText.isHidden = false
+                cell.viewImage.isHidden = true
+            }else{
+                cell.viewImage.isHidden = false
+                cell.viewText.isHidden = true
+            }
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ReceiverTblCell", for: indexPath) as!  ReceiverTblCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "receiver_chat_cell", for: indexPath) as!  MessageTableCell
             cell.lblMessage.text = objIndex.message
             cell.lblTime.text = objIndex.time
+            cell.chatImage.setImageWithBaseImageUrl(byAdding: objIndex.chatImage, isProfileImage: false)
+
+            if objIndex.chatType == "text" {
+                cell.viewText.isHidden = false
+                cell.viewImage.isHidden = true
+            }else{
+                cell.viewImage.isHidden = false
+                cell.viewText.isHidden = true
+            }
             return cell
         }
     }

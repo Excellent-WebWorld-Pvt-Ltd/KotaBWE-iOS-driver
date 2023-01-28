@@ -20,47 +20,19 @@ class ProfileInfoVC: BaseViewController {
     
     //MARK:- ===== Outlets =======
     @IBOutlet weak var mainStackView: UIStackView!
-    
-    
-    @IBOutlet weak var genderStackView: UIStackView!
-    
-    
     @IBOutlet weak var firstlastNameStackView: UIStackView!
-    
-    
-    @IBOutlet weak var CarDriverStackView: UIStackView!
-    
-    
-    @IBOutlet var btnMale: UIButton!
-    @IBOutlet var btnFemale: UIButton!
-    @IBOutlet var btnOwner: UIButton!
-    @IBOutlet var btnRent: UIButton!
-    @IBOutlet weak var viewOwner: UIView!
     @IBOutlet weak var imgProfile: UIImageView!
     @IBOutlet weak var viewImgProfile: UIView!
     @IBOutlet weak var imgProfileHeight: NSLayoutConstraint!
-    @IBOutlet weak var txtdriverRole: UITextField!
 //    @IBOutlet weak var txtEmail: UITextField!
+    @IBOutlet weak var viewEmail: UIView!
+    @IBOutlet weak var viewPhone: UIView!
     
     @IBOutlet weak var txtEmail: CustomViewOutlinedTxtField!
     
   //  @IBOutlet weak var txtOwnerName: UITextField!
-    
-    @IBOutlet weak var ownerStackView: UIStackView!
-    
-    @IBOutlet weak var txtOwnerName: CustomViewOutlinedTxtField!
-    
-    @IBOutlet weak var txtOwnerMobile: CustomViewOutlinedTxtField!
-    
-    
-    @IBOutlet weak var txtownerEmail: CustomViewOutlinedTxtField!
-    
-    
     @IBOutlet weak var viewStackMobileNo: UIStackView!
- 
-    @IBOutlet weak var txtPaymentMethod: CustomViewOutlinedTxtField!
-    
-   
+
 //    @IBOutlet weak var txtFirstName: UITextField!
 //    @IBOutlet weak var txtLastName: UITextField!
     @IBOutlet weak var txtFirstName: CustomViewOutlinedTxtField!
@@ -72,14 +44,8 @@ class ProfileInfoVC: BaseViewController {
     @IBOutlet weak var txtDOB: CustomViewOutlinedTxtField!
     
     @IBOutlet weak var txtAddress: CustomViewOutlinedTxtField!
-    
+    @IBOutlet weak var txtCode: CustomViewOutlinedTxtField!
     @IBOutlet weak var txtPostalCode: CustomViewOutlinedTxtField!
-    
-    @IBOutlet weak var txtInviteCode: CustomViewOutlinedTxtField!
-    
-  
-    
-    @IBOutlet weak var viewCountryPicker: CountryPickerView!
     @IBOutlet weak var btnNext: UIButton!
     
     var isFromSetting = false
@@ -98,22 +64,15 @@ class ProfileInfoVC: BaseViewController {
 //        let date = Calendar.current.date(byAdding: .year, value: -18, to: Date())
 //                selectedBirthDate = date
 //        txtDOB.textField.text = selectedBirthDate?.getDateString(format: .fullDate)
-        
-        setupCountryPicker()
+        self.txtCode.textField.text = Singleton.shared.countryCode
         setupTextfields()
         initialSetup()
-        
-        mainStackView.setCustomSpacing(14, after: CarDriverStackView)
         mainStackView.setCustomSpacing(16, after: viewStackMobileNo)
       
         if !self.isFromSetting {
             mainStackView.setCustomSpacing(18, after: firstlastNameStackView)
-            mainStackView.setCustomSpacing(10, after: genderStackView)
         }
         mainStackView.setCustomSpacing(20, after: txtAddress)
-        mainStackView.setCustomSpacing(10, after: genderStackView
-                                       
-        )
         
 //        imageSetup()
         if !isFromSetting {
@@ -122,24 +81,7 @@ class ProfileInfoVC: BaseViewController {
         self.btnNext.setTitle(isFromSetting ? "Save" : "Next", for: .normal)
         self.navigationController?.navigationBar.isHidden = false
         self.setupNavigation(.normal(title: "Profile Details", leftItem: .back))    }
-    
-    
-    var gender = Gender.male{
-        didSet{
-            parameterArray.gender = gender.rawValue
-            btnMale.isSelected = gender == .male
-            btnFemale.isSelected = !btnMale.isSelected
-        }
-    }
-    var carType = CarType.own{
-        didSet{
-            parameterArray.car_type = carType.rawValue
-            btnOwner.isSelected = carType == .own
-            btnRent.isSelected = !btnOwner.isSelected
-            
-            hideOwnerDetails(btnOwner.isSelected)
-        }
-    }
+
     func imageSetup() {
         imgProfile.layer.borderColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1.0).cgColor
         imgProfile.layer.masksToBounds = true
@@ -151,44 +93,13 @@ class ProfileInfoVC: BaseViewController {
         txtAddress.textField.delegate = self
         txtMobileNumber.textField.keyboardType = .phonePad
         txtMobileNumber.textField.delegate = self
-        
-        txtOwnerMobile.textField.keyboardType = .phonePad
-        txtOwnerMobile.textField.delegate = self
-        
         txtEmail.textField.keyboardType = .emailAddress
         txtEmail.textField.autocapitalizationType = .none
-        
-        txtownerEmail.textField.keyboardType = .emailAddress
-        txtownerEmail.textField.autocapitalizationType = .none
-      
-    }
-    
-    @IBAction func rentCar(_ sender: UIButton){
-        view.endEditing(true)
-        carType = .rent
-    }
-    
-    
-    @IBAction func ownerCar(_ sender: UIButton){
-        view.endEditing(true)
-        carType = .own
-    }
-    
-    @IBAction func genderMale(_ sender: UIButton){
-        gender = .male
-    }
-    
-    @IBAction func genderFemale(_ sender: UIButton){
-        gender = .female
-        
     }
     
     func initialSetup() {
         // txtdriverRole.delegate = self
-        txtOwnerName.textField.delegate = self
-        txtOwnerMobile.textField.delegate = self
         txtEmail.textField.delegate = self
-        txtPaymentMethod.textField.delegate = self
         txtFirstName.textField.delegate = self
         txtPostalCode.textField.delegate = self
         txtLastName.textField.delegate = self
@@ -196,23 +107,18 @@ class ProfileInfoVC: BaseViewController {
         txtAddress.textField.delegate = self
     
         if !isFromSetting {
-            txtEmail.isHidden = true
-            viewStackMobileNo.isHidden = true
+            viewEmail.isHidden = true
+            viewPhone.isHidden = true
         }
         else {
-            txtEmail.isHidden = false
-            viewStackMobileNo.isHidden = false
+            viewEmail.isHidden = false
+            viewPhone.isHidden = false
         }
         
         setProfile()
         //setDobField()
-        gender = .male
-        carType = .own
         if isFromSetting{
             if let profile = SessionManager.shared.userProfile {
-               txtOwnerName.textField.text = profile.responseObject.ownerName ?? ""
-               txtOwnerMobile.textField.text = profile.responseObject.ownerMobileNo != "" ? profile.responseObject.ownerMobileNo.replacingOccurrences(of: "254", with: "") : ""
-               txtownerEmail.textField.text = profile.responseObject.ownerEmail ?? ""
                //            txtdriverRole.text = profile.driver_role.replacingOccurrences(of: "_", with: " ").capitalized ?? ""
                guard let url = profile.responseObject.profileImage else { return }
                let imgurl = NetworkEnvironment.baseImageURL + url
@@ -222,37 +128,25 @@ class ProfileInfoVC: BaseViewController {
                txtEmail.textField.text = profile.responseObject.email
                txtMobileNumber.textField.text = profile.responseObject.mobileNo
                // txtMobileNumber.isUserInteractionEnabled = false
-               carType = profile.responseObject.carType == CarType.own.rawValue ? .own : .rent
-               gender = profile.responseObject.gender == Gender.male.rawValue ? .male : .female
-               
-               txtPaymentMethod.textField.text = profile.responseObject.paymentMethod.capitalized
                txtFirstName.textField.text = profile.responseObject.firstName ?? ""
                txtLastName.textField.text = profile.responseObject.lastName ?? ""
                selectedBirthDate = profile.responseObject.dob.getDate(format: .digitDate)
                txtDOB.textField.text = selectedBirthDate?.getDateString(format: .fullDate)
                txtAddress.textField.text = profile.responseObject.address ?? ""
-               txtInviteCode.textField.text = profile.responseObject.inviteCode ?? ""
+                txtPostalCode.textField.text = profile.responseObject.postalCode ?? ""
            }
         }else{
             if let parameterArray = SessionManager.shared.registrationParameter {
                 print(parameterArray as Any)
-                txtOwnerName.textField.text = parameterArray.owner_name
-                txtOwnerMobile.textField.text = parameterArray.owner_mobile_no != "" ? parameterArray.owner_mobile_no.replacingOccurrences(of: "254", with: "") : ""
-                txtownerEmail.textField.text = parameterArray.owner_email
-                //            txtdriverRole.text = parameterArray.driver_role.replacingOccurrences(of: "_", with: " ").capitalized ?? ""
-                carType = parameterArray.car_type == CarType.own.rawValue ? .own : .rent
-                gender = parameterArray.gender == Gender.female.rawValue ? .female : .male
                 if let savedImage = SessionManager.shared.savedProfileImage {
                     imgProfile.image = savedImage
                     RegistrationImageParameter.shared.profileImage = savedImage
                 }
-                txtPaymentMethod.textField.text = parameterArray.payment_method.capitalized
                 txtFirstName.textField.text = parameterArray.first_name
                 txtLastName.textField.text = parameterArray.last_name
                 self.selectedBirthDate = parameterArray.dob.getDate(format: .digitDate)
                 txtDOB.textField.text = selectedBirthDate?.getDateString(format: .fullDate)
                 txtAddress.textField.text = parameterArray.address
-                txtInviteCode.textField.text = parameterArray.invite_code
                 txtEmail.textField.text = parameterArray.email
                 txtMobileNumber.textField.text = parameterArray.mobile_no
             }
@@ -260,27 +154,6 @@ class ProfileInfoVC: BaseViewController {
         
     }
     
-    private func hideOwnerDetails(_ hide: Bool){
-        self.viewOwner.isHidden = hide
-        self.txtOwnerMobile.isHidden = hide
-        self.txtOwnerName.isHidden = hide
-        
-    }
-    
-    
-    //MARK:- ====== Country Picker setup ===
-    func setupCountryPicker(){
-        viewCountryPicker.delegate = self
-        viewCountryPicker.dataSource = self
-        viewCountryPicker.textColor = .black
-        viewCountryPicker.font = UIFont.regular(ofSize: 15.0)
-        viewCountryPicker.setCountryByCode("KE")
-        viewCountryPicker.flagSpacingInView = 10
-        viewCountryPicker.hostViewController = self
-        viewCountryPicker.showCountryCodeInView = false
-        viewCountryPicker.isUserInteractionEnabled = false
-        
-    }
     
     
     @IBAction func openPicImage(_ sender : UIButton){
@@ -310,7 +183,7 @@ class ProfileInfoVC: BaseViewController {
         //        imgProfile.layer.borderColor = UIColor.lightGray.cgColor
         
         imgProfile.clipsToBounds = true
-        viewImgProfile.layer.shadowRadius = imgProfileHeight.constant / 2
+        viewImgProfile.layer.shadowRadius = (imgProfileHeight.constant - 10) / 2
         viewImgProfile.layer.shadowColor = UIColor.lightGray.cgColor
         viewImgProfile.layer.shadowOpacity = 1
         
@@ -334,11 +207,8 @@ class ProfileInfoVC: BaseViewController {
     func webserviceForSavePersonalProfile(uerData: UpdatePersonalInfo) {
         Loader.showHUD(with: self.view)
         WebServiceCalls.updatePersonal(requestModel: uerData, image: pickedImage, imageParamName: "profile_image") { (response, status) in
-            
-            print(response)
-            
-            if status {
                 Loader.hideHUD()
+            if status {
                 let loginModelDetails = LoginModel.init(fromJson: response)
                 SessionManager.shared.userProfile = loginModelDetails
                 Singleton.shared.userProfile = loginModelDetails
@@ -352,145 +222,80 @@ class ProfileInfoVC: BaseViewController {
         }
     }
     
-    
-    
     //MARK:- ======= Btn Action ProfileInfo ====
     @IBAction func btnActionProfileInfo(_ sender: UIButton) {
         guard isValidInputes() else {
             return
         }
         if self.isFromSetting {
-            self.navigationController?.popViewController(animated: true)
-//            let objData = UpdatePersonalInfo()
-//            objData.address = self.txtAddress.textField.text ?? ""
-//            objData.gender = self.gender.rawValue
-//            objData.car_type = self.carType.rawValue
-//            objData.driver_id = Singleton.shared.driverId
-//            objData.dob = self.selectedBirthDate?.getDateString(format: .digitDate) ?? ""
-//            objData.email = self.txtEmail.textField.text ?? ""
-//            objData.first_name = self.txtFirstName.textField.text ?? ""
-//            objData.last_name = self.txtLastName.textField.text ?? ""
-//            objData.mobile_no = self.txtMobileNumber.textField.text ?? ""
-//            objData.owner_name = self.txtOwnerName.textField.text ?? ""
-//            objData.owner_email = self.txtownerEmail.textField.text ?? ""
-//            objData.owner_mobile_no = self.txtOwnerMobile.textField.text ?? ""
-//            objData.payment_method = self.txtPaymentMethod.textField.text ?? "cash"//"cash"
-//            self.webserviceForSavePersonalProfile(uerData: objData)
-        }
-        else {
-            if btnRent.isSelected{
-                parameterArray.owner_name = txtOwnerName.textField.text!
-                parameterArray.owner_mobile_no =  txtOwnerMobile.textField.text!
-                parameterArray.owner_email = txtEmail.textField.text!
-            }
-            parameterArray.payment_method = txtPaymentMethod.textField.text!.lowercased()
+            let objData = UpdatePersonalInfo()
+            objData.address = self.txtAddress.textField.text ?? ""
+            objData.driver_id = Singleton.shared.driverId
+            objData.dob = self.selectedBirthDate?.getDateString(format: .digitDate) ?? ""
+            objData.email = self.txtEmail.textField.text ?? ""
+            objData.first_name = self.txtFirstName.textField.text ?? ""
+            objData.last_name = self.txtLastName.textField.text ?? ""
+            objData.mobile_no = self.txtMobileNumber.textField.text ?? ""
+            objData.payment_method = "cash"//"cash"
+            objData.postal_code = txtPostalCode.textField.text!
+            self.webserviceForSavePersonalProfile(uerData: objData)
+        }else {
             parameterArray.first_name = txtFirstName.textField.text!
             parameterArray.last_name =  txtLastName.textField.text!
             parameterArray.postal_code = txtPostalCode.textField.text!
             parameterArray.dob = selectedBirthDate?.getDateString(format: .digitDate) ?? ""
             parameterArray.address = txtAddress.textField.text!
-            parameterArray.invite_code = txtInviteCode.textField.text!
-
             let loginData = SessionManager.shared.userProfile
             let parameter = loginData?.responseObject.driverDocs
             parameterArray.driver_id = parameter?.driver_id ?? ""
             parameterArray.setNextRegistrationIndex(from: .profile)
             SessionManager.shared.registrationParameter = parameterArray
-            
             let bankInfoVC = AppViewControllers.shared.bankInfo
             self.push(bankInfoVC)
         }
     }
     
     private func isValidInputes() -> Bool {
-          
             let firstNameValidation = InputValidation.name.isValid(input: txtFirstName.textField.unwrappedText, field: "first name")
             let lastNameValidation = InputValidation.name.isValid(input: txtLastName.textField.unwrappedText, field: "last name")
             let postalValidation = InputValidation.nonEmpty.isValid(input: txtPostalCode.textField.unwrappedText, field: "Postal code")
             txtFirstName.textField.leadingAssistiveLabel.text = firstNameValidation.error
             txtFirstName.textField.setOutlineColor(firstNameValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
-            
             txtLastName.textField.leadingAssistiveLabel.text = lastNameValidation.error
             txtLastName.textField.setOutlineColor(lastNameValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
-        
             if txtDOB.textField.text == nil {
                 txtDOB.textField.leadingAssistiveLabel.text = dobErrorString
                 txtDOB.textField.setOutlineColor(UIColor.red, for: .normal)
             }else {
-                
                 txtDOB.textField.leadingAssistiveLabel.text = ""
                 txtDOB.textField.setOutlineColor(.themeTextFieldDefaultBorderColor, for: .normal)
             }
-            
             let addressValidation = InputValidation.nonEmpty.isValid(input: txtAddress.textField.unwrappedText, field: "address")
             txtAddress.textField.leadingAssistiveLabel.text = addressValidation.error
             txtAddress.textField.setOutlineColor(addressValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
-        
             txtPostalCode.textField.leadingAssistiveLabel.text = postalValidation.error
             txtPostalCode.textField.setOutlineColor(postalValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
-        
         let emailValidation = InputValidation.email.isValid(input: txtEmail.textField.unwrappedText, field: "email address")
-        
-        let ownerNameValidation = InputValidation.name.isValid(input: txtOwnerName.textField.unwrappedText, field: "Owner name")
-        let ownermobileValidation = InputValidation.mobile.isValid(input: txtOwnerMobile.textField.unwrappedText, field: "Owner mobile number")
-        let ownerEmailValidation = InputValidation.email.isValid(input: txtownerEmail.textField.unwrappedText, field: "Owner email address")
-        
-        
-        if txtPaymentMethod.textField.text == nil || txtPaymentMethod.textField.text == ""  {
-            
-            txtPaymentMethod.textField.leadingAssistiveLabel.text = paymentMethodErrorString
-            txtPaymentMethod.textField.setOutlineColor(UIColor.red, for: .normal)
-        }else {
-            
-            txtPaymentMethod.textField.leadingAssistiveLabel.text = ""
-            txtPaymentMethod.textField.setOutlineColor(.themeTextFieldDefaultBorderColor, for: .normal)
-            
-        }
-        
         if isFromSetting {
-           
             txtEmail.textField.leadingAssistiveLabel.text = emailValidation.error
             txtEmail.textField.setOutlineColor(emailValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
-            
             let mobileValidation = InputValidation.mobile.isValid(input: txtMobileNumber.textField.unwrappedText, field: "mobile number")
             txtMobileNumber.textField.leadingAssistiveLabel.text = mobileValidation.error
             txtMobileNumber.textField.setOutlineColor(mobileValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
 
-        }
-            
-        if btnRent.isSelected{
-         
-            txtOwnerName.textField.leadingAssistiveLabel.text = ownerNameValidation.error
-            txtOwnerName.textField.setOutlineColor(firstNameValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
-           
-            txtOwnerMobile.textField.leadingAssistiveLabel.text = ownermobileValidation.error
-            txtOwnerMobile.textField.setOutlineColor(ownermobileValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
-            
-            txtownerEmail.textField.leadingAssistiveLabel.text = ownerEmailValidation.error
-            txtownerEmail.textField.setOutlineColor(ownerEmailValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
         }
         
         if !isFromSetting && RegistrationImageParameter.shared.profileImage == nil {
             AlertMessage.showMessageForError("Please select profile image")
         }
         
-        if btnRent.isSelected {
-            if !isFromSetting && firstNameValidation.isValid && postalValidation.isValid && lastNameValidation.isValid  && ownerNameValidation.isValid && ownerEmailValidation.isValid && ownermobileValidation.isValid && RegistrationImageParameter.shared.profileImage != nil && txtPaymentMethod.textField.text != "" && txtDOB.textField.text != nil && addressValidation.isValid {
+            if !isFromSetting && firstNameValidation.isValid && postalValidation.isValid && lastNameValidation.isValid  && RegistrationImageParameter.shared.profileImage != nil && txtDOB.textField.text != nil && addressValidation.isValid {
                 return true
-            } else if isFromSetting && firstNameValidation.isValid && postalValidation.isValid && lastNameValidation.isValid  && ownerNameValidation.isValid && ownerEmailValidation.isValid && ownermobileValidation.isValid &&  txtPaymentMethod.textField.text != "" && txtDOB.textField.text != nil  && addressValidation.isValid {
-                return true
-            }else {
-                return false
-            }
-        }else {
-            if !isFromSetting && firstNameValidation.isValid && postalValidation.isValid && lastNameValidation.isValid  && RegistrationImageParameter.shared.profileImage != nil &&  txtPaymentMethod.textField.text != "" && txtDOB.textField.text != nil && addressValidation.isValid {
-                return true
-            }else if isFromSetting && firstNameValidation.isValid && postalValidation.isValid && lastNameValidation.isValid  && SessionManager.shared.userProfile != nil && txtPaymentMethod.textField.text != "" && txtDOB.textField.text != nil && addressValidation.isValid {
+            }else if isFromSetting && firstNameValidation.isValid && postalValidation.isValid && lastNameValidation.isValid  && SessionManager.shared.userProfile != nil && txtDOB.textField.text != nil && addressValidation.isValid {
                 return true
             }else {
                 return false
             }
-        }
        
         
 //        if !isFromSetting && ownerNameValidation.isValid && ownerEmailValidation.isValid && ownermobileValidation.isValid && RegistrationImageParameter.shared.profileImage == nil {
@@ -523,17 +328,6 @@ class ProfileInfoVC: BaseViewController {
                 return false
             }
         }
-        
-        if btnRent.isSelected{
-            let validationOwner : [(String?,String, ValidatiionType)] = [(txtOwnerName.textField.text,nameErrorString, .isEmpty),
-                                                                         (txtOwnerMobile.textField.text,ownernumberErrorString, .isEmpty),
-                                                                         (txtOwnerMobile.textField.text,phoneNumberErrorString, .isPhoneNumber),
-                                                                         (txtownerEmail.textField.text,owneremailEmptyErrorString, .isEmpty),
-                                                                         (txtownerEmail.textField.text,emailErrorString, .email)]
-            guard Validator.validate(validationOwner) else {
-                return false
-            }
-        }
         if !isFromSetting && RegistrationImageParameter.shared.profileImage == nil {
             AlertMessage.showMessageForError("Please select profile image")
             return false
@@ -562,49 +356,12 @@ extension ProfileInfoVC : UITextFieldDelegate{
                 self.openDatePicker()
             }
             return false
-            
-        case txtdriverRole:
-            self.view.endEditing(true)
-            let arrRole = ["Captain", "Super Driver", "Driver"]
-            let actionSheet = ActionSheetStringPicker(title: "Select Driver Role",
-                                                      rows: arrRole,
-                                                      initialSelection: 0,
-                                                      doneBlock: { (picker, row, data) in
-                print((picker, row, data))
-                self.txtdriverRole.text = arrRole[row]
-            },
-                                                      cancel: nil,
-                                                      origin: self)
-           
-            actionSheet?.show()
-            return false
         case txtAddress.textField:
-            
                 self.presentPlacePickerViewController()
-            
-            return false
-        case txtPaymentMethod.textField:
-            
-                self.view.endEditing(true)
-                let arrRole = ["Cash", "Wallet", "Card","Mpesa"]
-                DispatchQueue.main.async {
-                let actionSheet = ActionSheetStringPicker(title: "Select Payment Method",
-                                                          rows: arrRole,
-                                                          initialSelection: 0,
-                                                          doneBlock: { (picker, row, data) in
-                    print((picker, row, data))
-                    self.txtPaymentMethod.textField.text = arrRole[row]
-                },
-                                                          cancel: nil,
-                                                          origin: self.txtPaymentMethod.textField)
-                actionSheet?.toolbarBackgroundColor =  UIColor.systemGray
-                actionSheet?.show()
-            }
             return false
         default:
             return true
         }
-        
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -612,7 +369,7 @@ extension ProfileInfoVC : UITextFieldDelegate{
         switch textField {
         case txtFirstName.textField, txtLastName.textField:
             inputValidation = .name
-        case txtMobileNumber.textField, txtOwnerMobile.textField:
+        case txtMobileNumber.textField :
             inputValidation = .mobile
         case txtEmail.textField:
             inputValidation = .email
@@ -652,7 +409,14 @@ extension ProfileInfoVC: GMSAutocompleteViewControllerDelegate {
         AppDelegate.shared.setupNavigationAppearance()
 
         selectedAddress = LocationInfoWithCoordinates(address: "\(place.name ?? "") \(place.formattedAddress ?? "")", coordinate: place.coordinate)
-
+        let array = place.addressComponents
+        for i in array ?? []{
+            let key:String = "\(i.value(forKey: "type") ?? "")"
+            let name:String = "\(i.value(forKey: "name") ?? "")"
+            if key == "postal_code"{
+                self.txtPostalCode.textField.text = name
+            }
+        }
         dismiss(animated: true, completion: nil)
     }
 

@@ -43,7 +43,7 @@ class NotificationVC: BaseViewController {
         setupNavigation(.normal(title: "Notifications", leftItem: .back, hasNotification: false))
         let clearButton = UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(clearNotifications))
         navigationItem.rightBarButtonItem = clearButton
-   //     webServiceToGetNotification()
+        webServiceToGetNotification()
     }
 
     private func fetchNextPage() {
@@ -94,35 +94,32 @@ class NotificationVC: BaseViewController {
 extension NotificationVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        if showNoDataCell {
-//            return 1
-//        }
-//        return shouldShowLoadingCell ? notificationArray.count + 1 : notificationArray.count
-        return 10
+        if showNoDataCell {
+            return 1
+        }
+        return shouldShowLoadingCell ? notificationArray.count + 1 : notificationArray.count
     }
     
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        if showNoDataCell {
-//            let cell: NoDataFoundTblCell = tableView.dequeueReusableCell(withType: .noData, for: indexPath)
-//            cell.setMessage("No notification!")
-//            return cell
-//        }
-//        if isLoadingIndexPath(indexPath) {
-//            return LoadingCell.getIntance()
-//        }
+        if showNoDataCell {
+            let cell: NoDataFoundTblCell = tableView.dequeueReusableCell(withType: .noData, for: indexPath)
+            cell.setMessage("No notification!")
+            return cell
+        }
+        if isLoadingIndexPath(indexPath) {
+            return LoadingCell.getIntance()
+        }
         let cell: NotificationCell = tableView.dequeueReusableCell(withType: .notification, for: indexPath) as! NotificationCell
-        cell.titleLabel.text = "Your account is activated"
-        cell.timeLabel.text = "Today 5:40"
-      //  cell.configuration(notificationArray[indexPath.row])
+        cell.configuration(notificationArray[indexPath.row])
         return cell
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        guard isLoadingIndexPath(indexPath), self.notificationArray.count > 0 else { return }
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-//            self.fetchNextPage()
-//        }
+        guard isLoadingIndexPath(indexPath), self.notificationArray.count > 0 else { return }
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            self.fetchNextPage()
+        }
     }
 }
 

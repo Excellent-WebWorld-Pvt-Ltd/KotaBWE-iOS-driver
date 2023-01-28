@@ -24,7 +24,7 @@ extension InputValidation {
 
     var maxLimit: Int {
         switch self {
-        case .mobile:   return 10
+        case .mobile:   return 9
         case .name:     return 25
         case .password: return 25
         case .bankaccount: return 10
@@ -58,7 +58,7 @@ extension InputValidation {
             // [a-zA-Z0-9!@#$%^&*]
           //  return "(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,15}"
         case .mobile:
-            return "[0-9]{10}"
+            return "[0-9]{9}"
         case .bankaccount:
             return "[0-9]{9,12}"
         case .name:

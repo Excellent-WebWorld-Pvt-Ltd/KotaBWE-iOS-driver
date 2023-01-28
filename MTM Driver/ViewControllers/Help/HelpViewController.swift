@@ -28,17 +28,12 @@ class HelpViewController: BaseViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupNavigation(.normal(title: "Help", leftItem: .back, hasNotification: false))
-    
-//        txtView.delegate = self
-//        txtView.text = "Description"
-//        txtView.textColor = UIColor.lightGray
     }
     
     // MARK: - Actions
     @IBAction func btnDoneAction(_ sender: UIButton) {
-       // guard validations() else { return }
-//        webserviceForGenerateTicket()
-        self.goBack()
+        guard validations() else { return }
+        webserviceForGenerateTicket()
     }
     
     @IBAction func btnViewTicketAction(_ sender: UIButton) {
@@ -63,15 +58,6 @@ class HelpViewController: BaseViewController, UITextViewDelegate {
             textView.textColor = UIColor.lightGray
         }
     }
-    
-//    func textViewDidChange(_ textView: UITextView){
-//        let fixedWidth = textView.frame.size.width
-//        textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
-//        let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
-//        var newFrame = textView.frame
-//        newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
-//        textView.frame = newFrame;
-//    }
     
     func validation() -> (status: Bool, message: String) {
         
@@ -120,11 +106,8 @@ class HelpViewController: BaseViewController, UITextViewDelegate {
             Loader.hideHUD()
             print(response)
             if status {
-                
                 self.txtSubject.textField.text = ""
-                self.txtView.textArea.textView.text = "Description"
-                self.txtView.textArea.textView.textColor = UIColor.lightGray
-                
+                self.txtView.textArea.textView.text = ""
                 UtilityClass.showAlert(message: response.dictionary?["message"]?.string ?? "Your ticket is generated successfully. We will contact to you soon.")
             } else {
                 UtilityClass.showAlert(message: response.dictionary?["message"]?.string ?? "Something went wrong.")

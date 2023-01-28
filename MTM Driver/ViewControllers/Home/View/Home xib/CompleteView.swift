@@ -17,10 +17,12 @@ class CompleteView: UIView {
     @IBAction func btnOKAction(_ sender: UIButton) {
         if let vc: UIViewController = self.parentViewController {
             if let hVc = vc as? HomeViewController {
-                hVc.CompleteTripToRatingReview()
+                hVc.CompleteTripToRatingReview(id: bookingId)
             }
         }
     }
+    
+    var bookingId = ""
     
     func setData(){
         guard let data = Singleton.shared.CompleteTrip else {

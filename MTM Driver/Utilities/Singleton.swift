@@ -12,6 +12,7 @@ import CoreLocation
 class Singleton {
     
     static let shared = Singleton()
+    var countryCode = ""
     var RegisterOTP = String()
     var walletBalance = String()
     var vehicleListData : VehicleListResultModel?
@@ -93,6 +94,7 @@ class Singleton {
         model.meterInfo?.distance = SessionManager.shared.meterTravelDistance
         self.meterInfo = model.meterInfo
         self.autoFillOTP = model.autoFillOTP
+        self.countryCode = model.countryCode
     }
 }
 

@@ -69,7 +69,10 @@ class DriverInfoView: UIView
     @IBOutlet weak var lblPickup: ThemeLabel!
     @IBOutlet weak var btnSos: UIButton!
     @IBOutlet weak var conWidthOfViewSoS: NSLayoutConstraint!
-    
+    @IBOutlet weak var secondView: UIView!
+    @IBOutlet weak var lblCargoWeight: ThemeLabel!
+    @IBOutlet weak var lblLoadType: ThemeLabel!
+    @IBOutlet weak var lblItemQuantity: ThemeLabel!
     
     // ----------------------------------------------------
     // MARK: - Globle Declaration Methods
@@ -119,6 +122,7 @@ class DriverInfoView: UIView
                 setUpSwipeView(vwSwipe: viewBtnArrivedTrip)
                 viewRequestTrip.isHidden = true
                 viewBtnArrivedTrip.isHidden = false
+                print("showing the view")
                 viewBtnStartRide.isHidden = true
                 viewBtnCompleteTrip.isHidden = true
             //case .tripComplete :
@@ -129,7 +133,7 @@ class DriverInfoView: UIView
 //                viewBtnStartRide.isHidden = true
 //                viewBtnCompleteTrip.isHidden = false
             case .inTrip :
-                conWidthOfViewSoS.constant = 60
+//                conWidthOfViewSoS.constant = 60
               //  ViewSOS.isHidden = false
                // btnSos.isHidden = false
                 //getRequest(isrequest:true)
@@ -159,18 +163,17 @@ class DriverInfoView: UIView
     }
 
     func getRequest(isrequest:Bool){
-         ViewWithInMiles.isHidden = isrequest
+         ViewWithInMiles.isHidden = false
          viewPhonChat.isHidden = !isrequest
     }
     
     
     func setUpSwipeView(vwSwipe : MTSlideToOpenView) {
+        self.bringSubviewToFront(vwSwipe)
         vwSwipe.textLabel.text = strTripStatusTitle
         vwSwipe.delegate = self
         vwSwipe.applyThemeStyle()
-        
         //playAnimation()
-        
     }
     
     //MARK:- === Btn Action Call ======
@@ -247,35 +250,36 @@ class DriverInfoView: UIView
 //
     
     //MARK:- ==== Set Data Of Driver =====
-    func setDriverData(status:DriverState)
-    {
+    func setDriverData(status:DriverState){
         let loginData = SessionManager.shared.userProfile
         let parameter = loginData?.responseObject
 
-
+        secondView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        secondView.layer.cornerRadius = 30
         driverState = status
-        self.lblDriverName.text = Singleton.shared.bookingInfo?.customerInfo.getFullName()
+        self.lblDriverName.text = Singleton.shared.bookingInfo?.name
         let totalEarning = Double(Singleton.shared.bookingInfo?.estimatedFare ?? "0")?.rounded(toPlaces: 2)
-            
+        self.lblCargoWeight.text = "Cargo weight: \(Singleton.shared.bookingInfo?.cargoWeightKg ?? "")"
+        self.lblItemQuantity.text = "Item quantity: \(Singleton.shared.bookingInfo?.itemQuantity ?? "")"
+        self.lblLoadType.text = "Truck load type: \(Singleton.shared.bookingInfo?.truckLoadType ?? "")"
+        lblMiles.text = Singleton.shared.bookingInfo?.distance
+        lblMin.text = "\(Singleton.shared.bookingInfo?.estimatedTime ?? "") Mins"
          //Double(loginData?.bookingInfo?.totalDriverEarning ?? "0")?.rounded(toPlaces: 2)
-        
         let str =   "\(Singleton.shared.bookingInfo?.bookingTime.timeStampToDate() ?? Date())"
         let arrState = str.components(separatedBy: " ")
-        
         if let date = DateFormatHelper.standard.getDate(from:"\(arrState[0]) \(arrState[1])") {
             let strFormatter = DateFormatHelper.fullDateTime.getDateString(from: date)
             print(strFormatter)
             let arrDateTime = strFormatter.components(separatedBy: ", ")
             lblDate.text = arrDateTime[0]
             lblTime.text = arrDateTime[1]
-             
         } else {
             
         }
         self.lblEarning.text = Currency + " " + "\(totalEarning ?? 0.0)"
         self.lblDriverRatings.text = parameter?.rating
 
-        self.iconDriverProfilePic.sd_setImage(with: URL(string: NetworkEnvironment.baseImageURL + (Singleton.shared.bookingInfo?.customerInfo.profileImage)! ), completed: nil)
+        self.iconDriverProfilePic.sd_setImage(with: URL(string: NetworkEnvironment.baseImageURL + (Singleton.shared.bookingInfo?.customerInfo.profileImage ?? "")), completed: nil)
 
         lblPickup.text = status == .inTrip ? Singleton.shared.bookingInfo?.dropoffLocation :  Singleton.shared.bookingInfo?.pickupLocation
         if let homeVC = self.parentViewController as? HomeViewController {
@@ -328,7 +332,7 @@ extension DriverInfoView: MTSlideToOpenDelegate {
         switch driverState {
         
         case .request :
-            driverState = .requestAccepted
+            driverState = .arrived
             guard let bookingData = Singleton.shared.bookingInfo else { return }
             var param = [String: Any]()
             param["driver_id"] = Singleton.shared.driverId
@@ -374,10 +378,8 @@ extension DriverInfoView: MTSlideToOpenDelegate {
                     hVc.trackTrip()
                 }
             }
-            
         case .inTrip :
             driverState = .tripComplete
-            
             if let vc = ((UIApplication.shared.delegate as! AppDelegate).window?.rootViewController?.children)?.first?.children.first as? HomeViewController {
                 guard let location = Singleton.shared.driverLocation else {
                     LocationManager.shared.openSettingsDialog()

@@ -336,6 +336,7 @@
 		84ED291B2716F95900800A11 /* DutyOnOffView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84ED291A2716F95900800A11 /* DutyOnOffView.xib */; };
 		84F7CB7A27266C89006C4C31 /* SupportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F7CB7927266C89006C4C31 /* SupportVC.swift */; };
 		88223B55297AAB08005E85C7 /* TruckTypeResponceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88223B54297AAB08005E85C7 /* TruckTypeResponceModel.swift */; };
+		88F2B7932983B7B900154438 /* MessageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F2B7922983B7B900154438 /* MessageTableCell.swift */; };
 		D8962B31CE66A30DC649DF47 /* Pods_MTM_Driver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAACF8175B8A2192471E8DB8 /* Pods_MTM_Driver.framework */; };
 /* End PBXBuildFile section */
 
@@ -682,6 +683,7 @@
 		84FBDB9D276B12FB0004109F /* MTM Driver.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MTM Driver.entitlements"; sourceTree = "<group>"; };
 		87558BCFBA291754A6FBA4C5 /* Pods-DSP Driver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSP Driver.debug.xcconfig"; path = "Target Support Files/Pods-DSP Driver/Pods-DSP Driver.debug.xcconfig"; sourceTree = "<group>"; };
 		88223B54297AAB08005E85C7 /* TruckTypeResponceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckTypeResponceModel.swift; sourceTree = "<group>"; };
+		88F2B7922983B7B900154438 /* MessageTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableCell.swift; sourceTree = "<group>"; };
 		B8EF87CD38D7536E40D11F30 /* Pods-MTM Driver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MTM Driver.debug.xcconfig"; path = "Target Support Files/Pods-MTM Driver/Pods-MTM Driver.debug.xcconfig"; sourceTree = "<group>"; };
 		BAACF8175B8A2192471E8DB8 /* Pods_MTM_Driver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MTM_Driver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C581DA4176B5DE9D1A6CA5F3 /* Pods-DSP Driver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSP Driver.release.xcconfig"; path = "Target Support Files/Pods-DSP Driver/Pods-DSP Driver.release.xcconfig"; sourceTree = "<group>"; };
@@ -1791,6 +1793,7 @@
 		84A35ABF2726DBD9003078C1 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				88F2B7922983B7B900154438 /* MessageTableCell.swift */,
 				84A35AC02726DBEB003078C1 /* ChatVC.swift */,
 				8482CCC52726E765006515D2 /* SenderTblCell.swift */,
 				8482CCC72726E777006515D2 /* ReceiverTblCell.swift */,
@@ -2273,6 +2276,7 @@
 				84A35AAD2726A0B0003078C1 /* EarningVC.swift in Sources */,
 				8470F6F2270AD61D00E05AF7 /* AppTheme.swift in Sources */,
 				8470F63A270AD61C00E05AF7 /* SwipeFeedback.swift in Sources */,
+				88F2B7932983B7B900154438 /* MessageTableCell.swift in Sources */,
 				18B4C6662910DBEC00ED5FA9 /* InputValidation.swift in Sources */,
 				8470F638270AD61C00E05AF7 /* Extensions.swift in Sources */,
 				8470F71F270AD61D00E05AF7 /* CurrentBooking.swift in Sources */,
@@ -2525,7 +2529,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.0.0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = FK8XXB5H32;
+				DEVELOPMENT_TEAM = LNR2265795;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/MTM Driver/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Showfa Driver";
@@ -2535,7 +2539,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.populaw.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kota.driver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -2556,7 +2560,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.0.0;
-				DEVELOPMENT_TEAM = FK8XXB5H32;
+				DEVELOPMENT_TEAM = LNR2265795;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/MTM Driver/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Showfa Driver";
@@ -2566,7 +2570,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.populaw.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kota.driver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

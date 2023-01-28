@@ -41,7 +41,9 @@ extension HomeViewController {
         model.driver_id = Singleton.shared.driverId
         model.lat = "\(location.latitude)"
         model.lng = "\(location.longitude)"
+        Loader.showHUD()
         WebServiceCalls.changeDuty(transferMoneyModel: model) { (response, status) in
+            Loader.hideHUD()
             if status {
                 let duty = response.dictionaryValue["duty"]?.stringValue ?? ""
                 let isOnline = duty == "online"
@@ -51,10 +53,10 @@ extension HomeViewController {
                 }
             } else {
                 ThemeAlertVC.present(from: self, ofType: .simple(message: response["message"].stringValue))
-                Singleton.shared.isDriverOnline.toggle()
-                NotificationCenter.postCustom(.updateOnlineSwitch)
+                Singleton.shared.isDriverOnline = !Singleton.shared.isDriverOnline
                 self.setupOnlineOfflineView()
             }
+            NotificationCenter.postCustom(.updateOnlineSwitch)
         }
     }
     
@@ -74,8 +76,9 @@ extension HomeViewController {
                 
                 let res = RootCompleteTrip(fromJson: response)
                 let objcompleteTrip = res.data
+                Singleton.shared.bookingInfo = nil
                 Singleton.shared.CompleteTrip = objcompleteTrip
-                self.getLastView()
+                self.getLastView(bookingId: model.booking_id)
                 self.driverData.driverState = .available
                 self.resetMap()
                

@@ -19,6 +19,8 @@ struct ChatMessage {
     let time: String
     let senderType: String
     let receiverType: String
+    let chatType: String
+    let chatImage: String
 }
 
 extension ChatMessage {
@@ -29,15 +31,17 @@ extension ChatMessage {
        senderId = dictionary["sender_id"].stringValue
        senderType = dictionary["sender_type"].stringValue
        receiverType = dictionary["receiver_type"].stringValue
-       let fullDate = dictionary["created_at"].stringValue
-       date = String(fullDate.split(separator: " ")[0])
-       time = dictionary["time"].stringValue
+        let fullDate = dictionary["created_at"].stringValue
+        date = String(fullDate.split(separator: " ")[0])
+        time = dictionary["time"].stringValue
+        chatType = dictionary["chat_type"].stringValue
+        chatImage = dictionary["chat_image"].stringValue
        isSender = senderType == "driver" ? true : false
    }
 }
 
 extension ChatMessage {
-    init(message: String, receiverId: String, senderId: String) {
+    init(message: String, receiverId: String, senderId: String, chatType: String, chatImage: String) {
         id = ""
         self.message = message
         self.receiverId = receiverId
@@ -47,6 +51,8 @@ extension ChatMessage {
         self.receiverType = "customer"
         self.date = DateFormatHelper.digitDate.getDateString(from: Date())
         self.time = DateFormatHelper.twelveHrTime.getDateString(from: Date())
+        self.chatType = chatType
+        self.chatImage = chatImage
     }
 }
 
@@ -57,9 +63,10 @@ extension ChatMessage {
               let message = info["message"] as? String,
               let senderType = info["sender_type"] as? String,
               let receiverType = info["receiver_type"] as? String,
-              let fullDate = info["created_at"] as? String else {
+              let fullDate = info["created_at"] as? String, let chatType = info["chat_type"] as? String else {
             return nil
         }
+        var chatImage = info["chat_image"] as? String ?? ""
         var date = ""
         var time = ""
         if let createdDate = DateFormatHelper.standard.getDate(from: fullDate) {
@@ -67,7 +74,7 @@ extension ChatMessage {
             time = DateFormatHelper.twelveHrTime.getDateString(from: createdDate)
         }
         let chatMessage = ChatMessage(id: "", message: message, receiverId: receiverID,
-                                      senderId: senderID, isSender: false, date: date, time: time , senderType: senderType,receiverType: receiverType)
+                                      senderId: senderID, isSender: false, date: date, time: time , senderType: senderType,receiverType: receiverType, chatType: chatType, chatImage: chatImage)
         return chatMessage
     }
 }

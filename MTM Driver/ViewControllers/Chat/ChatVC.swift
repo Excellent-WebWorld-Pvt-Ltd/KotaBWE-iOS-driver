@@ -23,7 +23,6 @@ class Chathistory : Codable{
     var isSender : String!
     var date : String!
 
-    
     init(FullName:String , Msg : String , ProfilePic : String , ReceivedID : String , SernderID : String , SenderName : String , IsSender : String , Time : String , Date : String , Day : String) {
         self.fullName = FullName
         self.msg = Msg
@@ -46,12 +45,16 @@ class ChatVC: BaseViewController {
     @IBOutlet weak var btnSend: UIButton!
     @IBOutlet weak var conBottomChatBox: NSLayoutConstraint!
     @IBOutlet weak var inputContrainerView: UIView!
+    @IBOutlet weak var viewPastChat: UIView!
+    @IBOutlet weak var bottomConPastView: NSLayoutConstraint!
+    
     var strBookingId = ""
     var receiverId = ""
     var receiverName: String = ""
     var senderId: String = ""
+    var isComingFromPast: Bool = false
     var receiverImage = String()
-    
+    var selectedImage: UIImage?
     //MARK:- ===== Variables =====
     var arrSection = [ChatSectionData]()
 
@@ -81,8 +84,16 @@ class ChatVC: BaseViewController {
 
     //MARK:- =====UI Setup ========
     func UISetup(){
-         //hideKeyboardWhenTappedAround()
-         registerForKeyboardNotifications()
+        //hideKeyboardWhenTappedAround()
+        if isComingFromPast {
+            viewPastChat.isHidden = false
+            inputContrainerView.isHidden = true
+        }else{
+            viewPastChat.isHidden = true
+            inputContrainerView.isHidden = false
+        }
+        bottomConPastView.constant = Helper.bottomSafeAreaHeight > 0 ? Helper.bottomSafeAreaHeight + 5 : 5
+        registerForKeyboardNotifications()
         var titleStr = ""
         if receiverName.isEmpty {
             let fullname = (Singleton.shared.bookingInfo?.customerInfo.firstName ?? "") + " " + (Singleton.shared.bookingInfo?.customerInfo.lastName ?? "")
@@ -147,10 +158,17 @@ class ChatVC: BaseViewController {
             }
     }
     
+    @IBAction func btnSendImage(_ sender: UIButton) {
+        ImagePickerViewController.open(from: self, allowEditing: true) { [unowned self] image in
+            self.selectedImage = image
+            self.webServiceToSendMessage(chatType: "image")
+        }
+    }
+    
     @IBAction func btnActionMessage(_ sender: UIButton) {
-        let message = ChatMessage(message: self.textViewSendMsg.text, receiverId: receiverId, senderId: senderId)
+        let message = ChatMessage(message: self.textViewSendMsg.getText(), receiverId: receiverId, senderId: senderId, chatType: "text", chatImage: "")
         addNewMessage(message, animated: true)
-        webServiceToSendMessage()
+        webServiceToSendMessage(chatType: "text")
         self.textViewSendMsg.text = ""
         setSendButtonAppearance()
     }

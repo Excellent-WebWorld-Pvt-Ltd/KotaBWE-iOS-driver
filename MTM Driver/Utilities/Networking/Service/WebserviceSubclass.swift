@@ -200,9 +200,15 @@ class WebServiceCalls
         WebService.shared.getMethod(url: URL.init(string: strURLFinal)!, httpMethod: .get,  completion: completion)
     }
     
-    class func chatWithDriver(SendChat: ChatMessageRequestModel , completion: @escaping CompletionResponse) {
+//    class func chatWithDriver(SendChat: ChatMessageRequestModel , completion: @escaping CompletionResponse) {
+//        let  params : [String:String] = SendChat.generatPostParams() as! [String : String]
+//        WebService.shared.requestMethod(api: .chat, httpMethod: .post, parameters: params, completion: completion)
+//    }
+    
+    static func chatWithDriver(SendChat: ChatMessageRequestModel, image: UIImage?, imageParamName: String, completion: @escaping CompletionResponse) {
         let  params : [String:String] = SendChat.generatPostParams() as! [String : String]
-        WebService.shared.requestMethod(api: .chat, httpMethod: .post, parameters: params, completion: completion)
+        print("Api Params:\(params)")
+        WebService.shared.postDataWithImage(api: .chat, parameter: params, image: image, imageParamName: imageParamName, completion: completion)
     }
     
     class func totalEarningReport(reqmodel : EarningRequestModel , Complition:@escaping CompletionResponse){

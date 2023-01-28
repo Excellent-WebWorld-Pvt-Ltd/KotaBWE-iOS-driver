@@ -11,17 +11,30 @@ import UIKit
 
 extension ChatVC {
 
-    func webServiceToSendMessage()  {
+    func webServiceToSendMessage(chatType: String)  {
         let requestModel = ChatMessageRequestModel()
         requestModel.booking_id = self.strBookingId
         requestModel.sender_type = "driver"
         requestModel.receiver_type = "customer"
         requestModel.sender_id = Singleton.shared.driverId
         requestModel.receiver_id = self.receiverId
+        requestModel.chat_type = chatType
         requestModel.message = self.textViewSendMsg.text
-        WebServiceCalls.chatWithDriver(SendChat: requestModel) { (response, status) in
+        WebServiceCalls.chatWithDriver(SendChat: requestModel,image: selectedImage,imageParamName: "chat_image") { (response, status) in
             if !status {
                 self.webServiceForGetChatHistory()
+            }else{
+                guard let data = response["data"].array else {
+                    self.tblChatHistory.reloadData()
+                    return
+                }
+                data.map({ChatMessage(from: $0)}).forEach({
+                    if $0.chatType == "image" {
+                        self.addNewMessage($0, animated: true)
+                    }
+                })
+                self.tblChatHistory.reloadData()
+                self.scrollToBottom()
             }
         }
     }

@@ -186,9 +186,10 @@ class HomeViewController: BaseViewController {
     }
     
     //MARK:- ===== Navigate to Total Rating/Review ======
-    func CompleteTripToRatingReview(){
+    func CompleteTripToRatingReview(id : String){
         self.getFirstView()
         let vc: RiderRatingReviewVC = UIViewController.viewControllerInstance(storyBoard: .completedTrip)
+        vc.id = id
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -368,8 +369,8 @@ class HomeViewController: BaseViewController {
         self.presentView(forState: .duty)
     }
     
-    public func getLastView() {
-        self.presentView(forState: .lastCompleteView)
+    public func getLastView(bookingId:String) {
+        self.presentView(forState: .lastCompleteView,bookingId: bookingId)
     }
     
     var count: Double = 0
@@ -417,10 +418,13 @@ class HomeViewController: BaseViewController {
         self.progressRequest.isHidden = true
     }
 
-    func presentView(forState state: DriverState) {
+    func presentView(forState state: DriverState,bookingId: String = "") {
         self.presentType = state
         self.presentView?.removeFromSuperview()
         self.presentView = state.fromNib()
+        if let presentView = presentView as? CompleteView {
+            presentView.bookingId = bookingId
+        }
         bottomContentView?.customAddSubview(presentView!)
         self.presentView?.layoutSubviews()
         containerBottomConstraint.constant = 0

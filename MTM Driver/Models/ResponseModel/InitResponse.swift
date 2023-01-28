@@ -30,6 +30,7 @@ class InitResponse: CommonApiResponse {
     let meterInfo: MeterInfo?
     let subscription: SubscriptionDetailsModel?
     let autoFillOTP: Bool
+    let countryCode: String
     
     required init(json: JSON) {
         privacyURL = json["privacy_policy_url"].stringValue
@@ -51,6 +52,7 @@ class InitResponse: CommonApiResponse {
         subscription = SubscriptionDetailsModel(json: json["subscription"])
         driverDutyInfo = DriverDutyInfo(json: json["booking_info"])
         autoFillOTP = json["otp_auto_fill_ios"].boolValue
+        countryCode = json["country_code"].stringValue
         super.init(json: json)
     }
     

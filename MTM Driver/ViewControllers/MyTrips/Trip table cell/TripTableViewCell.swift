@@ -48,7 +48,6 @@ class TripTableViewCell: UITableViewCell , ShimmeringViewProtocol{
                 lblTitleTotalTime,
                 lblTitleDistance,
                 lblTitleEarning,
-                imgPickDrop,
                 viewTripId,
                 viewSeprateLine1,
                 viewSeprateLine2
@@ -69,22 +68,20 @@ class TripTableViewCell: UITableViewCell , ShimmeringViewProtocol{
     func configuration(hasMap: Bool, info: BookingHistoryResponse) {
         
         mapContainerView.isHidden = !hasMap
-        bottomStack.isHidden = info.status == .cancelled
+        bottomStack.isHidden = (info.status == .cancelled || isFRomUpcoming)
         lblStatus.text = info.status.title
         lblStatus.textColor = info.status.color
         pickupLabel.text = info.pickupLocation
         dropLabel.text = info.dropoffLocation
         tripLabel.text = "ID: \(info.id ?? "")"
-        totalTimeLabel.text = info.tripDuration.secondsToTimeFormate()
+        if let tripTime = Int(info.tripDuration ?? "") {
+            totalTimeLabel.text = tripTime.secondsToTimeFormat()
+        }else {
+            totalTimeLabel.text = "---"
+        }
         distanceLabel.text = info.distance.toDistanceString()
         totalPriceLabel.text = info.driverAmount.toCurrencyString()
-            
             //info.grandTotal.toCurrencyString()
-        
-       
-        
-        let str =   "\(info.acceptTime.timeStampToDate() ?? Date())"
-        let arrState = str.components(separatedBy: " ")
         
         if isFRomUpcoming == true {
             if let dateStr = info.pickupDateTime {
@@ -96,7 +93,7 @@ class TripTableViewCell: UITableViewCell , ShimmeringViewProtocol{
             }
         }
         else {
-            if let date = DateFormatHelper.standard.getDate(from:"\(arrState[0]) \(arrState[1])") {
+            if let date = info.bookingTime?.timeStampToDate() {
                 timeLabel.text = date.getDayDifferentTextWithTime()
            } else {
                timeLabel.text = "---"

@@ -83,6 +83,9 @@ class VehicleDocTableViewCell: UITableViewCell {
     var expiryDate: String = ""
     var textFieldValue: String = ""
     var delegate: VehicleDocCellDelegate?
+    var isFromRegister = false
+    var docData = VehicleDocRequestModel()
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -135,20 +138,30 @@ class VehicleDocTableViewCell: UITableViewCell {
     }
     
     func updateAttachUI() {
-        let upload = RegistrationParameter.shared.getDocUrl(self.type, side: true)
-        var title = upload != "" ? "View document" : "Attach Document"
+        var upload = true
+        if isFromRegister{
+            upload = RegistrationParameter.shared.getDocUrl(self.type, side: true) != ""
+        }else{
+            upload = docData.getDocUrl(self.type, side: true) != ""
+        }
+        var title = upload ? "View document" : "Attach Document"
         let attr: [NSAttributedString.Key: Any] = [
             .underlineStyle: NSUnderlineStyle.single.rawValue,
             .font: FontBook.regular.font(ofSize: 15),
-            .foregroundColor: upload != "" ? UIColor.themeFailed: UIColor.black
+            .foregroundColor: upload ? UIColor.themeFailed: UIColor.black
         ]
         attachmentLabel.attributedText = NSAttributedString(string: title, attributes: attr)
-        editButton.isHidden = (upload == "")
+        editButton.isHidden = (!upload)
         uploadingLabel.isHidden = uploadStatus != .uploading
         editButtonSecond.isHidden = true
         if (type.rawValue == VehicleDoc.driverLicense.rawValue) || (type.rawValue == VehicleDoc.biFrontAndBack.rawValue){
             stackViewSecond.isHidden = false
-            let second = (RegistrationParameter.shared.getDocUrl(self.type, side: false) != "")
+            var second = false
+            if isFromRegister{
+                second = (RegistrationParameter.shared.getDocUrl(self.type, side: false) != "")
+            }else{
+                second = (docData.getDocUrl(self.type, side: false) != "")
+            }
             editButtonSecond.isHidden = !second
             let att2: [NSAttributedString.Key: Any] = [
                 .underlineStyle: NSUnderlineStyle.single.rawValue,
@@ -157,7 +170,7 @@ class VehicleDocTableViewCell: UITableViewCell {
             ]
             editButtonSecond.isHidden = !second
             let titleSecond = second ? "View document" : "Attach Document(Back)"
-            title = upload != "" ? "View document" : "Attach Document(Front)"
+            title = upload ? "View document" : "Attach Document(Front)"
             lblattachtitleSecond.attributedText = NSAttributedString(string: titleSecond, attributes: att2)
             attachmentLabel.attributedText = NSAttributedString(string: title, attributes: attr)
         }else {

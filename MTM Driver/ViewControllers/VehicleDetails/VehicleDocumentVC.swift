@@ -26,12 +26,12 @@ class VehicleDocumentVC: BaseViewController, UIViewControllerTransitioningDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         if isFromSettings {
-//            if let model = SessionManager.shared.userProfile?.responseObject.driverDocs  {
-//                sessionParameter.set(driverDoc: model)
-//            } else {
-//                self.goBack()
-//                return
-//            }
+            if let model = SessionManager.shared.userProfile?.responseObject.driverDocs  {
+                sessionParameter.set(driverDoc: model)
+            } else {
+                self.goBack()
+                return
+            }
         }
         setupUI()
     }
@@ -54,11 +54,9 @@ class VehicleDocumentVC: BaseViewController, UIViewControllerTransitioningDelega
             return
         }
         if isFromSettings {
-//            sendUpdateRequest()
-            self.navigationController?.popViewController(animated: true)
+            sendUpdateRequest()
         } else {
             sendRegistrationRequest()
-//            AppDelegate.shared.setHome()
         }
     }
     
@@ -103,7 +101,7 @@ class VehicleDocumentVC: BaseViewController, UIViewControllerTransitioningDelega
                                      type: VehicleDoc,
                                      indexPath: IndexPath) {
         let info = self.sessionParameter
-        let isUploaded = info.getDocUrl(type).isNotEmpty
+        let isUploaded = info.getDocUrl(type, side: true).isNotEmpty
         let expiryDate = info.getDocExpiryDate(type)
         let textFieldValue = ""
         var uploadStatus: FileUploadStatus = isUploaded ? .uploaded : .notUploaded
@@ -139,7 +137,7 @@ class VehicleDocumentVC: BaseViewController, UIViewControllerTransitioningDelega
             self.uploadingDoc = nil
             if let url = url {
                 if self.isFromSettings {
-                    self.sessionParameter.setDocURL(url: url, for: type)
+                    self.sessionParameter.setDocURL(url: url, for: type, side: side)
                 } else {
                     self.registerParameters.setDocURL(url: url, for: type, side: side)
                     self.saveRegistrationProcess()
@@ -171,7 +169,7 @@ class VehicleDocumentVC: BaseViewController, UIViewControllerTransitioningDelega
     private func openDocumentPreview(for type: VehicleDoc,side:Bool) {
         var urlString: String = ""
         if isFromSettings {
-            urlString = sessionParameter.getDocUrl(type)
+            urlString = sessionParameter.getDocUrl(type, side: side)
         } else {
             urlString = registerParameters.getDocUrl(type, side: side)
         }
@@ -219,8 +217,11 @@ extension VehicleDocumentVC: UITableViewDelegate, UITableViewDataSource {
         let type = sections[indexPath.section].types[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellType.vehicleDoc.cellId, for: indexPath) as! VehicleDocTableViewCell
         if isFromSettings {
+            cell.isFromRegister = false
+            cell.docData = self.sessionParameter
             setValueForSettings(cell: cell, type: type, indexPath: indexPath)
         } else {
+            cell.isFromRegister = true
             setValueForRegistration(cell: cell, type: type, indexPath: indexPath)
         }
         return cell

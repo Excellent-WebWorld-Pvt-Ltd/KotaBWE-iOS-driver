@@ -15,4 +15,5 @@ class ChatMessageRequestModel: RequestModel {
     var receiver_type:String = ""
     var receiver_id:String = ""
     var message:String = ""
+    var chat_type: String = ""
 }

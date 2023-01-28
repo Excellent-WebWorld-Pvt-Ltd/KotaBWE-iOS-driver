@@ -30,8 +30,8 @@ class UpComingTripHistoryVc: UIViewController {
     }
      var isLoading = true {
         didSet {
-//            tblUpcominTrip.isUserInteractionEnabled = !isLoading
-//            tblUpcominTrip.reloadData()
+            tblUpcominTrip.isUserInteractionEnabled = !isLoading
+            tblUpcominTrip.reloadData()
         }
       }
     
@@ -45,14 +45,14 @@ class UpComingTripHistoryVc: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(DataRefresh), name:.refresh, object: nil)
         
         // Add Refresh Control to Table View
-//        if #available(iOS 10.0, *) {
-//            tblUpcominTrip.refreshControl = refreshControl
-//        } else {
-//            tblUpcominTrip.addSubview(refreshControl)
-//        }
-//      //  upComingBookingHistory(ShowHud: true, PageNo: PageNumber)
-//        refreshControl.addTarget(self, action: #selector(self.refreshWeatherData(_:)), for: .valueChanged)
-//        refreshControl.tintColor = UIColor.lightGray //
+        if #available(iOS 10.0, *) {
+            tblUpcominTrip.refreshControl = refreshControl
+        } else {
+            tblUpcominTrip.addSubview(refreshControl)
+        }
+        upComingBookingHistory(ShowHud: true, PageNo: PageNumber)
+        refreshControl.addTarget(self, action: #selector(self.refreshWeatherData(_:)), for: .valueChanged)
+        refreshControl.tintColor = UIColor.lightGray //
         tblUpcominTrip.registerNibCell(type: .trip)
         tblUpcominTrip.reloadData()
     }
@@ -85,59 +85,44 @@ class UpComingTripHistoryVc: UIViewController {
 //MARK:- ======= Tablview dataSource and Delegate Methods ======
 extension UpComingTripHistoryVc : UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        if isLoading == false && arrUpcomingHistory.isEmpty{
-//            return 1
-//        } else {
-//            return arrUpcomingHistory.count
-//        }
-        return 5
-        
+        if isLoading == false && arrUpcomingHistory.isEmpty{
+            return 1
+        } else {
+            return arrUpcomingHistory.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellType.trip.cellId, for: indexPath) as! TripTableViewCell
-        cell.mapContainerView.isHidden = true
-        cell.mapContainerView.frame.size.height = 0
-        
-        cell.isFRomUpcoming = true
-       // cell.configuration(hasMap: false, info: arrUpcomingHistory[indexPath.row])
-        return cell
-        
-        
-        
-//        if arrUpcomingHistory.count != 0 {
-//            let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellType.trip.cellId, for: indexPath) as! TripTableViewCell
-//            cell.mapContainerView.isHidden = true
-//            cell.mapContainerView.frame.size.height = 0
-//
-//            cell.isFRomUpcoming = true
-//            cell.configuration(hasMap: false, info: arrUpcomingHistory[indexPath.row])
-//            return cell
-//        }
-//        else {
-//            let cell: NoDataFoundTblCell = tableView.dequeueReusableCell(withType: .noData, for: indexPath)
-//            cell.setMessage("No record found!")
-//            return cell
-//        }
-        
+        if arrUpcomingHistory.count != 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellType.trip.cellId, for: indexPath) as! TripTableViewCell
+            cell.mapContainerView.isHidden = true
+            cell.mapContainerView.frame.size.height = 0
+
+            cell.isFRomUpcoming = true
+            cell.configuration(hasMap: false, info: arrUpcomingHistory[indexPath.row])
+            return cell
+        }
+        else {
+            let cell: NoDataFoundTblCell = tableView.dequeueReusableCell(withType: .noData, for: indexPath)
+            cell.setMessage("No record found!")
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        //cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
-//        if indexPath.row == arrUpcomingHistory.count - 4 && NeedToReload == true {
-//            loadMoreData()
-//        }
+        cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
+        if indexPath.row == arrUpcomingHistory.count - 4 && NeedToReload == true {
+            loadMoreData()
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return arrUpcomingHistory.count != 0 ? UITableView.automaticDimension : self.tblUpcominTrip.frame.size.height
-        return UITableView.automaticDimension
+        return arrUpcomingHistory.count != 0 ? UITableView.automaticDimension : self.tblUpcominTrip.frame.size.height
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let TripDetailsVC : TripDetailVC = UIViewController.viewControllerInstance(storyBoard: .myTrips)
-       // TripDetailsVC.objDetail = arrUpcomingHistory[indexPath.row]
+        TripDetailsVC.objDetail = arrUpcomingHistory[indexPath.row]
         TripDetailsVC.isFromPast = false
         self.navigationController?.pushViewController(TripDetailsVC, animated: true)
     }
@@ -158,7 +143,9 @@ extension UpComingTripHistoryVc  {
         WebServiceCalls.UpcomingBookingHistory(strType: param) { response, Status in
          
             self.isLoading = false
-            self.refreshControl.endRefreshing()
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
+            }
             if Status {
                 print(response)
                 let objResponse  = RootBookingHistory(fromJson: response)
@@ -169,7 +156,7 @@ extension UpComingTripHistoryVc  {
                     self.arrUpcomingHistory.append(contentsOf: objResponse.data)
                 }
                 print(self.arrUpcomingHistory.count)
-                if objResponse.data.isEmpty || objResponse.data.count == self.PageLimit {
+                if objResponse.data.isEmpty || objResponse.data.count < self.PageLimit {
                     self.NeedToReload = false
                 }
                 else {

@@ -19,7 +19,6 @@ class SettingVC: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         NotificationCenter.default.removeObserver(self, name: .updateProfile, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(UpdateProfile), name: .updateProfile, object: nil)
         self.setupNavigation(.normal(title: "Settings", leftItem: .back))
@@ -27,7 +26,6 @@ class SettingVC: BaseViewController {
         tblSetting.registerNibCell(type: .Setting)
         tblSetting.registerNibCell(type: .ProfileInfo)
         tblSetting.reloadData()
-        
     }
     
     @objc func UpdateProfile(){
@@ -62,7 +60,7 @@ extension SettingVC : UITableViewDataSource,UITableViewDelegate {
                 cell.lblName.text = userName
         
             cell.lblEmail.text = Singleton.shared.userProfile?.responseObject.email
-            cell.lblMobileNo.text = "9876543210 \(Singleton.shared.userProfile?.responseObject.mobileNo ?? "")"  //Singleton.shared.userProfile?.responseObject.mobileNo
+            cell.lblMobileNo.text = "\(Singleton.shared.countryCode) \(Singleton.shared.userProfile?.responseObject.mobileNo ?? "")"  //Singleton.shared.userProfile?.responseObject.mobileNo
             if let imageStr = Singleton.shared.userProfile?.responseObject.profileImage.toImageUrl(), let imageUrl = URL(string: imageStr) {
                 cell.imgProfile.sd_setImage(with: imageUrl, placeholderImage: AppImages.userPlaceholder.image)
             }

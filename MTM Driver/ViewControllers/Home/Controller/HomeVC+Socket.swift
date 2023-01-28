@@ -53,7 +53,7 @@ extension HomeViewController: SocketConnected {
         onSocket_CancelTrip()
         onSocketDriverArrived()
         onSocketDriverArrivedAtPickupLocaction()
-       // onSocketError()
+        onSocketError()
         // Socket On 6
     }
     
@@ -111,6 +111,7 @@ extension HomeViewController: SocketConnected {
         var param = [String: Any]()
         param["driver_id"] = Singleton.shared.driverId
         param["booking_id"] = bookingId
+        Singleton.shared.bookingInfo = nil
         SocketIOManager.shared.socketEmit(for: socketApiKeys.RejectRequest.rawValue, with: param)
         self.stopProgress()
         self.getFirstView()
@@ -142,7 +143,6 @@ extension HomeViewController: SocketConnected {
     
     // ----------------------------------------------------
     // MARK:- --- Socket On Methods ---
-    // MARK:-
     // ----------------------------------------------------
    
     // Socket On 1
@@ -162,17 +162,15 @@ extension HomeViewController: SocketConnected {
                     self.emitSocket_ForwardRequest(bookingId: id)
                 }
             }
-            
         }
     }
     
     //MARK:- ==== On socket Track Trip ====
-    
     func onSocketError() {
-        SocketIOManager.shared.socketCall(for: socketApiKeys.error.rawValue) { json in
+        SocketIOManager.shared.socketCall(for: socketApiKeys.pickupTimeError.rawValue) { json in
             print(json)
             let message = json.array?.first?.getApiMessage()
-            UtilityClass.showAlert(message: message ?? "")
+            ThemeAlertVC.present(from: self, ofType: .simple(title: "", message: message ?? ""))
         }
     }
     

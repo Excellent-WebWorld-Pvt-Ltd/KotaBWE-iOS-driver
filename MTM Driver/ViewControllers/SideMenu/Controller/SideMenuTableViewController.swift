@@ -123,11 +123,8 @@ class SideMenuTableViewController: UIViewController {
         sideMenuController?.hideMenu()
     }
     
-    
-    // ----------------------------------------------------
     //    // MARK: - Logout Webservice Method
-    //    // ----------------------------------------------------
-    //
+    
     func webserviceForLogout() {
         let param: [String: Any] = ["driver_id": Singleton.shared.userProfile!.responseObject.id, "device_token": SessionManager.shared.fcmToken ?? ""]
         Loader.showHUD()
@@ -137,19 +134,14 @@ class SideMenuTableViewController: UIViewController {
         }
     }
     
-    
     @IBAction func btnActionLogout(_ sender: UIButton) {
         logoutUser()
     }
     
-    
     private func logoutUser() {
         let alertCtr = UIAlertController(title: Helper.appName, message: "Are you sure to logout from \(Helper.appName) App?", preferredStyle: .alert)
-        
         let okAction = UIAlertAction(title: "Logout", style: .destructive) { [unowned self] _ in
-//            self.webserviceForLogout()
-            SessionManager.shared.logout()
-           
+            self.webserviceForLogout()
         }
         let cancelAction = UIAlertAction(title: "Not Now", style: .cancel, handler: nil)
         alertCtr.addAction(okAction)
@@ -163,20 +155,15 @@ class SideMenuTableViewController: UIViewController {
     
     @IBAction func deleteAccountAction() {
         let okAction = UIAlertAction(title: "Delete", style: .destructive) { [unowned self] _ in
-           // self.deleteAccountRequest()
-            SessionManager.shared.logout()
+            self.deleteAccountRequest()
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .default)
-        
-        
         AppDelegate.showAlert(title: "Alert", message: "Are you sure you want to delete your \"\(Helper.appName)\" Account?", actions: [okAction, cancelAction])
-        
         Helper.triggerHapticFeedback(.warning)
     }
     
     private func deleteAccountRequest() {
         let param: [String: String] = ["driver_id": Singleton.shared.userProfile?.responseObject.id ?? ""]
-        
         WebServiceCalls.deleteAccountAPi(params: param) { json, status in
             if status {
                 UtilityClass.showAlert(message: "\(json[ "message"])", isCancelShow: false) {
@@ -187,12 +174,10 @@ class SideMenuTableViewController: UIViewController {
             }
         }
     }
-    
 }
 
 // MARK: - Table view data source
 extension SideMenuTableViewController: UITableViewDelegate, UITableViewDataSource {
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.menuItemArray.count
@@ -208,7 +193,6 @@ extension SideMenuTableViewController: UITableViewDelegate, UITableViewDataSourc
         tableView.deselectRow(at: indexPath, animated: true)
         let item = menuItemArray[indexPath.row]
         self.naviate(to: item.type)
-        
     }
     
 }

@@ -141,9 +141,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         SocketIOManager.shared.socket.off(socketApiKeys.CancelBeforeAccept.rawValue)
     }
 
-    
-    
-
     func setupNavigationAppearance(darkStyle: Bool = true) {
         if darkStyle {
             if #available(iOS 15, *) {

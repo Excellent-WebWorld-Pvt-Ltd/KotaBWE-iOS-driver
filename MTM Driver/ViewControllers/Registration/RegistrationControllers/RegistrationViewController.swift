@@ -23,6 +23,7 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
  //   @IBOutlet weak var txtEmail: ThemeUnderLineTextField!
     @IBOutlet weak var txtPhoneNumber: CustomViewOutlinedTxtField!
     
+    @IBOutlet weak var txtPhone: CustomViewOutlinedTxtField!
     @IBOutlet weak var txtPassword: CustomViewOutlinedTxtField!
     
     @IBOutlet weak var txtConformPassword: CustomViewOutlinedTxtField!
@@ -43,7 +44,7 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
         
         self.navigationController?.navigationBar.isHidden = true
 //        setupCountryPicker()
-        
+        txtPhone.textField.text = Singleton.shared.countryCode
         setupTextfields()
         TermsAndCondtionSetup()
         setupRegisterVC()

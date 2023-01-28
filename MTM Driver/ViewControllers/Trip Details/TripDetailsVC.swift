@@ -235,7 +235,6 @@ class TripDetailsVC: BaseViewController {
     //MARK :- Action
     @IBAction func btnAccept(_ sender: Any) {
         webserviceCallAceptBookLater()
-        
     }
     @IBAction func btnInvoiceClick(_ sender: Any) {
         let TripInvoiceVC : TripInvoiceVC = UIViewController.viewControllerInstance(storyBoard: .tripDetails)

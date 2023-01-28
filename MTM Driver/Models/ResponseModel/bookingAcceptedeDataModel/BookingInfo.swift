@@ -32,6 +32,7 @@ class BookingInfo : NSObject, NSCoding{
     var dropoffTime : String!
     var durationFare : String!
     var estimatedFare : String!
+    var estimatedTime : String!
     var extraCharge : String!
     var grandTotal : String!
     var id : String!
@@ -54,6 +55,10 @@ class BookingInfo : NSObject, NSCoding{
     var tripDuration : String!
     var vehicleType : VehicleTypeBookingAcceptedeData!
     var vehicleTypeId : String!
+    var cargoWeightKg : String!
+    var truckLoadType : String!
+    var itemQuantity : String!
+    var name: String!
 
     var statusEnum: TripStatusEnum? {
         TripStatusEnum(rawValue: status)
@@ -114,11 +119,16 @@ class BookingInfo : NSObject, NSCoding{
         tips = json["tips"].stringValue
         tipsStatus = json["tips_status"].stringValue
         tripDuration = json["trip_duration"].stringValue
+        cargoWeightKg = json["cargo_weight_kg"].stringValue
+        truckLoadType = json["truck_load_type"].stringValue
+        estimatedTime = json["estimated_time"].stringValue
         let vehicleTypeJson = json["vehicle_type"]
         if !vehicleTypeJson.isEmpty{
             vehicleType = VehicleTypeBookingAcceptedeData(fromJson: vehicleTypeJson)
         }
         vehicleTypeId = json["vehicle_type_id"].stringValue
+        itemQuantity = json["item_quantity"].stringValue
+        name = json["name"].stringValue
 	}
 
 	/**
