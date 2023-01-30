@@ -152,21 +152,18 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             if handleChatNotificationIfVCPresented(userInfo: userInfo) {
                 completionHandler([])
                 return
-            } else {
+            }else {
                 completionHandler([.alert, .sound])
                 return
             }
-        }
-       else if notificationType == .logout {
+        }else if notificationType == .logout {
            SessionManager.shared.logout()
         completionHandler([.alert, .sound])
            return
-        }
-       else if notificationType == .bookLater {
+        }else if notificationType == .bookLater {
           completionHandler([.alert, .sound])
            return
-       }
-        else {
+       }else {
             completionHandler([.alert, .sound])
             return
         }

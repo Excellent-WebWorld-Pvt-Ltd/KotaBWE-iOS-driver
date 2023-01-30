@@ -166,8 +166,8 @@ class ChatVC: BaseViewController {
     }
     
     @IBAction func btnActionMessage(_ sender: UIButton) {
-        let message = ChatMessage(message: self.textViewSendMsg.getText(), receiverId: receiverId, senderId: senderId, chatType: "text", chatImage: "")
-        addNewMessage(message, animated: true)
+//        let message = ChatMessage(message: self.textViewSendMsg.getText(), receiverId: receiverId, senderId: senderId, chatType: "text", chatImage: "")
+//        addNewMessage(message, animated: true)
         webServiceToSendMessage(chatType: "text")
         self.textViewSendMsg.text = ""
         setSendButtonAppearance()

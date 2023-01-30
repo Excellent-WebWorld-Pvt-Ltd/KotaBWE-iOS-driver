@@ -30,7 +30,7 @@ enum DateFormatHelper: String {
     }
 
     func getDateString(from date: Date) -> String {
-        return dateFormatter.string(from: date).lowercased()
+        return dateFormatter.string(from: date)
     }
 
     func getDate(from string: String) -> Date? {

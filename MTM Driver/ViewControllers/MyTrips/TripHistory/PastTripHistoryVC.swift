@@ -134,14 +134,12 @@ extension PastTripHistoryVC  {
                 let objResponse  = RootBookingHistory(fromJson: response)
                 if PageNo == 1 {
                     self.arrPastHistory = objResponse.data
-                }
-                else {
+                }else {
                     self.arrPastHistory.append(contentsOf: objResponse.data)
                 }
                 if objResponse.data.isEmpty || objResponse.data.count < self.PageLimit {
                     self.NeedToReload = false
-                }
-                else {
+                }else {
                     self.NeedToReload = true
                 }
                 self.showNoDataCell = self.arrPastHistory.isEmpty

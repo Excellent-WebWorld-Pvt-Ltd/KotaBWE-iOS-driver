@@ -59,6 +59,7 @@ class TripDetailVC: BaseViewController {
         setUpSwipeView(vwSwipe: vwSlider)
         self.setupNavigation(.normal(title: "Trip Detail", leftItem: .back, hasNotification: false))
         setupUI()
+        WebServiceCallTripDetail()
         setdata()
         setupData()
     }
@@ -175,6 +176,9 @@ class TripDetailVC: BaseViewController {
                     lblEarnings.text = grandTotal.toCurrencyString()
                 }
             }
+        if objDetail?.status == .cancelled{
+            viewPastInvoice.isHidden = true
+        }
         lblCustomerName.text = (objDetail?.customerFirstName ?? "") + " " + (objDetail?.customerLastName ?? "")
         
          let imgurl = objDetail?.customerImage
@@ -261,6 +265,7 @@ class TripDetailVC: BaseViewController {
         let ChatviewController: ChatVC = UIViewController.viewControllerInstance(storyBoard: .myTrips)
         ChatviewController.strBookingId = objDetail?.id ?? ""
         ChatviewController.receiverId =  objDetail?.customerId ?? ""
+        ChatviewController.isComingFromPast = self.isFromPast
         ChatviewController.receiverName = "\(objDetail?.customerFirstName ?? "") \(objDetail?.customerLastName ?? "")"
         guard let url = objDetail?.customerImage else { return }
         ChatviewController.receiverImage = "\(NetworkEnvironment.baseImageURL + url)"
@@ -324,7 +329,6 @@ class TripDetailVC: BaseViewController {
             }
         }
     }
-    
 }
 
 

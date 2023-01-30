@@ -29,9 +29,7 @@ extension ChatVC {
                     return
                 }
                 data.map({ChatMessage(from: $0)}).forEach({
-                    if $0.chatType == "image" {
-                        self.addNewMessage($0, animated: true)
-                    }
+                    self.addNewMessage($0, animated: true)
                 })
                 self.tblChatHistory.reloadData()
                 self.scrollToBottom()

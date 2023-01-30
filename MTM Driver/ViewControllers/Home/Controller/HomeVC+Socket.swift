@@ -167,10 +167,19 @@ extension HomeViewController: SocketConnected {
     
     //MARK:- ==== On socket Track Trip ====
     func onSocketError() {
+        SocketIOManager.shared.socketCall(for: socketApiKeys.error.rawValue) { json in
+            print(json)
+            let message = json.array?.first?.getApiMessage()
+            if message != ""{
+                ThemeAlertVC.present(from: self, ofType: .simple(title: "", message: message ?? ""))
+            }
+        }
         SocketIOManager.shared.socketCall(for: socketApiKeys.pickupTimeError.rawValue) { json in
             print(json)
             let message = json.array?.first?.getApiMessage()
-            ThemeAlertVC.present(from: self, ofType: .simple(title: "", message: message ?? ""))
+            if message != ""{
+                ThemeAlertVC.present(from: self, ofType: .simple(title: "", message: message ?? ""))
+            }
         }
     }
     

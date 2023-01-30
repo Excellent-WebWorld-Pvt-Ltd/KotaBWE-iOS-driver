@@ -33,10 +33,14 @@ extension ChatMessage {
        receiverType = dictionary["receiver_type"].stringValue
         let fullDate = dictionary["created_at"].stringValue
         date = String(fullDate.split(separator: " ")[0])
-        time = dictionary["time"].stringValue
+        if let createdDate = DateFormatHelper.standard.getDate(from: dictionary["created_at"].stringValue) {
+            time = DateFormatHelper.twelveHrTime.getDateString(from: createdDate)
+        }else{
+            time = ""
+        }
         chatType = dictionary["chat_type"].stringValue
         chatImage = dictionary["chat_image"].stringValue
-       isSender = senderType == "driver" ? true : false
+        isSender = senderType == "driver" ? true : false
    }
 }
 

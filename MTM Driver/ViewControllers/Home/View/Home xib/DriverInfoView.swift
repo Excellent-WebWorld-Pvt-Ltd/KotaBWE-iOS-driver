@@ -72,6 +72,7 @@ class DriverInfoView: UIView
     @IBOutlet weak var secondView: UIView!
     @IBOutlet weak var lblCargoWeight: ThemeLabel!
     @IBOutlet weak var lblLoadType: ThemeLabel!
+    @IBOutlet weak var stackVIewMiles: UIStackView!
     @IBOutlet weak var lblItemQuantity: ThemeLabel!
     
     // ----------------------------------------------------
@@ -164,6 +165,7 @@ class DriverInfoView: UIView
 
     func getRequest(isrequest:Bool){
          ViewWithInMiles.isHidden = false
+        stackVIewMiles.isHidden = isrequest
          viewPhonChat.isHidden = !isrequest
     }
     
@@ -291,8 +293,7 @@ class DriverInfoView: UIView
     
   
     //MARK:- ===== Get Current Place =====
-    func getCurrentPlace()
-    {
+    func getCurrentPlace(){
         placesClient.currentPlace(callback: { (placeLikelihoodList, error) -> Void in
             if error != nil {
                 print ("Pick Place error: \(error?.localizedDescription ?? "Error")")
