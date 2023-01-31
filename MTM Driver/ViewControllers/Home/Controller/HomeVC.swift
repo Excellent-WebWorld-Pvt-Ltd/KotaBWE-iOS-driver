@@ -484,7 +484,7 @@ class HomeViewController: BaseViewController {
             carMovement.arCarMovement(marker: driverMarker,
                                       oldCoordinate: oldCoordinate ?? location.coordinate,
                                       newCoordinate: location.coordinate,
-                                      mapView: mapView)
+                                      mapView: mapView, zoomOn: isCameraAnimation)
         }
         if oldCoordinate != nil {
             CATransaction.commit()

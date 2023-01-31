@@ -67,17 +67,20 @@ private extension FloatingPoint {
      *     - mapView: The *mapView* is represention of view.
      *     - bearing: The *bearing* is camera's position on an arc between directly over the map's center position and the surface of the Earth. Default value is 0.
      */
-    public func arCarMovement(marker: GMSMarker, oldCoordinate: CLLocationCoordinate2D, newCoordinate:CLLocationCoordinate2D, mapView: GMSMapView, bearing: Float = 0) {
+    public func arCarMovement(marker: GMSMarker, oldCoordinate: CLLocationCoordinate2D, newCoordinate:CLLocationCoordinate2D, mapView: GMSMapView, bearing: Float = 0,zoomOn :Bool) {
         
         //calculate the bearing value from old and new coordinates
-      //  let calBearing: Float = self.getHeadingForDirection(fromCoordinate: oldCoordinate, toCoordinate: newCoordinate)
-        let carBearing = LocationManager.shared.bearing
         marker.groundAnchor = CGPoint(x: CGFloat(0.5), y: CGFloat(0.5))
-        marker.rotation = 0 //found bearing value by calculation when marker add
+      //  marker.rotation = CLLocationDegrees(calBearing); //found bearing value by calculation when marker add
+        var calBearing = 0.0
+        if !zoomOn{
+             calBearing = Double(getHeadingForDirection(fromCoordinate: oldCoordinate, toCoordinate: newCoordinate)) - mapView.camera.bearing
+        }
+        marker.rotation = CLLocationDegrees(calBearing)
         marker.position = newCoordinate
-//        CATransaction.setCompletionBlock({() -> Void in
-//            marker.rotation = (Int(bearing) != 0) ? CLLocationDegrees(bearing) : CLLocationDegrees(carBearing)
-//        })
+        CATransaction.setCompletionBlock({() -> Void in
+       //     marker.rotation = (Int(bearing) != 0) ? CLLocationDegrees(bearing) : CLLocationDegrees(calBearing)
+        })
     }
     
     private func getHeadingForDirection(fromCoordinate fromLoc: CLLocationCoordinate2D, toCoordinate toLoc: CLLocationCoordinate2D) -> Float {
