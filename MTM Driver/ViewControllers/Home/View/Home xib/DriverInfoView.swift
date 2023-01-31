@@ -206,6 +206,7 @@ class DriverInfoView: UIView
             Singleton.shared.bookingInfo = nil
         }
     }
+    
     // Reject Btn Action
     @IBAction func btnRejectAction(_ sender: UIButton) {
         print(#function)

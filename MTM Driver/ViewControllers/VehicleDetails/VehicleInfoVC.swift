@@ -213,6 +213,8 @@ class VehicleInfoVC: BaseViewController {
         // txtVehicleSubName.delegate = self
         txtCarType.textField.delegate = self
         txtCompanyName.textField.delegate = self
+        txtCompanyName.textField.tintColor = .clear
+        txtVehicleManufactureYear.textField.tintColor = .clear
     }
     
     func setupTextField(){

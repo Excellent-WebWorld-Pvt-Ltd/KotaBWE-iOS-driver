@@ -29,7 +29,28 @@ class UtilityClass: NSObject {
         }
         AppDelegate.shared.window?.rootViewController?.present(alert, animated: true, completion: nil)
     }
+    
+    class func degreesToRadians(degrees: Double) -> Double { return degrees * .pi / 180.0 }
+    
+    class func radiansToDegrees(radians: Double) -> Double { return radians * 180.0 / .pi }
+    
+    class func getBearingBetweenTwoPoints(point1 : CLLocationCoordinate2D, point2 : CLLocationCoordinate2D) -> Double {
 
+        let lat1 = degreesToRadians(degrees: point1.latitude)
+        let lon1 = degreesToRadians(degrees: point1.longitude)
+
+        let lat2 = degreesToRadians(degrees: point2.latitude)
+        let lon2 = degreesToRadians(degrees: point2.longitude)
+
+        let dLon = lon2 - lon1
+
+        let y = sin(dLon) * cos(lat2)
+        let x = cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(dLon)
+        let radiansBearing = atan2(y, x)
+
+        return radiansToDegrees(radians: radiansBearing)
+    }
+    
     class func image(_ originalImage: UIImage?, scaledTo size: CGSize) -> UIImage? {
 
         

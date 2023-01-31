@@ -78,6 +78,8 @@ class Singleton {
     
     var autoFillOTP: Bool = false
     
+    var singinMsg: String = ""
+    
     func fillInfo(from model: InitResponse) {
         self.termsAndConditionURL = model.termConditionURL
         self.privacyURL = model.privacyURL
@@ -94,7 +96,8 @@ class Singleton {
         model.meterInfo?.distance = SessionManager.shared.meterTravelDistance
         self.meterInfo = model.meterInfo
         self.autoFillOTP = model.autoFillOTP
-        self.countryCode = model.countryCode
+        self.countryCode = model.countryCode ?? "+244"
+        self.singinMsg = model.signinMessage
     }
 }
 

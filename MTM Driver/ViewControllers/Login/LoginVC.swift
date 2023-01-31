@@ -26,7 +26,8 @@ class LoginVC: UIViewController {
     @IBOutlet weak var viewCountryPicker: CountryPickerView!
     @IBOutlet weak var btnNotUser: UnderlineTextButton!
     @IBOutlet weak var viewBGLine: UIView!
-  //  @IBOutlet weak var txtPhoneNumber: UITextField!
+    @IBOutlet weak var lblMessage: ThemeLabel!
+    //  @IBOutlet weak var txtPhoneNumber: UITextField!
     
     
     //MARK:- ===== Variables =====
@@ -46,6 +47,7 @@ class LoginVC: UIViewController {
   //      txtPhoneNumber.font = UIFont.regular(ofSize: 18.0)
    //     txtPhoneNumber.delegate = self
    //     setupCountryPicker()
+        self.lblMessage.text = Singleton.shared.singinMsg
         setupTextfields()
         formattedTextSetup()
         setupInitView()

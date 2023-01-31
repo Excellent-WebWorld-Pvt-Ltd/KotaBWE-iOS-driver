@@ -909,6 +909,7 @@
                         <outlet property="btnForgotPassword" destination="oVT-Sk-9Dt" id="erb-t8-sTY"/>
                         <outlet property="btnHidePassword" destination="zS4-Tw-8D3" id="5pB-1z-z6r"/>
                         <outlet property="btnNotUser" destination="dGC-65-KRx" id="rrr-HX-N3h"/>
+                        <outlet property="lblMessage" destination="akn-Fo-i1a" id="ERo-A3-9Kf"/>
                         <outlet property="txtEmail" destination="eY3-Pm-hSZ" id="tjr-Cd-WN8"/>
                         <outlet property="txtPassword" destination="FmK-G1-IFX" id="iXg-Dg-5rb"/>
                     </connections>

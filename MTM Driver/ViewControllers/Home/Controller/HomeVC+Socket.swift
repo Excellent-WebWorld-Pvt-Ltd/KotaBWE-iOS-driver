@@ -204,7 +204,9 @@ extension HomeViewController: SocketConnected {
                 self.bookingData = Singleton.shared.bookingInfo!
                 self.driverData.driverState = .requestAccepted
                 self.resetMap()
-                bookingView.setDriverData(status:.requestAccepted)
+                DispatchQueue.main.async {
+                    bookingView.setDriverData(status:.requestAccepted)
+                }
             }
             let message = json.first?.1.dictionary?["message"]?.stringValue
             AlertMessage.showMessageForSuccess(message ?? "Booking Request Accepted")

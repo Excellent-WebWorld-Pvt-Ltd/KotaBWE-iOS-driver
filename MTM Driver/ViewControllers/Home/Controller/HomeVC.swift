@@ -393,7 +393,6 @@ class HomeViewController: BaseViewController {
                 self.count = 0
                 self.progressRequest.progress = 0.0
                 self.progressRequest.isHidden = true
-                
 //                self.setConstraintOfHomeVc()
 //                self.setRequestRejectedView()
                 if let id = Singleton.shared.bookingInfo?.id {
@@ -403,7 +402,6 @@ class HomeViewController: BaseViewController {
             }
             // 4
             UIView.animate(withDuration: 1, delay: 0, options: .curveLinear, animations: {
-                
                 self.count += 0.033
                 self.progressRequest.setProgress(Float(self.count), animated: true)
             }, completion: { (state) in
@@ -425,8 +423,8 @@ class HomeViewController: BaseViewController {
         if let presentView = presentView as? CompleteView {
             presentView.bookingId = bookingId
         }
-        bottomContentView?.customAddSubview(presentView!)
         self.presentView?.layoutSubviews()
+        bottomContentView?.customAddSubview(presentView!)
         containerBottomConstraint.constant = 0
         self.bottomContentView.layoutSubviews()
     }
@@ -467,14 +465,20 @@ class HomeViewController: BaseViewController {
         }
         if oldCoordinate != nil {
             CATransaction.begin()
-            CATransaction.setValue(2, forKey: kCATransactionAnimationDuration)
+            CATransaction.setValue(1, forKey: kCATransactionAnimationDuration)
+        }else{
+            oldCoordinate = location.coordinate
         }
         if isCameraAnimation {
-            let camera = GMSCameraPosition.camera(
-                withLatitude: location.coordinate.latitude,
-                longitude: location.coordinate.longitude,
-                zoom: 17)
-            mapView.animate(to: camera)
+            let curLet = location.coordinate.latitude
+            let curLong = location.coordinate.longitude
+            let dropLet = oldCoordinate.latitude//dictLocation?["lat"]?.doubleValue ?? 0.0
+            let dropLong = oldCoordinate.longitude//dictLocation?["lng"]?.doubleValue ?? 0.0
+//            self.lastCoordinate = newCoordinate
+            if curLet != dropLet && curLong != dropLong{
+                let camera = GMSCameraPosition.camera(withTarget: CLLocationCoordinate2DMake(curLet, curLong), zoom: 17, bearing: UtilityClass.getBearingBetweenTwoPoints(point1: CLLocationCoordinate2DMake(dropLet, dropLong), point2:CLLocationCoordinate2DMake(curLet, curLong)), viewingAngle: 45)
+                mapView.animate(to: camera)
+            }
         }
         if let driverMarker = self.driverMarker {
             carMovement.arCarMovement(marker: driverMarker,

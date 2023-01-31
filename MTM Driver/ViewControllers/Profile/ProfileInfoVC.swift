@@ -105,7 +105,7 @@ class ProfileInfoVC: BaseViewController {
         txtLastName.textField.delegate = self
         txtDOB.textField.delegate = self
         txtAddress.textField.delegate = self
-    
+        txtPostalCode.textField.keyboardType = .numberPad
         if !isFromSetting {
             viewEmail.isHidden = true
             viewPhone.isHidden = true

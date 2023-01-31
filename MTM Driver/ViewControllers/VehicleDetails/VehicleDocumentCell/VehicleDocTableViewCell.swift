@@ -99,12 +99,10 @@ class VehicleDocTableViewCell: UITableViewCell {
         }
         attachFileViewSecond.setOnClickListener { [unowned self] in
             var status = true
-            if self.type == .driverLicense{
-                if isFromRegister{
-                    status = RegistrationParameter.shared.getDocUrl(self.type, side: true) != ""
-                }else{
-                    status = docData.getDocUrl(self.type, side: true) != ""
-                }
+            if isFromRegister{
+                status = RegistrationParameter.shared.getDocUrl(self.type, side: false) != ""
+            }else{
+                status = docData.getDocUrl(self.type, side: false) != ""
             }
             if status {
                 self.delegate?.vehicleDoc(viewDocumentOf: type, side: false)

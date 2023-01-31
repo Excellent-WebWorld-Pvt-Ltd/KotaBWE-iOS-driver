@@ -73,11 +73,11 @@ private extension FloatingPoint {
       //  let calBearing: Float = self.getHeadingForDirection(fromCoordinate: oldCoordinate, toCoordinate: newCoordinate)
         let carBearing = LocationManager.shared.bearing
         marker.groundAnchor = CGPoint(x: CGFloat(0.5), y: CGFloat(0.5))
-        marker.rotation = carBearing //found bearing value by calculation when marker add
+        marker.rotation = 0 //found bearing value by calculation when marker add
         marker.position = newCoordinate
-        CATransaction.setCompletionBlock({() -> Void in
-            marker.rotation = (Int(bearing) != 0) ? CLLocationDegrees(bearing) : CLLocationDegrees(carBearing)
-        })
+//        CATransaction.setCompletionBlock({() -> Void in
+//            marker.rotation = (Int(bearing) != 0) ? CLLocationDegrees(bearing) : CLLocationDegrees(carBearing)
+//        })
     }
     
     private func getHeadingForDirection(fromCoordinate fromLoc: CLLocationCoordinate2D, toCoordinate toLoc: CLLocationCoordinate2D) -> Float {
