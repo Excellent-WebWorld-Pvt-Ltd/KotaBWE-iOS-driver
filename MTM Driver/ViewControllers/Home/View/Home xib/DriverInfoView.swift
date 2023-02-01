@@ -29,8 +29,6 @@ enum TripStatus {
             return "Complete"
         case .accepted :
             return "accepted"
-        default:
-            break
         }
     }
 }
@@ -74,6 +72,7 @@ class DriverInfoView: UIView
     @IBOutlet weak var lblLoadType: ThemeLabel!
     @IBOutlet weak var stackVIewMiles: UIStackView!
     @IBOutlet weak var lblItemQuantity: ThemeLabel!
+    @IBOutlet weak var bottomContraintView: NSLayoutConstraint!
     
     // ----------------------------------------------------
     // MARK: - Globle Declaration Methods

@@ -37,6 +37,7 @@ class HomeViewController: BaseViewController {
     var mapView : GMSMapView!
     @IBOutlet weak var mapContainerView : UIView!
     @IBOutlet var bottomContentView: UIView!
+    @IBOutlet weak var bottomConstraintViewHeight: NSLayoutConstraint!
     let progress = Progress(totalUnitCount: 10)
     
     var LoginDetail : LoginModel = LoginModel()
@@ -86,6 +87,7 @@ class HomeViewController: BaseViewController {
         if Singleton.shared.isDriverOnline {
             SocketIOManager.shared.establishConnection()
         }
+        //bottomConstraintViewHeight.constant = Helper.bottomSafeAreaHeight > 0 ? Helper.bottomSafeAreaHeight : 0
         getFirstView()
         LocationManager.shared.delegate = self
         if Singleton.shared.bookingInfo != nil {

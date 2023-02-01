@@ -226,7 +226,9 @@ class LoginVC: UIViewController {
 //                self.navigationController?.pushViewController(otpVC, animated: true)
             }
             else{
-                ThemeAlertVC.present(from: self, ofType: .simple(title: "Alert", message: response.getApiMessage()))
+                if response.getApiMessage() != "" {
+                    ThemeAlertVC.present(from: self, ofType: .simple(title: "Alert", message: response.getApiMessage()))
+                }
 
             }
         }
