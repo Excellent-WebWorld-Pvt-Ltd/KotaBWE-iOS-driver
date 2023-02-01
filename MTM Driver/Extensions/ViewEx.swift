@@ -61,7 +61,6 @@ extension UIView {
                             self.addSubview(view)
         }, completion: nil)
 //        view.pinEdges(to: self)
-        
     }
     func addSubviewWithTransition(_ view: UIView, mainView: UIView){
        

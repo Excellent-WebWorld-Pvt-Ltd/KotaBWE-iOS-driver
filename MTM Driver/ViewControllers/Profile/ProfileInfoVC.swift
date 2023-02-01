@@ -263,7 +263,7 @@ class ProfileInfoVC: BaseViewController {
             txtFirstName.textField.setOutlineColor(firstNameValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
             txtLastName.textField.leadingAssistiveLabel.text = lastNameValidation.error
             txtLastName.textField.setOutlineColor(lastNameValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
-            if txtDOB.textField.text == nil {
+            if txtDOB.textField.text == "" {
                 txtDOB.textField.leadingAssistiveLabel.text = dobErrorString
                 txtDOB.textField.setOutlineColor(UIColor.red, for: .normal)
             }else {
@@ -276,13 +276,12 @@ class ProfileInfoVC: BaseViewController {
             txtPostalCode.textField.leadingAssistiveLabel.text = postalValidation.error
             txtPostalCode.textField.setOutlineColor(postalValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
         let emailValidation = InputValidation.email.isValid(input: txtEmail.textField.unwrappedText, field: "email address")
+        let mobileValidation = InputValidation.mobile.isValid(input: txtMobileNumber.textField.unwrappedText, field: "mobile number")
         if isFromSetting {
             txtEmail.textField.leadingAssistiveLabel.text = emailValidation.error
             txtEmail.textField.setOutlineColor(emailValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
-            let mobileValidation = InputValidation.mobile.isValid(input: txtMobileNumber.textField.unwrappedText, field: "mobile number")
             txtMobileNumber.textField.leadingAssistiveLabel.text = mobileValidation.error
             txtMobileNumber.textField.setOutlineColor(mobileValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
-
         }
         
         if !isFromSetting && RegistrationImageParameter.shared.profileImage == nil {
@@ -291,7 +290,7 @@ class ProfileInfoVC: BaseViewController {
         
             if !isFromSetting && firstNameValidation.isValid && postalValidation.isValid && lastNameValidation.isValid  && RegistrationImageParameter.shared.profileImage != nil && txtDOB.textField.text != nil && addressValidation.isValid {
                 return true
-            }else if isFromSetting && firstNameValidation.isValid && postalValidation.isValid && lastNameValidation.isValid  && SessionManager.shared.userProfile != nil && txtDOB.textField.text != nil && addressValidation.isValid {
+            }else if isFromSetting && firstNameValidation.isValid && postalValidation.isValid && lastNameValidation.isValid  && SessionManager.shared.userProfile != nil && txtDOB.textField.text != nil && addressValidation.isValid && mobileValidation.isValid{
                 return true
             }else {
                 return false

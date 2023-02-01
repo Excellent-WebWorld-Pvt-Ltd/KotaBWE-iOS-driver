@@ -29,6 +29,7 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
     @IBOutlet weak var txtConformPassword: CustomViewOutlinedTxtField!
     
     @IBOutlet weak var txtEmail: CustomViewOutlinedTxtField!
+    @IBOutlet weak var btnCheckBoxTerms: UIButton!
     
     
     // MARK: - ===== Variables ======
@@ -139,7 +140,6 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
         termAttributed.setAsLink(textToFind: "Terms of Service", linkURL: Singleton.shared.termsAndConditionURL)
         termAttributed.setAsLink(textToFind: "Privacy Policy", linkURL: Singleton.shared.privacyURL)
         tvTermPrivacy.attributedText = termAttributed
-        tvTermPrivacy.textAlignment = .center
         tvTermPrivacy.linkTextAttributes = [.foregroundColor: color]
         btnAlreadyhaveAccount.setAttributedTitle(FormattedText, for: .normal)
     }
@@ -191,8 +191,12 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
                    txtConformPassword.textField.setOutlineColor(.themeTextFieldDefaultBorderColor, for: .normal)
                }
            }
-           
-           if emailValidation.isValid && mobileValidation.isValid && passwordValidation.isValid && confirmPasswordValidation.isValid{
+        
+        if !btnCheckBoxTerms.isSelected {
+                    AlertMessage.showMessageForError("Please accept terms & conditions and privacy policy")
+                }
+        
+           if emailValidation.isValid && mobileValidation.isValid && passwordValidation.isValid && confirmPasswordValidation.isValid && btnCheckBoxTerms.isSelected{
                return true
            }else{
                return false
@@ -207,6 +211,10 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
         }
     }
     
+    @IBAction func checkBoxTermsConditionClicked(_ sender: Any) {
+        btnCheckBoxTerms.isSelected = !btnCheckBoxTerms.isSelected
+        self.btnCheckBoxTerms.setImage(btnCheckBoxTerms.isSelected ? UIImage(named: "CheckBox") : UIImage(named: "emptyCheckbox"), for: .normal)
+    }
     @IBAction func btnNextClick(_ sender: Any) {
         
 //        let otpVC = AppViewControllers.shared.otp

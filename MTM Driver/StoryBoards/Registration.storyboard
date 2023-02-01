@@ -106,7 +106,7 @@
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Email"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="3Ct-U0-vcF">
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3Ct-U0-vcF">
                                                                 <rect key="frame" x="0.0" y="98.000000000000028" width="340" height="50"/>
                                                                 <subviews>
                                                                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Hd-mm-wOi" customClass="CustomViewOutlinedTxtField" customModule="MTM_Driver" customModuleProvider="target">
@@ -125,7 +125,7 @@
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mfe-Rz-BIY" customClass="CustomViewOutlinedTxtField" customModule="MTM_Driver" customModuleProvider="target">
-                                                                        <rect key="frame" x="75" y="0.0" width="265" height="50"/>
+                                                                        <rect key="frame" x="80" y="0.0" width="260" height="50"/>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="50" id="2Th-wY-IEr"/>
@@ -321,14 +321,40 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Lorem ipsum " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4sa-nY-5w5">
-                                                        <rect key="frame" x="15" y="444" width="345" height="33"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1iR-2U-Si5">
+                                                        <rect key="frame" x="24" y="444" width="327" height="33"/>
+                                                        <subviews>
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Lorem ipsum " translatesAutoresizingMaskIntoConstraints="NO" id="4sa-nY-5w5">
+                                                                <rect key="frame" x="35" y="0.0" width="292" height="33"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <color key="textColor" systemColor="labelColor"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                                            </textView>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z4J-Lk-pOm">
+                                                                <rect key="frame" x="0.0" y="-1" width="35" height="35"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="35" id="I1F-8q-aqV"/>
+                                                                    <constraint firstAttribute="width" secondItem="z4J-Lk-pOm" secondAttribute="height" multiplier="1:1" id="T8u-jn-8Bh"/>
+                                                                </constraints>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" image="emptyCheckbox"/>
+                                                                <connections>
+                                                                    <action selector="checkBoxTermsConditionClicked:" destination="qrZ-BL-uVQ" eventType="touchUpInside" id="A3d-ti-Gqi"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                        <color key="textColor" systemColor="labelColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        <dataDetectorType key="dataDetectorTypes" link="YES"/>
-                                                    </textView>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="4sa-nY-5w5" secondAttribute="bottom" id="8eL-xZ-okv"/>
+                                                            <constraint firstItem="4sa-nY-5w5" firstAttribute="top" secondItem="1iR-2U-Si5" secondAttribute="top" id="LK8-5j-lEL"/>
+                                                            <constraint firstItem="4sa-nY-5w5" firstAttribute="leading" secondItem="z4J-Lk-pOm" secondAttribute="trailing" id="XnJ-Lo-Bfe"/>
+                                                            <constraint firstAttribute="trailing" secondItem="4sa-nY-5w5" secondAttribute="trailing" id="Y4i-4Y-a6y"/>
+                                                            <constraint firstItem="z4J-Lk-pOm" firstAttribute="centerY" secondItem="4sa-nY-5w5" secondAttribute="centerY" id="rBQ-ak-HOM"/>
+                                                            <constraint firstItem="z4J-Lk-pOm" firstAttribute="leading" secondItem="1iR-2U-Si5" secondAttribute="leading" id="xj6-QV-x9S"/>
+                                                        </constraints>
+                                                    </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49M-aL-Cr2" customClass="UnderlineTextButton" customModule="MTM_Driver" customModuleProvider="target">
                                                         <rect key="frame" x="82" y="567" width="211" height="50"/>
                                                         <constraints>
@@ -345,10 +371,11 @@
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstItem="PaZ-s0-4qB" firstAttribute="leading" secondItem="AF6-bv-15L" secondAttribute="leading" constant="20" id="2OR-5u-ghr"/>
+                                                    <constraint firstItem="1iR-2U-Si5" firstAttribute="leading" secondItem="AF6-bv-15L" secondAttribute="leading" constant="24" id="2fS-bY-2VD"/>
                                                     <constraint firstItem="kCU-dh-MOK" firstAttribute="top" secondItem="K0Z-G4-UqF" secondAttribute="bottom" constant="20" id="4zg-WM-UvL"/>
                                                     <constraint firstItem="49M-aL-Cr2" firstAttribute="centerX" secondItem="AF6-bv-15L" secondAttribute="centerX" id="5qH-0a-6qA"/>
                                                     <constraint firstAttribute="bottom" secondItem="kCU-dh-MOK" secondAttribute="bottom" constant="20" id="Bbt-fb-oWn"/>
-                                                    <constraint firstItem="4sa-nY-5w5" firstAttribute="leading" secondItem="AF6-bv-15L" secondAttribute="leading" constant="15" id="EWZ-WO-uCH"/>
+                                                    <constraint firstAttribute="trailing" secondItem="1iR-2U-Si5" secondAttribute="trailing" constant="24" id="CHs-C6-KC4"/>
                                                     <constraint firstItem="PaZ-s0-4qB" firstAttribute="top" secondItem="AF6-bv-15L" secondAttribute="top" constant="50" id="Jp8-lg-SdN"/>
                                                     <constraint firstAttribute="bottom" secondItem="49M-aL-Cr2" secondAttribute="bottom" constant="20" id="VoN-Rq-FIy"/>
                                                     <constraint firstAttribute="trailing" secondItem="K0Z-G4-UqF" secondAttribute="trailing" constant="30" id="XFF-Pi-SNC"/>
@@ -356,13 +383,12 @@
                                                     <constraint firstItem="hef-vR-3nu" firstAttribute="centerY" secondItem="En5-wf-Att" secondAttribute="centerY" id="dLU-Os-rt7"/>
                                                     <constraint firstItem="K0Z-G4-UqF" firstAttribute="leading" secondItem="AF6-bv-15L" secondAttribute="leading" constant="30" id="hLf-Ch-weT"/>
                                                     <constraint firstAttribute="trailing" secondItem="PaZ-s0-4qB" secondAttribute="trailing" constant="15" id="hPJ-jp-fcg"/>
+                                                    <constraint firstItem="K0Z-G4-UqF" firstAttribute="top" secondItem="1iR-2U-Si5" secondAttribute="bottom" constant="25" id="myX-I4-4ZZ"/>
                                                     <constraint firstItem="wE9-Ry-eaH" firstAttribute="centerY" secondItem="gi5-JI-Am7" secondAttribute="centerY" id="p1i-LH-GCt"/>
-                                                    <constraint firstAttribute="trailing" secondItem="4sa-nY-5w5" secondAttribute="trailing" constant="15" id="tKM-Zv-v8N"/>
                                                     <constraint firstItem="wE9-Ry-eaH" firstAttribute="trailing" secondItem="gi5-JI-Am7" secondAttribute="trailing" id="tLi-oG-lPB"/>
                                                     <constraint firstItem="49M-aL-Cr2" firstAttribute="top" secondItem="K0Z-G4-UqF" secondAttribute="bottom" constant="15" id="uCP-Go-MRO"/>
                                                     <constraint firstItem="hef-vR-3nu" firstAttribute="trailing" secondItem="En5-wf-Att" secondAttribute="trailing" id="vYw-li-fmj"/>
-                                                    <constraint firstItem="K0Z-G4-UqF" firstAttribute="top" secondItem="4sa-nY-5w5" secondAttribute="bottom" constant="25" id="x6L-7W-WaN"/>
-                                                    <constraint firstItem="4sa-nY-5w5" firstAttribute="top" secondItem="PaZ-s0-4qB" secondAttribute="bottom" constant="50" id="zEa-xg-yj2"/>
+                                                    <constraint firstItem="1iR-2U-Si5" firstAttribute="top" secondItem="PaZ-s0-4qB" secondAttribute="bottom" constant="50" id="wrf-jx-O74"/>
                                                 </constraints>
                                                 <variation key="default">
                                                     <mask key="subviews">
@@ -409,6 +435,7 @@
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="btnAlreadyhaveAccount" destination="49M-aL-Cr2" id="5l7-mt-Yj1"/>
+                        <outlet property="btnCheckBoxTerms" destination="z4J-Lk-pOm" id="uw9-pZ-5hM"/>
                         <outlet property="btnHideConfomPassword" destination="hef-vR-3nu" id="Mfo-yM-aH1"/>
                         <outlet property="btnHidePassword" destination="wE9-Ry-eaH" id="8b2-4D-vnB"/>
                         <outlet property="tvTermPrivacy" destination="4sa-nY-5w5" id="mlF-mQ-2In"/>
@@ -423,7 +450,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GTr-rg-DEP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1306.9230769230769" y="1630.8056872037914"/>
+            <point key="canvasLocation" x="1306.521739130435" y="1630.4347826086957"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="lvp-1S-ISH">
@@ -1267,10 +1294,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="710"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gfy-dR-bcq" customClass="IQPreviousNextView" customModule="IQKeyboardManagerSwift">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="622"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="732"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DXV-QK-1PT">
-                                                <rect key="frame" x="20" y="0.0" width="335" height="622"/>
+                                                <rect key="frame" x="20" y="0.0" width="335" height="732"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5wq-7u-9zv">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="147"/>
@@ -1338,7 +1365,7 @@
                                                         </variation>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dC3-B1-zck">
-                                                        <rect key="frame" x="0.0" y="147" width="335" height="75"/>
+                                                        <rect key="frame" x="0.0" y="147" width="335" height="85"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GOg-BK-TbA">
                                                                 <rect key="frame" x="0.0" y="5" width="335" height="60"/>
@@ -1375,15 +1402,15 @@
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="GOg-BK-TbA" secondAttribute="trailing" id="Hw3-dy-NzH"/>
                                                             <constraint firstItem="GOg-BK-TbA" firstAttribute="leading" secondItem="dC3-B1-zck" secondAttribute="leading" id="R6d-cL-xY0"/>
-                                                            <constraint firstAttribute="bottom" secondItem="GOg-BK-TbA" secondAttribute="bottom" constant="10" id="hBi-4V-DUo"/>
+                                                            <constraint firstAttribute="bottom" secondItem="GOg-BK-TbA" secondAttribute="bottom" constant="20" id="hBi-4V-DUo"/>
                                                             <constraint firstItem="GOg-BK-TbA" firstAttribute="top" secondItem="dC3-B1-zck" secondAttribute="top" constant="5" id="t0N-0V-F1Y"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aBG-Vh-Xbs">
-                                                        <rect key="frame" x="0.0" y="222" width="335" height="80"/>
+                                                        <rect key="frame" x="0.0" y="232" width="335" height="100"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qvQ-nz-eKa" customClass="CustomViewOutlinedTxtField" customModule="MTM_Driver" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="10" width="335" height="60"/>
+                                                                <rect key="frame" x="0.0" y="20" width="335" height="60"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="60" id="MAD-CH-AnD"/>
@@ -1401,15 +1428,15 @@
                                                         <constraints>
                                                             <constraint firstItem="qvQ-nz-eKa" firstAttribute="leading" secondItem="aBG-Vh-Xbs" secondAttribute="leading" id="cY8-sS-VUm"/>
                                                             <constraint firstAttribute="trailing" secondItem="qvQ-nz-eKa" secondAttribute="trailing" id="dlk-BC-dAb"/>
-                                                            <constraint firstAttribute="bottom" secondItem="qvQ-nz-eKa" secondAttribute="bottom" constant="10" id="kRZ-WY-zVw"/>
-                                                            <constraint firstItem="qvQ-nz-eKa" firstAttribute="top" secondItem="aBG-Vh-Xbs" secondAttribute="top" constant="10" id="nhf-gG-lf1"/>
+                                                            <constraint firstAttribute="bottom" secondItem="qvQ-nz-eKa" secondAttribute="bottom" constant="20" id="kRZ-WY-zVw"/>
+                                                            <constraint firstItem="qvQ-nz-eKa" firstAttribute="top" secondItem="aBG-Vh-Xbs" secondAttribute="top" constant="20" id="nhf-gG-lf1"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VcJ-yg-532">
-                                                        <rect key="frame" x="0.0" y="302" width="335" height="80"/>
+                                                        <rect key="frame" x="0.0" y="332" width="335" height="100"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="PUC-JN-3Ys">
-                                                                <rect key="frame" x="0.0" y="10" width="335" height="60"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PUC-JN-3Ys">
+                                                                <rect key="frame" x="0.0" y="20" width="335" height="60"/>
                                                                 <subviews>
                                                                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i8V-jD-hAz" customClass="CustomViewOutlinedTxtField" customModule="MTM_Driver" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="70" height="60"/>
@@ -1426,7 +1453,7 @@
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a11-K2-ffE" customClass="CustomViewOutlinedTxtField" customModule="MTM_Driver" customModuleProvider="target">
-                                                                        <rect key="frame" x="75" y="0.0" width="260" height="60"/>
+                                                                        <rect key="frame" x="80" y="0.0" width="255" height="60"/>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="textFieldCorners">
@@ -1445,16 +1472,16 @@
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="PUC-JN-3Ys" secondAttribute="trailing" id="LxD-7D-QWG"/>
-                                                            <constraint firstAttribute="bottom" secondItem="PUC-JN-3Ys" secondAttribute="bottom" constant="10" id="aXq-I4-9F1"/>
+                                                            <constraint firstAttribute="bottom" secondItem="PUC-JN-3Ys" secondAttribute="bottom" constant="20" id="aXq-I4-9F1"/>
                                                             <constraint firstItem="PUC-JN-3Ys" firstAttribute="leading" secondItem="VcJ-yg-532" secondAttribute="leading" id="ciy-DL-WPp"/>
-                                                            <constraint firstItem="PUC-JN-3Ys" firstAttribute="top" secondItem="VcJ-yg-532" secondAttribute="top" constant="10" id="mwX-F4-Ocv"/>
+                                                            <constraint firstItem="PUC-JN-3Ys" firstAttribute="top" secondItem="VcJ-yg-532" secondAttribute="top" constant="20" id="mwX-F4-Ocv"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fUT-j2-HtH">
-                                                        <rect key="frame" x="0.0" y="382" width="335" height="80"/>
+                                                        <rect key="frame" x="0.0" y="432" width="335" height="100"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hHD-dg-FEd" customClass="CustomViewOutlinedTxtField" customModule="MTM_Driver" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="10" width="335" height="60"/>
+                                                                <rect key="frame" x="0.0" y="20" width="335" height="60"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="60" id="PWI-az-ElJ"/>
@@ -1470,17 +1497,17 @@
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstItem="hHD-dg-FEd" firstAttribute="top" secondItem="fUT-j2-HtH" secondAttribute="top" constant="10" id="Dad-iH-u9h"/>
+                                                            <constraint firstItem="hHD-dg-FEd" firstAttribute="top" secondItem="fUT-j2-HtH" secondAttribute="top" constant="20" id="Dad-iH-u9h"/>
                                                             <constraint firstAttribute="trailing" secondItem="hHD-dg-FEd" secondAttribute="trailing" id="Io4-PI-Vkt"/>
                                                             <constraint firstItem="hHD-dg-FEd" firstAttribute="leading" secondItem="fUT-j2-HtH" secondAttribute="leading" id="YH6-7C-o8R"/>
-                                                            <constraint firstAttribute="bottom" secondItem="hHD-dg-FEd" secondAttribute="bottom" constant="10" id="cbU-C8-Vzo"/>
+                                                            <constraint firstAttribute="bottom" secondItem="hHD-dg-FEd" secondAttribute="bottom" constant="20" id="cbU-C8-Vzo"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cx7-RL-Jst">
-                                                        <rect key="frame" x="0.0" y="462" width="335" height="80"/>
+                                                        <rect key="frame" x="0.0" y="532" width="335" height="100"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fA9-OI-Gwv" customClass="CustomViewOutlinedTxtField" customModule="MTM_Driver" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="10" width="335" height="60"/>
+                                                                <rect key="frame" x="0.0" y="20" width="335" height="60"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="60" id="c11-HA-pi6"/>
@@ -1496,17 +1523,17 @@
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstItem="fA9-OI-Gwv" firstAttribute="top" secondItem="cx7-RL-Jst" secondAttribute="top" constant="10" id="CbQ-e8-HJO"/>
+                                                            <constraint firstItem="fA9-OI-Gwv" firstAttribute="top" secondItem="cx7-RL-Jst" secondAttribute="top" constant="20" id="CbQ-e8-HJO"/>
                                                             <constraint firstAttribute="trailing" secondItem="fA9-OI-Gwv" secondAttribute="trailing" id="RK9-am-c91"/>
-                                                            <constraint firstAttribute="bottom" secondItem="fA9-OI-Gwv" secondAttribute="bottom" constant="10" id="hXs-1n-ce1"/>
+                                                            <constraint firstAttribute="bottom" secondItem="fA9-OI-Gwv" secondAttribute="bottom" constant="20" id="hXs-1n-ce1"/>
                                                             <constraint firstItem="fA9-OI-Gwv" firstAttribute="leading" secondItem="cx7-RL-Jst" secondAttribute="leading" id="lyP-8u-6ar"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7b7-On-XLm">
-                                                        <rect key="frame" x="0.0" y="542" width="335" height="80"/>
+                                                        <rect key="frame" x="0.0" y="632" width="335" height="100"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I90-jc-jzC" customClass="CustomViewOutlinedTxtField" customModule="MTM_Driver" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="10" width="335" height="60"/>
+                                                                <rect key="frame" x="0.0" y="20" width="335" height="60"/>
                                                                 <viewLayoutGuide key="safeArea" id="d8u-MI-IkN"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
@@ -1523,8 +1550,8 @@
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstItem="I90-jc-jzC" firstAttribute="top" secondItem="7b7-On-XLm" secondAttribute="top" constant="10" id="HaN-FL-1d7"/>
-                                                            <constraint firstAttribute="bottom" secondItem="I90-jc-jzC" secondAttribute="bottom" constant="10" id="MH4-nD-KIQ"/>
+                                                            <constraint firstItem="I90-jc-jzC" firstAttribute="top" secondItem="7b7-On-XLm" secondAttribute="top" constant="20" id="HaN-FL-1d7"/>
+                                                            <constraint firstAttribute="bottom" secondItem="I90-jc-jzC" secondAttribute="bottom" constant="20" id="MH4-nD-KIQ"/>
                                                             <constraint firstAttribute="trailing" secondItem="I90-jc-jzC" secondAttribute="trailing" id="fPw-tY-SAB"/>
                                                             <constraint firstItem="I90-jc-jzC" firstAttribute="leading" secondItem="7b7-On-XLm" secondAttribute="leading" id="nYY-us-kpf"/>
                                                         </constraints>
@@ -3921,32 +3948,10 @@
             <point key="canvasLocation" x="5412" y="1138"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="9Ig-Z7-cyq">
-            <size key="intrinsicContentSize" width="217" height="39.220703125"/>
-        </designable>
-        <designable name="CX7-ym-Rcc">
-            <size key="intrinsicContentSize" width="217" height="39.220703125"/>
-        </designable>
-        <designable name="Frg-0q-dBR">
-            <size key="intrinsicContentSize" width="295" height="39.220703125"/>
-        </designable>
-        <designable name="dxI-HC-dAW">
-            <size key="intrinsicContentSize" width="217" height="39.220703125"/>
-        </designable>
-        <designable name="e6t-4y-lyg">
-            <size key="intrinsicContentSize" width="217" height="39.220703125"/>
-        </designable>
-        <designable name="i1X-Kq-Nwd">
-            <size key="intrinsicContentSize" width="217" height="39.220703125"/>
-        </designable>
-        <designable name="oMI-zV-Icl">
-            <size key="intrinsicContentSize" width="217" height="39.220703125"/>
-        </designable>
-    </designables>
     <resources>
         <image name="Edit" width="20" height="20"/>
         <image name="IQButtonBarArrowDown.png" width="21" height="12"/>
+        <image name="emptyCheckbox" width="14" height="14"/>
         <image name="ic_AppIcon" width="250" height="240"/>
         <image name="ic_DownArrow" width="10" height="6"/>
         <image name="ic_attach" width="15" height="15"/>
