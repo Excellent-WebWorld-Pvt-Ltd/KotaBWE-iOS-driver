@@ -43,15 +43,6 @@ class DutyOnOffView: UIView {
             vc.navigateToTotalEarning()
         }
     }
-    
-    
-    @IBAction func btnActionDutyChange(_ sender: UISwitch) {
-//        Singleton.shared.isDriverOnline.toggle()
-//        if let vc = self.parentViewController as? HomeViewController{
-//            vc.setRightSwitch()
-//        }
-//        updateUI()
-    }
   
     @IBAction func btnActionOnOff(_ sender: UISwitch) {
         Singleton.shared.isDriverOnline.toggle()

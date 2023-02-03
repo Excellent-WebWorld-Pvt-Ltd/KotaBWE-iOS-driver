@@ -47,6 +47,9 @@ extension HomeViewController {
             if status {
                 let duty = response.dictionaryValue["duty"]?.stringValue ?? ""
                 let isOnline = duty == "online"
+                if let loc = LocationManager.shared.mostRecentLocation?.coordinate{
+                    self.emitDriverLocation(location: loc)
+                }
                 if isOnline != Singleton.shared.isDriverOnline {
                     Singleton.shared.isDriverOnline = isOnline
                     self.setupOnlineOfflineView()

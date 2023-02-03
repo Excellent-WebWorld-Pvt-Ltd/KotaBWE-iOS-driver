@@ -14,13 +14,6 @@ extension UIView {
     // MARK:- Instantiate View
     //-------------------------------------
     
-    func pinEdges(to other: UIView) {
-            leadingAnchor.constraint(equalTo: other.leadingAnchor).isActive = true
-            trailingAnchor.constraint(equalTo: other.trailingAnchor).isActive = true
-            topAnchor.constraint(equalTo: other.topAnchor).isActive = true
-            bottomAnchor.constraint(equalTo: other.bottomAnchor).isActive = true
-        }
-    
     class func fromNib<T: UIView>() -> T {
         return Bundle.main.loadNibNamed(String(describing: T.self), owner: nil, options: nil)![0] as! T
     }
@@ -54,13 +47,12 @@ extension UIView {
         view.frame = self.bounds
         
         UIView.transition(with: self,
-                          duration: 0.4,
+                          duration: 0,
                           options: .curveEaseInOut,
                           animations: {
                             self.removeAllSubviews()
                             self.addSubview(view)
         }, completion: nil)
-//        view.pinEdges(to: self)
     }
     func addSubviewWithTransition(_ view: UIView, mainView: UIView){
        

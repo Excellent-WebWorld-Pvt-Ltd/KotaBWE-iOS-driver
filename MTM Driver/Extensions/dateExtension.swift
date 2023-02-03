@@ -18,7 +18,7 @@ enum DateFormatHelper: String {
     case digitDate      = "yyyy-MM-dd" // 1992-07-07
     case TimeFormate =   "HH:mm:ss"
     case twelveHrTime   = "h:mm a"
-    case dayDateMonth   = "E, d MMM" //Tue, 7 Sep 
+    case dayDateMonth   = "E, d MMM" //Tue, 7 Sep
     case slashDate      = "dd/MM/yyyy"
     case ddMMyyyy = "dd-MM-yyyy"
     case onlyNameOfDay = "EEEE"
@@ -30,6 +30,7 @@ enum DateFormatHelper: String {
     }
 
     func getDateString(from date: Date) -> String {
+        print("date formeted:-",dateFormatter.string(from: date))
         return dateFormatter.string(from: date)
     }
 

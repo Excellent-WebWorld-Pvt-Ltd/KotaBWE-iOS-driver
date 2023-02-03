@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,6 +18,18 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nOd-2v-hak" customClass="Gradient" customModule="MTM_Driver" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="401" height="258"/>
                     <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jg5-vk-W2p">
+                            <rect key="frame" x="366" y="5" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="Jg5-vk-W2p" secondAttribute="height" multiplier="1:1" id="Cxg-QP-ZKW"/>
+                                <constraint firstAttribute="width" constant="30" id="kbJ-xE-pog"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="ic_close_circle"/>
+                            <connections>
+                                <action selector="btnCancleClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="gdw-Ic-nXS"/>
+                            </connections>
+                        </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trip Completed!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kcc-Pk-Ker" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
                             <rect key="frame" x="133" y="20" width="135" height="23"/>
                             <constraints>
@@ -103,7 +115,9 @@
                         <constraint firstItem="Kcc-Pk-Ker" firstAttribute="top" secondItem="nOd-2v-hak" secondAttribute="top" constant="20" id="69X-I0-r8X"/>
                         <constraint firstAttribute="bottom" secondItem="XTU-az-8he" secondAttribute="bottom" id="9fp-pc-gDg"/>
                         <constraint firstItem="Kcc-Pk-Ker" firstAttribute="centerX" secondItem="nOd-2v-hak" secondAttribute="centerX" id="BkB-Ho-e1K"/>
+                        <constraint firstAttribute="trailing" secondItem="Jg5-vk-W2p" secondAttribute="trailing" constant="5" id="QRI-9U-mYp"/>
                         <constraint firstItem="XTU-az-8he" firstAttribute="top" secondItem="Kcc-Pk-Ker" secondAttribute="bottom" constant="20" id="VSa-mI-MIc"/>
+                        <constraint firstItem="Jg5-vk-W2p" firstAttribute="top" secondItem="nOd-2v-hak" secondAttribute="top" constant="5" id="z4n-kb-tTA"/>
                     </constraints>
                 </view>
             </subviews>
@@ -121,10 +135,11 @@
                 <outlet property="meesageLabel" destination="KKJ-Dt-cYc" id="o0Z-19-P4k"/>
                 <outlet property="submitButton" destination="P30-FZ-qi5" id="caz-cQ-mmb"/>
             </connections>
-            <point key="canvasLocation" x="125.36231884057972" y="46.875"/>
+            <point key="canvasLocation" x="334" y="49"/>
         </view>
     </objects>
     <resources>
+        <image name="ic_close_circle" width="16" height="16"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

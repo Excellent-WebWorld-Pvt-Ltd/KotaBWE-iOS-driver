@@ -18,38 +18,6 @@
             endingLineNumber = "66"
             landmarkName = "filledOTP()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "FC39F511-4BA6-4ED2-B645-83E52D70929E - 75ff1329dbd5f6cb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MTM_Driver.OTPVC.filledOTP() -&gt; ()"
-                  moduleName = "MTM Driver"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/imac/Documents/Harshit/Projects/KotaBWE-iOS-driver/MTM%20Driver/ViewControllers/OTP/OTPVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "184">
-               </Location>
-               <Location
-                  uuid = "FC39F511-4BA6-4ED2-B645-83E52D70929E - 4358d97c39822d35"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Character) -&gt; Swift.String in MTM_Driver.OTPVC.filledOTP() -&gt; ()"
-                  moduleName = "MTM Driver"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/imac/Documents/Harshit/Projects/KotaBWE-iOS-driver/MTM%20Driver/ViewControllers/OTP/OTPVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "52">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -146,38 +114,6 @@
             endingLineNumber = "402"
             landmarkName = "validationWithCompletion(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "FB026261-0F7E-4D2A-AA64-4825F24A5E2F - 4cd1aaaf1336a325"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MTM_Driver.VehicleInfoVC.validationWithCompletion((Swift.Bool) -&gt; ()) -&gt; ()"
-                  moduleName = "MTM Driver"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/imac/Documents/Harshit/Projects/KotaBWE-iOS-driver/MTM%20Driver/ViewControllers/VehicleDetails/VehicleInfoVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "404"
-                  endingLineNumber = "404"
-                  offsetFromSymbolStart = "132">
-               </Location>
-               <Location
-                  uuid = "FB026261-0F7E-4D2A-AA64-4825F24A5E2F - 4cd1aaaf1336a325"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MTM_Driver.VehicleInfoVC.validationWithCompletion((Swift.Bool) -&gt; ()) -&gt; ()"
-                  moduleName = "MTM Driver"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/imac/Documents/Harshit/Projects/KotaBWE-iOS-driver/MTM%20Driver/ViewControllers/VehicleDetails/VehicleInfoVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "404"
-                  endingLineNumber = "404"
-                  offsetFromSymbolStart = "2216">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -290,38 +226,6 @@
             endingLineNumber = "31"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "91413F02-4BEB-4311-B599-0B3619AE1E7F - caba29381060c956"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MTM_Driver.BottomSheetViewController.viewDidLoad() -&gt; ()"
-                  moduleName = "MTM Driver"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/imac/Documents/Harshit/Projects/KotaBWE-iOS-driver/MTM%20Driver/ViewControllers/Popups/BottomSheetViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "144">
-               </Location>
-               <Location
-                  uuid = "91413F02-4BEB-4311-B599-0B3619AE1E7F - caba29381060c956"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MTM_Driver.BottomSheetViewController.viewDidLoad() -&gt; ()"
-                  moduleName = "MTM Driver"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/imac/Documents/Harshit/Projects/KotaBWE-iOS-driver/MTM%20Driver/ViewControllers/Popups/BottomSheetViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "336">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -382,8 +286,8 @@
             filePath = "MTM Driver/ViewControllers/Home/Controller/HomeVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "401"
-            endingLineNumber = "401"
+            startingLineNumber = "393"
+            endingLineNumber = "393"
             landmarkName = "setProgress()"
             landmarkType = "7">
          </BreakpointContent>
@@ -398,25 +302,9 @@
             filePath = "MTM Driver/ViewControllers/Home/Controller/HomeVC+Socket.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
             landmarkName = "emitSocket_RejectRequest(bookingId:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "05A84C22-D8CA-4FE7-B7DD-CD8629CC0B01"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MTM Driver/ViewControllers/Home/Controller/HomeVC+WebService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "webserviceForChangeDuty()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -466,38 +354,6 @@
             endingLineNumber = "65"
             landmarkName = "getObjectFrom(info:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "55FEC1BA-DDDD-4229-A547-BABC43D8C3FB - d08d9d2c056efaaf"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static MTM_Driver.ChatMessage.getObjectFrom(info: Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; Swift.Optional&lt;MTM_Driver.ChatMessage&gt;"
-                  moduleName = "MTM Driver"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/imac/Documents/Harshit/Projects/KotaBWE-iOS-driver/MTM%20Driver/ViewControllers/Chat/ChatVC+Extension.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "65"
-                  endingLineNumber = "65"
-                  offsetFromSymbolStart = "364">
-               </Location>
-               <Location
-                  uuid = "55FEC1BA-DDDD-4229-A547-BABC43D8C3FB - d08d9d2c056efaaf"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static MTM_Driver.ChatMessage.getObjectFrom(info: Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; Swift.Optional&lt;MTM_Driver.ChatMessage&gt;"
-                  moduleName = "MTM Driver"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/imac/Documents/Harshit/Projects/KotaBWE-iOS-driver/MTM%20Driver/ViewControllers/Chat/ChatVC+Extension.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "65"
-                  endingLineNumber = "65"
-                  offsetFromSymbolStart = "580">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -567,38 +423,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B759B841-4847-41B4-8DD2-48D33E78B8F6"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MTM Driver/ViewControllers/Home/Controller/HomeVC+Socket.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "219"
-            endingLineNumber = "219"
-            landmarkName = "onSocket_StartTrip()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "06277937-731B-4974-AC85-81CF776A09F9"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MTM Driver/ViewControllers/Home/Controller/HomeVC+Socket.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "243"
-            endingLineNumber = "243"
-            landmarkName = "onSocket_OnTheWayBookLater()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "6D3BAD17-91C3-42E2-9C0A-4E825524CF0E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -606,8 +430,8 @@
             filePath = "MTM Driver/ViewControllers/Home/Controller/HomeVC+Socket.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "263"
-            endingLineNumber = "263"
+            startingLineNumber = "261"
+            endingLineNumber = "261"
             landmarkName = "onSocket_ReceiveTips()"
             landmarkType = "7">
          </BreakpointContent>
@@ -622,8 +446,8 @@
             filePath = "MTM Driver/ViewControllers/Home/Controller/HomeVC+Socket.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "301"
-            endingLineNumber = "301"
+            startingLineNumber = "299"
+            endingLineNumber = "299"
             landmarkName = "onSocketCancelTripBeforeAccept()"
             landmarkType = "7">
          </BreakpointContent>
@@ -638,8 +462,8 @@
             filePath = "MTM Driver/ViewControllers/Home/View/Home xib/DriverInfoView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "351"
-            endingLineNumber = "351"
+            startingLineNumber = "375"
+            endingLineNumber = "375"
             landmarkName = "mtSlideToOpenDelegateDidFinish(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -654,57 +478,9 @@
             filePath = "MTM Driver/ViewControllers/Home/View/Home xib/DriverInfoView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "384"
-            endingLineNumber = "384"
+            startingLineNumber = "408"
+            endingLineNumber = "408"
             landmarkName = "mtSlideToOpenDelegateDidFinish(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "174C71EC-59B9-4DAC-973F-857FF606D1ED - 96d14ec57d405697"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MTM_Driver.DriverInfoView.mtSlideToOpenDelegateDidFinish(MTM_Driver.MTSlideToOpenView) -&gt; ()"
-                  moduleName = "MTM Driver"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/imac/Documents/Harshit/Projects/KotaBWE-iOS-driver/MTM%20Driver/ViewControllers/Home/View/Home%20xib/DriverInfoView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "384"
-                  endingLineNumber = "384"
-                  offsetFromSymbolStart = "2748">
-               </Location>
-               <Location
-                  uuid = "174C71EC-59B9-4DAC-973F-857FF606D1ED - 96d14ec57d405697"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MTM_Driver.DriverInfoView.mtSlideToOpenDelegateDidFinish(MTM_Driver.MTSlideToOpenView) -&gt; ()"
-                  moduleName = "MTM Driver"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/imac/Documents/Harshit/Projects/KotaBWE-iOS-driver/MTM%20Driver/ViewControllers/Home/View/Home%20xib/DriverInfoView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "384"
-                  endingLineNumber = "384"
-                  offsetFromSymbolStart = "3688">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2838CBB0-3CA3-4416-A9BD-5893704C670A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MTM Driver/ViewControllers/Home/Controller/HomeVC+Socket.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "188"
-            endingLineNumber = "188"
-            landmarkName = "onSocketTrackTrip()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -718,25 +494,9 @@
             filePath = "MTM Driver/ViewControllers/Home/Controller/HomeVC+Socket.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
             landmarkName = "onSocketError()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9C9B42E2-AF07-4D1F-B216-16080905F659"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MTM Driver/ViewControllers/Home/Controller/HomeVC+Socket.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "233"
-            endingLineNumber = "233"
-            landmarkName = "onSocketLiveTraking()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -750,25 +510,9 @@
             filePath = "MTM Driver/ViewControllers/Home/Controller/HomeVC+Socket.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "283"
-            endingLineNumber = "283"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
             landmarkName = "onSocket_CancelTrip()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "AC27599E-7FE1-4A22-B8FC-1926FE1FBEBB"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MTM Driver/ViewControllers/Home/Controller/HomeVC+Socket.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
-            landmarkName = "onSocket_ReceiveBookingRequest()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -782,8 +526,8 @@
             filePath = "MTM Driver/ViewControllers/Home/Controller/HomeVC+Socket.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
             landmarkName = "onSocketDriverArrivedAtPickupLocaction()"
             landmarkType = "7">
          </BreakpointContent>
@@ -798,8 +542,8 @@
             filePath = "MTM Driver/ViewControllers/Home/Controller/HomeVC+Socket.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "onSocketDriverArrived()"
             landmarkType = "7">
          </BreakpointContent>
@@ -814,8 +558,8 @@
             filePath = "MTM Driver/ViewControllers/Home/Controller/HomeVC+Socket.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
             landmarkName = "onSocketCompleteTrip()"
             landmarkType = "7">
          </BreakpointContent>
@@ -830,25 +574,9 @@
             filePath = "MTM Driver/ViewControllers/Home/Controller/HomeVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "426"
-            endingLineNumber = "426"
+            startingLineNumber = "418"
+            endingLineNumber = "418"
             landmarkName = "presentView(forState:bookingId:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "560EABB0-29EE-4A19-AB46-92B6B97B9E5F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MTM Driver/ViewControllers/Home/View/Home xib/DriverInfoView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "336"
-            endingLineNumber = "336"
-            landmarkName = "mtSlideToOpenDelegateDidFinish(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -862,57 +590,9 @@
             filePath = "MTM Driver/ViewControllers/Home/View/Home xib/DriverInfoView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "365"
-            endingLineNumber = "365"
+            startingLineNumber = "389"
+            endingLineNumber = "389"
             landmarkName = "mtSlideToOpenDelegateDidFinish(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "773F21E1-C973-491F-9E45-B3A9B9765A96"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MTM Driver/ViewControllers/Home/Controller/HomeVC+Socket.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
-            landmarkName = "onSocket_ReceiveBookingRequest()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CB5F4EE4-A1D2-4B4D-B87C-A6B4D60A2464"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MTM Driver/ViewControllers/Home/Controller/HomeVC+Socket.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
-            landmarkName = "onSocket_ReceiveBookingRequest()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B46D7898-091F-4A69-815A-C196F7029495"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MTM Driver/AppDelegate/AppDelegate+Notification.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
-            landmarkName = "userNotificationCenter(_:willPresent:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -926,8 +606,8 @@
             filePath = "MTM Driver/ViewControllers/Home/Controller/HomeVC+Socket.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "178"
-            endingLineNumber = "178"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
             landmarkName = "onSocketError()"
             landmarkType = "7">
          </BreakpointContent>
@@ -942,8 +622,8 @@
             filePath = "MTM Driver/ViewControllers/Home/View/Home xib/DriverInfoView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284"
+            startingLineNumber = "294"
+            endingLineNumber = "294"
             landmarkName = "setDriverData(status:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -958,8 +638,8 @@
             filePath = "MTM Driver/ViewControllers/Home/View/Home xib/DriverInfoView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "driverState"
             landmarkType = "24">
          </BreakpointContent>
@@ -974,26 +654,10 @@
             filePath = "MTM Driver/ViewControllers/Home/View/Home xib/DriverInfoView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
             landmarkName = "driverState"
             landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "57E61F5F-1201-40B7-96EC-D62F699B9C0C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MTM Driver/ViewControllers/Home/View/Home xib/DriverInfoView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "261"
-            endingLineNumber = "261"
-            landmarkName = "setDriverData(status:)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1006,41 +670,9 @@
             filePath = "MTM Driver/Extensions/ViewEx.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "removeAllSubviews()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4440BFD6-55C8-4E9B-82B5-012FCD6C8E26"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MTM Driver/ViewControllers/Home/Controller/HomeVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "604"
-            endingLineNumber = "604"
-            landmarkName = "setupMarkerOnGooglMap(markerType:cordinate:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "18A68227-EDEE-4526-99B7-0738D444A5CF"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MTM Driver/ViewControllers/Home/Controller/HomeVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "597"
-            endingLineNumber = "597"
-            landmarkName = "setupMarkerOnGooglMap(markerType:cordinate:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1063,39 +695,231 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "29A06804-2883-4EA3-B7AD-FBE7D71FA993"
+            uuid = "FF0D7880-7633-456B-A747-B85883F6B301"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MTM Driver/ViewControllers/Login/LoginVC.swift"
+            filePath = "MTM Driver/ViewControllers/Home/Controller/HomeVC+Socket.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "206"
+            endingLineNumber = "206"
+            landmarkName = "onSocket_AfterAcceptingRequest()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A061BF86-C000-4A0D-812D-97716B09264B"
+            uuid = "2A1ECC38-1A45-4A1C-A40E-DF25CAEEC734"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MTM Driver/ViewControllers/Login/LoginVC.swift"
+            filePath = "MTM Driver/ViewControllers/Home/View/Home xib/DriverInfoView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "229"
-            endingLineNumber = "229"
-            landmarkName = "webServiceCallLogin()"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
+            landmarkName = "btnActionSOS(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "ECD7EA68-4E26-4332-B880-B4DB6837179A"
+            uuid = "9D22508D-621C-414F-8F91-302427FDF374"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MTM Driver/ViewControllers/Home/Controller/HomeVC+Socket.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
+            landmarkName = "onSocket_ReceiveBookingRequest()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9D8ECF4D-900F-4F0F-AD64-ED06D23B4630"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MTM Driver/ViewControllers/Home/Controller/HomeVC+Socket.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "onSocket_ReceiveBookingRequest()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5050FFA3-0B24-487A-AEDC-B895FDF3D04F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MTM Driver/ViewControllers/SplashScreenVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "playLogoAnimation()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "72328384-7E6B-4FCC-86E9-4B26F7649A9D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MTM Driver/ViewControllers/SplashScreenVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "playLogoAnimation()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "77B35D2A-DFB2-49DB-ABB9-E70E6D32112B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MTM Driver/ViewControllers/Registration/RegistrationControllers/RegistrationViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
+            landmarkName = "btnActionSignIn(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "491CE7BD-3440-4946-A9E7-2C559F8C1867"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MTM Driver/ViewControllers/Registration/RegistrationControllers/RegistrationViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "208"
+            endingLineNumber = "208"
+            landmarkName = "btnActionSignIn(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E75F2D8A-8D30-4BA1-95B9-2E01096EB909"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MTM Driver/ViewControllers/SplashScreenVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
+            landmarkName = "handleAPIRepsonse(_:updateCheck:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "21A2E904-9F36-4745-9A82-4B61A460A504"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MTM Driver/ViewControllers/SplashScreenVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
+            landmarkName = "handleAPIRepsonse(_:updateCheck:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "34B08D8D-DD94-447F-AE03-FA30891D6C0B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MTM Driver/ViewControllers/SplashScreenVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "webserviceCallForInit()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5C3E72D7-0266-49DF-A7ED-0007826EDD4F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MTM Driver/ViewControllers/SplashScreenVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "setupUIForVideoPlay()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1A4BA3DA-1F28-4C02-B32F-48AA9A70353C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MTM Driver/Utilities/Networking/Service/WebServices.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "375"
+            endingLineNumber = "375"
+            landmarkName = "isConnected"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8001D774-0D5F-4DDB-B5FA-6381E2CB7872"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MTM Driver/Utilities/Networking/Service/WebServices.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "requestMethod(api:httpMethod:parameters:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "52000FFF-91DB-48D8-B7E5-5C630183FF4F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -1104,6 +928,22 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "86"
             endingLineNumber = "86"
+            landmarkName = "requestMethod(api:httpMethod:parameters:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7AD079AE-C563-4EF2-ABDE-F71D360BB43D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MTM Driver/Utilities/Networking/Service/WebServices.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "requestMethod(api:httpMethod:parameters:completion:)"
             landmarkType = "7">
          </BreakpointContent>

@@ -83,7 +83,7 @@ class TripTableViewCell: UITableViewCell , ShimmeringViewProtocol{
         totalPriceLabel.text = info.driverAmount.toCurrencyString()
             //info.grandTotal.toCurrencyString()
         
-        if isFRomUpcoming == true {
+        if isFRomUpcoming{
             if let dateStr = info.pickupDateTime {
                 print(dateStr.timeStampToDate()?.getDayDifferentTextWithTime() ?? "")
                 timeLabel.text = dateStr.timeStampToDate()?.getDayDifferentTextWithTime()
@@ -91,8 +91,7 @@ class TripTableViewCell: UITableViewCell , ShimmeringViewProtocol{
             } else {
                 timeLabel.isHidden = true
             }
-        }
-        else {
+        }else {
             if let date = info.bookingTime?.timeStampToDate() {
                 timeLabel.text = date.getDayDifferentTextWithTime()
            } else {

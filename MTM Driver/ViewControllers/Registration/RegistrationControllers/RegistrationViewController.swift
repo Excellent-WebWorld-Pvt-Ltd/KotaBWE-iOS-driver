@@ -11,7 +11,7 @@ import SSSpinnerButton
 import CountryPickerView
 
 class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UIImagePickerControllerDelegate{
-  
+    
     // MARK: - ===== Outlets =======
     @IBOutlet weak var btnHidePassword: UIButton!
     @IBOutlet weak var btnHideConfomPassword: UIButton!
@@ -19,8 +19,8 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
     @IBOutlet weak var btnAlreadyhaveAccount: UIButton!
     @IBOutlet weak var viewCountryPicker: CountryPickerView!
     @IBOutlet weak var viewBgLine: UIView!
-  //  @IBOutlet weak var txtPhoneNumber: UITextField!
- //   @IBOutlet weak var txtEmail: ThemeUnderLineTextField!
+    //  @IBOutlet weak var txtPhoneNumber: UITextField!
+    //   @IBOutlet weak var txtEmail: ThemeUnderLineTextField!
     @IBOutlet weak var txtPhoneNumber: CustomViewOutlinedTxtField!
     
     @IBOutlet weak var txtPhone: CustomViewOutlinedTxtField!
@@ -44,7 +44,7 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.isHidden = true
-//        setupCountryPicker()
+        //        setupCountryPicker()
         txtPhone.textField.text = Singleton.shared.countryCode
         setupTextfields()
         TermsAndCondtionSetup()
@@ -127,9 +127,9 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
     func TermsAndCondtionSetup(){
         let FormattedText = NSMutableAttributedString()
         
-              FormattedText
-                .normal("Already a Kota user? ", Colour: UIColor.black.withAlphaComponent(0.7), 14)
-                .bold("Sign In")
+        FormattedText
+            .normal("Already a Kota user? ", Colour: UIColor.black.withAlphaComponent(0.7), 14)
+            .bold("Sign In")
         let termAttributed = NSMutableAttributedString()
         let color = UIColor.hexStringToUIColor(hex: "#7D7D7D").withAlphaComponent(0.7)
         termAttributed
@@ -165,43 +165,43 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
     }
     
     private func isValidInputes() -> Bool {
-
-           let emailValidation = InputValidation.email.isValid(input: txtEmail.textField.unwrappedText, field: "email")
-           txtEmail.textField.leadingAssistiveLabel.text = emailValidation.error
-           txtEmail.textField.setOutlineColor(emailValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
-           
-           let mobileValidation = InputValidation.mobile.isValid(input: txtPhoneNumber.textField.unwrappedText, field: "mobile number")
-            txtPhoneNumber.textField.leadingAssistiveLabel.text = mobileValidation.error
-            txtPhoneNumber.textField.setOutlineColor(mobileValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
-
-           let passwordValidation = InputValidation.password.isValid(input: txtPassword.textField.unwrappedText, field: "password")
-           txtPassword.textField.leadingAssistiveLabel.text = passwordValidation.error
-           txtPassword.textField.setOutlineColor(passwordValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
-           
-           var confirmPasswordValidation = InputValidation.nonEmpty.isValid(input: txtConformPassword.textField.unwrappedText, field: "confirm password")
-           txtConformPassword.textField.leadingAssistiveLabel.text = confirmPasswordValidation.error
-           txtConformPassword.textField.setOutlineColor(confirmPasswordValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
-           if confirmPasswordValidation.isValid {
-               if txtConformPassword.textField.text != txtPassword.textField.text {
-                   txtConformPassword.textField.leadingAssistiveLabel.text = "Your password and confirmation password do not match."
-                   confirmPasswordValidation.isValid = false
-                   txtConformPassword.textField.setOutlineColor(.red, for: .normal)
-               }else{
-                   txtConformPassword.textField.leadingAssistiveLabel.text = ""
-                   txtConformPassword.textField.setOutlineColor(.themeTextFieldDefaultBorderColor, for: .normal)
-               }
-           }
+        
+        let emailValidation = InputValidation.email.isValid(input: txtEmail.textField.unwrappedText, field: "email")
+        txtEmail.textField.leadingAssistiveLabel.text = emailValidation.error
+        txtEmail.textField.setOutlineColor(emailValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
+        
+        let mobileValidation = InputValidation.mobile.isValid(input: txtPhoneNumber.textField.unwrappedText, field: "mobile number")
+        txtPhoneNumber.textField.leadingAssistiveLabel.text = mobileValidation.error
+        txtPhoneNumber.textField.setOutlineColor(mobileValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
+        
+        let passwordValidation = InputValidation.password.isValid(input: txtPassword.textField.unwrappedText, field: "password")
+        txtPassword.textField.leadingAssistiveLabel.text = passwordValidation.error
+        txtPassword.textField.setOutlineColor(passwordValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
+        
+        var confirmPasswordValidation = InputValidation.nonEmpty.isValid(input: txtConformPassword.textField.unwrappedText, field: "confirm password")
+        txtConformPassword.textField.leadingAssistiveLabel.text = confirmPasswordValidation.error
+        txtConformPassword.textField.setOutlineColor(confirmPasswordValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
+        if confirmPasswordValidation.isValid {
+            if txtConformPassword.textField.text != txtPassword.textField.text {
+                txtConformPassword.textField.leadingAssistiveLabel.text = "Your password and confirmation password do not match."
+                confirmPasswordValidation.isValid = false
+                txtConformPassword.textField.setOutlineColor(.red, for: .normal)
+            }else{
+                txtConformPassword.textField.leadingAssistiveLabel.text = ""
+                txtConformPassword.textField.setOutlineColor(.themeTextFieldDefaultBorderColor, for: .normal)
+            }
+        }
         
         if !btnCheckBoxTerms.isSelected {
-                    AlertMessage.showMessageForError("Please accept terms & conditions and privacy policy")
-                }
+            AlertMessage.showMessageForError("Please accept terms & conditions and privacy policy")
+        }
         
-           if emailValidation.isValid && mobileValidation.isValid && passwordValidation.isValid && confirmPasswordValidation.isValid && btnCheckBoxTerms.isSelected{
-               return true
-           }else{
-               return false
-           }
-       }
+        if emailValidation.isValid && mobileValidation.isValid && passwordValidation.isValid && confirmPasswordValidation.isValid && btnCheckBoxTerms.isSelected{
+            return true
+        }else{
+            return false
+        }
+    }
     
     @IBAction func btnActionSignIn(_ sender: UnderlineTextButton) {
         if navigationViewController(contains: LoginVC.self) {
@@ -217,15 +217,15 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
     }
     @IBAction func btnNextClick(_ sender: Any) {
         
-//        let otpVC = AppViewControllers.shared.otp
-//        otpVC.isFromRegister = true
-//        otpVC.strMobileNo = self.txtPhoneNumber.textField.text ?? ""
-//        otpVC.strOTP = ""
-//        self.navigationController?.pushViewController(otpVC, animated: true)
+        //        let otpVC = AppViewControllers.shared.otp
+        //        otpVC.isFromRegister = true
+        //        otpVC.strMobileNo = self.txtPhoneNumber.textField.text ?? ""
+        //        otpVC.strOTP = ""
+        //        self.navigationController?.pushViewController(otpVC, animated: true)
         
         guard isValidInputes() else { return }
         webserviceCallRegisterOTP()
-
+        
     }
     @IBAction func btnActionPasswordShow(_ sender: Any) {
         iconPasswordClick = !iconPasswordClick
@@ -249,7 +249,7 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
         btnAlreadyhaveAccount.isUserInteractionEnabled = false
         btnAlreadyhaveAccount.backgroundColor =  UIColor.clear
     }
-  
+    
     //MARK: - ====== Webservice call Register OTP ========
     func webserviceCallRegisterOTP(){
         Loader.showHUD(with: Helper.currentWindow)
@@ -272,18 +272,18 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
             }
             else{
                 AlertMessage.showMessageForError(response["message"].stringValue)
-             }
+            }
         }
     }
-
+    
     func webserviceForVehicleList()
     {
-//        Loader.showHUD(with: Helper.currentWindow)
+        //        Loader.showHUD(with: Helper.currentWindow)
         let param: [String: Any] = ["": ""]
         WebServiceCalls.VehicleTypeListApi(strType: param) { (json, status) in
-//            Loader.hideHUD()
+            //            Loader.hideHUD()
             if status {
-
+                
                 print(json)
                 let info = VehicleListResultModel.init(fromJson: json)
                 Singleton.shared.vehicleListData = info
@@ -293,19 +293,18 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
             {
                 AlertMessage.showMessageForError(json["message"].stringValue)
             }
-
+            
             self.webserviceForCompanyList()
         }
     }
     
-    func webserviceForCompanyList()
-    {
-//        Loader.showHUD(with: Helper.currentWindow)
-
+    func webserviceForCompanyList(){
+        //        Loader.showHUD(with: Helper.currentWindow)
+        
         let param: [String: Any] = ["": ""]
         WebServiceCalls.companyList(strType: param) { (json, status) in
-//            Loader.hideHUD()
-//             Loader.hideHUD()
+            //            Loader.hideHUD()
+            //             Loader.hideHUD()
             if status
             {
                 print(json)
@@ -323,30 +322,30 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
 extension RegistrationViewController : UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-            var validation: InputValidation?
-            switch textField {
-            case txtEmail.textField:
-                validation = .email
-            case txtPhoneNumber.textField:
-                validation = .mobile
-            case txtPassword.textField:
-                validation = .password
-                if (string == " " || string == "  ") {
-                    return false
-                }
-            case txtConformPassword.textField:
-                validation = .password
-                if (string == " " || string == "  ") {
-                    return false
-                }
-            default:
-                break
+        var validation: InputValidation?
+        switch textField {
+        case txtEmail.textField:
+            validation = .email
+        case txtPhoneNumber.textField:
+            validation = .mobile
+        case txtPassword.textField:
+            validation = .password
+            if (string == " " || string == "  ") {
+                return false
             }
-            if let validation = validation {
-                return validation.textField(textField, shouldChangeCharactersIn: range, replacementString: string)
+        case txtConformPassword.textField:
+            validation = .password
+            if (string == " " || string == "  ") {
+                return false
             }
-            return true
+        default:
+            break
         }
+        if let validation = validation {
+            return validation.textField(textField, shouldChangeCharactersIn: range, replacementString: string)
+        }
+        return true
+    }
 }
 
 //MARK:- Country Picker Methods
@@ -357,8 +356,8 @@ extension RegistrationViewController : CountryPickerViewDelegate,CountryPickerVi
         self.selectedCounty = country
     }
     func sectionTitleForPreferredCountries(in countryPickerView: CountryPickerView) -> String? {
-            return "Select country"
+        return "Select country"
     }
 }
- 
+
 

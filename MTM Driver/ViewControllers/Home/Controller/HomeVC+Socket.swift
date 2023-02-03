@@ -14,7 +14,6 @@ extension HomeViewController: SocketConnected {
     
     // ----------------------------------------------------
     // MARK:- --- All Socket Methods ---
-    // MARK:-
     // ----------------------------------------------------
     
     // Socket Off All
@@ -203,10 +202,9 @@ extension HomeViewController: SocketConnected {
             if let bookingView = self.presentView as? DriverInfoView {
                 self.bookingData = Singleton.shared.bookingInfo!
                 self.driverData.driverState = .requestAccepted
+                self.presentView(forState: .requestAccepted)
                 self.resetMap()
-                DispatchQueue.main.async {
-                    bookingView.setDriverData(status:.requestAccepted)
-                }
+                bookingView.setDriverData(status:.requestAccepted)
             }
             let message = json.first?.1.dictionary?["message"]?.stringValue
             AlertMessage.showMessageForSuccess(message ?? "Booking Request Accepted")

@@ -76,6 +76,7 @@ class BookingHistoryResponse : NSObject{
     var cargoWeightKg: String?
     var itemQuantity: String?
     var truckLoadType: String?
+    var notes: String?
 
     /**
      * Instantiate the instance using the passed json values to set the properties values
@@ -152,6 +153,7 @@ class BookingHistoryResponse : NSObject{
         cargoWeightKg = json["cargo_weight_kg"].stringValue
         itemQuantity = json["item_quantity"].stringValue
         truckLoadType = json["truck_load_type"].stringValue
+        notes = json["notes"].stringValue
     }
 
     

@@ -37,7 +37,6 @@ class HomeViewController: BaseViewController {
     var mapView : GMSMapView!
     @IBOutlet weak var mapContainerView : UIView!
     @IBOutlet var bottomContentView: UIView!
-    @IBOutlet weak var bottomConstraintViewHeight: NSLayoutConstraint!
     let progress = Progress(totalUnitCount: 10)
     
     var LoginDetail : LoginModel = LoginModel()
@@ -87,7 +86,6 @@ class HomeViewController: BaseViewController {
         if Singleton.shared.isDriverOnline {
             SocketIOManager.shared.establishConnection()
         }
-        //bottomConstraintViewHeight.constant = Helper.bottomSafeAreaHeight > 0 ? Helper.bottomSafeAreaHeight : 0
         getFirstView()
         LocationManager.shared.delegate = self
         if Singleton.shared.bookingInfo != nil {
@@ -105,12 +103,11 @@ class HomeViewController: BaseViewController {
         self.mapView.addGestureRecognizer(panGesture)
         setNavbar()
         self.checkMeterStatus()
+        self.setupCurrentLocation()
         updateLocation()
     }
     
-    
     @objc private func panHandler(_ pan : UIPanGestureRecognizer){
-
             if pan.state == .ended && isCameraAnimation == true{
                 isCameraAnimation = false
             }
@@ -121,7 +118,6 @@ class HomeViewController: BaseViewController {
         locationUpdateTimer?.invalidate()
         locationUpdateTimer = nil
         locationUpdateTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(updateDriverLocationAtRegularInterval), userInfo: nil, repeats: true)
-        
     }
     
     @objc func endTimer(){
@@ -134,8 +130,6 @@ class HomeViewController: BaseViewController {
             if let bookingInfo = Singleton.shared.bookingInfo,
                (bookingInfo.status == "accepted" || bookingInfo.status == "traveling") {
                 self.trackTrip()
-            } else {
-                self.updateDriverLocation()
             }
         }
     }
@@ -170,7 +164,6 @@ class HomeViewController: BaseViewController {
         let contactNumber = bookingData.customerInfo.mobileNo
         if contactNumber == "" {
             UtilityClass.showAlert(message: "Contact number is not available")
-        
         } else {
             UtilityClass.callNumber(phoneNumber: contactNumber ?? "")
         }
@@ -248,7 +241,7 @@ class HomeViewController: BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if Singleton.shared.isDriverOnline != false {
-            startTimer()
+            //startTimer()
         }
         SideMenuController.preferences.basic.enablePanGesture = true
         setNavbar()
@@ -278,8 +271,7 @@ class HomeViewController: BaseViewController {
         }
     }
     
-    @IBAction func btnCurrentLocation(_ sender: UIButton)
-    {
+    @IBAction func btnCurrentLocation(_ sender: UIButton){
         isCameraAnimation = true
         setupCurrentLocation()
         
@@ -347,7 +339,7 @@ class HomeViewController: BaseViewController {
     func setupOnlineOfflineView() {
         if Singleton.shared.isDriverOnline {
             SocketIOManager.shared.establishConnection()
-            startTimer()
+            //startTimer()
             self.offlineView.isHidden = true
             if self.constantHeightOfOfflineView != nil {
                 self.constantHeightOfOfflineView.constant = 0
@@ -355,7 +347,7 @@ class HomeViewController: BaseViewController {
             
         } else {
             SocketIOManager.shared.closeConnection()
-            self.endTimer()
+            //self.endTimer()
             if self.constantHeightOfOfflineView != nil {
                 self.constantHeightOfOfflineView.constant = 60
             }
@@ -452,6 +444,13 @@ class HomeViewController: BaseViewController {
         }
     }
     
+    private func distanceBetween(start: CLLocationCoordinate2D,end: CLLocationCoordinate2D) -> Bool{
+        let coordinate = CLLocation(latitude: start.latitude, longitude: start.longitude)
+        let coordinate1 = CLLocation(latitude: end.latitude, longitude: end.longitude)
+        let distanceInMeters = coordinate.distance(from: coordinate1)
+        return (distanceInMeters > 5) ? true : false
+    }
+    
     private func updateLocation() {
         guard let location = LocationManager.shared.mostRecentLocation else {
             return
@@ -472,14 +471,16 @@ class HomeViewController: BaseViewController {
             oldCoordinate = location.coordinate
         }
         if isCameraAnimation {
-            let curLet = location.coordinate.latitude
-            let curLong = location.coordinate.longitude
-            let dropLet = oldCoordinate.latitude//dictLocation?["lat"]?.doubleValue ?? 0.0
-            let dropLong = oldCoordinate.longitude//dictLocation?["lng"]?.doubleValue ?? 0.0
-//            self.lastCoordinate = newCoordinate
-            if curLet != dropLet && curLong != dropLong{
-                let camera = GMSCameraPosition.camera(withTarget: CLLocationCoordinate2DMake(curLet, curLong), zoom: 17, bearing: UtilityClass.getBearingBetweenTwoPoints(point1: CLLocationCoordinate2DMake(dropLet, dropLong), point2:CLLocationCoordinate2DMake(curLet, curLong)), viewingAngle: 45)
-                mapView.animate(to: camera)
+            if distanceBetween(start: oldCoordinate, end: location.coordinate){
+                let curLet = location.coordinate.latitude
+                let curLong = location.coordinate.longitude
+                let dropLet = oldCoordinate.latitude//dictLocation?["lat"]?.doubleValue ?? 0.0
+                let dropLong = oldCoordinate.longitude//dictLocation?["lng"]?.doubleValue ?? 0.0
+    //            self.lastCoordinate = newCoordinate
+                if curLet != dropLet && curLong != dropLong{
+                    let camera = GMSCameraPosition.camera(withTarget: CLLocationCoordinate2DMake(curLet, curLong), zoom: 17, bearing: UtilityClass.getBearingBetweenTwoPoints(point1: CLLocationCoordinate2DMake(dropLet, dropLong), point2:CLLocationCoordinate2DMake(curLet, curLong)), viewingAngle: 45)
+                    mapView.animate(to: camera)
+                }
             }
         }
         if let driverMarker = self.driverMarker {
@@ -501,10 +502,35 @@ class HomeViewController: BaseViewController {
 // MARK: - Location Methods
 // ----------------------------------------------------
 
+extension HomeViewController {
+    
+    func emitDriverLocation(location: CLLocationCoordinate2D) {
+        print("Driver Update Location:\(#function) ")
+        
+        let param = [
+            "driver_id" : "\(Singleton.shared.userProfile?.responseObject.id ?? "")",
+            "lat" : "\(location.latitude)",
+            "lng" : "\(location.longitude)"
+        
+        ] as [String:AnyObject]
+        
+        if SocketIOManager.shared.socket.status == .connected {
+            emitSocket_UpdateDriverLatLng(param: param)
+        }
+    }
+}
+
+
 extension HomeViewController: LocationManagerDelegate , GMSMapViewDelegate {
     
     func locationManager(_ manager: LocationManager, didUpdateLocation mostRecentLocation: CLLocation) {
         updateLocation()
+        if Singleton.shared.isDriverOnline {
+            guard let loc = LocationManager.shared.mostRecentLocation?.coordinate else {
+                return
+            }
+            emitDriverLocation(location: loc)
+        }
     }
     
     func setDriverMarker() {
@@ -564,8 +590,7 @@ extension HomeViewController: LocationManagerDelegate , GMSMapViewDelegate {
 
 extension HomeViewController {
     
-    func setupMarkerOnGooglMap(markerType: setupGMSMarker, cordinate: CLLocationCoordinate2D)
-    {
+    func setupMarkerOnGooglMap(markerType: setupGMSMarker, cordinate: CLLocationCoordinate2D){
         
         if markerType != .from {
             destinationMarker?.map = nil
@@ -574,7 +599,6 @@ extension HomeViewController {
             destinationMarker!.map = self.mapView
             destinationMarker!.groundAnchor = CGPoint(x: 0.5, y: 0.5)
             destinationMarker!.title = ""
-            
         }
         setDriverMarker()
         let mapInsets = UIEdgeInsets(top: 50, left: 15, bottom: self.containerTopView.frame.height + 50, right: 15)

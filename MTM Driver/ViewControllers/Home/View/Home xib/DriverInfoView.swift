@@ -29,6 +29,8 @@ enum TripStatus {
             return "Complete"
         case .accepted :
             return "accepted"
+        default:
+            break
         }
     }
 }
@@ -59,6 +61,7 @@ class DriverInfoView: UIView
 //    @IBOutlet weak var lblVehicleName: UILabel!
     @IBOutlet weak var btnCancel: UIButton!
     //@IBOutlet weak var viewBtnCancel: UIView!
+    @IBOutlet weak var btnViewMore: UnderlineTextButton!
     @IBOutlet weak var lblMin: ThemeLabel!
     @IBOutlet weak var lblMiles: ThemeLabel!
     @IBOutlet weak var lblTime: ThemeLabel!
@@ -72,7 +75,6 @@ class DriverInfoView: UIView
     @IBOutlet weak var lblLoadType: ThemeLabel!
     @IBOutlet weak var stackVIewMiles: UIStackView!
     @IBOutlet weak var lblItemQuantity: ThemeLabel!
-    @IBOutlet weak var bottomContraintView: NSLayoutConstraint!
     
     // ----------------------------------------------------
     // MARK: - Globle Declaration Methods
@@ -114,6 +116,7 @@ class DriverInfoView: UIView
                 viewBtnStartRide.isHidden = false
                 viewBtnCompleteTrip.isHidden = true
             case .requestAccepted :
+                Loader.hideHUD()
              //   conWidthOfViewSoS.constant = 0
                 getRequest(isrequest:true)
               //  ViewSOS.isHidden = true
@@ -163,8 +166,6 @@ class DriverInfoView: UIView
     }
 
     func getRequest(isrequest:Bool){
-         ViewWithInMiles.isHidden = false
-        stackVIewMiles.isHidden = isrequest
          viewPhonChat.isHidden = !isrequest
     }
     
@@ -196,8 +197,6 @@ class DriverInfoView: UIView
     //btn Action Cancel
     @IBAction func btnCancelAction(_ sender: UIButton) {
         print(#function)
-       // setConstraintOfHomeVc()
-        //setDeiverInfoView()
         RingManager.shared.stopSound()
         if let vc = self.parentViewController as? HomeViewController{
             vc.cancelTripAfterAccept()
@@ -235,6 +234,17 @@ class DriverInfoView: UIView
 //            clicked()
 //        }
     }
+    
+    @IBAction func btnViewMoreClick(_ sender: Any) {
+        let TripDetailsVC : TripFullDetailVC = UIViewController.viewControllerInstance(storyBoard: .myTrips)
+        TripDetailsVC.objDetail = Singleton.shared.bookingInfo//arrUpcomingHistory[indexPath.row]
+        if let vc: UIViewController = self.parentViewController {
+            if let hVc = vc as? HomeViewController {
+                hVc.navigationController?.pushViewController(TripDetailsVC, animated: true)
+            }
+        }
+    }
+    
     // ----------------------------------------------------
     // MARK: - Custom Methods
     // ----------------------------------------------------
@@ -261,11 +271,11 @@ class DriverInfoView: UIView
         driverState = status
         self.lblDriverName.text = Singleton.shared.bookingInfo?.name
         let totalEarning = Double(Singleton.shared.bookingInfo?.estimatedFare ?? "0")?.rounded(toPlaces: 2)
-        self.lblCargoWeight.text = "Cargo weight: \(Singleton.shared.bookingInfo?.cargoWeightKg ?? "")"
+        self.lblCargoWeight.text = "Cargo weight: \(Singleton.shared.bookingInfo?.cargoWeightKg ?? "") Kg"
         self.lblItemQuantity.text = "Item quantity: \(Singleton.shared.bookingInfo?.itemQuantity ?? "")"
         self.lblLoadType.text = "Truck load type: \(Singleton.shared.bookingInfo?.truckLoadType ?? "")"
-        lblMiles.text = Singleton.shared.bookingInfo?.distance
-        lblMin.text = "\(Singleton.shared.bookingInfo?.estimatedTime ?? "") Mins"
+//        lblMiles.text = Singleton.shared.bookingInfo?.distance
+//        lblMin.text = "\(Singleton.shared.bookingInfo?.estimatedTime ?? "") Mins"
          //Double(loginData?.bookingInfo?.totalDriverEarning ?? "0")?.rounded(toPlaces: 2)
         let str =   "\(Singleton.shared.bookingInfo?.bookingTime.timeStampToDate() ?? Date())"
         let arrState = str.components(separatedBy: " ")
@@ -289,6 +299,20 @@ class DriverInfoView: UIView
             Singleton.shared.bookingInfo?.statusEnum
             homeVC.resetMap()
         }
+        self.setUIForBtn()
+    }
+    
+    func setUIForBtn(){
+        let attr: [NSAttributedString.Key: Any] = [
+            .font: FontBook.semibold.font(ofSize: 12),
+            .foregroundColor: UIColor.black.withAlphaComponent(0.6),
+            .underlineStyle: NSUnderlineStyle.single.rawValue
+        ]
+        let attributeString = NSMutableAttributedString(
+            string: "View Details",
+            attributes: attr
+        )
+        btnViewMore.setAttributedTitle(attributeString, for: .normal)
     }
     
   
@@ -333,7 +357,7 @@ extension DriverInfoView: MTSlideToOpenDelegate {
         switch driverState {
         
         case .request :
-            driverState = .arrived
+            Loader.showHUD()
             guard let bookingData = Singleton.shared.bookingInfo else { return }
             var param = [String: Any]()
             param["driver_id"] = Singleton.shared.driverId

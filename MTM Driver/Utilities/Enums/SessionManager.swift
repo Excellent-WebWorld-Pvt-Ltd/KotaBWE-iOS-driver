@@ -17,11 +17,7 @@ class SessionManager {
     var isUserLoggedIn: Bool
 
     var fcmToken: String? {
-        if UtilityClass.isSimulator {
-            return "ios_simulator"
-        } else {
-            return Messaging.messaging().fcmToken
-        }
+        return Messaging.messaging().fcmToken
     }
 
     @UserDefault("ud_x_api_key", defaultValue: "")
@@ -151,6 +147,16 @@ class SessionManager {
         AppDelegate.shared.allSocketOffMethods()
         SocketIOManager.shared.closeConnection()
         AppDelegate.shared.setLogin()
+    }
+    
+    func splashLogout() {
+        SessionManager.shared.savedProfileImage = nil
+        SessionManager.shared.registrationParameter = nil
+        Singleton.shared.bookingInfo = nil
+        SessionManager.shared.isUserLoggedIn = false
+        NotificationCenter.postCustom(.endTripTimer)
+        AppDelegate.shared.allSocketOffMethods()
+        SocketIOManager.shared.closeConnection()
     }
     
     var registrationParameter: RegistrationParameter? {

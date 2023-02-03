@@ -47,6 +47,8 @@ class TripDetailVC: BaseViewController {
     @IBOutlet weak var lblTripPrice: ThemeLabel!
     @IBOutlet weak var lblEarnings: ThemeLabel!
     @IBOutlet weak var profileImg: UIImageView!
+    @IBOutlet weak var lblNotes: ThemeLabel!
+    @IBOutlet weak var viewNotes: UIView!
     
     var isFromPast: Bool = true
     var mapView: GMSMapView?
@@ -72,7 +74,6 @@ class TripDetailVC: BaseViewController {
         mapView.isUserInteractionEnabled = false
         mapContainerView.addSubview(mapView)
         mapView.setAllSideContraints(.zero)
-        
         viewPastInvoice.isHidden = !isFromPast
         btnCall.isHidden = isFromPast
         viewAccept.isHidden = isFromPast
@@ -82,13 +83,14 @@ class TripDetailVC: BaseViewController {
     //MARK :- Other Function
     func setdata(){
         lblYouRated.text = isFromPast ? "You Rated" : "Your Rider"
+        viewNotes.isHidden = objDetail?.notes != "" ? false : true
+        lblNotes.text = objDetail?.notes
         if isFromPast{
             vwSlide.isHidden = true
             vwAcceptReject.isHidden = true
             btnCall.isHidden = true
             btnMessage.isHidden = false
         }else{
-            
             let status = objDetail?.status
             if status == .pending {
                 vwSlide.isHidden = true
@@ -100,6 +102,14 @@ class TripDetailVC: BaseViewController {
                 vwAcceptReject.isHidden = true
                 btnCall.isHidden = false
                 btnMessage.isHidden = false
+            }else if status == .traveling{
+                vwSlide.isHidden = true
+                vwAcceptReject.isHidden = true
+                btnCall.isHidden = true
+                btnMessage.isHidden = true
+            }
+            if objDetail?.onTheWay == "1" {
+                vwSlide.isHidden = true
             }
             driverRatingView.isHidden = true
         }
@@ -347,8 +357,7 @@ extension TripDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Index:\(indexPath.row)")
-        //selectedIndex = indexPath
-        //collectionViewImages.reloadData()
+        self.openWebURL( arrTruckImages[indexPath.row].stringValue)
     }
     
     @objc func removeImage(sender: UIButton) {
@@ -398,8 +407,13 @@ extension TripDetailVC: MTSlideToOpenDelegate {
             var param = [String: Any]()
             param["driver_id"] = Singleton.shared.driverId
             param["booking_id"] = bookingData.id
-            emitSocket_OnTheWayBookingRequest(param: param)
-            self.navigationController?.popToRootViewController(animated: true)
+            if SocketIOManager.shared.socket.status == .connected {
+                emitSocket_OnTheWayBookingRequest(param: param)
+                self.navigationController?.popToRootViewController(animated: true)
+            }else{
+                SocketIOManager.shared.establishConnection()
+                AlertMessage.showMessageForError("Something went wrong!")
+            }
         }
     }
     

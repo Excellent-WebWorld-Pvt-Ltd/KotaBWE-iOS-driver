@@ -59,6 +59,9 @@ class BookingInfo : NSObject, NSCoding{
     var truckLoadType : String!
     var itemQuantity : String!
     var name: String!
+    var waitingTime :String!
+    var cargoImage: [JSON]?
+    var notes: String?
 
     var statusEnum: TripStatusEnum? {
         TripStatusEnum(rawValue: status)
@@ -129,6 +132,9 @@ class BookingInfo : NSObject, NSCoding{
         vehicleTypeId = json["vehicle_type_id"].stringValue
         itemQuantity = json["item_quantity"].stringValue
         name = json["name"].stringValue
+        waitingTime = json["waiting_time"].stringValue
+        cargoImage = json["cargo_image"].arrayValue
+        notes = json["notes"].stringValue
 	}
 
 	/**

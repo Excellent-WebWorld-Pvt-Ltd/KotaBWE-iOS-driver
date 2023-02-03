@@ -691,21 +691,87 @@
                                     <constraint firstItem="uAf-tJ-KyF" firstAttribute="top" secondItem="LSv-zp-gEA" secondAttribute="bottom" id="vxh-ur-mE0"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YKg-dK-gfM">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="bkM-Lo-Du1">
+                                <rect key="frame" x="57" y="656" width="300" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9v3-aJ-Jrs" customClass="ThemePrimaryButton" customModule="KotaBWE" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="125" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="125" id="7It-lw-MPs"/>
+                                            <constraint firstAttribute="height" constant="50" id="wKj-Bo-JpX"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Login">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnLogin:" destination="ghv-Gd-ydO" eventType="touchUpInside" id="tmD-t2-iPi"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rlz-n7-cgL" customClass="ThemePrimaryButton" customModule="KotaBWE" customModuleProvider="target">
+                                        <rect key="frame" x="175" y="0.0" width="125" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="125" id="eBF-zj-GFW"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Register">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnRegister:" destination="ghv-Gd-ydO" eventType="touchUpInside" id="yBF-de-eAg"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VVn-mj-yhU" customClass="ThemePrimaryButton" customModule="KotaBWE" customModuleProvider="target">
+                                        <rect key="frame" x="300" y="0.0" width="150" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="laP-pI-aCE"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Skip">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnSkipClick:" destination="ghv-Gd-ydO" eventType="touchUpInside" id="bs9-3x-huV"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="VVn-mj-yhU" firstAttribute="height" secondItem="Rlz-n7-cgL" secondAttribute="height" id="DW5-6o-Zeo"/>
+                                    <constraint firstItem="Rlz-n7-cgL" firstAttribute="height" secondItem="9v3-aJ-Jrs" secondAttribute="height" id="PrI-RN-6I0"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ypc-Uz-oqS"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ifM-AU-LIR" firstAttribute="trailing" secondItem="ypc-Uz-oqS" secondAttribute="trailing" id="4fD-9Y-Qqu"/>
+                            <constraint firstItem="bkM-Lo-Du1" firstAttribute="centerX" secondItem="nQC-5y-YyM" secondAttribute="centerX" id="79v-V9-F14"/>
+                            <constraint firstItem="YKg-dK-gfM" firstAttribute="trailing" secondItem="ypc-Uz-oqS" secondAttribute="trailing" id="CYv-w1-3Yr"/>
+                            <constraint firstItem="YKg-dK-gfM" firstAttribute="bottom" secondItem="ypc-Uz-oqS" secondAttribute="bottom" id="Cxi-7f-rZv"/>
                             <constraint firstAttribute="bottom" secondItem="ifM-AU-LIR" secondAttribute="bottom" id="JZs-jk-QUy"/>
                             <constraint firstItem="ifM-AU-LIR" firstAttribute="top" secondItem="nQC-5y-YyM" secondAttribute="top" id="QUd-6C-T0c"/>
                             <constraint firstItem="ifM-AU-LIR" firstAttribute="leading" secondItem="ypc-Uz-oqS" secondAttribute="leading" id="Um8-b0-ZDb"/>
+                            <constraint firstItem="YKg-dK-gfM" firstAttribute="leading" secondItem="ypc-Uz-oqS" secondAttribute="leading" id="WxR-Ed-HLm"/>
+                            <constraint firstItem="ypc-Uz-oqS" firstAttribute="bottom" secondItem="bkM-Lo-Du1" secondAttribute="bottom" constant="30" id="l7z-j1-Gh7"/>
+                            <constraint firstItem="YKg-dK-gfM" firstAttribute="top" secondItem="nQC-5y-YyM" secondAttribute="top" id="zCZ-gV-3Jw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="GCI-eW-qWi"/>
+                    <connections>
+                        <outlet property="btnLogin" destination="9v3-aJ-Jrs" id="rWP-fg-nWC"/>
+                        <outlet property="btnRegister" destination="Rlz-n7-cgL" id="62A-5Z-VIo"/>
+                        <outlet property="btnSkip" destination="VVn-mj-yhU" id="i5q-K2-Qg3"/>
+                        <outlet property="stackRegister" destination="bkM-Lo-Du1" id="SWP-bi-rue"/>
+                        <outlet property="viewContainer" destination="YKg-dK-gfM" id="rjg-ga-VBN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hx5-cA-Kgn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="516" y="-314.39280359820094"/>
+            <point key="canvasLocation" x="515.94202898550725" y="-314.67391304347831"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eBZ-eQ-aZC">
@@ -3948,6 +4014,29 @@
             <point key="canvasLocation" x="5412" y="1138"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="9Ig-Z7-cyq">
+            <size key="intrinsicContentSize" width="217" height="39.220703125"/>
+        </designable>
+        <designable name="CX7-ym-Rcc">
+            <size key="intrinsicContentSize" width="217" height="39.220703125"/>
+        </designable>
+        <designable name="Frg-0q-dBR">
+            <size key="intrinsicContentSize" width="295" height="39.220703125"/>
+        </designable>
+        <designable name="dxI-HC-dAW">
+            <size key="intrinsicContentSize" width="217" height="39.220703125"/>
+        </designable>
+        <designable name="e6t-4y-lyg">
+            <size key="intrinsicContentSize" width="217" height="39.220703125"/>
+        </designable>
+        <designable name="i1X-Kq-Nwd">
+            <size key="intrinsicContentSize" width="217" height="39.220703125"/>
+        </designable>
+        <designable name="oMI-zV-Icl">
+            <size key="intrinsicContentSize" width="217" height="39.220703125"/>
+        </designable>
+    </designables>
     <resources>
         <image name="Edit" width="20" height="20"/>
         <image name="IQButtonBarArrowDown.png" width="21" height="12"/>

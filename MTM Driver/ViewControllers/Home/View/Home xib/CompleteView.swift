@@ -22,6 +22,14 @@ class CompleteView: UIView {
         }
     }
     
+    @IBAction func btnCancleClick(_ sender: Any) {
+        if let vc: UIViewController = self.parentViewController {
+            if let hVc = vc as? HomeViewController {
+                hVc.getFirstView()
+            }
+        }
+    }
+    
     var bookingId = ""
     
     func setData(){

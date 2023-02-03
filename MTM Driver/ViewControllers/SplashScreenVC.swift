@@ -7,17 +7,33 @@
 //
 
 import UIKit
+import AVFoundation
 
 class SplashScreenViewController: BaseViewController {
     
     //MARK: - ===== Outlets =======
    
+    @IBOutlet weak var viewContainer: UIView!
+    @IBOutlet weak var btnSkip: ThemePrimaryButton!
+    @IBOutlet weak var btnLogin: ThemePrimaryButton!
+    @IBOutlet weak var btnRegister: ThemePrimaryButton!
+    @IBOutlet weak var stackRegister: UIStackView!
+    
+    var isOptionalPass : Bool = false
+    var playerLooper: AVPlayerLooper!
+    var queuePlayer: AVQueuePlayer!
+    var isAPICompleted = false
+    var btnClicked = false
+    var btnLoginClicked = false
     
     //MARK: - ===== View Controller Life Cycle ======
     override func viewDidLoad() {
         super.viewDidLoad()
         NetworkManager.shared.startNetworkReachabilityObserver()
-        webserviceCallForInit()
+        self.btnLogin.isHidden = true
+        self.btnRegister.isHidden = true
+        self.btnSkip.isHidden = true
+        self.playLogoAnimation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,7 +49,7 @@ class SplashScreenViewController: BaseViewController {
         if SessionManager.shared.isUserLoggedIn {
             dictData["key"] = "ios_driver/\(Helper.appVersion)/\(Singleton.shared.driverId)/\(SessionManager.shared.fcmToken ?? "")"
         } else {
-            dictData["key"] = "ios_driver/\(Helper.appVersion)/\(Singleton.shared.driverId)"
+            dictData["key"] = "ios_driver/\(Helper.appVersion)"
         }
     
         WebService.shared.requestMethod(api: .Init, httpMethod: .get, parameters: dictData) { (json, status) in
@@ -47,6 +63,72 @@ class SplashScreenViewController: BaseViewController {
                 self.handleAPIRepsonse(model)
             }
         }
+    }
+    
+    
+    func setupUIForVideoPlay() {
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0) {
+                self.stackRegister.transform = CGAffineTransform(translationX: 0, y: (72 + Helper.bottomSafeAreaHeight))
+            } completion: { _ in
+                UIView.animate(withDuration: 0.8) {
+                    self.stackRegister.transform = .identity
+                }
+            }
+        }
+        viewContainer.isHidden = false
+        stackRegister.isHidden = false
+        if(SessionManager.shared.isUserLoggedIn){
+            btnLogin.isHidden = true
+            btnRegister.isHidden = true
+            btnSkip.isHidden = false
+        }else {
+            self.isAPICompleted = false
+            webserviceCallForInit()
+            btnLogin.isHidden = false
+            btnRegister.isHidden = false
+            btnSkip.isHidden = true
+        }
+    }
+    
+    func openLoginRegistration(flag:Bool){
+        if flag{
+            let login = AppViewControllers.shared.login
+            let navVC = UINavigationController(rootViewController: login)
+            Helper.currentWindow.rootViewController = navVC
+        }else{
+            let onbording = AppViewControllers.shared.registration
+            let navVC = UINavigationController(rootViewController: onbording)
+            Helper.currentWindow.rootViewController = navVC
+        }
+    }
+    
+    func playLogoAnimation() {
+        guard let path = Bundle.main.path(forResource: "SplashVideo", ofType:"mp4") else {
+            //        guard let path = Bundle.main.path(forResource: "White Conv", ofType:"mp4") else {
+            debugPrint("video.m4v not found")
+            return
+        }
+        
+        guard let url = URL(string: "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4") else {
+            return
+        }
+        
+        let playerItem = AVPlayerItem(url: URL(fileURLWithPath: path))
+        
+        self.queuePlayer = AVQueuePlayer(playerItem: playerItem)
+        //        let player = AVPlayer(playerItem: playerItem)
+        let playerLayer = AVPlayerLayer(player: queuePlayer)
+        playerLayer.frame = self.view.bounds
+        playerLayer.videoGravity = AVLayerVideoGravity.resize
+        playerLayer.backgroundColor = UIColor.clear.cgColor
+        viewContainer.backgroundColor = UIColor.clear
+        self.playerLooper = AVPlayerLooper(player: queuePlayer, templateItem: playerItem)
+        
+        viewContainer.layer.addSublayer(playerLayer)
+        queuePlayer.play()
+        self.setupUIForVideoPlay()
+        //        player.rate = 1.5
     }
     
     private func handleMaintenanceRepsonse(_ model: InitResponse) {
@@ -64,6 +146,7 @@ class SplashScreenViewController: BaseViewController {
             return
             
         } else if model.status {
+            self.isAPICompleted = true
             Singleton.shared.fillInfo(from: model)
             if SessionManager.shared.isUserLoggedIn,
                 let loginModel = SessionManager.shared.userProfile {
@@ -72,12 +155,16 @@ class SplashScreenViewController: BaseViewController {
                 Singleton.shared.driverId = loginModel.responseObject.id
                 AppDelegate.shared.setHome()
             } else {
-                AppDelegate.shared.setLogin()
+                if btnClicked{
+                    openLoginRegistration(flag: self.btnLoginClicked)
+                }
+//                AppDelegate.shared.setLogin()
             }
         }
         else {
             if model.sessionExpired {
-                AppDelegate.shared.setLogin()
+                SessionManager.shared.splashLogout()
+                setupUIForVideoPlay()
                 AlertMessage.showMessageForError(model.message ?? "")
             }
         }
@@ -126,4 +213,30 @@ class SplashScreenViewController: BaseViewController {
             self.present(alert, animated: true)
         }
     }
+    
+    @IBAction func btnLogin(_ sender: UIButton) {
+        self.btnClicked = true
+        self.btnLoginClicked = true
+        viewContainer.isHidden = true
+        stackRegister.isHidden = true
+        if isAPICompleted{
+            self.openLoginRegistration(flag: true)
+        }
+    }
+    
+    @IBAction func btnRegister(_ sender: UIButton) {
+        self.btnClicked = true
+        viewContainer.isHidden = true
+        stackRegister.isHidden = true
+        if isAPICompleted{
+            self.openLoginRegistration(flag: false)
+        }
+    }
+    
+    @IBAction func btnSkipClick(_ sender: Any) {
+        self.webserviceCallForInit()
+        viewContainer.isHidden = true
+        stackRegister.isHidden = true
+    }
+    
 }

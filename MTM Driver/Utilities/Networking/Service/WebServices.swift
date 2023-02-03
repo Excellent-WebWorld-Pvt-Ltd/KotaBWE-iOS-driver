@@ -79,8 +79,7 @@ class WebService{
                         {
                             SessionManager.shared.logout()
                             AlertMessage.showMessageForError("Session expired!")
-                        }
-                        else
+                        }else
                         {
                             print("Error = \(error.localizedDescription)")
                             completion(JSON(), false)

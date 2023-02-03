@@ -336,6 +336,8 @@
 		84ED291B2716F95900800A11 /* DutyOnOffView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84ED291A2716F95900800A11 /* DutyOnOffView.xib */; };
 		84F7CB7A27266C89006C4C31 /* SupportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F7CB7927266C89006C4C31 /* SupportVC.swift */; };
 		88223B55297AAB08005E85C7 /* TruckTypeResponceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88223B54297AAB08005E85C7 /* TruckTypeResponceModel.swift */; };
+		882A2C63298BAB8200BCD08D /* TripFullDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A2C62298BAB8200BCD08D /* TripFullDetailVC.swift */; };
+		8887632F298CD85D00F24869 /* SplashVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8887632E298CD85D00F24869 /* SplashVideo.mp4 */; };
 		88F2B7932983B7B900154438 /* MessageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F2B7922983B7B900154438 /* MessageTableCell.swift */; };
 		D8962B31CE66A30DC649DF47 /* Pods_MTM_Driver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAACF8175B8A2192471E8DB8 /* Pods_MTM_Driver.framework */; };
 /* End PBXBuildFile section */
@@ -683,6 +685,8 @@
 		84FBDB9D276B12FB0004109F /* MTM Driver.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MTM Driver.entitlements"; sourceTree = "<group>"; };
 		87558BCFBA291754A6FBA4C5 /* Pods-DSP Driver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSP Driver.debug.xcconfig"; path = "Target Support Files/Pods-DSP Driver/Pods-DSP Driver.debug.xcconfig"; sourceTree = "<group>"; };
 		88223B54297AAB08005E85C7 /* TruckTypeResponceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckTypeResponceModel.swift; sourceTree = "<group>"; };
+		882A2C62298BAB8200BCD08D /* TripFullDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripFullDetailVC.swift; sourceTree = "<group>"; };
+		8887632E298CD85D00F24869 /* SplashVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SplashVideo.mp4; sourceTree = "<group>"; };
 		88F2B7922983B7B900154438 /* MessageTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableCell.swift; sourceTree = "<group>"; };
 		B8EF87CD38D7536E40D11F30 /* Pods-MTM Driver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MTM Driver.debug.xcconfig"; path = "Target Support Files/Pods-MTM Driver/Pods-MTM Driver.debug.xcconfig"; sourceTree = "<group>"; };
 		BAACF8175B8A2192471E8DB8 /* Pods_MTM_Driver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MTM_Driver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -707,6 +711,7 @@
 		187E7DBE2924FE1900552E53 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8887632E298CD85D00F24869 /* SplashVideo.mp4 */,
 				187E7DBF2924FF4400552E53 /* connecting.json */,
 				8470F4C1270AD61A00E05AF7 /* Location.gpx */,
 				8470F4C0270AD61A00E05AF7 /* Assets.xcassets */,
@@ -1733,6 +1738,7 @@
 		849FA54F27228A56000BF8D5 /* TripHistory */ = {
 			isa = PBXGroup;
 			children = (
+				882A2C62298BAB8200BCD08D /* TripFullDetailVC.swift */,
 				6700F6AC2970391300F96209 /* TripDetailVC.swift */,
 				849FA55027228A56000BF8D5 /* PastTripHistoryVC.swift */,
 				849FA55227228A56000BF8D5 /* TripHistoryVC.swift */,
@@ -2035,6 +2041,7 @@
 				84C5163F2766FB81006942F2 /* collectionPhotos.xib in Resources */,
 				8470F6A6270AD61C00E05AF7 /* DriverInfoView.xib in Resources */,
 				84A35ABE2726AF26003078C1 /* Popups.storyboard in Resources */,
+				8887632F298CD85D00F24869 /* SplashVideo.mp4 in Resources */,
 				47953EE92959807000FE3965 /* Magdelin-Light.otf in Resources */,
 				849FA54D272289D4000BF8D5 /* TripTableViewCell.xib in Resources */,
 				47953EFD2959817800FE3965 /* Magdelin-BoldItalic.otf in Resources */,
@@ -2283,6 +2290,7 @@
 				8470F70F270AD61D00E05AF7 /* MobileNoResultModel.swift in Sources */,
 				8470F643270AD61C00E05AF7 /* SwipeExpanding.swift in Sources */,
 				8470F725270AD61D00E05AF7 /* RequestModel.swift in Sources */,
+				882A2C63298BAB8200BCD08D /* TripFullDetailVC.swift in Sources */,
 				8470F6B3270AD61C00E05AF7 /* SideMenuCase.swift in Sources */,
 				8470F70B270AD61D00E05AF7 /* transferMoneyToBank.swift in Sources */,
 				8470F6C7270AD61C00E05AF7 /* CarsCollectionViewCell.swift in Sources */,
@@ -2527,7 +2535,7 @@
 				CODE_SIGN_ENTITLEMENTS = "MTM Driver/MTM DriverDebug.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.1;
+				CURRENT_PROJECT_VERSION = 0.0.2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = LNR2265795;
 				EXCLUDED_ARCHS = "";
@@ -2559,7 +2567,7 @@
 				CODE_SIGN_ENTITLEMENTS = "MTM Driver/MTM Driver.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.1;
+				CURRENT_PROJECT_VERSION = 0.0.2;
 				DEVELOPMENT_TEAM = LNR2265795;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/MTM Driver/Info.plist";
