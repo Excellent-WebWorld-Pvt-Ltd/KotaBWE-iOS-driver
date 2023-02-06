@@ -50,6 +50,9 @@ class OTPVC: BaseViewController , OTPTextFieldDelegate{
         buttonSetup()
         UISetup()
         filledOTP()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            self.txtOTPCollection.first?.becomeFirstResponder()
+        }
         
     }
     
@@ -120,11 +123,12 @@ class OTPVC: BaseViewController , OTPTextFieldDelegate{
     //MARK:- ===== Btn Action Next =====
     @IBAction func btnActionNext(_ sender: UIButton) {
         guard validation() else { return }
+        UIView.setAnimationsEnabled(true)
         if isFromRegister {
 //            parameterArray.setNextRegistrationIndex(from: .registration)
 //            SessionManager.shared.registrationParameter = parameterArray
             let profileInfo = AppViewControllers.shared.profile()
-            navigationController?.isNavigationBarHidden = false
+            self.navigationController?.isNavigationBarHidden = false
             self.push(profileInfo)
         }else {
             saveLoginData()

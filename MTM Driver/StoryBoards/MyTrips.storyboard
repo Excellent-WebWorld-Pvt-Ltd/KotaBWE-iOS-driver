@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GPu-ce-T43">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GPu-ce-T43">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -474,7 +474,7 @@
                                                                             </imageView>
                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EaR-FL-GPm">
                                                                                 <rect key="frame" x="8.5" y="28" width="1" height="94"/>
-                                                                                <color key="backgroundColor" name="themePrimaryRed"/>
+                                                                                <color key="backgroundColor" name="themeRed"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="1" id="gnM-fF-rDY"/>
                                                                                 </constraints>
@@ -2038,7 +2038,7 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="sender_chat_cell" rowHeight="185" id="gHf-X4-Ev1" customClass="MessageTableCell" customModule="MTM_Driver" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="44.5" width="375" height="185"/>
+                                                <rect key="frame" x="0.0" y="50" width="375" height="185"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gHf-X4-Ev1" id="TyQ-Dh-Z5M">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="185"/>
@@ -2139,7 +2139,7 @@
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="receiver_chat_cell" rowHeight="223" id="QTw-UT-H44" customClass="MessageTableCell" customModule="MTM_Driver" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="229.5" width="375" height="223"/>
+                                                <rect key="frame" x="0.0" y="235" width="375" height="223"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QTw-UT-H44" id="XrX-e7-cMT">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="223"/>
@@ -2376,7 +2376,7 @@
                                                                             </imageView>
                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ahw-L2-hcb">
                                                                                 <rect key="frame" x="8.5" y="28" width="1" height="94"/>
-                                                                                <color key="backgroundColor" name="themePrimaryRed"/>
+                                                                                <color key="backgroundColor" name="themeRed"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="1" id="bWd-L2-A5Y"/>
                                                                                 </constraints>

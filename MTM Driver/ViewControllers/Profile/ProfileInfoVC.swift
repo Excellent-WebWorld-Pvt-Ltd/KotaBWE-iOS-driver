@@ -65,6 +65,7 @@ class ProfileInfoVC: BaseViewController {
 //                selectedBirthDate = date
 //        txtDOB.textField.text = selectedBirthDate?.getDateString(format: .fullDate)
         self.txtCode.textField.text = Singleton.shared.countryCode
+        self.txtCode.textField.isUserInteractionEnabled = false
         setupTextfields()
         initialSetup()
         mainStackView.setCustomSpacing(16, after: viewStackMobileNo)
@@ -80,7 +81,8 @@ class ProfileInfoVC: BaseViewController {
         }
         self.btnNext.setTitle(isFromSetting ? "Save" : "Next", for: .normal)
         self.navigationController?.navigationBar.isHidden = false
-        self.setupNavigation(.normal(title: "Profile Details", leftItem: .back))    }
+        self.setupNavigation(.normal(title: "Profile Details", leftItem: .back))
+    }
 
     func imageSetup() {
         imgProfile.layer.borderColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1.0).cgColor
@@ -157,7 +159,7 @@ class ProfileInfoVC: BaseViewController {
     
     
     @IBAction func openPicImage(_ sender : UIButton){
-        
+        UIView.setAnimationsEnabled(true)
         ImagePickerViewController.open(from: self, allowEditing: true) { [unowned self] image in
             self.imgProfile.image = image
             self.pickedImage = image
@@ -170,6 +172,7 @@ class ProfileInfoVC: BaseViewController {
     
     
     func openDatePicker(){
+        UIView.setAnimationsEnabled(true)
         ThemeDatePickerViewController.open(from: self, title: "Select Birthdate", type: .birthDate, selectedDate: selectedBirthDate) { [unowned self] date in
             self.selectedBirthDate = date
             self.txtDOB.textField.text = self.selectedBirthDate?.getDateString(format: .fullDate) ?? ""
@@ -397,6 +400,7 @@ extension ProfileInfoVC : CountryPickerViewDelegate,CountryPickerViewDataSource 
 extension ProfileInfoVC: GMSAutocompleteViewControllerDelegate {
 
     func presentPlacePickerViewController() {
+        UIView.setAnimationsEnabled(true)
         let acController = GMSAutocompleteViewController()
         acController.delegate = self
         acController.presentationController?.delegate = self

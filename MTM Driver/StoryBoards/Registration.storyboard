@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yBn-mz-LZl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yBn-mz-LZl">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -164,8 +164,8 @@
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="textFieldCorners">
                                                                         <real key="value" value="15"/>
                                                                     </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Conform Password"/>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Conform Password"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Confirm Password"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Confirm Password"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D68-Lo-8T8">
@@ -698,7 +698,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="bkM-Lo-Du1">
                                 <rect key="frame" x="57" y="656" width="300" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9v3-aJ-Jrs" customClass="ThemePrimaryButton" customModule="KotaBWE" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9v3-aJ-Jrs" customClass="ThemePrimaryButton" customModule="MTM_Driver" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="125" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="125" id="7It-lw-MPs"/>
@@ -712,7 +712,7 @@
                                             <action selector="btnLogin:" destination="ghv-Gd-ydO" eventType="touchUpInside" id="tmD-t2-iPi"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rlz-n7-cgL" customClass="ThemePrimaryButton" customModule="KotaBWE" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rlz-n7-cgL" customClass="ThemePrimaryButton" customModule="MTM_Driver" customModuleProvider="target">
                                         <rect key="frame" x="175" y="0.0" width="125" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="125" id="eBF-zj-GFW"/>
@@ -725,7 +725,7 @@
                                             <action selector="btnRegister:" destination="ghv-Gd-ydO" eventType="touchUpInside" id="yBF-de-eAg"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VVn-mj-yhU" customClass="ThemePrimaryButton" customModule="KotaBWE" customModuleProvider="target">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VVn-mj-yhU" customClass="ThemePrimaryButton" customModule="MTM_Driver" customModuleProvider="target">
                                         <rect key="frame" x="300" y="0.0" width="150" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="laP-pI-aCE"/>
@@ -4016,25 +4016,25 @@
     </scenes>
     <designables>
         <designable name="9Ig-Z7-cyq">
-            <size key="intrinsicContentSize" width="217" height="39.220703125"/>
+            <size key="intrinsicContentSize" width="118.33333333333333" height="18.666666666666668"/>
         </designable>
         <designable name="CX7-ym-Rcc">
-            <size key="intrinsicContentSize" width="217" height="39.220703125"/>
+            <size key="intrinsicContentSize" width="118.33333333333333" height="18.666666666666668"/>
         </designable>
         <designable name="Frg-0q-dBR">
-            <size key="intrinsicContentSize" width="295" height="39.220703125"/>
+            <size key="intrinsicContentSize" width="162.66666666666666" height="18.666666666666668"/>
         </designable>
         <designable name="dxI-HC-dAW">
-            <size key="intrinsicContentSize" width="217" height="39.220703125"/>
+            <size key="intrinsicContentSize" width="118.33333333333333" height="18.666666666666668"/>
         </designable>
         <designable name="e6t-4y-lyg">
-            <size key="intrinsicContentSize" width="217" height="39.220703125"/>
+            <size key="intrinsicContentSize" width="118.33333333333333" height="18.666666666666668"/>
         </designable>
         <designable name="i1X-Kq-Nwd">
-            <size key="intrinsicContentSize" width="217" height="39.220703125"/>
+            <size key="intrinsicContentSize" width="118.33333333333333" height="18.666666666666668"/>
         </designable>
         <designable name="oMI-zV-Icl">
-            <size key="intrinsicContentSize" width="217" height="39.220703125"/>
+            <size key="intrinsicContentSize" width="118.33333333333333" height="18.666666666666668"/>
         </designable>
     </designables>
     <resources>
@@ -4059,7 +4059,7 @@
             <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

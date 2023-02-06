@@ -39,33 +39,6 @@ class BankInfoVC: BaseViewController {
         self.navigationController?.navigationBar.isHidden = false
         setupNavigation(.normal(title: "Bank Info", leftItem: .back, hasNotification: false))
     }
-
-    //MARK:- ===== Vaidation ========
-     func validateFields() -> Bool{
-
-         let validationParameter :[(String?,String, ValidatiionType)] = [(txtBankName.textField.text,bankNameErrorString, .isEmpty),(txtBankHolderName.textField.text,accountHolderNameErrorString, .isEmpty),
-                                                                         
-                                                                         (txtAccountNumber.textField.text,accountNumberErrorString, .numeric),
-                                                                         (txtBranchCode.textField.text,branchCodeErrorString,.isEmpty)]
-        guard Validator.validate(validationParameter) else{
-            return false
-        }
-        
-        if !isFromSetting {
-            parameterArray.account_holder_name = txtBankHolderName.textField.text!
-            parameterArray.bank_name = txtBankName.textField.text!
-            parameterArray.bank_branch = txtBranchCode.textField.text!
-            parameterArray.account_number = txtAccountNumber.textField.text!
-            parameterArray.setNextRegistrationIndex(from: .bank)
-            SessionManager.shared.registrationParameter = parameterArray
-        } else {
-            let loginData = SessionManager.shared.userProfile
-            let parameter = loginData?.responseObject.driverDocs
-            parameterArray.driver_id = parameter?.driver_id ?? ""
-        }
-        
-        return true
-    }
     
     //MARK:- ===== Navigation  =======
     func navigateToVC(){
@@ -145,22 +118,19 @@ class BankInfoVC: BaseViewController {
         txtBranchCode.textField.leadingAssistiveLabel.text = brnachCodeValidation.error
         txtBranchCode.textField.setOutlineColor(brnachCodeValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
         
-        
-        if !isFromSetting {
-            parameterArray.account_holder_name = txtBankHolderName.textField.text!
-            parameterArray.bank_name = txtBankName.textField.text!
-            parameterArray.bank_branch = txtBranchCode.textField.text!
-            parameterArray.account_number = txtAccountNumber.textField.text!
-            parameterArray.setNextRegistrationIndex(from: .bank)
-            SessionManager.shared.registrationParameter = parameterArray
-        } else {
-            let loginData = SessionManager.shared.userProfile
-            let parameter = loginData?.responseObject.driverDocs
-            parameterArray.driver_id = parameter?.driver_id ?? ""
-        }
-        
-        
         if bankNameValidation.isValid && bankHolderNameValidation.isValid && accountValidation.isValid && brnachCodeValidation.isValid {
+            if !isFromSetting {
+                parameterArray.account_holder_name = txtBankHolderName.textField.text ?? ""
+                parameterArray.bank_name = txtBankName.textField.text ?? ""
+                parameterArray.bank_branch = txtBranchCode.textField.text ?? ""
+                parameterArray.account_number = txtAccountNumber.textField.text ?? ""
+                parameterArray.setNextRegistrationIndex(from: .bank)
+                SessionManager.shared.registrationParameter = parameterArray
+            } else {
+                let loginData = SessionManager.shared.userProfile
+                let parameter = loginData?.responseObject.driverDocs
+                parameterArray.driver_id = parameter?.driver_id ?? ""
+            }
             return true
         }else {
             return false

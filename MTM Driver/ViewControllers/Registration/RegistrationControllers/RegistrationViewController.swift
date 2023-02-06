@@ -46,6 +46,7 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
         self.navigationController?.navigationBar.isHidden = true
         //        setupCountryPicker()
         txtPhone.textField.text = Singleton.shared.countryCode
+        txtPhone.textField.isUserInteractionEnabled = false
         setupTextfields()
         TermsAndCondtionSetup()
         setupRegisterVC()

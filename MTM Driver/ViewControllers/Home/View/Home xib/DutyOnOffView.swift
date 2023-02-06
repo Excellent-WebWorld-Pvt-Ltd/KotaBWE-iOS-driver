@@ -15,7 +15,6 @@ class DutyOnOffView: UIView {
     @IBOutlet weak var switchBtn: UISwitch!
     @IBOutlet weak var lblEarning: ThemeLabel!
     @IBOutlet weak var lblTitle: ThemeLabel!
-    @IBOutlet weak var customSwitch: CustomSwitch!
     
     override func awakeFromNib() {
         super.awakeFromNib()

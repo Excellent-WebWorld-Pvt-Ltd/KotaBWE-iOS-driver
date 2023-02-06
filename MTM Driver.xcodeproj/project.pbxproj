@@ -50,8 +50,6 @@
 		6700F6AD2970391300F96209 /* TripDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6700F6AC2970391300F96209 /* TripDetailVC.swift */; };
 		675241F0295D61F60039B466 /* CustomOutlinedTxtField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675241EF295D61F60039B466 /* CustomOutlinedTxtField.swift */; };
 		6753A081297138630019A28E /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6753A080297138630019A28E /* ChangePasswordVC.swift */; };
-		6753A0842971593A0019A28E /* CustomSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6753A0822971593A0019A28E /* CustomSwitch.swift */; };
-		6753A0852971593A0019A28E /* CustomThumbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6753A0832971593A0019A28E /* CustomThumbView.swift */; };
 		84023ECF27562E170091499C /* ChartMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84023ECE27562E170091499C /* ChartMarker.swift */; };
 		84023ED1275643E30091499C /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84023ED0275643E30091499C /* BarChartView.swift */; };
 		84023ED527564F9B0091499C /* CustomMarkerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84023ED427564F9B0091499C /* CustomMarkerView.xib */; };
@@ -389,8 +387,6 @@
 		6700F6AC2970391300F96209 /* TripDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripDetailVC.swift; sourceTree = "<group>"; };
 		675241EF295D61F60039B466 /* CustomOutlinedTxtField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOutlinedTxtField.swift; sourceTree = "<group>"; };
 		6753A080297138630019A28E /* ChangePasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
-		6753A0822971593A0019A28E /* CustomSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSwitch.swift; sourceTree = "<group>"; };
-		6753A0832971593A0019A28E /* CustomThumbView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomThumbView.swift; sourceTree = "<group>"; };
 		84023ECE27562E170091499C /* ChartMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartMarker.swift; sourceTree = "<group>"; };
 		84023ED0275643E30091499C /* BarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
 		84023ED427564F9B0091499C /* CustomMarkerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomMarkerView.xib; sourceTree = "<group>"; };
@@ -765,15 +761,6 @@
 			path = CustomTextField;
 			sourceTree = "<group>";
 		};
-		6700F6702970119D00F96209 /* CustomUISwitch */ = {
-			isa = PBXGroup;
-			children = (
-				6753A0822971593A0019A28E /* CustomSwitch.swift */,
-				6753A0832971593A0019A28E /* CustomThumbView.swift */,
-			);
-			path = CustomUISwitch;
-			sourceTree = "<group>";
-		};
 		83C6381A79622B0C84407A8C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1105,7 +1092,6 @@
 		8470F4F5270AD61A00E05AF7 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				6700F6702970119D00F96209 /* CustomUISwitch */,
 				8470F561270AD61A00E05AF7 /* SocketAndWebservice */,
 				8470F4B0270AD61A00E05AF7 /* Networking */,
 				8470F4BC270AD61A00E05AF7 /* Enums */,
@@ -2241,7 +2227,6 @@
 				8470F718270AD61D00E05AF7 /* VehicleListResultModel.swift in Sources */,
 				8470F704270AD61D00E05AF7 /* Register.swift in Sources */,
 				18E2BB63291CCE1A00B49558 /* HomeVC+Observer.swift in Sources */,
-				6753A0842971593A0019A28E /* CustomSwitch.swift in Sources */,
 				849E1997274D1C62007C46EB /* NotificationCell.swift in Sources */,
 				8470F708270AD61D00E05AF7 /* MobileNoDetail.swift in Sources */,
 				8470F6AB270AD61C00E05AF7 /* CompleteView.swift in Sources */,
@@ -2249,7 +2234,6 @@
 				8470F700270AD61D00E05AF7 /* Logout.swift in Sources */,
 				84A35ABB2726AF26003078C1 /* AddMoneyView.swift in Sources */,
 				84BCFCA227204C8C009685A6 /* AppViewControllers.swift in Sources */,
-				6753A0852971593A0019A28E /* CustomThumbView.swift in Sources */,
 				18E2BB65291CCF1B00B49558 /* Notification+Ext.swift in Sources */,
 				8470F717270AD61D00E05AF7 /* CompanyListModel.swift in Sources */,
 				841007EE2747BD830029BDDD /* RootBookingHistory.swift in Sources */,

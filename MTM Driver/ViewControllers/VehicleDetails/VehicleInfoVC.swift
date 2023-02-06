@@ -300,23 +300,6 @@ class VehicleInfoVC: BaseViewController {
     }
     private func isValidInputes() -> Bool {
         
-        
-        if !isFromSetting {
-            parameterArray.vehicle_type_model_name = txtVehicleModel.textField.text!
-            parameterArray.year_of_manufacture = txtVehicleManufactureYear.textField.text!
-            parameterArray.other_company_name = txtCompanyName.textField.text!
-            parameterArray.plate_number = txtVehicleNumber.textField.text!
-            parameterArray.vehicle_color = txtVehicleColor.textField.text ?? ""
-            parameterArray.vehicle_type_manufacturer_name = txtCompanyName.textField.text!
-            parameterArray.vehicle_type = self.vehicleUpdatedType
-            
-            parameterArray.vehicle_type_model_id = self.vehicleSelectedSubModelID
-            parameterArray.vehicle_type_manufacturer_id = self.vehicleSelectedManuID
-            parameterArray.setNextRegistrationIndex(from: .vehicleInfo)
-            SessionManager.shared.registrationParameter = parameterArray
-        }
-        
-        
         if txtVehicleNumber.textField.text == nil || txtVehicleNumber.textField.text == ""  {
             
             txtVehicleNumber.textField.leadingAssistiveLabel.text = vehicleNumberErrorString
@@ -370,6 +353,8 @@ class VehicleInfoVC: BaseViewController {
         }
         
         if txtVehicleNumber.textField.text != "" && (txtCompanyName.textField.text != nil || txtCompanyName.textField.text != "" ) && (txtVehicleManufactureYear.textField.text != nil || txtVehicleManufactureYear.textField.text != "") && txtVehicleColor.textField.text != "" && imagesTypes.first?.image != #imageLiteral(resourceName: "car-1") && imagesTypes[1].image != #imageLiteral(resourceName: "car-2") && imagesTypes[2].image != #imageLiteral(resourceName: "car-3") && imagesTypes[3].image != #imageLiteral(resourceName: "car-4") {
+            
+            self.saveRegisterParams()
             return true
         } else if imagesTypes.first?.image == #imageLiteral(resourceName: "car-1") {
             AlertMessage.showMessageForError(vehicleLeftImageErrorString)
@@ -395,6 +380,23 @@ class VehicleInfoVC: BaseViewController {
         //            return false
         //        }
         //
+    }
+    
+    func saveRegisterParams() {
+        if !isFromSetting {
+            parameterArray.vehicle_type_model_name = txtVehicleModel.textField.text!
+            parameterArray.year_of_manufacture = txtVehicleManufactureYear.textField.text!
+            parameterArray.other_company_name = txtCompanyName.textField.text!
+            parameterArray.plate_number = txtVehicleNumber.textField.text!
+            parameterArray.vehicle_color = txtVehicleColor.textField.text ?? ""
+            parameterArray.vehicle_type_manufacturer_name = txtCompanyName.textField.text!
+            parameterArray.vehicle_type = self.vehicleUpdatedType
+            
+            parameterArray.vehicle_type_model_id = self.vehicleSelectedSubModelID
+            parameterArray.vehicle_type_manufacturer_id = self.vehicleSelectedManuID
+            parameterArray.setNextRegistrationIndex(from: .vehicleInfo)
+            SessionManager.shared.registrationParameter = parameterArray
+        }
     }
     
     func validationWithCompletion(_ completion: @escaping ((Bool) -> ())){
