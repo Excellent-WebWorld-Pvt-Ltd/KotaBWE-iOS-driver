@@ -52,8 +52,8 @@ class DocumentPickerController: NSObject {
     }
     
     private func presentCamera() {
-        AppDelegate.hasCameraAccess { [unowned self] granted in
-            if granted {
+        AppDelegate.hasCameraAccess { [weak self] granted in
+            if let self = self, granted {
                 AppDelegate.shared.setupNavigationAppearance(darkStyle: false)
                 self.pickerController.mediaTypes = ["public.image"]
                 self.pickerController.delegate = self
@@ -65,8 +65,8 @@ class DocumentPickerController: NSObject {
     }
     
     private func presentImageSelection() {
-        AppDelegate.hasPhotoLibraryAccess { [unowned self] granted in
-            if granted {
+        AppDelegate.hasPhotoLibraryAccess { [weak self] granted in
+            if let self = self, granted {
                 AppDelegate.shared.setupNavigationAppearance(darkStyle: false)
                 self.pickerController.mediaTypes = ["public.image"] // check error and crash
                 self.pickerController.delegate = self
