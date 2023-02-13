@@ -109,7 +109,6 @@ class SplashScreenViewController: BaseViewController {
             debugPrint("video.m4v not found")
             return
         }
-        
         guard let url = URL(string: "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4") else {
             return
         }

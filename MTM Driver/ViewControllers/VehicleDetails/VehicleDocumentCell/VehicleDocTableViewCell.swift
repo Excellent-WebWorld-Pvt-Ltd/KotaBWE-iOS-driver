@@ -106,12 +106,11 @@ class VehicleDocTableViewCell: UITableViewCell {
             }
             if status {
                 self.delegate?.vehicleDoc(viewDocumentOf: type, side: false)
-            } else {
+            }else {
                 self.delegate?.vehicleDoc(documentUploadRequestAt: self.indexPath,
                                           for: self.type, side: false)
             }
         }
-        
     }
     
     func configure(type: VehicleDoc,

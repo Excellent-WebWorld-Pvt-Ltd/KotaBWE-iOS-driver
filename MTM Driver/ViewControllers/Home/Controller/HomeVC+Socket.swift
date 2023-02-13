@@ -15,10 +15,8 @@ extension HomeViewController: SocketConnected {
     // ----------------------------------------------------
     // MARK:- --- All Socket Methods ---
     // ----------------------------------------------------
-    
     // Socket Off All
     func allSocketOffMethods() {
-        
         SocketIOManager.shared.socket.off(socketApiKeys.driverarrived.rawValue)
         SocketIOManager.shared.socket.off(socketApiKeys.driverarivedPickupLocation.rawValue)
         SocketIOManager.shared.socket.off(socketApiKeys.CompleteTrip.rawValue)
@@ -107,6 +105,7 @@ extension HomeViewController: SocketConnected {
     
     // Socket Emit 3
     func emitSocket_RejectRequest(bookingId: String) {
+        Loader.hideHUD()
         var param = [String: Any]()
         param["driver_id"] = Singleton.shared.driverId
         param["booking_id"] = bookingId
@@ -377,6 +376,4 @@ extension MeterDisplayVC {
     func emitSocket_EndWaitingTimeForMeter(param: [String:Any]) {
         SocketIOManager.shared.socketEmit(for: socketApiKeys.endWaitingTimeForMeter.rawValue, with: param)
     }
- 
-    
 }

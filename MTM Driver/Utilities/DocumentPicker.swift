@@ -52,8 +52,8 @@ class DocumentPickerController: NSObject {
     }
     
     private func presentCamera() {
-        AppDelegate.hasCameraAccess { [weak self] granted in
-            if let self = self, granted {
+        AppDelegate.hasCameraAccess { granted in
+            if granted {
                 AppDelegate.shared.setupNavigationAppearance(darkStyle: false)
                 self.pickerController.mediaTypes = ["public.image"]
                 self.pickerController.delegate = self
@@ -65,8 +65,8 @@ class DocumentPickerController: NSObject {
     }
     
     private func presentImageSelection() {
-        AppDelegate.hasPhotoLibraryAccess { [weak self] granted in
-            if let self = self, granted {
+        AppDelegate.hasPhotoLibraryAccess { granted in
+            if granted {
                 AppDelegate.shared.setupNavigationAppearance(darkStyle: false)
                 self.pickerController.mediaTypes = ["public.image"] // check error and crash
                 self.pickerController.delegate = self
@@ -81,7 +81,6 @@ class DocumentPickerController: NSObject {
         let alertController = UIAlertController(title: Messages.chooseSource,
                                                 message: nil,
                                                 preferredStyle: .actionSheet)
-
         for type in fileType {
             switch type {
             case .camera:
@@ -102,13 +101,11 @@ class DocumentPickerController: NSObject {
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in
             self.completion(nil)
         })
-
         if UIDevice.current.userInterfaceIdiom == .pad {
             alertController.popoverPresentationController?.sourceView = sourceView
             alertController.popoverPresentationController?.sourceRect = sourceView.bounds
             alertController.popoverPresentationController?.permittedArrowDirections = [.down, .up]
         }
-
         self.presentationController?.present(alertController, animated: true)
     }
 

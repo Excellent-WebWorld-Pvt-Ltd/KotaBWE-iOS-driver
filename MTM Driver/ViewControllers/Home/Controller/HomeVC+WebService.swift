@@ -76,15 +76,14 @@ extension HomeViewController {
         WebServiceCalls.CompleteTripService(MobileNoDetailModel: model) { (response, status) in
             Loader.hideHUD()
             if status {
-                
                 let res = RootCompleteTrip(fromJson: response)
                 let objcompleteTrip = res.data
+                Singleton.shared.totalDriverEarning = res.totalDriverEarning ?? "-"
                 Singleton.shared.bookingInfo = nil
                 Singleton.shared.CompleteTrip = objcompleteTrip
                 self.getLastView(bookingId: model.booking_id)
                 self.driverData.driverState = .available
                 self.resetMap()
-               
             } else {
                  AlertMessage.showMessageForError(response["message"].stringValue)
             }

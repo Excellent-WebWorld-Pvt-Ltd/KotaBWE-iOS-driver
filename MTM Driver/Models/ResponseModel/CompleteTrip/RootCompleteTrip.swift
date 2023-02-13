@@ -9,13 +9,12 @@
 import Foundation
 import SwiftyJSON
 
-
 class RootCompleteTrip {
-
     var data : CompeteTripData!
     var message : String!
     var paymentType : String!
     var status : Bool!
+    var totalDriverEarning: String!
 
     /**
      * Instantiate the instance using the passed json values to set the properties values
@@ -32,5 +31,6 @@ class RootCompleteTrip {
         data.message = json.getApiMessage()
         paymentType = json["payment_type"].stringValue
         status = json["status"].boolValue
+        totalDriverEarning = json["total_driver_earning"].stringValue
     }
 }
