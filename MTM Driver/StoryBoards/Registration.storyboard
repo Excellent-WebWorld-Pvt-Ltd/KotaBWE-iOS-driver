@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yBn-mz-LZl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yBn-mz-LZl">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -555,8 +555,8 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="textFieldCorners">
                                                         <real key="value" value="15"/>
                                                     </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Account holder Name"/>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Account holder Name"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Account Holder Name"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Account Holder Name"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="At0-5T-Rux" customClass="CustomViewOutlinedTxtField" customModule="MTM_Driver" customModuleProvider="target">
@@ -1382,7 +1382,7 @@
                                                                             <constraint firstAttribute="height" constant="25" id="7eV-4l-drn"/>
                                                                             <constraint firstAttribute="width" secondItem="XUN-DA-mcZ" secondAttribute="height" multiplier="1:1" id="LQf-Y7-usw"/>
                                                                         </constraints>
-                                                                        <state key="normal" image="ic_camera"/>
+                                                                        <state key="normal" image="ic_Camera"/>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOF-3r-dSy">
                                                                         <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
@@ -4016,25 +4016,25 @@
     </scenes>
     <designables>
         <designable name="9Ig-Z7-cyq">
-            <size key="intrinsicContentSize" width="118.33333333333333" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="217" height="39.220703125"/>
         </designable>
         <designable name="CX7-ym-Rcc">
-            <size key="intrinsicContentSize" width="118.33333333333333" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="217" height="39.220703125"/>
         </designable>
         <designable name="Frg-0q-dBR">
-            <size key="intrinsicContentSize" width="162.66666666666666" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="295" height="39.220703125"/>
         </designable>
         <designable name="dxI-HC-dAW">
-            <size key="intrinsicContentSize" width="118.33333333333333" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="217" height="39.220703125"/>
         </designable>
         <designable name="e6t-4y-lyg">
-            <size key="intrinsicContentSize" width="118.33333333333333" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="217" height="39.220703125"/>
         </designable>
         <designable name="i1X-Kq-Nwd">
-            <size key="intrinsicContentSize" width="118.33333333333333" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="217" height="39.220703125"/>
         </designable>
         <designable name="oMI-zV-Icl">
-            <size key="intrinsicContentSize" width="118.33333333333333" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="217" height="39.220703125"/>
         </designable>
     </designables>
     <resources>
@@ -4042,9 +4042,9 @@
         <image name="IQButtonBarArrowDown.png" width="21" height="12"/>
         <image name="emptyCheckbox" width="14" height="14"/>
         <image name="ic_AppIcon" width="250" height="240"/>
+        <image name="ic_Camera" width="20" height="20"/>
         <image name="ic_DownArrow" width="10" height="6"/>
         <image name="ic_attach" width="15" height="15"/>
-        <image name="ic_camera" width="21.333333969116211" height="21"/>
         <image name="info-icon" width="170" height="170"/>
         <image name="placeholder_man" width="75" height="75"/>
         <image name="redio-button-select" width="85" height="85"/>
@@ -4059,7 +4059,7 @@
             <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

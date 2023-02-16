@@ -87,6 +87,8 @@ class VehicleInfoVC: BaseViewController {
         webserviceForVehicleMenufactureYearList()
         dismissPickerView()
         assignDelegate()
+        let buttonTitle = isFromSetting ? "Save" : "Next"
+        btnNext.setTitle(buttonTitle, for: .normal)
     }
     
     
@@ -549,7 +551,6 @@ class VehicleInfoVC: BaseViewController {
             let vehicleDetailVC = AppViewControllers.shared.vehicleDocs(isFromSettings: false)
             self.push(vehicleDetailVC)
         }
-        
         //        validationWithCompletion { status in
         //            if status {
         //                if self.isFromSetting {
@@ -563,7 +564,6 @@ class VehicleInfoVC: BaseViewController {
         //            }
         //        }
     }
-    
 }
 
 

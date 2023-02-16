@@ -79,6 +79,8 @@ class Singleton {
     var autoFillOTP: Bool = false
     
     var singinMsg: String = ""
+    var documentExpiry: String = ""
+    var isExpiry:Bool = false
     
     func fillInfo(from model: InitResponse) {
         self.termsAndConditionURL = model.termConditionURL
@@ -87,6 +89,7 @@ class Singleton {
            let intCurrentTime = Int(model.currentTime) {
             self.currentTime = intCurrentTime
         }
+        self.documentExpiry = model.docExpired
         self.sosNumber = model.sosNumber
         self.bookingInfo = model.bookingInfo
         if let driverDutyInfo = model.driverDutyInfo {

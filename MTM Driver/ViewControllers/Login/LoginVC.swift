@@ -116,15 +116,14 @@ class LoginVC: UIViewController {
         }
         return true
     }
+    
     func validations() -> (Bool) {
-        
         let emailValidation = InputValidation.email.isValid(input: txtEmail.textField.unwrappedText, field: "email address")
             txtEmail.textField.leadingAssistiveLabel.text = emailValidation.error
         let passwordValidation = InputValidation.password.isValid(input: txtPassword.textField.unwrappedText, field: "password")
             txtPassword.textField.leadingAssistiveLabel.text = passwordValidation.error ?? ""
         txtPassword.textField.setOutlineColor(passwordValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
         txtEmail.textField.setOutlineColor(emailValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
-        
 //        if model.lat.isBlank || model.lng.isBlank {
 //            AlertMessage.showMessageForError("Please enable your location to move forward")
 //        }
@@ -133,9 +132,7 @@ class LoginVC: UIViewController {
         }else{
             return false
         }
-        
     }
-    
     
     //MARK:- ===== Btn Action Next =====
     @IBAction func btnActionNext(_ sender: UIButton) {

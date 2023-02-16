@@ -14,9 +14,9 @@ extension Double {
         currencyFormatter.usesGroupingSeparator = true
         currencyFormatter.numberStyle = .currency
         //currencyFormatter.locale = Locale(identifier: "en_KE")
-        currencyFormatter.currencySymbol = "Kzs"
-        currencyFormatter.minimumFractionDigits = 0
-        currencyFormatter.maximumFractionDigits = 2
+        currencyFormatter.currencySymbol = Currency
+//        currencyFormatter.minimumFractionDigits = 0
+//        currencyFormatter.maximumFractionDigits = 2
         let priceString = currencyFormatter.string(from: NSNumber(value: self))!
         return priceString
     }

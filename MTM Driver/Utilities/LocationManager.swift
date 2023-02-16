@@ -19,7 +19,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     static let shared = LocationManager()
     private lazy var locationManager = CLLocationManager()
     var delegate: LocationManagerDelegate?
-
+    
     var mostRecentLocation: CLLocation?
     
     var coordinate: CLLocationCoordinate2D? {
@@ -57,6 +57,33 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         }
     }
 
+    func UpdateLocationStart() -> Bool{
+        if CLLocationManager.locationServicesEnabled() {
+            if isAlwaysPermissionGranted(){
+                self.locationManager.startUpdatingLocation()
+                return true
+            }
+        } else {
+            self.openSettingsDialog()
+        }
+        return false
+    }
+    
+    func isAlwaysPermissionGranted() -> Bool{
+        let aStatus = CLLocationManager.authorizationStatus()
+        switch aStatus {
+        case .notDetermined:
+            self.locationManager.requestAlwaysAuthorization()
+            return false
+        case .authorizedAlways:
+            return true
+        default:
+            self.openSettingsDialog()
+            return false
+        }
+    }
+
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let mostRecentLocation = locations.last else {
             return

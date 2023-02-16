@@ -253,6 +253,7 @@ class TripDetailsVC: BaseViewController {
             Loader.hideHUD()
             if status {
                 print(response)
+                AlertMessage.showMessageForSuccess(response["message"].stringValue)
                 self.vwInvoice.isHidden = true
                 self.vwSlide.isHidden = false
                 self.vwAcceptReject.isHidden = true

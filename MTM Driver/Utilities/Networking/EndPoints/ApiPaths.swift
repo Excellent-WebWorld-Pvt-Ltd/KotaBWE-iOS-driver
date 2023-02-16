@@ -117,9 +117,7 @@ enum ParameterKey{
 }
 
 enum socketApiKeys: String, CaseIterable {
-    
     case kSocketBaseURL = "http://52.66.86.25:8080/"
-    
     case CancelBeforeAccept = "cancel_booking_before_accept"
     case updateDriverLocation = "update_driver_location"
     case WhenRequestArrived = "forward_booking_request"
@@ -131,7 +129,6 @@ enum socketApiKeys: String, CaseIterable {
     case driverarrived = "driver_arrived"
     case driverarivedPickupLocation  = "arrived_at_pickup_location"
     case trackTrip = "track_trip"
-    
     case onTheWayBookingRequest = "on_the_way_booking_request" // driver_id,booking_id
     case askForTips = "ask_for_tips"
     case receiveTips = "receive_tips"
@@ -141,7 +138,6 @@ enum socketApiKeys: String, CaseIterable {
     case endWaitingTimeForMeter = "end_waiting_time_for_meter"
     case error
     case pickupTimeError = "pickup_time_error"
-    
 }
 
 enum socketParam: String {

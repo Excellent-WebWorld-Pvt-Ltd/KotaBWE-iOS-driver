@@ -26,10 +26,7 @@ class WebService{
     //-------------------------------------
     
     func requestMethod(api: ApiKey, httpMethod:Method,parameters: Any, completion: @escaping CompletionResponse){
-
         guard isConnected else { completion(JSON(), false); return }
-        
-        
         var parameterString = ""
         if httpMethod == .get{
             if let param = parameters as? [String:Any]{
@@ -41,30 +38,21 @@ class WebService{
             }
         }
         else { parameterString = "" }
-        
         guard let url = URL(string: NetworkEnvironment.apiURL + api.rawValue + parameterString) else {
             completion(JSON(),false)
             return
         }
-        
         print("the url is \(url) and the parameters are \n \(parameters) and the headers are \(NetworkEnvironment.headers)")
-        
         let method = Alamofire.HTTPMethod.init(rawValue: httpMethod.rawValue)!
-
         var params = parameters
-
-        if(method == .get)
-        {
+        if(method == .get){
             params = [:]
         }
-
 //        Loader.showHUD(with: Helper.currentWindow)
-        
         Alamofire.request(url, method: method, parameters: params as? [String : Any], encoding: URLEncoding.httpBody, headers: NetworkEnvironment.headers).validate()
             .responseJSON { (response) in
                // LoaderClass.hideActivityIndicator()
 //         Loader.hideHUD()
-                
                 if let json = response.result.value{
                     let resJson = JSON(json)
                     print("the response is \n \(resJson)")
@@ -74,17 +62,13 @@ class WebService{
                 else {
                   //  LoaderClass.hideActivityIndicator()
                     if let error = response.result.error {
-
-                        if(response.response?.statusCode == 403)
-                        {
+                        if(response.response?.statusCode == 403){
                             SessionManager.shared.logout()
                             AlertMessage.showMessageForError("Session expired!")
-                        }else
-                        {
+                        }else{
                             print("Error = \(error.localizedDescription)")
                             completion(JSON(), false)
                             AlertMessage.showMessageForError(error.localizedDescription)
-
                         }
                     }
                 }
@@ -93,8 +77,7 @@ class WebService{
     }
 
 
-    func getMethod(url: URL, httpMethod:Method, completion: @escaping CompletionResponse)
-    {
+    func getMethod(url: URL, httpMethod:Method, completion: @escaping CompletionResponse){
         print("The webservice call is for \(url) and  the headers are \(NetworkEnvironment.headers)")
         
         

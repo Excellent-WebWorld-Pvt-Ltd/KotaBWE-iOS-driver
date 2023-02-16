@@ -59,7 +59,7 @@ class SideMenuTableViewController: UIViewController {
         //.init(icon: .menuIncome, title: "Wallet", type: .wallet),
         .init(icon: .menuSettings, title: "Settings", type: .settings),
         .init(icon: .menuHeadphones, title: "Support", type: .support),
-        .init(icon: .file, title: "Privcy Policy", type: .privacy),
+        .init(icon: .file, title: "Privacy Policy", type: .privacy),
     ]
     
     override func viewDidLoad() {

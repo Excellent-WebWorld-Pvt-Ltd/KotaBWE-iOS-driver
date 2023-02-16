@@ -43,6 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         setupKeyboard()
         setupUI()
         setSplash()
+        self.locationUpdate()
         return true
     }
     
@@ -52,6 +53,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         GMSPlacesClient.provideAPIKey(googlPlacesApiKey)
         LocationManager.shared.start()
         print("FCM token:", SessionManager.shared.fcmToken ?? "")
+    }
+    
+    private func locationUpdate(){
+        Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { (timer) in
+            if Singleton.shared.isDriverOnline{
+                if LocationManager.shared.UpdateLocationStart(){
+                    if  SocketIOManager.shared.socket.status == .connected {
+                        print("emit calling ----------------------------------------")
+                        let param = [
+                            "driver_id" : "\(Singleton.shared.userProfile?.responseObject.id ?? "")",
+                            "lat" : "\(LocationManager.shared.coordinate?.latitude ?? 0.0)",
+                            "lng" : "\(LocationManager.shared.coordinate?.longitude ?? 0.0)"
+                        ] as [String:AnyObject]
+                        SocketIOManager.shared.socketEmit(for: socketApiKeys.updateDriverLocation.rawValue, with: param)
+                    }else{
+//                        SocketIOManager.shared.establishConnection()
+                    }
+                }
+            }
+        })
     }
     
     private func setupUI() {

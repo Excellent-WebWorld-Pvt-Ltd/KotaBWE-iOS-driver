@@ -34,11 +34,10 @@ class HomeViewController: BaseViewController {
     
     
 //    @IBOutlet weak var viewProgress: UIView!
-    var mapView : GMSMapView!
     @IBOutlet weak var mapContainerView : UIView!
     @IBOutlet var bottomContentView: UIView!
     let progress = Progress(totalUnitCount: 10)
-    
+    var mapView : GMSMapView!
     var LoginDetail : LoginModel = LoginModel()
     var addCardReqModel : AddCardRequestModel = AddCardRequestModel()
     var CardListReqModel : CardList = CardList()
@@ -57,7 +56,8 @@ class HomeViewController: BaseViewController {
     // ----------------------------------------------------
     // MARK: - Globle Declaration Methods
     // ----------------------------------------------------
-    
+    var count: Double = 0
+    var timerProgressRequest: Timer?
     var presentType = DriverState.available
     var presentView: UIView?
     var index = Int()
@@ -83,9 +83,9 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         observeNotification()
-        if Singleton.shared.isDriverOnline {
+//        if Singleton.shared.isDriverOnline {
             SocketIOManager.shared.establishConnection()
-        }
+//        }
         getFirstView()
         LocationManager.shared.delegate = self
         if Singleton.shared.bookingInfo != nil {
@@ -105,6 +105,12 @@ class HomeViewController: BaseViewController {
         self.checkMeterStatus()
         self.setupCurrentLocation()
         updateLocation()
+        Loader.showHUD()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            Loader.hideHUD()
+            self.checkLicenseExpiry()
+        }
+//        self.allSocketOnMethods()
     }
     
     @objc private func panHandler(_ pan : UIPanGestureRecognizer){
@@ -143,6 +149,11 @@ class HomeViewController: BaseViewController {
         mapView.frame = CGRect(x: 0, y: 0, width: self.mapContainerView.frame.width, height: self.mapContainerView.frame.height)
     }
     
+    func checkLicenseExpiry(){
+        if Singleton.shared.documentExpiry != ""{
+            ThemeAlertVC.present(from: self, ofType: .simple(message: Singleton.shared.documentExpiry))
+        }
+    }
     
     func HideShowWaiting(isStartWaiting:Bool,Hidden:Bool) {
         if isStartWaiting {
@@ -161,7 +172,7 @@ class HomeViewController: BaseViewController {
     }
     
      func callAction() {
-        let contactNumber = bookingData.customerInfo.mobileNo
+         let contactNumber = bookingData.customerInfo?.mobileNo
         if contactNumber == "" {
             UtilityClass.showAlert(message: "Contact number is not available")
         } else {
@@ -193,8 +204,8 @@ class HomeViewController: BaseViewController {
         let ChatviewController: ChatVC = UIViewController.viewControllerInstance(storyBoard: .myTrips)
         ChatviewController.strBookingId = bookingData.id
         ChatviewController.receiverId =  bookingData.customerId ?? ""
-        ChatviewController.receiverName = "\(bookingData.customerInfo.firstName ?? "") \(bookingData.customerInfo.lastName ?? "")"
-        ChatviewController.receiverImage = "\(NetworkEnvironment.baseImageURL + bookingData.customerInfo.profileImage)"
+        ChatviewController.receiverName = "\(bookingData.customerInfo?.firstName ?? "") \(bookingData.customerInfo?.lastName ?? "")"
+        ChatviewController.receiverImage = "\(NetworkEnvironment.baseImageURL + (bookingData.customerInfo?.profileImage ?? ""))"
         
         self.navigationController?.pushViewController(ChatviewController, animated: true)
     }
@@ -272,14 +283,15 @@ class HomeViewController: BaseViewController {
     }
     
     @IBAction func btnCurrentLocation(_ sender: UIButton){
-        isCameraAnimation = true
-        setupCurrentLocation()
-        
+        if LocationManager.shared.isAlwaysPermissionGranted(){
+            isCameraAnimation = true
+            setupCurrentLocation()
+        }
     }
     
     //MARK:- === Call To Customer =====
     func CallBtnAction(){
-        UtilityClass.callNumber(phoneNumber:bookingData.customerInfo.mobileNo)
+        UtilityClass.callNumber(phoneNumber:bookingData.customerInfo?.mobileNo ?? "")
     }
     
     
@@ -338,15 +350,15 @@ class HomeViewController: BaseViewController {
     
     func setupOnlineOfflineView() {
         if Singleton.shared.isDriverOnline {
-            SocketIOManager.shared.establishConnection()
+            print("socket connect start : -",Date())
+//            SocketIOManager.shared.establishConnection()
             //startTimer()
             self.offlineView.isHidden = true
             if self.constantHeightOfOfflineView != nil {
                 self.constantHeightOfOfflineView.constant = 0
             }
-            
         } else {
-            SocketIOManager.shared.closeConnection()
+//            SocketIOManager.shared.closeConnection()
             //self.endTimer()
             if self.constantHeightOfOfflineView != nil {
                 self.constantHeightOfOfflineView.constant = 60
@@ -358,7 +370,6 @@ class HomeViewController: BaseViewController {
         }
     }
     
-    
     public func getFirstView() {
         self.presentView(forState: .duty)
     }
@@ -366,10 +377,6 @@ class HomeViewController: BaseViewController {
     public func getLastView(bookingId:String) {
         self.presentView(forState: .lastCompleteView,bookingId: bookingId)
     }
-    
-    var count: Double = 0
-    var timerProgressRequest: Timer?
-    
     
     func setProgress() {
         //1
@@ -380,7 +387,6 @@ class HomeViewController: BaseViewController {
         timerProgressRequest = nil
         // 2
         timerProgressRequest = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
-            
             // 3
             if self.count >= 1 {
                 self.timerProgressRequest?.invalidate()
@@ -460,7 +466,6 @@ class HomeViewController: BaseViewController {
             isFirstTimeLaunch = false
             self.checkDriverStatus()
         }
-        
         if(driverMarker == nil || driverMarker!.map == nil) {
             setDriverMarker()
         }
@@ -471,7 +476,7 @@ class HomeViewController: BaseViewController {
             oldCoordinate = location.coordinate
         }
         if isCameraAnimation {
-            if distanceBetween(start: oldCoordinate, end: location.coordinate){
+            if (LocationManager.shared.speed ?? 0.0) > 0{
                 let curLet = location.coordinate.latitude
                 let curLong = location.coordinate.longitude
                 let dropLet = oldCoordinate.latitude//dictLocation?["lat"]?.doubleValue ?? 0.0
@@ -497,7 +502,6 @@ class HomeViewController: BaseViewController {
     
 }
 
-
 // ----------------------------------------------------
 // MARK: - Location Methods
 // ----------------------------------------------------
@@ -506,14 +510,11 @@ extension HomeViewController {
     
     func emitDriverLocation(location: CLLocationCoordinate2D) {
         print("Driver Update Location:\(#function) ")
-        
         let param = [
             "driver_id" : "\(Singleton.shared.userProfile?.responseObject.id ?? "")",
             "lat" : "\(location.latitude)",
             "lng" : "\(location.longitude)"
-        
         ] as [String:AnyObject]
-        
         if SocketIOManager.shared.socket.status == .connected {
             emitSocket_UpdateDriverLatLng(param: param)
         }
@@ -529,7 +530,7 @@ extension HomeViewController: LocationManagerDelegate , GMSMapViewDelegate {
             guard let loc = LocationManager.shared.mostRecentLocation?.coordinate else {
                 return
             }
-            emitDriverLocation(location: loc)
+//            emitDriverLocation(location: loc)
         }
     }
     
@@ -546,7 +547,6 @@ extension HomeViewController: LocationManagerDelegate , GMSMapViewDelegate {
         }
     }
 
-  
     //MARK:- ===== Update placemark ======
     func updateMarker(lat:Double , lng : Double){
         DispatchQueue.main.async {
@@ -591,7 +591,6 @@ extension HomeViewController: LocationManagerDelegate , GMSMapViewDelegate {
 extension HomeViewController {
     
     func setupMarkerOnGooglMap(markerType: setupGMSMarker, cordinate: CLLocationCoordinate2D){
-        
         if markerType != .from {
             destinationMarker?.map = nil
             destinationMarker = GMSMarker(position: cordinate)
@@ -610,16 +609,12 @@ extension HomeViewController {
         if let destinationMarker = self.destinationMarker {
             self.arrMarkers.append(destinationMarker)
         }
-        
         var bounds = GMSCoordinateBounds()
-        for marker in self.arrMarkers
-        {
+        for marker in self.arrMarkers{
             bounds = bounds.includingCoordinate(marker.position)
         }
-        
         let update = GMSCameraUpdate.fit(bounds, withPadding: 17)
         self.mapView.animate(with: update)
-        
         delay(seconds: 5) {
             guard let driverCordinate = Singleton.shared.driverLocation else {
                 LocationManager.shared.openSettingsDialog()
@@ -630,7 +625,6 @@ extension HomeViewController {
         }
         //self.mapView.animate(to: GMSCameraPosition(target: driverCordinate, zoom: 12))
     }
-    
     
     func resetMap(){
         guard let driverLocation = Singleton.shared.driverLocation else {
@@ -647,6 +641,4 @@ extension HomeViewController {
             closure()
         }
     }
-    
-    
 }

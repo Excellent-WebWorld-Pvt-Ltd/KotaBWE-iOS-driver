@@ -40,8 +40,8 @@ class NotificationVC: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigation(.normal(title: "Notifications", leftItem: .back, hasNotification: false))
-        let clearButton = UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(clearNotifications))
+        setupNavigation(.normal(title: "Notification", leftItem: .back, hasNotification: false))
+        let clearButton = UIBarButtonItem(title: "Clear All", style: .plain, target: self, action: #selector(clearNotifications))
         navigationItem.rightBarButtonItem = clearButton
         webServiceToGetNotification()
     }
@@ -104,7 +104,7 @@ extension NotificationVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if showNoDataCell {
             let cell: NoDataFoundTblCell = tableView.dequeueReusableCell(withType: .noData, for: indexPath)
-            cell.setMessage("No notification!")
+            cell.setMessage("No data found.")
             return cell
         }
         if isLoadingIndexPath(indexPath) {

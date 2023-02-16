@@ -12,6 +12,7 @@ import SDWebImage
 class SettingVC: BaseViewController {
     
     //MARK:- ===== Outlets ======
+    @IBOutlet weak var lblVersion: UILabel!
     @IBOutlet weak var tblSetting: UITableView!
     
     //MARK:- ===== Variables ===
@@ -22,6 +23,7 @@ class SettingVC: BaseViewController {
         NotificationCenter.default.removeObserver(self, name: .updateProfile, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(UpdateProfile), name: .updateProfile, object: nil)
         self.setupNavigation(.normal(title: "Settings", leftItem: .back))
+        self.lblVersion.text = "Version : \(kAPPVesion)"
         tblSetting.contentInset.top = 10
         tblSetting.registerNibCell(type: .Setting)
         tblSetting.registerNibCell(type: .ProfileInfo)

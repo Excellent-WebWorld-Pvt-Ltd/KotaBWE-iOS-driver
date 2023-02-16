@@ -27,7 +27,7 @@ class HelpViewController: BaseViewController, UITextViewDelegate {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupNavigation(.normal(title: "Help", leftItem: .back, hasNotification: false))
+        self.setupNavigation(.normal(title: "Support", leftItem: .back, hasNotification: false))
     }
     
     // MARK: - Actions
@@ -54,7 +54,7 @@ class HelpViewController: BaseViewController, UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textView.text = "Description"
+            textView.text = "Describe your issue"
             textView.textColor = UIColor.lightGray
         }
     }

@@ -138,14 +138,15 @@ class VehicleDocTableViewCell: UITableViewCell {
     
     func updateAttachUI() {
         var upload = true
+        let firstLable = UtilityClass.getDocLabel(self.type, side: true)
         if isFromRegister{
             upload = RegistrationParameter.shared.getDocUrl(self.type, side: true) != ""
         }else{
             upload = docData.getDocUrl(self.type, side: true) != ""
         }
-        var title = upload ? "View document" : "Attach Document"
+        var title = upload ? firstLable : "Attach Document"
         let attr: [NSAttributedString.Key: Any] = [
-            .underlineStyle: NSUnderlineStyle.single.rawValue,
+            .underlineStyle: !upload ? NSUnderlineStyle.single.rawValue : 0,
             .font: FontBook.regular.font(ofSize: 15),
             .foregroundColor: upload ? UIColor.themeFailed: UIColor.black
         ]
@@ -163,13 +164,13 @@ class VehicleDocTableViewCell: UITableViewCell {
             }
             editButtonSecond.isHidden = !second
             let att2: [NSAttributedString.Key: Any] = [
-                .underlineStyle: NSUnderlineStyle.single.rawValue,
+                .underlineStyle: !second ? NSUnderlineStyle.single.rawValue : 0,
                 .font: FontBook.regular.font(ofSize: 15),
                 .foregroundColor: second ? UIColor.themeFailed: UIColor.black
             ]
             editButtonSecond.isHidden = !second
-            let titleSecond = second ? "View document" : "Attach Document(Back)"
-            title = upload ? "View document" : "Attach Document(Front)"
+            let titleSecond = second ? UtilityClass.getDocLabel(self.type, side: false) : "Attach Document(Back)"
+            title = upload ? firstLable : "Attach Document(Front)"
             lblattachtitleSecond.attributedText = NSAttributedString(string: titleSecond, attributes: att2)
             attachmentLabel.attributedText = NSAttributedString(string: title, attributes: attr)
         }else {

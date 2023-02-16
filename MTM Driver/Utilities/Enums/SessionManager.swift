@@ -142,6 +142,8 @@ class SessionManager {
         SessionManager.shared.savedProfileImage = nil
         SessionManager.shared.registrationParameter = nil
         Singleton.shared.bookingInfo = nil
+        Singleton.shared.documentExpiry = ""
+        Singleton.shared.isExpiry = false
         SessionManager.shared.isUserLoggedIn = false
         NotificationCenter.postCustom(.endTripTimer)
         AppDelegate.shared.allSocketOffMethods()
@@ -153,6 +155,8 @@ class SessionManager {
         SessionManager.shared.savedProfileImage = nil
         SessionManager.shared.registrationParameter = nil
         Singleton.shared.bookingInfo = nil
+        Singleton.shared.documentExpiry = ""
+        Singleton.shared.isExpiry = false
         SessionManager.shared.isUserLoggedIn = false
         NotificationCenter.postCustom(.endTripTimer)
         AppDelegate.shared.allSocketOffMethods()

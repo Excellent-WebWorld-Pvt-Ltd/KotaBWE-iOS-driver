@@ -96,7 +96,7 @@ class ChatVC: BaseViewController {
         registerForKeyboardNotifications()
         var titleStr = ""
         if receiverName.isEmpty {
-            let fullname = (Singleton.shared.bookingInfo?.customerInfo.firstName ?? "") + " " + (Singleton.shared.bookingInfo?.customerInfo.lastName ?? "")
+            let fullname = (Singleton.shared.bookingInfo?.customerInfo?.firstName ?? "") + " " + (Singleton.shared.bookingInfo?.customerInfo?.lastName ?? "")
              receiverName = fullname
         } else {
             titleStr = receiverName

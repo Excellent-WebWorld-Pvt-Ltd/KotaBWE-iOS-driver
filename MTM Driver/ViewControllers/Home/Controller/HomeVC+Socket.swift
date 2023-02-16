@@ -36,7 +36,6 @@ extension HomeViewController: SocketConnected {
 
     /// Socket On All
     func allSocketOnMethods() {
-        
         onSocketTrackTrip()
         onSocketCancelTripBeforeAccept()
        // onSocketLiveTraking()
@@ -346,7 +345,7 @@ extension HomeViewController: SocketConnected {
                 ] as [String:AnyObject]
                 
                 if SocketIOManager.shared.socket.status == .connected {
-                    emitSocket_UpdateDriverLatLng(param: param)
+//                    emitSocket_UpdateDriverLatLng(param: param)
                 }
 
             }

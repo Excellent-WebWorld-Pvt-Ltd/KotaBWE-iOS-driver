@@ -86,6 +86,35 @@ class UtilityClass: NSObject {
         }
     }
     
+    class func getDocLabel(_ type: VehicleDoc,side:Bool) -> String {
+        switch type {
+        case .driverLicense:
+            if side{
+                return "Driver License Front Uploaded!!"
+            }else{
+                return "Driver License Back Uploaded!!"
+            }
+        case .drivrCriminalRecord:
+            return "Criminal Record Uploaded!!"
+        case .drivrResidenceCertificate:
+            return "Residence Certificate Uploaded!!"
+        case .rentalLicense:
+            return "Rental License Uploaded!!"
+        case .booklet:
+            return "Booklet Uploaded!!"
+        case .civilLiabilityInsurance:
+            return "Civil Liability Insurance Uploaded!!"
+        case .biFrontAndBack:
+            if side{
+                return "BI Front Uploaded!!"
+            }else{
+                return "BI Back Uploaded!!"
+            }
+        default:
+            return ""
+        }
+    }
+    
     class func imageGet(url : String , img:UIImageView , _ IndClr : UIColor = UIColor.black , _ PlaceHolderImage : UIImage = UIImage()){
          img.kf.indicatorType = .activity
          let activity =  img.kf.indicator?.view as? UIActivityIndicatorView ?? UIActivityIndicatorView()

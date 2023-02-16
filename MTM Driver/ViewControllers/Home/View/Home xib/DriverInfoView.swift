@@ -75,7 +75,9 @@ class DriverInfoView: UIView
     @IBOutlet weak var lblLoadType: ThemeLabel!
     @IBOutlet weak var stackVIewMiles: UIStackView!
     @IBOutlet weak var lblItemQuantity: ThemeLabel!
-    
+    @IBOutlet weak var lblTimer: ThemeLabel!
+    @IBOutlet weak var heightBouttom: NSLayoutConstraint!
+    @IBOutlet weak var lblTimerHeight: NSLayoutConstraint!
     // ----------------------------------------------------
     // MARK: - Globle Declaration Methods
     // ----------------------------------------------------
@@ -88,6 +90,8 @@ class DriverInfoView: UIView
     var isArrived = Bool()
     var isStartTrip = Bool()
     var isAccepted = Bool()
+    var timer = Timer()
+    var duretion = 30
     
     var driverState : DriverState = .duty {
         didSet {
@@ -97,6 +101,10 @@ class DriverInfoView: UIView
                // ViewSOS.isHidden = true
                // btnSos.isHidden = true
              //   conWidthOfViewSoS.constant = 0
+                self.heightBouttom.constant = 10
+                self.lblTimerHeight.constant = 30
+                self.lblTimer.isHidden = false
+                timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
                 setUpSwipeView(vwSwipe: viewRequestButton)
                 lblLocationTitle.text = "Pickup"
                 getRequest(isrequest:false)
@@ -108,6 +116,9 @@ class DriverInfoView: UIView
              //   conWidthOfViewSoS.constant = 0
               //  ViewSOS.isHidden = true
              //   btnSos.isHidden = true
+                self.lblTimer.isHidden = true
+                self.heightBouttom.constant = 0
+                self.lblTimerHeight.constant = 0
                 getRequest(isrequest:true)
                 lblLocationTitle.text = "Pickup"
                 setUpSwipeView(vwSwipe: viewBtnStartRide)
@@ -117,8 +128,11 @@ class DriverInfoView: UIView
                 viewBtnCompleteTrip.isHidden = true
             case .requestAccepted :
                 Loader.hideHUD()
+                self.heightBouttom.constant = 0
+                self.lblTimerHeight.constant = 0
              //   conWidthOfViewSoS.constant = 0
                 getRequest(isrequest:true)
+                self.lblTimer.isHidden = true
               //  ViewSOS.isHidden = true
              //   btnSos.isHidden = true
                 lblLocationTitle.text = "Pickup"
@@ -140,7 +154,10 @@ class DriverInfoView: UIView
               //  ViewSOS.isHidden = false
                // btnSos.isHidden = false
                 //getRequest(isrequest:true)
+                self.heightBouttom.constant = 0
+                self.lblTimerHeight.constant = 0
                 lblLocationTitle.text = "Drop-off"
+                self.lblTimer.isHidden = true
                 setUpSwipeView(vwSwipe: viewBtnCompleteTrip)
                 viewRequestTrip.isHidden = true
                 viewBtnArrivedTrip.isHidden = true
@@ -148,6 +165,9 @@ class DriverInfoView: UIView
                 viewBtnCompleteTrip.isHidden = false
                 viewPhonChat.isHidden = true
             default:
+                self.heightBouttom.constant = 0
+                self.lblTimerHeight.constant = 0
+                self.lblTimer.isHidden = true
                 break
             }
         }
@@ -176,6 +196,19 @@ class DriverInfoView: UIView
         vwSwipe.delegate = self
         vwSwipe.applyThemeStyle()
         //playAnimation()
+    }
+    
+    @objc func fireTimer(){
+        UIView.animate(withDuration: 1) {
+            if self.duretion >= 0{
+                if self.duretion < 10{
+                    self.lblTimer.text = "00:0\(self.duretion)"
+                }else{
+                    self.lblTimer.text = "00:\(self.duretion)"
+                }
+            }
+            self.duretion -= 1
+        }
     }
     
     //MARK:- === Btn Action Call ======
@@ -291,7 +324,7 @@ class DriverInfoView: UIView
         self.lblEarning.text = Currency + " " + "\(totalEarning ?? 0.0)"
         self.lblDriverRatings.text = parameter?.rating
 
-        self.iconDriverProfilePic.sd_setImage(with: URL(string: NetworkEnvironment.baseImageURL + (Singleton.shared.bookingInfo?.customerInfo.profileImage ?? "")), completed: nil)
+        self.iconDriverProfilePic.sd_setImage(with: URL(string: NetworkEnvironment.baseImageURL + (Singleton.shared.bookingInfo?.customerInfo?.profileImage ?? "")), completed: nil)
 
         lblPickup.text = status == .inTrip ? Singleton.shared.bookingInfo?.dropoffLocation :  Singleton.shared.bookingInfo?.pickupLocation
         if let homeVC = self.parentViewController as? HomeViewController {

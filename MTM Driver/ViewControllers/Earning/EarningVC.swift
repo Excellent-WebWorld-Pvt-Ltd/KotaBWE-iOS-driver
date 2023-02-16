@@ -146,7 +146,7 @@ extension EarningVC : UICollectionViewDataSource , UICollectionViewDelegate ,UIC
             i.isHidden =  self.earningType == .daily ? true : false
         }
 //
-        if isShowGraph == true {
+        if self.earningType == .weekly{
             DispatchQueue.main.async {
                 cell.segmentContrl.isHidden = false
                 cell.segmentContrl.layoutIfNeeded()
@@ -155,18 +155,9 @@ extension EarningVC : UICollectionViewDataSource , UICollectionViewDelegate ,UIC
 
             cell.ViewbarChart.isHidden = false
             let arrOfDoubles = task.map { (value) -> Double in
-                return Double(value)!
+                return Double(value) ?? 0.0
             }
             cell.dataSetup(dataPoints:arrOfDoubles)
-        }
-        else {
-            for i in cell.lblDays {
-                i.isHidden =  true
-            }
-            cell.conHeightOfChart.constant = 0
-            cell.segmentContrl.frame.size.height = 0
-            cell.ViewbarChart.isHidden = true
-
         }
         cell.nextBtnClick = { [unowned self] in
             switch self.earningType {
@@ -200,16 +191,15 @@ extension EarningVC : UICollectionViewDataSource , UICollectionViewDelegate ,UIC
                 dateFormatter.dateFormat = DateFormatHelper.digitDate.rawValue
                 let DateDigit =  dateFormatter.date(from: nextWeekDate ?? "")
                 let weekDays = DateDigit?.dayBeforeWeek
-
                 self.getWeekDays(FromDate:weekDays ?? Date())
                 self.webserviceCallTotalEarning(Type: self.earningType.rawValue.lowercased(), FromDate: self.weekDays.first?.FullDateFormateString ?? "", ToDate: self.weekDays.last?.FullDateFormateString ?? "")
             }
         }
-        cell.lblTimes.text = objEarning?.totalTime.secondsToTimeFormate()
+        cell.lblTimes.text = objEarning?.totalTime.secondsToTimeFormat()
         cell.lblDate.text = objEarning?.currentDate
-        cell.lblTips.text = objEarning?.totalTips
+        cell.lblTips.text = "\(Currency) \(objEarning?.totalTips ?? "")"
         cell.lblRides.text = "\(objEarning?.totalBooking ?? 0)"
-        cell.lblTotal.text = "Kzs \(objEarning?.totalPrice ?? "")"
+        cell.lblTotal.text = "\(Currency) \(objEarning?.totalPrice ?? "")"
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -298,9 +288,9 @@ extension EarningVC {
                             break
                         }
                     }
-                  }
-                else {
+                  }else {
                     self.isShowGraph = false
+                      self.task = ["0.0","0.0","0.0","0.0","0.0","0.0","0.0"]
                 }
                 let objResponse = RootEarning(fromJson: response)
                 print("GRAPH........................",objResponse.graph)

@@ -118,8 +118,8 @@ extension AppDelegate {
         let chatVC: ChatVC = ChatVC.viewControllerInstance(storyBoard: .myTrips)
         chatVC.strBookingId = bookingData.id
         chatVC.receiverId =  bookingData.customerId ?? ""
-        chatVC.receiverName = bookingData.customerInfo.getFullName()
-        chatVC.receiverImage = "\(NetworkEnvironment.baseImageURL + bookingData.customerInfo.profileImage)"
+        chatVC.receiverName = bookingData.customerInfo?.getFullName() ?? ""
+        chatVC.receiverImage = "\(NetworkEnvironment.baseImageURL + (bookingData.customerInfo?.profileImage ?? ""))"
         self.navigate(to: chatVC)
     }
     

@@ -21,6 +21,7 @@ class TicketsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupNavigation(.normal(title: "Tickets", leftItem: .back, hasNotification: false))
+        tableView.registerNibCell(type: .noData)
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
         tableView.delegate = self
@@ -58,16 +59,21 @@ class TicketsViewController: BaseViewController {
 extension TicketsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return aryData.count
+        return aryData.count == 0 ? 1 : aryData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TicketsCell", for: indexPath) as! TicketsCell
-        cell.selectionStyle = .none
-        let currentItem = aryData[indexPath.row]
-       cell.setupData(currentItem: currentItem)
-        return cell
+        if aryData.count == 0{
+            let cell: NoDataFoundTblCell = tableView.dequeueReusableCell(withType: .noData, for: indexPath)
+            cell.setMessage("No data found.")
+            return cell
+        }else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TicketsCell", for: indexPath) as! TicketsCell
+            cell.selectionStyle = .none
+            let currentItem = aryData[indexPath.row]
+           cell.setupData(currentItem: currentItem)
+            return cell
+        }
     }
     
 //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -173,11 +173,9 @@ open class SocketIOClient : NSObject, SocketIOClientSpec {
     /// - parameter toNamespace: The namespace that was connected to.
     open func didConnect(toNamespace namespace: String) {
         guard status != .connected else { return }
-
         DefaultSocketLogger.Logger.log("Socket connected", type: logType)
-
+        print("socket connected succesfully",Date())
         status = .connected
-
         handleClientEvent(.connect, data: [namespace])
     }
 

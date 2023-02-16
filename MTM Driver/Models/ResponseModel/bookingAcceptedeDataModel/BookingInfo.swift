@@ -20,7 +20,7 @@ class BookingInfo : NSObject, NSCoding{
     var cardId : String!
     var companyAmount : String!
     var customerId : String!
-    var customerInfo : CustomerInfo!
+    var customerInfo : CustomerInfo?
     var discount : String!
     var distance : String!
     var distanceFare : String!
@@ -180,7 +180,7 @@ class BookingInfo : NSObject, NSCoding{
         	dictionary["customer_id"] = customerId
         }
         if customerInfo != nil{
-        	dictionary["customerInfo"] = customerInfo.toDictionary()
+            dictionary["customerInfo"] = customerInfo?.toDictionary()
         }
         if discount != nil{
         	dictionary["discount"] = discount

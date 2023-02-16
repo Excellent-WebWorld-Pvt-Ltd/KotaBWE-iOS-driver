@@ -81,7 +81,7 @@ class ProfileInfoVC: BaseViewController {
         }
         self.btnNext.setTitle(isFromSetting ? "Save" : "Next", for: .normal)
         self.navigationController?.navigationBar.isHidden = false
-        self.setupNavigation(.normal(title: "Profile Details", leftItem: .back))
+        self.setupNavigation(.normal(title: isFromSetting ? "Edit Profile" : "Profile Details", leftItem: .back))
     }
 
     func imageSetup() {
@@ -90,8 +90,8 @@ class ProfileInfoVC: BaseViewController {
         imgProfile.contentMode = .scaleToFill
         imgProfile.layer.borderWidth = 1
     }
+    
     func setupTextfields() {
-        
         txtAddress.textField.delegate = self
         txtMobileNumber.textField.keyboardType = .phonePad
         txtMobileNumber.textField.delegate = self

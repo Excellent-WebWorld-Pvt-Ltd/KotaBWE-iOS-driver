@@ -104,7 +104,7 @@ extension UpComingTripHistoryVc : UITableViewDataSource,UITableViewDelegate {
         }
         else {
             let cell: NoDataFoundTblCell = tableView.dequeueReusableCell(withType: .noData, for: indexPath)
-            cell.setMessage("No record found!")
+            cell.setMessage("No data found!")
             return cell
         }
     }
