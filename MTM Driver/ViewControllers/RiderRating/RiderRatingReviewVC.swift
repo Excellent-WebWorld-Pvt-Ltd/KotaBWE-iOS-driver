@@ -21,17 +21,19 @@ class RiderRatingReviewVC: BaseViewController {
     @IBOutlet weak var lblWaitingTime: ThemeLabel!
     @IBOutlet weak var lblTripTime: ThemeLabel!
     @IBOutlet weak var lblRiderName: ThemeLabel!
+    @IBOutlet weak var lblCustomerReting: ThemeLabel!
     @IBOutlet weak var txtvReview: CustomViewOutlinedTxtView!
     
-    private var completeTrip: CompeteTripData?
+    var completeTrip: CompeteTripData?
     private var bookingInfo: BookingInfo?
     var id = ""
+    var customerRating = ""
     //MARK:- ===== Vaariables ====
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewRating.rating = 0.0
-        self.completeTrip = Singleton.shared.CompleteTrip
+//        self.completeTrip = Singleton.shared.CompleteTrip
         self.bookingInfo = Singleton.shared.bookingInfo
         Singleton.shared.CompleteTrip = nil
         setNavbar()
@@ -40,7 +42,7 @@ class RiderRatingReviewVC: BaseViewController {
     
     //MARK:- ==== Set navigationBar ======
     func setNavbar(){
-        setupNavigation(.normal(title: "You Have Reached", leftItem: .back, hasNotification: false))
+        setupNavigation(.normal(title: "Trip Completed", leftItem: .back, hasNotification: false))
     }
     
     //MARK:- ====== btn Action Submit ======
@@ -75,6 +77,7 @@ class RiderRatingReviewVC: BaseViewController {
         } else {
             lblTotalTime.text = "--"
         }
+        self.lblCustomerReting.text = info.customerInfo?.rating
     }
     
     //MARK:- ===== Webservice Call Review / Rating ======

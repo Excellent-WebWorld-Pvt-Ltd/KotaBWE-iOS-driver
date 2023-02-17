@@ -133,7 +133,7 @@ class ProfileInfoVC: BaseViewController {
                txtFirstName.textField.text = profile.responseObject.firstName ?? ""
                txtLastName.textField.text = profile.responseObject.lastName ?? ""
                selectedBirthDate = profile.responseObject.dob.getDate(format: .digitDate)
-               txtDOB.textField.text = selectedBirthDate?.getDateString(format: .fullDate)
+               txtDOB.textField.text = selectedBirthDate?.getDateString(format: .digitDate)
                txtAddress.textField.text = profile.responseObject.address ?? ""
                 txtPostalCode.textField.text = profile.responseObject.postalCode ?? ""
            }

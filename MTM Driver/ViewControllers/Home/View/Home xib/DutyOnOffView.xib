@@ -55,27 +55,45 @@
                             </constraints>
                         </view>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pRc-5h-E0m">
-                            <rect key="frame" x="20" y="111" width="603" height="84"/>
+                            <rect key="frame" x="20" y="111" width="693" height="84"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Today's Earning" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPO-Sc-4cQ" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="603" height="38"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <nil key="highlightedColor"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                            <real key="value" value="14"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="semibold" value="YES"/>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="white" value="YES"/>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="objAlpha">
-                                            <real key="value" value="0.59999999999999998"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wkp-Mp-XDH">
+                                    <rect key="frame" x="0.0" y="0.0" width="693" height="38"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Today's Earning" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPO-Sc-4cQ" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="613" height="38"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                    <real key="value" value="14"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="semibold" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="white" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="objAlpha">
+                                                    <real key="value" value="0.59999999999999998"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zoK-UG-CmJ">
+                                            <rect key="frame" x="613" y="0.0" width="80" height="38"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="80" id="XUe-on-7Hp"/>
+                                            </constraints>
+                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <state key="normal" title="See More">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="btnActionSeeMore:" destination="iN0-l3-epB" eventType="touchUpInside" id="KrR-gx-X5I"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$50.9" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Cq-k1-vCj" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="46" width="603" height="38"/>
+                                    <rect key="frame" x="0.0" y="46" width="693" height="38"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -84,23 +102,11 @@
                                             <real key="value" value="36"/>
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="semibold" value="YES"/>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="black" value="NO"/>
                                     </userDefinedRuntimeAttributes>
                                 </label>
                             </subviews>
                         </stackView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zoK-UG-CmJ">
-                            <rect key="frame" x="633" y="115" width="80" height="30"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="80" id="XUe-on-7Hp"/>
-                            </constraints>
-                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <state key="normal" title="See More">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </state>
-                            <connections>
-                                <action selector="btnActionSeeMore:" destination="iN0-l3-epB" eventType="touchUpInside" id="KrR-gx-X5I"/>
-                            </connections>
-                        </button>
                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m0m-Yj-Kwy">
                             <rect key="frame" x="663" y="30" width="52" height="30"/>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -116,15 +122,13 @@
                     </subviews>
                     <color key="backgroundColor" name="themeBlue"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="zoK-UG-CmJ" secondAttribute="trailing" constant="30" id="5l2-Bu-ecx"/>
                         <constraint firstItem="pRc-5h-E0m" firstAttribute="top" secondItem="3EL-U5-OLC" secondAttribute="bottom" constant="20" id="9Xd-er-4xs"/>
-                        <constraint firstItem="zoK-UG-CmJ" firstAttribute="leading" secondItem="pRc-5h-E0m" secondAttribute="trailing" constant="10" id="CQP-rQ-K7j"/>
+                        <constraint firstAttribute="trailing" secondItem="pRc-5h-E0m" secondAttribute="trailing" constant="30" id="Hhj-Qu-aU4"/>
                         <constraint firstItem="3EL-U5-OLC" firstAttribute="leading" secondItem="4Hw-kk-8zS" secondAttribute="leading" id="M77-hF-2nV"/>
                         <constraint firstAttribute="trailing" secondItem="Xdl-Pp-tDH" secondAttribute="trailing" constant="30" id="OT7-YQ-z4s"/>
                         <constraint firstItem="3EL-U5-OLC" firstAttribute="top" secondItem="4Hw-kk-8zS" secondAttribute="bottom" constant="20" id="XJH-JQ-HgG"/>
                         <constraint firstAttribute="trailing" secondItem="3EL-U5-OLC" secondAttribute="trailing" constant="30" id="a0H-Rq-q9a"/>
                         <constraint firstAttribute="bottom" secondItem="pRc-5h-E0m" secondAttribute="bottom" constant="20" id="aaf-3t-tku"/>
-                        <constraint firstItem="zoK-UG-CmJ" firstAttribute="centerY" secondItem="YPO-Sc-4cQ" secondAttribute="centerY" id="cpo-ZM-jVY"/>
                         <constraint firstItem="4Hw-kk-8zS" firstAttribute="leading" secondItem="XhP-cz-rW7" secondAttribute="leading" constant="20" id="cuV-Xg-44E"/>
                         <constraint firstItem="4Hw-kk-8zS" firstAttribute="top" secondItem="XhP-cz-rW7" secondAttribute="top" constant="20" id="dn2-MY-kfW"/>
                         <constraint firstItem="Xdl-Pp-tDH" firstAttribute="centerY" secondItem="4Hw-kk-8zS" secondAttribute="centerY" id="dwA-OB-MzU"/>

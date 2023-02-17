@@ -63,7 +63,7 @@ extension Int {
 
 extension String {
     func toCurrencyString() -> String {
-        return Double(self)?.toCurrencyString() ?? ""
+        return "\(Currency) \(self)"//Double(self)?.toCurrencyString() ?? ""
     }
 
     var nsRange : NSRange {

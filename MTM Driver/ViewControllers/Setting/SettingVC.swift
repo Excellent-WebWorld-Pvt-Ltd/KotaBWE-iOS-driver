@@ -23,7 +23,7 @@ class SettingVC: BaseViewController {
         NotificationCenter.default.removeObserver(self, name: .updateProfile, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(UpdateProfile), name: .updateProfile, object: nil)
         self.setupNavigation(.normal(title: "Settings", leftItem: .back))
-        self.lblVersion.text = "Version : \(kAPPVesion)"
+        self.lblVersion.text = "v\(kAPPVesion)"
         tblSetting.contentInset.top = 10
         tblSetting.registerNibCell(type: .Setting)
         tblSetting.registerNibCell(type: .ProfileInfo)

@@ -84,7 +84,7 @@ extension HomeViewController {
                 Singleton.shared.totalDriverEarning = res.totalDriverEarning ?? "-"
                 Singleton.shared.bookingInfo = nil
                 Singleton.shared.CompleteTrip = objcompleteTrip
-                self.getLastView(bookingId: model.booking_id)
+                self.getLastView(bookingDetail: objcompleteTrip)
                 self.driverData.driverState = .available
                 self.resetMap()
             } else {

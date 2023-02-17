@@ -46,6 +46,36 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="black" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aBn-MT-km7">
+                                        <rect key="frame" x="149.5" y="162" width="76.5" height="20"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconSelectedstar" translatesAutoresizingMaskIntoConstraints="NO" id="lUk-Fm-TFg">
+                                                <rect key="frame" x="5" y="0.0" width="20" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="lUk-Fm-TFg" secondAttribute="height" multiplier="1:1" id="Sg2-uy-MmN"/>
+                                                    <constraint firstAttribute="width" constant="20" id="d70-TB-Y4P"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1h0-Ox-c5P" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
+                                                <rect key="frame" x="30" y="0.0" width="41.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="black" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="1h0-Ox-c5P" secondAttribute="trailing" constant="5" id="GHD-Em-VaL"/>
+                                            <constraint firstAttribute="bottom" secondItem="lUk-Fm-TFg" secondAttribute="bottom" id="M71-iA-Flw"/>
+                                            <constraint firstItem="lUk-Fm-TFg" firstAttribute="leading" secondItem="aBn-MT-km7" secondAttribute="leading" constant="5" id="fG2-Tm-bVa"/>
+                                            <constraint firstItem="lUk-Fm-TFg" firstAttribute="top" secondItem="aBn-MT-km7" secondAttribute="top" id="jpg-PR-W4b"/>
+                                            <constraint firstItem="1h0-Ox-c5P" firstAttribute="centerY" secondItem="lUk-Fm-TFg" secondAttribute="centerY" id="rg7-bP-uX7"/>
+                                            <constraint firstItem="1h0-Ox-c5P" firstAttribute="leading" secondItem="lUk-Fm-TFg" secondAttribute="trailing" constant="5" id="uvi-Da-0q0"/>
+                                        </constraints>
+                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Your Passenger:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z47-jF-XjI" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
                                         <rect key="frame" x="141.5" y="120" width="92" height="14.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -62,7 +92,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uU7-4w-YNB">
-                                        <rect key="frame" x="0.0" y="154" width="375" height="513"/>
+                                        <rect key="frame" x="0.0" y="190" width="375" height="477"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eti-ph-KHD">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="510.5"/>
@@ -522,11 +552,13 @@
                                     <constraint firstAttribute="bottom" secondItem="uU7-4w-YNB" secondAttribute="bottom" id="D3g-93-mcw"/>
                                     <constraint firstItem="dBS-T9-Q5r" firstAttribute="top" secondItem="ZOo-HW-fjb" secondAttribute="top" constant="30" id="HrJ-DH-xH0"/>
                                     <constraint firstAttribute="trailing" secondItem="uU7-4w-YNB" secondAttribute="trailing" id="IAS-Rp-rVE"/>
+                                    <constraint firstItem="aBn-MT-km7" firstAttribute="centerX" secondItem="ZOo-HW-fjb" secondAttribute="centerX" id="QXZ-Kz-fgO"/>
+                                    <constraint firstItem="aBn-MT-km7" firstAttribute="top" secondItem="nTd-HI-yw6" secondAttribute="bottom" constant="8" symbolic="YES" id="Xw9-BG-UdA"/>
                                     <constraint firstItem="nTd-HI-yw6" firstAttribute="top" secondItem="Z47-jF-XjI" secondAttribute="bottom" constant="5" id="Yf6-wB-fzn"/>
                                     <constraint firstItem="uU7-4w-YNB" firstAttribute="leading" secondItem="ZOo-HW-fjb" secondAttribute="leading" id="aJe-ql-ubM"/>
+                                    <constraint firstItem="uU7-4w-YNB" firstAttribute="firstBaseline" secondItem="aBn-MT-km7" secondAttribute="baseline" constant="8" symbolType="layoutAnchor" id="f1P-Li-vdn"/>
                                     <constraint firstItem="nTd-HI-yw6" firstAttribute="centerX" secondItem="ZOo-HW-fjb" secondAttribute="centerX" id="pSn-FK-lwb"/>
                                     <constraint firstItem="Z47-jF-XjI" firstAttribute="centerX" secondItem="ZOo-HW-fjb" secondAttribute="centerX" id="tRx-RX-t70"/>
-                                    <constraint firstItem="uU7-4w-YNB" firstAttribute="top" secondItem="nTd-HI-yw6" secondAttribute="bottom" id="u2S-Fb-6qo"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -542,6 +574,7 @@
                     <navigationItem key="navigationItem" id="HLi-e6-oCt"/>
                     <connections>
                         <outlet property="imgRider" destination="dBS-T9-Q5r" id="n84-ZQ-f1S"/>
+                        <outlet property="lblCustomerReting" destination="1h0-Ox-c5P" id="UBF-8c-JJp"/>
                         <outlet property="lblDistance" destination="pT0-Zl-JnF" id="eQd-Za-sHp"/>
                         <outlet property="lblRiderName" destination="nTd-HI-yw6" id="b8G-uO-kOQ"/>
                         <outlet property="lblTotalPrice" destination="Xbh-JD-arD" id="HTT-Db-p7s"/>
@@ -566,8 +599,12 @@
     <resources>
         <image name="ic_filledStar" width="23" height="23"/>
         <image name="ic_unfillStar" width="22" height="22"/>
+        <image name="iconSelectedstar" width="42" height="42"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

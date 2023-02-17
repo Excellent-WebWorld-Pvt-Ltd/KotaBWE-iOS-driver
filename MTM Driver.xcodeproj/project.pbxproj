@@ -2519,7 +2519,7 @@
 				CODE_SIGN_ENTITLEMENTS = "MTM Driver/MTM DriverDebug.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.2;
+				CURRENT_PROJECT_VERSION = 0.0.3;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = LNR2265795;
 				EXCLUDED_ARCHS = "";
@@ -2551,7 +2551,7 @@
 				CODE_SIGN_ENTITLEMENTS = "MTM Driver/MTM Driver.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.2;
+				CURRENT_PROJECT_VERSION = 0.0.3;
 				DEVELOPMENT_TEAM = LNR2265795;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/MTM Driver/Info.plist";

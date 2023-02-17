@@ -192,10 +192,10 @@ class HomeViewController: BaseViewController {
     }
     
     //MARK:- ===== Navigate to Total Rating/Review ======
-    func CompleteTripToRatingReview(id : String){
+    func CompleteTripToRatingReview(bookingDetail : CompeteTripData?){
         self.getFirstView()
         let vc: RiderRatingReviewVC = UIViewController.viewControllerInstance(storyBoard: .completedTrip)
-        vc.id = id
+        vc.completeTrip = bookingDetail
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -374,8 +374,8 @@ class HomeViewController: BaseViewController {
         self.presentView(forState: .duty)
     }
     
-    public func getLastView(bookingId:String) {
-        self.presentView(forState: .lastCompleteView,bookingId: bookingId)
+    public func getLastView(bookingDetail: CompeteTripData?) {
+        self.presentView(forState: .lastCompleteView,bookingDetail: bookingDetail)
     }
     
     func setProgress() {
@@ -416,12 +416,12 @@ class HomeViewController: BaseViewController {
         self.progressRequest.isHidden = true
     }
 
-    func presentView(forState state: DriverState,bookingId: String = "") {
+    func presentView(forState state: DriverState,bookingDetail: CompeteTripData? = nil) {
         self.presentType = state
         self.presentView?.removeFromSuperview()
         self.presentView = state.fromNib()
         if let presentView = presentView as? CompleteView {
-            presentView.bookingId = bookingId
+            presentView.bookingDetail = bookingDetail
         }
         self.presentView?.layoutSubviews()
         bottomContentView?.customAddSubview(presentView!)

@@ -37,7 +37,7 @@ class VehicleDocumentVC: BaseViewController, UIViewControllerTransitioningDelega
     }
     
     private func setupUI() {
-        self.setupNavigation(.normal(title: "Vehicle Documents", leftItem: .back))
+        self.setupNavigation(.normal(title: "Vehicle Document", leftItem: .back))
         tableView.contentInset.top = 24
         tableView.registerNibCell(type: .vehicleDoc)
         let buttonTitle = isFromSettings ? "Save" : "Submit"

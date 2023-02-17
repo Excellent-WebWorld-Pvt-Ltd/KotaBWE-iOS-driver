@@ -214,7 +214,6 @@ extension EarningVC : UITableViewDataSource , UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         if  showNoDataCell {
             let cell: NoDataFoundTblCell = tableView.dequeueReusableCell(withType: .noData, for: indexPath)
             cell.setMessage("No earning history found!")
@@ -225,9 +224,8 @@ extension EarningVC : UITableViewDataSource , UITableViewDelegate {
             cell.amountLable.textColor = .themeSuccess
             cell.amountLable.text = "+" + (arrEarningHistory[indexPath.row].driverAmount.toCurrencyString())
             cell.timeLabel.text = arrEarningHistory[indexPath.row].dropoffTime
-            cell.titleLabel.text = "ID #\(arrEarningHistory[indexPath.row].id ?? "0")  \(arrEarningHistory[indexPath.row].paymentType ?? "")"
+            cell.titleLabel.text = "ID #\(arrEarningHistory[indexPath.row].id ?? "0")  (\(arrEarningHistory[indexPath.row].paymentType ?? ""))"
             return cell
-
         }
     }
     
@@ -298,12 +296,10 @@ extension EarningVC {
                 self.arrEarningHistory.removeAll()
                 if objResponse.earnings.count != 0 {
                     self.arrEarningHistory = objResponse.earnings
-                    
                 }
                 self.showNoDataCell = self.arrEarningHistory.isEmpty
                 self.tblEarning.reloadData()
                 self.colWeeklyUpdates.reloadData()
-                
             }
             else {
                 AlertMessage.showMessageForError(response["message"].stringValue)

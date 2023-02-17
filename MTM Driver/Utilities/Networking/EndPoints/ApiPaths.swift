@@ -113,7 +113,6 @@ enum ParameterKey{
     static let page = "Page"
     static let sortBy = "Sortby"
     static let filter = "Filter"
-  
 }
 
 enum socketApiKeys: String, CaseIterable {
