@@ -74,6 +74,7 @@ class OTPModel : RequestModel {
 
 class ResendOTPModel : RequestModel {
     var mobile_no : String = ""
+    var email :String = ""
 }
 
 

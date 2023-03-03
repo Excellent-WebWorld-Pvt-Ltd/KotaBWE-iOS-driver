@@ -40,8 +40,8 @@ class NotificationVC: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigation(.normal(title: "Notification", leftItem: .back, hasNotification: false))
-        let clearButton = UIBarButtonItem(title: "Clear All", style: .plain, target: self, action: #selector(clearNotifications))
+        setupNavigation(.normal(title: "Notification".localized, leftItem: .back, hasNotification: false))
+        let clearButton = UIBarButtonItem(title: "Clear All".localized, style: .plain, target: self, action: #selector(clearNotifications))
         navigationItem.rightBarButtonItem = clearButton
         webServiceToGetNotification()
     }
@@ -69,7 +69,7 @@ class NotificationVC: BaseViewController {
                     self.shouldShowLoadingCell = array.isNotEmpty
                     self.tableView.reloadData()
                 } catch {
-                    AlertMessage.showMessageForError("Something went wrong")
+                    AlertMessage.showMessageForError("Something went wrong".localized)
                 }
             } else {
                 AlertMessage.showMessageForError(json["message"].stringValue)
@@ -104,7 +104,7 @@ extension NotificationVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if showNoDataCell {
             let cell: NoDataFoundTblCell = tableView.dequeueReusableCell(withType: .noData, for: indexPath)
-            cell.setMessage("No data found.")
+            cell.setMessage("No data found.".localized)
             return cell
         }
         if isLoadingIndexPath(indexPath) {

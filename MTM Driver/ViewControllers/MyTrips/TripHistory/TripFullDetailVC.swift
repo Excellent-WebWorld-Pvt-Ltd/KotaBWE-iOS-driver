@@ -36,6 +36,21 @@ class TripFullDetailVC: BaseViewController {
     @IBOutlet weak var lblEarnings: ThemeLabel!
     @IBOutlet weak var viewNotes: UIView!
     @IBOutlet weak var lblNotes: ThemeLabel!
+    @IBOutlet weak var lblPickUpTitle: ThemeLabel!
+    @IBOutlet weak var lblDropoffTitle: ThemeLabel!
+    @IBOutlet weak var lblcargoWeight: ThemeLabel!
+    @IBOutlet weak var lblItemQuantity: ThemeLabel!
+    @IBOutlet weak var lblTruckLoad: ThemeLabel!
+    @IBOutlet weak var lblVehicleInfo: ThemeLabel!
+    @IBOutlet weak var lblTitleNotes: ThemeLabel!
+    @IBOutlet weak var lblTitleTripTime: ThemeLabel!
+    @IBOutlet weak var lblTitleWaitingTime: ThemeLabel!
+    @IBOutlet weak var lblTitleTotalTime: ThemeLabel!
+    @IBOutlet weak var lblTitleDistance: ThemeLabel!
+    @IBOutlet weak var lblTitleTripPrice: ThemeLabel!
+    @IBOutlet weak var lblTitleEarning: ThemeLabel!
+    
+    
     var mapView: GMSMapView?
     var objDetail : BookingInfo?
     var arrMarker = [GMSMarker]()
@@ -43,7 +58,7 @@ class TripFullDetailVC: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupNavigation(.normal(title: "Trip Detail", leftItem: .back, hasNotification: false))
+        self.setupNavigation(.normal(title: "Trip Detail".localized, leftItem: .back, hasNotification: false))
         setupUI()
         setupData()
     }
@@ -61,6 +76,21 @@ class TripFullDetailVC: BaseViewController {
     }
 
     //MARK :- Other Function
+    func setLocalization(){
+        self.lblPickUpTitle.text = "Pickup".localized
+        self.lblDropoffTitle.text = "Drop-off".localized
+        self.lblcargoWeight.text = "Cargo weight".localized
+        self.lblItemQuantity.text = "Item Quantity".localized
+        self.lblTruckLoad.text = "Truck Load Type".localized
+        self.lblVehicleInfo.text = "Vehicle Info".localized
+        self.lblTitleNotes.text = "\("Notes".localized) :"
+        self.lblTitleTripTime.text = "\("Trip Time".localized):"
+        self.lblTitleWaitingTime.text = "\("Waiting Time".localized):"
+        self.lblTitleTotalTime.text = "\("Total Time".localized):"
+        self.lblTitleDistance.text = "\("Distance".localized):"
+        self.lblTitleTripPrice.text = "\("Trip Price".localized):"
+        self.lblTitleEarning.text = "\("Your Earning".localized):"
+    }
     
     func setupData(){
         setupMapView()
@@ -122,7 +152,6 @@ class TripFullDetailVC: BaseViewController {
         WebService.getGoogleMapDirections(origin: origin.stringValue,
                                           destination: destination.stringValue) { response, status in
             guard status == true else {
-                print("error while drawing route")
                 return
             }
             guard let dictionary = response.dictionaryObject else {
@@ -170,7 +199,10 @@ extension TripFullDetailVC: UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Index:\(indexPath.row)")
-        self.openWebURL( arrTruckImages[indexPath.row].stringValue)
+        let galaryVC : GalaryVC = UIViewController.viewControllerInstance(storyBoard: .home)
+        galaryVC.Image = arrTruckImages[indexPath.row].stringValue
+        self.navigationController?.present(galaryVC, animated: true)
+//        self.openWebURL( arrTruckImages[indexPath.row].stringValue)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

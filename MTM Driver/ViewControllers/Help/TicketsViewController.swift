@@ -20,7 +20,7 @@ class TicketsViewController: BaseViewController {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupNavigation(.normal(title: "Tickets", leftItem: .back, hasNotification: false))
+        self.setupNavigation(.normal(title: "Tickets".localized, leftItem: .back, hasNotification: false))
         tableView.registerNibCell(type: .noData)
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
@@ -65,7 +65,7 @@ extension TicketsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if aryData.count == 0{
             let cell: NoDataFoundTblCell = tableView.dequeueReusableCell(withType: .noData, for: indexPath)
-            cell.setMessage("No data found.")
+            cell.setMessage("No data found.".localized)
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "TicketsCell", for: indexPath) as! TicketsCell
@@ -101,15 +101,15 @@ class TicketsCell: UITableViewCell {
     }
     
     func setupData(currentItem: Ticket) {
-        lblTicketId.text = "Ticket Id:- " + currentItem.ticketId // "Loading..."
+        lblTicketId.text = "\("Ticket Id".localized):- " + currentItem.ticketId // "Loading..."
         lblTitle.text = currentItem.ticketTitle // "Loading..."
         
         if currentItem.status == "0" {
-            lblStatus.text = "Pending"
+            lblStatus.text = "Pending".localized
         } else if currentItem.status == "1" {
-            lblStatus.text = "Processing"
+            lblStatus.text = "Processing".localized
         } else {
-            lblStatus.text = "Resolved"
+            lblStatus.text = "Resolved".localized
         }
         
     }

@@ -16,7 +16,7 @@ class UtilityClass: NSObject {
     
     class func showAlert(message: String, isCancelShow: Bool = false, completion: alertCompletion = nil) {
         let alert = UIAlertController(title: Helper.appName, message: message, preferredStyle: .alert)
-        let ok = UIAlertAction(title: "OK", style: .default) { (action) in
+        let ok = UIAlertAction(title: "OK".localized, style: .default) { (action) in
             if completion != nil {
                 completion!()
             }
@@ -24,7 +24,7 @@ class UtilityClass: NSObject {
 //        ok.setValue(UIColor.blue, forKey: "titleTextColor")
         alert.addAction(ok)
         if isCancelShow {
-            let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+            let cancel = UIAlertAction(title: "Cancel".localized, style: .default, handler: nil)
             alert.addAction(cancel)
         }
         AppDelegate.shared.window?.rootViewController?.present(alert, animated: true, completion: nil)

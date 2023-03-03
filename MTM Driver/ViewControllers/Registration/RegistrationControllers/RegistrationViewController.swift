@@ -26,8 +26,10 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
     @IBOutlet weak var txtPhone: CustomViewOutlinedTxtField!
     @IBOutlet weak var txtPassword: CustomViewOutlinedTxtField!
     
+    @IBOutlet weak var lblTitle: ThemeLabel!
     @IBOutlet weak var txtConformPassword: CustomViewOutlinedTxtField!
     
+    @IBOutlet weak var btnNext: ThemeButton!
     @IBOutlet weak var txtEmail: CustomViewOutlinedTxtField!
     @IBOutlet weak var btnCheckBoxTerms: UIButton!
     
@@ -54,6 +56,21 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
         self.isConformPasswordSecure(isSecure: true)
         txtPassword.textField.setRightPaddingPoints(25)
         txtConformPassword.textField.setRightPaddingPoints(25)
+    }
+    
+    func localization(){
+        self.lblTitle.text = "Welcome to Kota".localized
+        self.txtEmail.textField.placeholder = "Email".localized
+        self.txtEmail.textField.label.text = "Email".localized
+        self.txtPhoneNumber.textField.placeholder = "Mobile Number".localized
+        self.txtPhoneNumber.textField.label.text = "Mobile Number".localized
+        self.txtPhone.textField.placeholder = "Code".localized
+        self.txtPhone.textField.label.text = "Code".localized
+        self.txtPassword.textField.placeholder = "Password".localized
+        self.txtPassword.textField.label.text = "Password".localized
+        self.txtConformPassword.textField.placeholder = "Confirm Password".localized
+        self.txtConformPassword.textField.label.text = "Confirm Password".localized
+        self.btnNext.setTitle("NEXT", for: .normal)
     }
     
     func setupTextfields() {
@@ -129,17 +146,17 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
         let FormattedText = NSMutableAttributedString()
         
         FormattedText
-            .normal("Already a Kota user? ", Colour: UIColor.black.withAlphaComponent(0.7), 14)
-            .bold("Sign In")
+            .normal("Already a Kota user? ".localized, Colour: UIColor.black.withAlphaComponent(0.7), 14)
+            .bold("Sign In".localized)
         let termAttributed = NSMutableAttributedString()
         let color = UIColor.hexStringToUIColor(hex: "#7D7D7D").withAlphaComponent(0.7)
         termAttributed
-            .normal("By creating an account, you agree to our\n", Colour: color, 14)
-            .Semibold("Terms of Service")
-            .normal(" and ", Colour:color, 14)
-            .Semibold("Privacy Policy")
-        termAttributed.setAsLink(textToFind: "Terms of Service", linkURL: Singleton.shared.termsAndConditionURL)
-        termAttributed.setAsLink(textToFind: "Privacy Policy", linkURL: Singleton.shared.privacyURL)
+            .normal("\("By creating an account, you agree to our".localized)\n", Colour: color, 14)
+            .Semibold("Terms of Service".localized)
+            .normal(" \("and") ", Colour:color, 14)
+            .Semibold("Privacy Policy".localized)
+        termAttributed.setAsLink(textToFind: "Terms of Service".localized, linkURL: Singleton.shared.termsAndConditionURL)
+        termAttributed.setAsLink(textToFind: "Privacy Policy".localized, linkURL: Singleton.shared.privacyURL)
         tvTermPrivacy.attributedText = termAttributed
         tvTermPrivacy.linkTextAttributes = [.foregroundColor: color]
         btnAlreadyhaveAccount.setAttributedTitle(FormattedText, for: .normal)
@@ -167,24 +184,24 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
     
     private func isValidInputes() -> Bool {
         
-        let emailValidation = InputValidation.email.isValid(input: txtEmail.textField.unwrappedText, field: "email")
+        let emailValidation = InputValidation.email.isValid(input: txtEmail.textField.unwrappedText, field: "email".localized)
         txtEmail.textField.leadingAssistiveLabel.text = emailValidation.error
         txtEmail.textField.setOutlineColor(emailValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
         
-        let mobileValidation = InputValidation.mobile.isValid(input: txtPhoneNumber.textField.unwrappedText, field: "mobile number")
+        let mobileValidation = InputValidation.mobile.isValid(input: txtPhoneNumber.textField.unwrappedText, field: "mobile number".localized)
         txtPhoneNumber.textField.leadingAssistiveLabel.text = mobileValidation.error
         txtPhoneNumber.textField.setOutlineColor(mobileValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
         
-        let passwordValidation = InputValidation.password.isValid(input: txtPassword.textField.unwrappedText, field: "password")
+        let passwordValidation = InputValidation.password.isValid(input: txtPassword.textField.unwrappedText, field: "password".localized)
         txtPassword.textField.leadingAssistiveLabel.text = passwordValidation.error
         txtPassword.textField.setOutlineColor(passwordValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
         
-        var confirmPasswordValidation = InputValidation.nonEmpty.isValid(input: txtConformPassword.textField.unwrappedText, field: "confirm password")
+        var confirmPasswordValidation = InputValidation.nonEmpty.isValid(input: txtConformPassword.textField.unwrappedText, field: "confirm password".localized)
         txtConformPassword.textField.leadingAssistiveLabel.text = confirmPasswordValidation.error
         txtConformPassword.textField.setOutlineColor(confirmPasswordValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
         if confirmPasswordValidation.isValid {
             if txtConformPassword.textField.text != txtPassword.textField.text {
-                txtConformPassword.textField.leadingAssistiveLabel.text = "Your password and confirmation password do not match."
+                txtConformPassword.textField.leadingAssistiveLabel.text = "Your password and confirmation password do not match.".localized
                 confirmPasswordValidation.isValid = false
                 txtConformPassword.textField.setOutlineColor(.red, for: .normal)
             }else{
@@ -194,7 +211,7 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
         }
         
         if !btnCheckBoxTerms.isSelected {
-            AlertMessage.showMessageForError("Please accept terms & conditions and privacy policy")
+            AlertMessage.showMessageForError("Please accept terms & conditions and privacy policy".localized)
         }
         
         if emailValidation.isValid && mobileValidation.isValid && passwordValidation.isValid && confirmPasswordValidation.isValid && btnCheckBoxTerms.isSelected{
@@ -240,8 +257,8 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
     
     
     func setupViews(){
-        let main_string = "Already a Showfa user? Sign In"
-        let string_to_color = "Sign In"
+        let main_string = "Already a Kota user? Sign In".localized
+        let string_to_color = "Sign In".localized
         let range = (main_string as NSString).range(of: string_to_color)
         let attribute = NSMutableAttributedString.init(string: main_string)
         attribute.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.themeBlack.withAlphaComponent(0.7) , range: range)
@@ -268,6 +285,7 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
                 let otpVC = AppViewControllers.shared.otp
                 otpVC.isFromRegister = true
                 otpVC.strMobileNo = self.txtPhoneNumber.textField.text ?? ""
+                otpVC.strEmail = self.txtEmail.textField.text ?? ""
                 otpVC.strOTP = response["otp"].stringValue
                 self.navigationController?.pushViewController(otpVC, animated: true)
             }
@@ -357,7 +375,7 @@ extension RegistrationViewController : CountryPickerViewDelegate,CountryPickerVi
         self.selectedCounty = country
     }
     func sectionTitleForPreferredCountries(in countryPickerView: CountryPickerView) -> String? {
-        return "Select country"
+        return "Select country".localized
     }
 }
 

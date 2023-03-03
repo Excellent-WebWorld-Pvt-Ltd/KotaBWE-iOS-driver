@@ -22,7 +22,16 @@ class WeeklyUpdateCollectionCell: UICollectionViewCell {
     @IBOutlet weak var conHeightOfChart: NSLayoutConstraint!
     @IBOutlet weak var ViewbarChart: TutorialChartView!
     @IBOutlet weak var conHeightOfBarChart: NSLayoutConstraint!
-    
+    @IBOutlet weak var lblTitleRides: ThemeLabel!
+    @IBOutlet weak var lblTitleTime: ThemeLabel!
+    @IBOutlet weak var lblTitleTips: ThemeLabel!
+    @IBOutlet weak var lblMon: ThemeLabel!
+    @IBOutlet weak var lblTue: ThemeLabel!
+    @IBOutlet weak var lblWed: ThemeLabel!
+    @IBOutlet weak var lblThu: ThemeLabel!
+    @IBOutlet weak var lblFri: ThemeLabel!
+    @IBOutlet weak var lblSat: ThemeLabel!
+    @IBOutlet weak var lblSun: ThemeLabel!
     
     //MARK:- ===== Variables =======
     var anchorView: UIView?
@@ -39,6 +48,7 @@ class WeeklyUpdateCollectionCell: UICollectionViewCell {
         ViewbarChart.onTapBar = { [unowned self] (view,Value) in
             self.setAnhorToBar(view, value: Value)
         }
+        self.setLocalization()
     }
     
     private func setAnhorToBar(_ view: UIView , value : Double) {
@@ -49,6 +59,19 @@ class WeeklyUpdateCollectionCell: UICollectionViewCell {
         myTipView.frame.origin.y = frame.origin.y - (myTipView.frame.height + 2)
         contentView.addSubview(myTipView)
         anchorView = myTipView
+    }
+    
+    func setLocalization(){
+        lblTitleRides.text = "Rides".localized
+        lblTitleTime.text = "Time".localized
+        lblTitleTips.text = "Tips".localized
+        lblMon.text = "Mon".localized
+        lblTue.text = "Tue".localized
+        lblWed.text = "Wed".localized
+        lblThu.text = "Thu".localized
+        lblFri.text = "Fri".localized
+        lblSat.text = "Sat".localized
+        lblSun.text = "Sun".localized
     }
     
     //MARK:- === Previous btn Click =====

@@ -438,6 +438,8 @@
                         <outlet property="btnCheckBoxTerms" destination="z4J-Lk-pOm" id="uw9-pZ-5hM"/>
                         <outlet property="btnHideConfomPassword" destination="hef-vR-3nu" id="Mfo-yM-aH1"/>
                         <outlet property="btnHidePassword" destination="wE9-Ry-eaH" id="8b2-4D-vnB"/>
+                        <outlet property="btnNext" destination="K0Z-G4-UqF" id="aKR-u1-waO"/>
+                        <outlet property="lblTitle" destination="2ms-8c-HkI" id="34n-fe-BeC"/>
                         <outlet property="tvTermPrivacy" destination="4sa-nY-5w5" id="mlF-mQ-2In"/>
                         <outlet property="txtConformPassword" destination="En5-wf-Att" id="ObP-fr-ptB"/>
                         <outlet property="txtEmail" destination="C2Q-EE-Jq2" id="hIx-iX-HzO"/>
@@ -838,8 +840,8 @@
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="textFieldCorners">
                                                                         <real key="value" value="15"/>
                                                                     </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Email"/>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Email"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="x"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="x"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FmK-G1-IFX" customClass="CustomViewOutlinedTxtField" customModule="MTM_Driver" customModuleProvider="target">
@@ -1003,6 +1005,7 @@
                         <outlet property="btnHidePassword" destination="zS4-Tw-8D3" id="5pB-1z-z6r"/>
                         <outlet property="btnNotUser" destination="dGC-65-KRx" id="rrr-HX-N3h"/>
                         <outlet property="lblMessage" destination="akn-Fo-i1a" id="ERo-A3-9Kf"/>
+                        <outlet property="lblSignIn" destination="efE-em-Omw" id="On2-lI-BRb"/>
                         <outlet property="txtEmail" destination="eY3-Pm-hSZ" id="tjr-Cd-WN8"/>
                         <outlet property="txtPassword" destination="FmK-G1-IFX" id="iXg-Dg-5rb"/>
                     </connections>
@@ -1331,8 +1334,10 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
+                        <outlet property="btnNext" destination="bdf-w5-MLE" id="42V-Ww-W1E"/>
                         <outlet property="btnResendCode" destination="IkC-Tr-dD8" id="Daj-mk-UX4"/>
                         <outlet property="lblOTPTitle" destination="cwB-Or-eif" id="hss-9e-xXT"/>
+                        <outlet property="lblSubTitle" destination="OA3-el-SeJ" id="3L1-Xk-gus"/>
                         <outlet property="lblTimer" destination="qkb-7y-FNs" id="vig-mN-6NS"/>
                         <outlet property="viewResendCode" destination="Wi6-5e-FbJ" id="TFU-i9-X7b"/>
                         <outlet property="viewTimer" destination="yda-4d-uAd" id="8V4-e5-Lu7"/>
@@ -2189,6 +2194,7 @@
                     <connections>
                         <outlet property="btnNext" destination="IyZ-mx-QRx" id="E7y-lF-BaE"/>
                         <outlet property="collimages" destination="5Oo-nI-L7c" id="Vdp-10-feE"/>
+                        <outlet property="lblNote" destination="DB9-QF-K5h" id="hHz-Yq-fhi"/>
                         <outlet property="lblVehicleManufactureType" destination="YR2-Mu-wQz" id="HSN-T7-eq6"/>
                         <outlet property="lblVehicleManufactureYear" destination="9NL-Ra-2ej" id="pIV-cX-nNI"/>
                         <outlet property="lblVehicleModel" destination="YRp-JE-kr5" id="Y9k-IF-JhH"/>
@@ -2298,6 +2304,11 @@
                             <constraint firstItem="UHd-ZD-LOl" firstAttribute="top" secondItem="KYK-zZ-khf" secondAttribute="bottom" id="xtJ-T5-1cd"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnRegister" destination="L55-YB-mSx" id="7RX-VP-Lec"/>
+                        <outlet property="btnSignIn" destination="hgN-Hc-usn" id="TLE-KB-qEd"/>
+                        <outlet property="lblTitle" destination="oiO-cc-Daf" id="qF9-Rn-dxb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="78h-Kj-zsd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

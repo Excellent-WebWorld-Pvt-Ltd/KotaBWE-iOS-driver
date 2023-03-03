@@ -37,17 +37,17 @@ class VehicleDocumentVC: BaseViewController, UIViewControllerTransitioningDelega
     }
     
     private func setupUI() {
-        self.setupNavigation(.normal(title: "Vehicle Document", leftItem: .back))
+        self.setupNavigation(.normal(title: "Vehicle Document".localized, leftItem: .back))
         tableView.contentInset.top = 24
         tableView.registerNibCell(type: .vehicleDoc)
-        let buttonTitle = isFromSettings ? "Save" : "Submit"
+        let buttonTitle = isFromSettings ? "Save".localized : "Submit".localized
         submitButton.setTitle(buttonTitle, for: .normal)
     }
     
     // MARK: - Actions
     @IBAction func submitTapped() {
         guard uploadingDoc == nil else {
-            UtilityClass.showAlert(message: "Document getting uploaded, please wait till finish the process")
+            UtilityClass.showAlert(message: "Document getting uploaded, please wait till finish the process".localized)
             return
         }
         guard validateInputs() else {

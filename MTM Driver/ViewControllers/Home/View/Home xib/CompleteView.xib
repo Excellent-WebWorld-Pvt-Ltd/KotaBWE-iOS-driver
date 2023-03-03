@@ -132,6 +132,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="lblGrandTotal" destination="78j-wy-ZoA" id="lqj-Im-68f"/>
+                <outlet property="lblTitle" destination="Kcc-Pk-Ker" id="VSa-4v-Oeo"/>
                 <outlet property="meesageLabel" destination="KKJ-Dt-cYc" id="o0Z-19-P4k"/>
                 <outlet property="submitButton" destination="P30-FZ-qi5" id="caz-cQ-mmb"/>
             </connections>

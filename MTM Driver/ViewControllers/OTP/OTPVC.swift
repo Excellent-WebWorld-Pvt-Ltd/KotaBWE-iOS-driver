@@ -20,6 +20,8 @@ class OTPVC: BaseViewController , OTPTextFieldDelegate{
     //MARK:- ==== Outlets ==========
     @IBOutlet weak var btnResendCode: UnderlineTextButton!
     @IBOutlet weak var lblOTPTitle: UILabel!
+    @IBOutlet weak var lblSubTitle: ThemeLabel!
+    @IBOutlet weak var btnNext: ThemePrimaryButton!
     @IBOutlet var txtOTPCollection: [OTPTextField]!
     @IBOutlet weak var viewTimer: UIView!
     @IBOutlet weak var lblTimer: ThemeLabel!
@@ -29,6 +31,7 @@ class OTPVC: BaseViewController , OTPTextFieldDelegate{
     //MARK:- ======= Variables ======
     var textFieldsIndexes:[UITextField:Int] = [:]
     var strMobileNo = String()
+    var strEmail = ""
     var strOTP = String()
     var isFromRegister = false
     var objLoginData : LoginModel!
@@ -50,6 +53,7 @@ class OTPVC: BaseViewController , OTPTextFieldDelegate{
         buttonSetup()
         UISetup()
         filledOTP()
+        self.setLocalisation()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
             self.txtOTPCollection.first?.becomeFirstResponder()
         }
@@ -60,6 +64,11 @@ class OTPVC: BaseViewController , OTPTextFieldDelegate{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    func setLocalisation(){
+        self.lblSubTitle.text = "Enter 6 Digit Code That Has Been Sent To Your Registered Mail Id.".localized
+        self.btnNext.setTitle("NEXT".localized, for: .normal)
     }
     
     func filledOTP(){
@@ -73,7 +82,6 @@ class OTPVC: BaseViewController , OTPTextFieldDelegate{
         txtOTPCollection[3].text = arr[3]
         txtOTPCollection[4].text = arr[4]
         txtOTPCollection[5].text = arr[5]
-         
     }
     
     //MARK:- === Start Timer ======
@@ -95,8 +103,8 @@ class OTPVC: BaseViewController , OTPTextFieldDelegate{
             timer?.invalidate()
             let FormattedText = NSMutableAttributedString()
             FormattedText
-                .regular("Didn’t receive code? ", Colour: UIColor.black.withAlphaComponent(0.7), 14)
-                .bold("Resend")
+                .regular("Didn’t receive code? ".localized, Colour: UIColor.black.withAlphaComponent(0.7), 14)
+                .bold("Resend".localized)
             btnResendCode.setAttributedTitle(FormattedText, for: .normal)
             btnResendCode.isUserInteractionEnabled = true
         }
@@ -110,8 +118,8 @@ class OTPVC: BaseViewController , OTPTextFieldDelegate{
             UIView.performWithoutAnimation {
                 let FormattedText = NSMutableAttributedString()
                 FormattedText
-                    .regular("Didn’t receive code? ", Colour: UIColor.black.withAlphaComponent(0.7), 14)
-                    .boldWithOpacity60("Resend in \(lblTimer.text ?? "")")
+                    .regular("Didn’t receive code? ".localized, Colour: UIColor.black.withAlphaComponent(0.7), 14)
+                    .boldWithOpacity60("\("Resend in".localized) \(lblTimer.text ?? "")")
                 btnResendCode.setAttributedTitle(FormattedText, for: .normal)
                 btnResendCode.isUserInteractionEnabled = false
                 UIView.setAnimationsEnabled(true)
@@ -150,6 +158,7 @@ class OTPVC: BaseViewController , OTPTextFieldDelegate{
         Loader.showHUD(with: Helper.currentWindow)
         let resendOtpModel = ResendOTPModel()
         resendOtpModel.mobile_no = strMobileNo
+        resendOtpModel.email = strEmail
         WebServiceCalls.resendOTP(OtpModel: resendOtpModel) { response, status in
             Loader.hideHUD()
             if status {
@@ -204,11 +213,11 @@ class OTPVC: BaseViewController , OTPTextFieldDelegate{
             strEnteredOTP.append(txtOTPCollection[index].text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "")
         }
         if strEnteredOTP == "" {
-            AlertMessage.showMessageForError("Please enter otp.")
+            AlertMessage.showMessageForError("Please enter otp.".localized)
             return false
         } else if self.strOTP != strEnteredOTP {
             self.clearAllFields()
-            AlertMessage.showMessageForError("Please enter valid otp.")
+            AlertMessage.showMessageForError("Please enter valid otp.".localized)
             return false
         }
         return true
@@ -227,8 +236,8 @@ class OTPVC: BaseViewController , OTPTextFieldDelegate{
     func buttonSetup(){
         let FormattedText = NSMutableAttributedString()
         FormattedText
-            .normal("Didn’t receive code? ", Colour: UIColor.black.withAlphaComponent(0.7))
-            .bold("Resend")
+            .normal("Didn’t receive code? ".localized, Colour: UIColor.black.withAlphaComponent(0.7))
+            .bold("Resend".localized)
         btnResendCode.setAttributedTitle(FormattedText, for: .normal)
     }
     

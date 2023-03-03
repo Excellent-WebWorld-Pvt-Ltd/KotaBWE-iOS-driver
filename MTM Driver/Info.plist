@@ -48,13 +48,13 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Camera access required for capturing photos!</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>We access your location to get nearby passengers</string>
+	<string>We access your location to get nearby shipper</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>We access your location to get nearby passengers</string>
+	<string>We access your location to get nearby shipper</string>
 	<key>NSLocationUsageDescription</key>
-	<string>We access your location to get nearby passengers</string>
+	<string>We access your location to get nearby shipper</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We access your location to get nearby passengers</string>
+	<string>We access your location to get nearby shipper</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Photo Library access required for using photos!</string>
 	<key>UIAppFonts</key>

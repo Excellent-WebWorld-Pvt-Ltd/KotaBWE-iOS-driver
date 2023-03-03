@@ -111,6 +111,19 @@ class ThemeAlertVC: UIViewController {
             logoutButton.addTarget(self, action: #selector(confirmTapped), for: .touchUpInside)
             buttonStackView.addArrangedSubview(logoutButton)
             return
+        case .deleteUser:
+            textField.isHidden = true
+            titleLabel.text = "Delete Account"
+            let attribute: [NSAttributedString.Key: Any] = [.font: font,
+                                                            .foregroundColor: UIColor.themeBlack,
+                                                            .paragraphStyle: paragraphStyle]
+            attrString = NSAttributedString(string: "Are you sure you want to delete your \"\(Helper.appName)\" Account?", attributes: attribute)
+            dismissButton.setTitle("Not Now", for: .normal)
+            let logoutButton = ThemePrimaryButton(smallStyle: true)
+            logoutButton.setTitle("Delete", for: .normal)
+            logoutButton.addTarget(self, action: #selector(deleteAccountRequest(_:)), for: .touchUpInside)
+            buttonStackView.addArrangedSubview(logoutButton)
+            Helper.triggerHapticFeedback(.warning)
         }
         messageLabel.attributedText = attrString
         dismissButton.addTarget(self, action: #selector(hide), for: .touchUpInside)
@@ -131,28 +144,34 @@ class ThemeAlertVC: UIViewController {
 
     @objc private func logoutTapped(_ sender: ThemePrimaryButton) {
         hide()
-       // ThemeAlertVC.webserviceForLogout()
+        ThemeAlertVC.webserviceForLogout()
     }
 
-//    class func webserviceForLogout() {
-//        guard let profile = SessionManager.shared.userProfile?.loginData else {
-//            return
-//        }
-//        let requstModel = LogoutRequestModel()
-//        requstModel.customer_id = profile.id
-//        requstModel.device_token = SessionManager.shared.fcmToken ?? ""
-//        UtilityClass.showHUD()
-//        let strURL = requstModel.customer_id + "/" + requstModel.device_token
-//        WebServiceCalls.Logout(strURL: strURL) { (json, status) in
-//            UtilityClass.hideHUD()
-//            if status{
-//                SessionManager.shared.logout()
-//            } else {
-//                UtilityClass.hideHUD()
-//                AlertMessage.showMessageForError(json["message"].stringValue)
-//            }
-//        }
-//    }
+    @objc private func deleteAccountRequest(_ sender: ThemePrimaryButton) {
+        hide()
+        let param: [String: String] = ["driver_id": Singleton.shared.userProfile?.responseObject.id ?? ""]
+        Loader.showHUD()
+        WebServiceCalls.deleteAccountAPi(params: param) { json, status in
+            Loader.hideHUD()
+            if status {
+                SessionManager.shared.logout()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute:{
+                    AlertMessage.showMessageForSuccess("\(json[ "message"])")
+                })
+            }else {
+                AlertMessage.showMessageForError(json.getApiMessage())
+            }
+        }
+    }
+    
+    class func webserviceForLogout() {
+        let param: [String: Any] = ["driver_id": Singleton.shared.userProfile!.responseObject.id, "device_token": SessionManager.shared.fcmToken ?? ""]
+        Loader.showHUD()
+        WebServiceCalls.LogoutApi(strType: param) { (response, status) in
+            Loader.hideHUD()
+            SessionManager.shared.logout()
+        }
+    }
 }
 
 extension ThemeAlertVC: UITextFieldDelegate {
@@ -172,6 +191,7 @@ extension ThemeAlertVC {
         case logout
         case confirmation(title: String? = nil, message: String, onConfirmed: () -> Void )
         case cardPin(onConfirmed: (_ pin: String) -> Void)
+        case deleteUser
     }
 
 }

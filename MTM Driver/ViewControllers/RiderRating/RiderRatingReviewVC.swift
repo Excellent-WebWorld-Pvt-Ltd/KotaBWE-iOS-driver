@@ -26,7 +26,7 @@ class RiderRatingReviewVC: BaseViewController {
     
     var completeTrip: CompeteTripData?
     private var bookingInfo: BookingInfo?
-    var id = ""
+//    var id = ""
     var customerRating = ""
     //MARK:- ===== Vaariables ====
     
@@ -84,7 +84,7 @@ class RiderRatingReviewVC: BaseViewController {
     func WebserviceCallReviewRating(){
         Loader.showHUD(with: self.view)
         let reviewRatingRedModel = ReviewRatingReqModel()
-        reviewRatingRedModel.booking_id = id
+        reviewRatingRedModel.booking_id = completeTrip?.id ?? ""
         reviewRatingRedModel.rating = "\(viewRating.rating)"
         reviewRatingRedModel.comment = txtvReview.textArea.textView.text ?? ""
         WebServiceCalls.addReviewRating(ReviewRatingModel:reviewRatingRedModel) {response, status in

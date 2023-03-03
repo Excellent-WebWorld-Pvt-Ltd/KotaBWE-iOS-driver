@@ -17,6 +17,7 @@ class LoginVC: UIViewController {
     
     @IBOutlet weak var txtPassword: CustomViewOutlinedTxtField!
     
+    @IBOutlet weak var lblSignIn: ThemeLabel!
     
     @IBOutlet weak var btnHidePassword: UIButton!
    
@@ -51,8 +52,18 @@ class LoginVC: UIViewController {
         setupTextfields()
         formattedTextSetup()
         setupInitView()
+        self.localization()
+    
 //        setupRegisterVC()
     
+    }
+    
+    func localization(){
+        self.lblSignIn.text = "Sign In".localized
+        self.txtEmail.textField.placeholder = "Email".localized
+        self.txtEmail.textField.label.text = "Email".localized
+        self.txtPassword.textField.placeholder = "Password".localized
+        self.txtPassword.textField.label.text = "Password".localized
     }
     
     func setupTextfields() {
@@ -92,12 +103,12 @@ class LoginVC: UIViewController {
     func formattedTextSetup(){
         let formattedText = NSMutableAttributedString()
         formattedText
-            .normal("Not a Kota user?  ", Colour: UIColor.black.withAlphaComponent(0.7), 14)
-            .bold("Sign Up")
+            .normal("Not a Kota user?  ".localized, Colour: UIColor.black.withAlphaComponent(0.7), 14)
+            .bold("Sign Up".localized)
         
         let forgotformattedText = NSMutableAttributedString()
         forgotformattedText
-            .medium("Forgot Password?")
+            .medium("Forgot Password?".localized)
         
         btnNotUser.setAttributedTitle(formattedText, for: .normal)
         btnForgotPassword.setAttributedTitle(forgotformattedText, for: .normal)
@@ -118,9 +129,9 @@ class LoginVC: UIViewController {
     }
     
     func validations() -> (Bool) {
-        let emailValidation = InputValidation.email.isValid(input: txtEmail.textField.unwrappedText, field: "email address")
+        let emailValidation = InputValidation.email.isValid(input: txtEmail.textField.unwrappedText, field: "email".localized)
             txtEmail.textField.leadingAssistiveLabel.text = emailValidation.error
-        let passwordValidation = InputValidation.password.isValid(input: txtPassword.textField.unwrappedText, field: "password")
+        let passwordValidation = InputValidation.password.isValid(input: txtPassword.textField.unwrappedText, field: "password".localized)
             txtPassword.textField.leadingAssistiveLabel.text = passwordValidation.error ?? ""
         txtPassword.textField.setOutlineColor(passwordValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
         txtEmail.textField.setOutlineColor(emailValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
@@ -223,8 +234,7 @@ class LoginVC: UIViewController {
 //                self.navigationController?.pushViewController(otpVC, animated: true)
             }
             else{
-                ThemeAlertVC.present(from: self, ofType: .simple(title: "Alert", message: response.getApiMessage()))
-
+                ThemeAlertVC.present(from: self, ofType: .simple(title: "Alert".localized, message: response.getApiMessage()))
             }
         }
     }
@@ -264,7 +274,7 @@ extension LoginVC : CountryPickerViewDelegate,CountryPickerViewDataSource {
         self.selectedCounty = country
     }
     func sectionTitleForPreferredCountries(in countryPickerView: CountryPickerView) -> String? {
-        return "Select country"
+        return "Select country".localized
     }
 }
 

@@ -102,6 +102,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnSubmit" destination="lCi-Sq-hqx" id="ijx-Dq-6X6"/>
+                        <outlet property="btnViewTicket" destination="bz2-5w-hk3" id="8NI-Vg-aby"/>
                         <outlet property="txtSubject" destination="USP-eu-gA4" id="UEP-tj-4n3"/>
                         <outlet property="txtView" destination="FV1-91-Usk" id="Taz-G0-bO8"/>
                     </connections>

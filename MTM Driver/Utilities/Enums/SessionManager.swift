@@ -115,6 +115,8 @@ class SessionManager {
         if let driverDutyInfo = DriverDutyInfo(json: json["booking_info"]) {
             Singleton.shared.isDriverOnline = driverDutyInfo.driverDuty
             Singleton.shared.totalDriverEarning = driverDutyInfo.totalDriverEarning
+        }else{
+            Singleton.shared.totalDriverEarning = "0.00"
         }
         Singleton.shared.meterInfo = MeterInfo(fromJson: json["meter_check"])
         AppDelegate.shared.setHome()

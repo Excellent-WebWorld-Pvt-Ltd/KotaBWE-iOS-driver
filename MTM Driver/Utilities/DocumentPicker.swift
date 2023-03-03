@@ -84,21 +84,21 @@ class DocumentPickerController: NSObject {
         for type in fileType {
             switch type {
             case .camera:
-                if let action = self.action(for: .camera, title: "Camera") {
+                if let action = self.action(for: .camera, title: "Camera".localized) {
                     alertController.addAction(action)
                 }
             case .image:
-                if let action = self.action(for: .photoLibrary, title: "Photo Library") {
+                if let action = self.action(for: .photoLibrary, title: "Photo Library".localized) {
                     alertController.addAction(action)
                 }
             case .pdf:
-                let action = UIAlertAction(title: "PDF", style: .default) { _ in
+                let action = UIAlertAction(title: "PDF".localized, style: .default) { _ in
                     self.pickDocumentTapped()
                 }
                 alertController.addAction(action)
             }
         }
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in
+        alertController.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel) { _ in
             self.completion(nil)
         })
         if UIDevice.current.userInterfaceIdiom == .pad {

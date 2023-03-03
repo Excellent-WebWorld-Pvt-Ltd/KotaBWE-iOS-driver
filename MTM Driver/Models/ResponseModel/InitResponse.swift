@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 class InitResponse: CommonApiResponse {
-    let sessionExpired: Bool
+    let sessionExpired: String
     let maintenance: Bool
     let docExpired: String
     let waitingTime: String
@@ -42,7 +42,7 @@ class InitResponse: CommonApiResponse {
         sosNumber = json["sos_number"].stringValue
         expCompareDate = json["exp_compare_date"].stringValue
         currentTime = json["current_time"].stringValue
-        sessionExpired = json["is_expired"].intValue != 1
+        sessionExpired = json["is_expired"].stringValue
         docExpired = json["doc_expired"].stringValue
         waitingTime = json["waiting_time"].stringValue
         isUpdateAvaialable = json["update"].boolValue

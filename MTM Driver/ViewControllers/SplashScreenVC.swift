@@ -34,6 +34,7 @@ class SplashScreenViewController: BaseViewController {
         self.btnRegister.isHidden = true
         self.btnSkip.isHidden = true
         self.playLogoAnimation()
+        self.localization()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,6 +42,12 @@ class SplashScreenViewController: BaseViewController {
         //webserviceCallForInit()
         navType = .transparent
         self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    func localization(){
+        self.btnLogin.setTitle("Login".localized, for: .normal)
+        self.btnRegister.setTitle("Register".localized, for: .normal)
+        self.btnSkip.setTitle("Skip".localized, for: .normal)
     }
 
     //MARK: - ====== WebService Call Init ======
@@ -64,7 +71,6 @@ class SplashScreenViewController: BaseViewController {
             }
         }
     }
-    
     
     func setupUIForVideoPlay() {
         DispatchQueue.main.async {
@@ -132,7 +138,7 @@ class SplashScreenViewController: BaseViewController {
     
     private func handleMaintenanceRepsonse(_ model: InitResponse) {
         let alert = UIAlertController(title: Helper.appName, message: model.message, preferredStyle: .alert)
-        let updateAction = UIAlertAction(title: "Ok", style: .default) { _ in
+        let updateAction = UIAlertAction(title: "Ok".localized, style: .default) { _ in
         }
         alert.addAction(updateAction)
         self.present(alert, animated: true)
@@ -143,7 +149,6 @@ class SplashScreenViewController: BaseViewController {
         if updateCheck {
             checkAppUpdate(model: model)
             return
-            
         } else if model.status {
             self.isAPICompleted = true
             Singleton.shared.fillInfo(from: model)
@@ -159,20 +164,19 @@ class SplashScreenViewController: BaseViewController {
                 }
 //                AppDelegate.shared.setLogin()
             }
-        }
-        else {
-            if model.sessionExpired {
+        }else {
+            if model.sessionExpired == "0"{
                 SessionManager.shared.splashLogout()
-                setupUIForVideoPlay()
                 AlertMessage.showMessageForError(model.message ?? "")
             }
+            setupUIForVideoPlay()
         }
     }
     
     private func checkAppUpdate(model: InitResponse) {
         if model.isUpdateAvaialable {
             let alert = UIAlertController(title: Helper.appName, message: model.message, preferredStyle: .alert)
-            let updateAction = UIAlertAction(title: "Update", style: .default) { _ in
+            let updateAction = UIAlertAction(title: "Update".localized, style: .default) { _ in
                 if let url = URL(string: Helper.appStoreLink),
                    UIApplication.shared.canOpenURL(url) {
                     UIApplication.shared.open(url)
@@ -182,7 +186,7 @@ class SplashScreenViewController: BaseViewController {
             self.present(alert, animated: true)
         } else {
             let alert = UIAlertController(title: Helper.appName, message: model.message, preferredStyle: .alert)
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            let cancelAction = UIAlertAction(title: "Cancel".localized, style: .cancel) { _ in
                 if model.status {
                     Singleton.shared.fillInfo(from: model)
                     if SessionManager.shared.isUserLoggedIn,
@@ -191,17 +195,17 @@ class SplashScreenViewController: BaseViewController {
                         Singleton.shared.userProfile = loginModel
                         Singleton.shared.driverId = loginModel.responseObject.id
                         AppDelegate.shared.setHome()
-                    } else {
+                    }else{
                         AppDelegate.shared.setLogin()
                     }
                 } else {
-                    if model.sessionExpired {
+                    if model.sessionExpired == "0" {
                         AppDelegate.shared.setLogin()
                         AlertMessage.showMessageForError(model.message ?? "")
                     }
                 }
             }
-            let updateAction = UIAlertAction(title: "Update", style: .default) { _ in
+            let updateAction = UIAlertAction(title: "Update".localized, style: .default) { _ in
                 if let url = URL(string: Helper.appStoreLink),
                    UIApplication.shared.canOpenURL(url) {
                     UIApplication.shared.open(url)

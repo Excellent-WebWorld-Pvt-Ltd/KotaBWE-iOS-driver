@@ -16,13 +16,13 @@ class SettingVC: BaseViewController {
     @IBOutlet weak var tblSetting: UITableView!
     
     //MARK:- ===== Variables ===
-    var arrSettingList = ["Profile", "Bank Details","Vehicle Details","Vehicle Document", "Change Passowrd"]
+    var arrSettingList = ["Profile", "Bank Details","Vehicle Details","Vehicle Document", "Change Password"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.removeObserver(self, name: .updateProfile, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(UpdateProfile), name: .updateProfile, object: nil)
-        self.setupNavigation(.normal(title: "Settings", leftItem: .back))
+        self.setupNavigation(.normal(title: "Settings".localized, leftItem: .back))
         self.lblVersion.text = "v\(kAPPVesion)"
         tblSetting.contentInset.top = 10
         tblSetting.registerNibCell(type: .Setting)
@@ -38,14 +38,13 @@ class SettingVC: BaseViewController {
         if let bookingInfo = Singleton.shared.bookingInfo,
            (bookingInfo.statusEnum == .accepted
             || bookingInfo.statusEnum == .traveling) {
-            let message = "Please complete your current trip first!"
+            let message = "Please complete your current trip first!".localized
             UtilityClass.showAlert(message: message)
             return false
-        } else {
+        }else{
             return true
         }
     }
-    
 }
 
 extension SettingVC : UITableViewDataSource,UITableViewDelegate {
@@ -57,26 +56,21 @@ extension SettingVC : UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellType.ProfileInfo.rawValue, for: indexPath) as! ProfileInfoTableViewCell
-        
-                 let userName = "\(Singleton.shared.userProfile?.responseObject.firstName ?? "")" +  " " + "\(Singleton.shared.userProfile?.responseObject.lastName  ?? "")"
-                cell.lblName.text = userName
-        
+            let userName = "\(Singleton.shared.userProfile?.responseObject.firstName ?? "")" +  " " + "\(Singleton.shared.userProfile?.responseObject.lastName  ?? "")"
+            cell.lblName.text = userName
             cell.lblEmail.text = Singleton.shared.userProfile?.responseObject.email
             cell.lblMobileNo.text = "\(Singleton.shared.countryCode) \(Singleton.shared.userProfile?.responseObject.mobileNo ?? "")"  //Singleton.shared.userProfile?.responseObject.mobileNo
             if let imageStr = Singleton.shared.userProfile?.responseObject.profileImage.toImageUrl(), let imageUrl = URL(string: imageStr) {
                 cell.imgProfile.sd_setImage(with: imageUrl, placeholderImage: AppImages.userPlaceholder.image)
             }
-           
             cell.editClicked = { [weak self] in
                 let profileVC = AppViewControllers.shared.profile(forSettings: true)
                 self?.push(profileVC)
             }
             return cell
-        }
-        else {
+        }else {
             let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellType.Setting.rawValue, for: indexPath) as! SettingTableViewCell
-            cell.lblTitle.text = arrSettingList[indexPath.row]
-
+            cell.lblTitle.text = arrSettingList[indexPath.row].localized
             return cell
         }
     }
@@ -84,8 +78,7 @@ extension SettingVC : UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
             return 120
-        }
-        else{
+        }else{
             return 70
         }
     }

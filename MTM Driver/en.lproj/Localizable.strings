@@ -1,0 +1,300 @@
+/* 
+  Localizable.strings
+  MTM Driver
+
+  Created by Dhananjay  on 23/02/23.
+  Copyright © 2023 baps. All rights reserved.
+*/
+
+// Splash
+"Ok" = "Ok";
+"Update" = "Update";
+"Cancel" = "Cancel";
+"Skip" = "Skip";
+"Register" = "Register";
+"Login" = "Login";
+
+//Login
+
+"SIGN IN" = "SIGN IN";
+"REGISTER" = "REGISTER";
+"Welcome to Kota" = "Welcome to Kota";
+"Sign In" = "Sign In";
+"Email" = "Email";
+"Password" = "Password";
+"Forgot Password?" = "Forgot Password?";
+"Not a Kota user?  " = "Not a Kota user?  ";
+"Sign Up" = "Sign Up";
+"email" = "email";
+"password" = "password";
+"Alert" = "Alert";
+"Select country" = "Select country";
+
+// Registration
+"Mobile Number" = "Mobile Number";
+"Code" = "Code";
+"Confirm Password" = "Confirm Password";
+"NEXT" = "NEXT";
+"Already a Kota user? " = "Already a Kota user? ";
+"By creating an account, you agree to our" = "By creating an account, you agree to our";
+"Terms of Service" = "Terms of Service";
+"and" = "and";
+"Privacy Policy" = "Privacy Policy";
+"mobile number" = "mobile number";
+"confirm password" = "confirm password";
+"Your password and confirmation password do not match." = "Your password and confirmation password do not match.";
+"Please accept terms & conditions and privacy policy" = "Please accept terms & conditions and privacy policy";
+"Already a Kota user? Sign In" = "Already a Kota user? Sign In";
+
+//OTP
+"Enter 6 Digit Code That Has Been Sent To Your Registered Mail Id." = "Enter 6 Digit Code That Has Been Sent To Your Registered Mail Id.";
+"Didn’t receive code? " = "Didn’t receive code? ";
+"Resend" = "Resend";
+"Resend in" = "Resend in";
+"Please enter otp." = "Please enter otp.";
+"Please enter valid otp." = "Please enter valid otp.";
+
+//bank info
+"Bank Name" = "Bank Name";
+"Account Holder Name" = "Account Holder Name";
+"Account Number" = "Account Number";
+"Branch Code" = "Branch Code";
+"Save" = "Save";
+"Next" = "Next";
+"Bank Info" = "Bank Info";
+"bank name" = "bank name";
+"account holder name" = "account holder name";
+"account number" = "account number";
+"branch code" = "branch code";
+
+//Profile
+"Edit Profile" = "Edit Profile";
+"Profile Details" = "Profile Details";
+"Select Birthdate" = "Select Birthdate";
+"cash" = "cash";
+"first name" = "first name";
+"last name" = "last name";
+"Postal code" = "Postal code";
+"address" = "address";
+"email address" = "email address";
+"Please select profile image" = "Please select profile image";
+"First Name" = "First Name";
+"Last Name" = "Last Name";
+"Date Of Birth" = "Date Of Birth";
+"Address" = "Address";
+"Postal Code" = "Postal Code";
+
+//Vehicle Details
+"Vehicle Details" = "Vehicle Details";
+"Done" = "Done";
+"Vehicle plate number" = "Vehicle plate number";
+"Select truck load type" = "Select truck load type";
+"Select vehicle model" = "Select vehicle model";
+"Select vehicle type" = "Select vehicle type";
+"Select vehicle manufacture year" = "Select vehicle manufacture year";
+"Enter vehicle color" = "Enter vehicle color";
+"vehicle_note" = "Note:- Please Attach Photos Of Below Sides Of Your Truck";
+
+// Vehicle Document
+"Vehicle Document" = "Vehicle Document";
+"Submit" = "Submit";
+"Document getting uploaded, please wait till finish the process" = "Document getting uploaded, please wait till finish the process";
+"Attach Document" = "Attach Document";
+"Driving license(front and back)" = "Driving license(front and back)";
+"Criminal record" = "Criminal record";
+"Residence certificate" = "Residence certificate";
+"Rental license" = "Rental license";
+"Booklet" = "Booklet";
+"Civil liability insurance" = "Civil liability insurance";
+"BI (front and back)" = "BI (front and back)";
+"Driver License Front Uploaded!!" = "Driver License Front Uploaded!!";
+"Driver License Back Uploaded!!" = "Driver License Back Uploaded!!";
+"Criminal Record Uploaded!!" = "Criminal Record Uploaded!!";
+"Residence Certificate Uploaded!!" = "Residence Certificate Uploaded!!";
+"Rental License Uploaded!!" = "Rental License Uploaded!!";
+"Booklet Uploaded!!" = "Booklet Uploaded!!";
+"Civil Liability Insurance Uploaded!!" = "Civil Liability Insurance Uploaded!!";
+"BI Front Uploaded!!" = "BI Front Uploaded!!";
+"BI Back Uploaded!!" = "BI Back Uploaded!!";
+"Attach Document(Back)" = "Attach Document(Back)";
+"Attach Document(Front)" = "Attach Document(Front)";
+"Select expiry date" = "Select expiry date";
+"Expiry Date: " = "Expiry Date: ";
+
+// side Menu
+"Log Out" = "Log Out";
+"Delete My Account" = "Delete My Account";
+"Trip history" = "Trip history";
+"Earnings" = "Earnings";
+"Earning Settlement" = "Earning Settlement";
+"Settings" = "Settings";
+"Support" = "Support";
+"Privacy Policy" = "Privacy Policy";
+"Terms & Condition" = "Terms & Condition";
+
+//Home
+"Cancel trip is not possible due to some reason" = "Cancel trip is not possible due to some reason";
+"Please restart application." = "Please restart application.";
+"Contact number is not available" = "Contact number is not available";
+"Hi" = "Hi";
+"Booking Request Accepted" = "Booking Request Accepted";
+"Slide To Accept" = "Slide To Accept";
+"Arrived" = "Arrived";
+"Start Ride" = "Start Ride";
+"Complete" = "Complete";
+"accepted" = "accepted";
+"Pickup" = "Pickup";
+"Drop-off" = "Drop-off";
+"Cargo weight" = "Cargo weight";
+"Item quantity" = "Item quantity";
+"Truck load type" = "Truck load type";
+"View Details" = "View Details";
+"Rate Now" = "Rate Now";
+"Grand Total" = "Grand Total";
+"Trip Completed!" = "Trip Completed!";
+"You're Online" = "You're Online";
+"You're Offline" = "You're Offline";
+"See More" = "See More";
+"Your Today's Earning" = "Your Today's Earning";
+"Total Time" = "Total Time";
+"Distance" = "Distance";
+"Your Earning" = "Your Earning";
+
+//Notification
+"Notification" = "Notification";
+"Clear All" = "Clear All";
+"Something went wrong" = "Something went wrong";
+"No data found." = "No data found.";
+
+//My Trips
+"My Trips" = "My Trips";
+"Upcoming" = "Upcoming";
+"Past" = "Past";
+"No data found" = "No data found";
+
+//chat
+"chat_massage" = "Your trip has been ended, so you can't message to this customer.";
+
+//TripDetail
+"Trip Detail" = "Trip Detail";
+"You Rated" = "You Rated";
+"Your Rider" = "Your Rider";
+"Slide To Go" = "Slide To Go";
+"You're currently offline, please get online before go for the ride." = "You're currently offline, please get online before go for the ride.";
+"You're already on your trip, first finish your trip." = "You're already on your trip, first finish your trip.";
+"Cargo Weight" = "Cargo Weight";
+"Item Quantity" = "Item Quantity";
+"Truck Load Type" = "Truck Load Type";
+"Vehicle Info" = "Vehicle Info";
+"Notes" = "Notes";
+"Trip Time" = "Trip Time";
+"Waiting Time" = "Waiting Time";
+"Trip Price" = "Trip Price";
+"Need Help?" = "Need Help?";
+
+//EARNING
+"Earnings" = "Earnings";
+"No earning history found" = "No earning history found";
+"Mon" = "Mon";
+"Tue" = "Tue";
+"Wed" = "Wed";
+"Thu" = "Thu";
+"Fri" = "Fri";
+"Sat" = "Sat";
+"Sun" = "Sun";
+"Rides" = "Rides";
+"Time" = "Time";
+"Tips" = "Tips";
+"History" = "History";
+"Daily" = "Daily";
+"Weekly" = "Weekly";
+"Pending" = "Pending";
+"Completed" = "Completed";
+"Total amount" = "Total amount";
+"Earning Settlement" = "Earning Settlement";
+"You do not have any earning." = "You do not have any earning.";
+"Withdraw" = "Withdraw";
+"Are you sure you want to withdraw" = "Are you sure you want to withdraw";
+"Withdraw Money" = "Withdraw Money";
+"Withdraw request pending..." = "Withdraw request pending...";
+
+//Setting
+"Profile" = "Profile";
+"Bank Details" = "Bank Details";
+"Vehicle Details" = "Vehicle Details";
+"Vehicle Document" = "Vehicle Document";
+"Change Password" = "Change Password";
+"Please complete your current trip first!" = "Please complete your current trip first!";
+
+//Change Password
+"Change Password" = "Change Password";
+"old password" = "old password";
+"new password" = "new password";
+"confirm new password" = "confirm new password";
+"Your new password and confirmation new password do not match." = "Your new password and confirmation new password do not match.";
+"Old Password" = "Old Password";
+"Enter Old Password" = "Enter Old Password";
+"New Password" = "New Password";
+"Enter New Password" = "Enter New Password";
+"Confirm New Password" = "Confirm New Password";
+"Enter Confirm New Password" = "Enter Confirm New Password";
+
+//"Support"
+"Support" = "Support";
+"Describe your issue" = "Describe your issue";
+"Please enter subject" = "Please enter subject";
+"Please enter description" = "Please enter description";
+"subject" = "subject";
+"Subject" = "Subject";
+"description" = "description";
+"Your ticket is generated successfully. We will contact to you soon." = "Your ticket is generated successfully. We will contact to you soon.";
+"View Ticket" = "View Ticket";
+"Tickets" = "Tickets";
+"Ticket Id" = "Ticket Id";
+"Processing" = "Processing";
+"Resolved" = "Resolved";
+
+//Validation
+"Please enter minimum 2 characters in" = "Please enter minimum 2 characters in";
+"Please enter" = "Please enter";
+"Please enter valid" = "Please enter valid";
+"Special characters are not allowed in" = "Special characters are not allowed in";
+"Username must be between 8 to 18 characters" = "Username must be between 8 to 18 characters";
+"Password must be between 8 to 25 characters" = "Password must be between 8 to 25 characters";
+"Unable to access the Camera" = "Unable to access the Camera";
+"To enable access, go to Settings > Privacy > Camera and turn on Camera access for this app." = "To enable access, go to Settings > Privacy > Camera and turn on Camera access for this app.";
+"Unable to access the Photos" = "Unable to access the Photos";
+"To enable access, go to Settings > Privacy > Photos and turn on Photos access for this app." = "To enable access, go to Settings > Privacy > Photos and turn on Photos access for this app.";
+"Choose A Source" = "Choose A Source";
+"Please select driver's license front" = "Please select driver's license front";
+"Please select driver's license back" = "Please select driver's license back";
+"Please select Criminal record" = "Please select Criminal record";
+"Please select Residence certificate" = "Please select Residence certificate";
+"Please select Rental license" = "Please select Rental license";
+"Please select Booklet" = "Please select Booklet";
+"Please select Civil liability insurance" = "Please select Civil liability insurance";
+"Please select BI front" = "Please select BI front";
+"Please select BI back" = "Please select BI back";
+"Please select national id card" = "Please select national id card";
+"Please enter national ID card number" = "Please enter national ID card number";
+"Please select driver PSV license" = "Please select driver PSV license";
+"Please select good conduct certificate / Police clearance" = "Please select good conduct certificate / Police clearance";
+"Please select vehicle PSV license" = "Please select vehicle PSV license";
+"Please select vehicle logbook" = "Please select vehicle logbook";
+"Please select NTSA Inspection certificate" = "Please select NTSA Inspection certificate";
+"Please select PSV comprehensive insurance" = "Please select PSV comprehensive insurance";
+"Please enter driver's license expiry date" = "Please enter driver's license expiry date";
+"Please enter Rental license expiry date" = "Please enter Rental license expiry date";
+"Please enter Civil liability insurance expiry date" = "Please enter Civil liability insurance expiry date";
+"Please enter BI expiry date" = "Please enter BI expiry date";
+"Please enter PSV comprehensive insurance expiry date" = "Please enter PSV comprehensive insurance expiry date";
+
+//Picker file
+"Camera" = "Camera";
+"Photo Library" = "Photo Library";
+"PDF" = "PDF";
+
+//Forgot password
+"Forgot Password" = "Forgot Password";
+"Session expired" = "Session expired";
+"Please Connect to Internet" = "Please Connect to Internet";

@@ -19,6 +19,7 @@ class EarningVC: BaseViewController {
     @IBOutlet weak var tblEarning: UITableView!
     @IBOutlet weak var colWeeklyUpdates: UICollectionView!
     @IBOutlet weak var btnWeekly: UnderlineTextButton!
+    @IBOutlet weak var lblHistory: ThemeLabel!
     
     
     //MARK:- ==== Variables ======
@@ -59,7 +60,7 @@ class EarningVC: BaseViewController {
         earningType = .daily
         getWeekDays(FromDate:currentDate)
         tblEarning.registerNibCell(type: .noData)
-        setupNavigation(.normal(title: "Earnings", leftItem: .back, hasNotification: false))
+        setupNavigation(.normal(title: "Earnings".localized, leftItem: .back, hasNotification: false))
         tblEarning.registerNibCell(type: .walletHistory)
         tblEarning.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tblEarning.frame.size.width, height: 1))
     }
@@ -78,8 +79,12 @@ class EarningVC: BaseViewController {
     //MARK:- ====== UnderLine button =====
     func underLineBtnSetup(Type:EarningType){
         let FormattedText = NSMutableAttributedString()
-        FormattedText.bold14(Type.rawValue)
+        FormattedText.bold14(Type.rawValue.localized)
         btnWeekly.setAttributedTitle(FormattedText, for: .normal)
+    }
+    
+    func setLocalization(){
+        self.lblHistory.text = "History".localized
     }
     
     //MARK:- ====== Btn Action weekly =======
@@ -155,7 +160,8 @@ extension EarningVC : UICollectionViewDataSource , UICollectionViewDelegate ,UIC
 
             cell.ViewbarChart.isHidden = false
             let arrOfDoubles = task.map { (value) -> Double in
-                return Double(value) ?? 0.0
+                let newString = value.replacingOccurrences(of: ",", with: "")
+                return Double(newString) ?? 0.0
             }
             cell.dataSetup(dataPoints:arrOfDoubles)
         }
@@ -216,7 +222,7 @@ extension EarningVC : UITableViewDataSource , UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if  showNoDataCell {
             let cell: NoDataFoundTblCell = tableView.dequeueReusableCell(withType: .noData, for: indexPath)
-            cell.setMessage("No earning history found!")
+            cell.setMessage("\("No earning history found".localized)!")
             return cell
         }
         else {
@@ -249,24 +255,18 @@ extension EarningVC {
             }
             Loader.hideHUD()
             if status {
-                print(response)
                 if response["graph"].dictionary  != nil {
                     //self.conHeightOfCollection.constant = 320
                     self.isShowGraph = true
                     guard let dict = response["graph"].dictionaryObject else { return }
-                    print(dict.keys)
-                    print(dict.values)
                     for (key,value) in dict {
-                        print(key,value)
                         for (dictKey,_) in self.dictDays {
                             if dictKey.lowercased() == key.lowercased(){
                                 self.dictDays.updateValue(value, forKey: key)
                             }
                         }
                     }
-                    print(self.dictDays)
                     for (key,value) in self.dictDays{
-                        print(key,value)
                         switch key {
                         case "Mon":
                             self.task[0] = "\(value)"

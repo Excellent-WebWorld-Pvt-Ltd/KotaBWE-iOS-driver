@@ -122,6 +122,10 @@ class AppViewControllers {
      getViewController(.payment)
    }
     
+    var earningSettlement: EarningSettlementVC {
+     getViewController(.payment)
+   }
+    
     var creditCardList: CrediCardListVC {
         getViewController(.payment)
     }

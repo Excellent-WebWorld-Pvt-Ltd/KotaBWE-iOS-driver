@@ -36,8 +36,7 @@ class WebService{
                     parameterString = parameterString + temp + String(value) //+ "/"
                 }
             }
-        }
-        else { parameterString = "" }
+        } else { parameterString = "" }
         guard let url = URL(string: NetworkEnvironment.apiURL + api.rawValue + parameterString) else {
             completion(JSON(),false)
             return
@@ -58,13 +57,12 @@ class WebService{
                     print("the response is \n \(resJson)")
                     let status = resJson["status"].boolValue
                     completion(resJson, status)
-                }
-                else {
+                }else {
                   //  LoaderClass.hideActivityIndicator()
                     if let error = response.result.error {
                         if(response.response?.statusCode == 403){
                             SessionManager.shared.logout()
-                            AlertMessage.showMessageForError("Session expired!")
+                            AlertMessage.showMessageForError("\("Session expired".localized)!")
                         }else{
                             print("Error = \(error.localizedDescription)")
                             completion(JSON(), false)
@@ -73,14 +71,11 @@ class WebService{
                     }
                 }
             }
-
     }
 
 
     func getMethod(url: URL, httpMethod:Method, completion: @escaping CompletionResponse){
         print("The webservice call is for \(url) and  the headers are \(NetworkEnvironment.headers)")
-        
-        
 //        Loader.showHUD(with: Helper.currentWindow)
         Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.httpBody, headers: NetworkEnvironment.headers)
             .validate()
@@ -105,17 +100,14 @@ class WebService{
                 else {
                     //  LoaderClass.hideActivityIndicator()
                     if let error = response.result.error {
-                        if(response.response?.statusCode == 403)
-                        {
+                        if(response.response?.statusCode == 403){
                             SessionManager.shared.logout()
-                            AlertMessage.showMessageForError("Session expired!")
+                            AlertMessage.showMessageForError("\("Session expired".localized)!")
                         }
-                        else
-                        {
+                        else{
                             print("Error = \(error.localizedDescription)")
                             completion(JSON(), false)
                             AlertMessage.showMessageForError(error.localizedDescription)
-
                         }
                     }
                 }
@@ -127,7 +119,6 @@ class WebService{
     //-------------------------------------
     
     func uploadMultipartFormData(api: ApiKey,from images: [String:UIImage],completion: @escaping CompletionResponse){
-        
         guard isConnected else { completion(JSON(), false); return }
 //        Loader.showHUD(with: Helper.currentWindow)
         Alamofire.upload(
@@ -137,7 +128,6 @@ class WebService{
                             multipartFormData.append(imageData, withName: key, mimeType: "image/jpeg")
                         }
                     }
-                
         },usingThreshold:10 * 1024 * 1024,
             to: (NetworkEnvironment.apiURL + api.rawValue), method:.post,
             headers:NetworkEnvironment.headers,
@@ -156,12 +146,9 @@ class WebService{
     }
     
     func postDataWithImage(api: ApiKey, parameter dictParams: [String: Any], image: UIImage?, imageParamName: String, completion: @escaping CompletionResponse) {
-        
         guard isConnected else { completion(JSON(), false); return }
-
 //           Loader.showHUD(with: Helper.currentWindow)
         Alamofire.upload(multipartFormData: { (multipartFormData) in
-            
             if let imageData = image?.getData(inKb: 500) {
                 multipartFormData.append(imageData, withName: imageParamName, fileName: "image.jpeg", mimeType: "image/jpeg")
             }
@@ -246,27 +233,20 @@ class WebService{
            method: .post, headers: NetworkEnvironment.headers) { (encodingResult) in
 //            Loader.hideHUD()
              print("the response is \n \(encodingResult)")
-            switch encodingResult
-            {
+            switch encodingResult {
             case .success(let upload,_,_):
-                
                 upload.responseJSON {
                     response in
-                    
                     if let json = response.result.value {
-                        
                         if (json as AnyObject).object(forKey:("status")) as! Bool == false {
                             let resJson = JSON(json)
                             completion(resJson, false)
-                        }
-                        else {
+                        }else{
                             let resJson = JSON(json)
                             print(resJson)
-                            
                             completion(resJson, true)
                         }
-                    }
-                    else {
+                    }else {
                         if let error = response.result.error {
                             print("Error = \(error.localizedDescription)")
                         }
@@ -278,7 +258,6 @@ class WebService{
             }
         }
     }
-    
     
     class func getGoogleMapDirections(origin: String, destination: String, completion: @escaping CompletionResponse) {
         let parameters: [String: Any] = ["origin": origin,
@@ -293,8 +272,7 @@ class WebService{
                         let resJson = JSON(json)
                         let status = resJson["status"].stringValue.lowercased() == "ok"
                         completion(resJson, status)
-                    }
-                    else {
+                    }else {
                         if let error = response.result.error {
                             print("Error = \(error.localizedDescription)")
                             completion(JSON(), false)
@@ -355,7 +333,7 @@ extension Encodable {
 extension WebService{
     var isConnected : Bool{
         guard isConnectedToInternet() else {
-            AlertMessage.showMessageForError("Please Connect to Internet")
+            AlertMessage.showMessageForError("Please Connect to Internet".localized)
             //  LoaderClass.hideActivityIndicator()
             return false
         }
@@ -365,4 +343,3 @@ extension WebService{
         return NetworkReachabilityManager()!.isReachable
     }
 }
-

@@ -25,6 +25,8 @@ let showPasswordImg = UIImage(named: "ic_showPasswordRed")
 let PaymentSuccessURL = "https://showfaride.com/panel/flutterwave/payment_success"
 let PaymentFailureURL = "https://showfaride.com/panel/flutterwave/payment_failed"
 
+let LCLCurrentLanguageKey = "LCLCurrentLanguageKey"
+
 let baseURLDirections = "https://maps.googleapis.com/maps/api/directions/json?"
 
 let appdel = UIApplication.shared

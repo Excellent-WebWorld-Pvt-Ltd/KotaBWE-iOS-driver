@@ -20,15 +20,15 @@ enum TripStatus {
     func setTitle()->String{
         switch self {
         case .request:
-           return "Slide To Accept"
+           return "Slide To Accept".localized
         case .arrived :
-           return "Arrived"
+           return "Arrived".localized
         case .startRide :
-            return "Start Ride"
+            return "Start Ride".localized
         case .complete :
-            return "Complete"
+            return "Complete".localized
         case .accepted :
-            return "accepted"
+            return "accepted".localized
         default:
             break
         }
@@ -78,6 +78,7 @@ class DriverInfoView: UIView
     @IBOutlet weak var lblTimer: ThemeLabel!
     @IBOutlet weak var heightBouttom: NSLayoutConstraint!
     @IBOutlet weak var lblTimerHeight: NSLayoutConstraint!
+    @IBOutlet weak var btnCancelBooking: UIButton!
     // ----------------------------------------------------
     // MARK: - Globle Declaration Methods
     // ----------------------------------------------------
@@ -106,7 +107,7 @@ class DriverInfoView: UIView
                 self.lblTimer.isHidden = false
                 timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
                 setUpSwipeView(vwSwipe: viewRequestButton)
-                lblLocationTitle.text = "Pickup"
+                lblLocationTitle.text = "Pickup".localized
                 getRequest(isrequest:false)
                 viewRequestTrip.isHidden = false
                 viewBtnArrivedTrip.isHidden = true
@@ -120,7 +121,7 @@ class DriverInfoView: UIView
                 self.heightBouttom.constant = 0
                 self.lblTimerHeight.constant = 0
                 getRequest(isrequest:true)
-                lblLocationTitle.text = "Pickup"
+                lblLocationTitle.text = "Pickup".localized
                 setUpSwipeView(vwSwipe: viewBtnStartRide)
                 viewRequestTrip.isHidden = true
                 viewBtnArrivedTrip.isHidden = true
@@ -135,11 +136,10 @@ class DriverInfoView: UIView
                 self.lblTimer.isHidden = true
               //  ViewSOS.isHidden = true
              //   btnSos.isHidden = true
-                lblLocationTitle.text = "Pickup"
+                lblLocationTitle.text = "Pickup".localized
                 setUpSwipeView(vwSwipe: viewBtnArrivedTrip)
                 viewRequestTrip.isHidden = true
                 viewBtnArrivedTrip.isHidden = false
-                print("showing the view")
                 viewBtnStartRide.isHidden = true
                 viewBtnCompleteTrip.isHidden = true
             //case .tripComplete :
@@ -156,7 +156,7 @@ class DriverInfoView: UIView
                 //getRequest(isrequest:true)
                 self.heightBouttom.constant = 0
                 self.lblTimerHeight.constant = 0
-                lblLocationTitle.text = "Drop-off"
+                lblLocationTitle.text = "Drop-off".localized
                 self.lblTimer.isHidden = true
                 setUpSwipeView(vwSwipe: viewBtnCompleteTrip)
                 viewRequestTrip.isHidden = true
@@ -173,7 +173,9 @@ class DriverInfoView: UIView
         }
     }
     
-    
+    func setLocalization(){
+        self.btnCancelBooking.setTitle("Cancel".localized, for: .normal)
+    }
     // ----------------------------------------------------
     // MARK: - Base Methods
     // ----------------------------------------------------
@@ -304,9 +306,9 @@ class DriverInfoView: UIView
         driverState = status
         self.lblDriverName.text = Singleton.shared.bookingInfo?.name
         let totalEarning = Double(Singleton.shared.bookingInfo?.estimatedFare ?? "0")?.rounded(toPlaces: 2)
-        self.lblCargoWeight.text = "Cargo weight: \(Singleton.shared.bookingInfo?.cargoWeightKg ?? "") Kg"
-        self.lblItemQuantity.text = "Item quantity: \(Singleton.shared.bookingInfo?.itemQuantity ?? "")"
-        self.lblLoadType.text = "Truck load type: \(Singleton.shared.bookingInfo?.truckLoadType ?? "")"
+        self.lblCargoWeight.text = "\("Cargo weight".localized): \(Singleton.shared.bookingInfo?.cargoWeightKg ?? "") Kg"
+        self.lblItemQuantity.text = "\("Item quantity".localized): \(Singleton.shared.bookingInfo?.itemQuantity ?? "")"
+        self.lblLoadType.text = "\("Truck load type".localized): \(Singleton.shared.bookingInfo?.truckLoadType ?? "")"
 //        lblMiles.text = Singleton.shared.bookingInfo?.distance
 //        lblMin.text = "\(Singleton.shared.bookingInfo?.estimatedTime ?? "") Mins"
          //Double(loginData?.bookingInfo?.totalDriverEarning ?? "0")?.rounded(toPlaces: 2)
@@ -321,9 +323,8 @@ class DriverInfoView: UIView
         } else {
             
         }
-        self.lblEarning.text = Currency + " " + "\(totalEarning ?? 0.0)"
+        self.lblEarning.text = Currency + " " + "\(Singleton.shared.bookingInfo?.estimatedFare ?? "0.00")"
         self.lblDriverRatings.text = parameter?.rating
-
         self.iconDriverProfilePic.sd_setImage(with: URL(string: NetworkEnvironment.baseImageURL + (Singleton.shared.bookingInfo?.customerInfo?.profileImage ?? "")), completed: nil)
 
         lblPickup.text = status == .inTrip ? Singleton.shared.bookingInfo?.dropoffLocation :  Singleton.shared.bookingInfo?.pickupLocation
@@ -342,7 +343,7 @@ class DriverInfoView: UIView
             .underlineStyle: NSUnderlineStyle.single.rawValue
         ]
         let attributeString = NSMutableAttributedString(
-            string: "View Details",
+            string: "View Details".localized,
             attributes: attr
         )
         btnViewMore.setAttributedTitle(attributeString, for: .normal)

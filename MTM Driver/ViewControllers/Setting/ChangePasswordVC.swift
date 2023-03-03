@@ -23,9 +23,19 @@ class ChangePasswordVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupNavigation(.normal(title: "Change Password", leftItem: .back, hasNotification: false))
+        setupNavigation(.normal(title: "Change Password".localized, leftItem: .back, hasNotification: false))
         setupTextFields()
-        
+        self.setLocalization()
+    }
+    
+    func setLocalization(){
+        self.txtOldPassword.textField.placeholder = "Enter Old Password".localized
+        self.txtOldPassword.textField.label.text = "Old Password".localized
+        self.txtNewPassword.textField.placeholder = "Enter New Password".localized
+        self.txtNewPassword.textField.label.text = "New Password".localized
+        self.txtConfirmNewPassword.textField.placeholder = "Enter Confirm New Password".localized
+        self.txtConfirmNewPassword.textField.label.text = "Confirm New Password".localized
+        self.btnSubmit.setTitle("Submit".localized, for: .normal)
     }
     
     func setupTextFields() {
@@ -38,9 +48,9 @@ class ChangePasswordVC: BaseViewController {
     }
     
     func isValidInputes() -> (Bool) {
-        let oldPasswordValidation = InputValidation.password.isValid(input: self.txtOldPassword.textField.unwrappedText, field: "old password")
-        let newPasswordValidation = InputValidation.password.isValid(input: self.txtNewPassword.textField.unwrappedText, field: "new password")
-        var newConfirmPasswordValidation = InputValidation.nonEmpty.isValid(input: self.txtConfirmNewPassword.textField.unwrappedText, field: "confirm new password")
+        let oldPasswordValidation = InputValidation.password.isValid(input: self.txtOldPassword.textField.unwrappedText, field: "old password".localized)
+        let newPasswordValidation = InputValidation.password.isValid(input: self.txtNewPassword.textField.unwrappedText, field: "new password".localized)
+        var newConfirmPasswordValidation = InputValidation.nonEmpty.isValid(input: self.txtConfirmNewPassword.textField.unwrappedText, field: "confirm new password".localized)
         txtOldPassword.textField.leadingAssistiveLabel.text = oldPasswordValidation.error
         txtOldPassword.textField.setOutlineColor(oldPasswordValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
         txtNewPassword.textField.leadingAssistiveLabel.text = newPasswordValidation.error
@@ -51,7 +61,7 @@ class ChangePasswordVC: BaseViewController {
         
         if newConfirmPasswordValidation.isValid {
             if txtNewPassword.textField.text != txtConfirmNewPassword.textField.text {
-                txtConfirmNewPassword.textField.leadingAssistiveLabel.text = "Your new password and confirmation new password do not match."
+                txtConfirmNewPassword.textField.leadingAssistiveLabel.text = "Your new password and confirmation new password do not match.".localized
                 newConfirmPasswordValidation.isValid = false
                 txtConfirmNewPassword.textField.setOutlineColor(.red, for: .normal)
             }else{

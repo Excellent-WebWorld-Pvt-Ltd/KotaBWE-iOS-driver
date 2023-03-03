@@ -27,6 +27,7 @@ class VehicleInfoVC: BaseViewController {
     @IBOutlet weak var txtVehicleNumber: CustomViewOutlinedTxtField!
     
     @IBOutlet weak var txtVehicleModel: CustomViewOutlinedTxtField!
+    @IBOutlet weak var lblNote: UILabel!
     
     
     
@@ -70,7 +71,7 @@ class VehicleInfoVC: BaseViewController {
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.isHidden = false
-        self.setupNavigation(.normal(title: "Vehicle Details", leftItem: .back))
+        self.setupNavigation(.normal(title: "Vehicle Details".localized, leftItem: .back))
         
         pickerViewComapanyName.dataSource = self
         pickerViewComapanyName.delegate = self
@@ -87,7 +88,7 @@ class VehicleInfoVC: BaseViewController {
         webserviceForVehicleMenufactureYearList()
         dismissPickerView()
         assignDelegate()
-        let buttonTitle = isFromSetting ? "Save" : "Next"
+        let buttonTitle = isFromSetting ? "Save".localized : "Next".localized
         btnNext.setTitle(buttonTitle, for: .normal)
     }
     
@@ -100,10 +101,31 @@ class VehicleInfoVC: BaseViewController {
         }
     }
     
+    func setLocalization(){
+        self.txtVehicleNumber.textField.placeholder = "Vehicle plate number".localized
+        self.txtVehicleNumber.textField.label.text = "Vehicle plate number".localized
+        
+        self.txtCompanyName.textField.placeholder = "Select truck load type".localized
+        self.txtCompanyName.textField.label.text = "Select truck load type".localized
+        
+        self.txtVehicleModel.textField.placeholder = "Select vehicle model".localized
+        self.txtVehicleModel.textField.label.text = "Select vehicle model".localized
+        
+        self.txtCarType.textField.placeholder = "Select vehicle type".localized
+        self.txtCarType.textField.label.text = "Select vehicle type".localized
+        
+        self.txtVehicleManufactureYear.textField.placeholder = "Select vehicle manufacture year".localized
+        self.txtVehicleManufactureYear.textField.label.text = "Select vehicle manufacture year".localized
+        
+        self.txtVehicleColor.textField.placeholder = "Enter vehicle color".localized
+        self.txtVehicleColor.textField.label.text = "Enter vehicle color".localized
+        self.lblNote.text = "vehicle_note".localized
+    }
+    
     func dismissPickerView() {
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
-        let button = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.onDoneButtonTappedService))
+        let button = UIBarButtonItem(title: "Done".localized, style: .plain, target: self, action: #selector(self.onDoneButtonTappedService))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
         toolBar.setItems([spaceButton,button], animated: true)
         toolBar.isUserInteractionEnabled = true
@@ -224,7 +246,7 @@ class VehicleInfoVC: BaseViewController {
         //  setupColumnView()
         defaultImage = imagesTypes
         if let profile = SessionManager.shared.registrationParameter {
-            btnNext.setTitle("Next", for: .normal)
+            btnNext.setTitle("Next".localized, for: .normal)
             
             // collectionview.imageDataSource = false
             

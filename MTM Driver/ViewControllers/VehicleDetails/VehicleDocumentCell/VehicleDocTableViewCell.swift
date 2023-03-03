@@ -130,7 +130,7 @@ class VehicleDocTableViewCell: UITableViewCell {
     }
     
     func refreshValues() {
-        titleLabel.text = type.rawValue
+        titleLabel.text = type.rawValue.localized
         updateAttachUI()
         updateExpiryDateUI()
         updateTextFieldUI()
@@ -138,13 +138,13 @@ class VehicleDocTableViewCell: UITableViewCell {
     
     func updateAttachUI() {
         var upload = true
-        let firstLable = UtilityClass.getDocLabel(self.type, side: true)
+        let firstLable = UtilityClass.getDocLabel(self.type, side: true).localized
         if isFromRegister{
             upload = RegistrationParameter.shared.getDocUrl(self.type, side: true) != ""
         }else{
             upload = docData.getDocUrl(self.type, side: true) != ""
         }
-        var title = upload ? firstLable : "Attach Document"
+        var title = upload ? firstLable : "Attach Document".localized
         let attr: [NSAttributedString.Key: Any] = [
             .underlineStyle: !upload ? NSUnderlineStyle.single.rawValue : 0,
             .font: FontBook.regular.font(ofSize: 15),
@@ -169,8 +169,8 @@ class VehicleDocTableViewCell: UITableViewCell {
                 .foregroundColor: second ? UIColor.themeFailed: UIColor.black
             ]
             editButtonSecond.isHidden = !second
-            let titleSecond = second ? UtilityClass.getDocLabel(self.type, side: false) : "Attach Document(Back)"
-            title = upload ? firstLable : "Attach Document(Front)"
+            let titleSecond = second ? UtilityClass.getDocLabel(self.type, side: false).localized : "Attach Document(Back)".localized
+            title = upload ? firstLable : "Attach Document(Front)".localized
             lblattachtitleSecond.attributedText = NSAttributedString(string: titleSecond, attributes: att2)
             attachmentLabel.attributedText = NSAttributedString(string: title, attributes: attr)
         }else {
@@ -180,7 +180,7 @@ class VehicleDocTableViewCell: UITableViewCell {
     
     func updateExpiryDateUI() {
         expiredDateStack.isHidden = !type.hasExpiryDate
-        let title = expiryDate.isEmpty ? "Select expiry date" : "Expiry Date: " + expiryDate
+        let title = expiryDate.isEmpty ? "Select expiry date".localized : "Expiry Date: ".localized + expiryDate
         self.datePickerButton.setTitle(title, for: .normal)
         let color: UIColor = expiryDate.isEmpty ? .systemGray : .black
         self.datePickerButton.setTitleColor(color, for: .normal)

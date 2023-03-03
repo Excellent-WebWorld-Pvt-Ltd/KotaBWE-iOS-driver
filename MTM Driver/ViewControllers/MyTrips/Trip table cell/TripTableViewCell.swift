@@ -65,6 +65,14 @@ class TripTableViewCell: UITableViewCell , ShimmeringViewProtocol{
         selectionStyle = .none
     }
 
+    func setLocalization(){
+        self.lblTitlePickup.text = "Pickup".localized
+        self.lbltitleDropOff.text = "Drop-off".localized
+        self.lblTitleTotalTime.text = "\("Total Time".localized) :"
+        self.lblTitleDistance.text = "\("Distance".localized) :"
+        self.lblTitleEarning.text = "\("Your Earning".localized) :"
+    }
+    
     func configuration(hasMap: Bool, info: BookingHistoryResponse) {
         
         mapContainerView.isHidden = !hasMap

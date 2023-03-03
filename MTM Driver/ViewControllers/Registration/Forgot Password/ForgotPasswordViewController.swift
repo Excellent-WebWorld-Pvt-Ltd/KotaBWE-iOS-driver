@@ -25,19 +25,26 @@ class ForgotPasswordViewController: BaseViewController {
         super.viewDidLoad()
         txtEmail.textField.keyboardType = .emailAddress
         txtEmail.textField.autocapitalizationType = .none
-        self.setupNavigation(.normal(title: "Forgot Password", leftItem: .back))
+        self.setupNavigation(.normal(title: "Forgot Password".localized, leftItem: .back))
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.navigationBar.isHidden = false
     }
-    @IBAction func btnGoBack(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+    
+    func setLocalization(){
+        self.txtEmail.textField.placeholder = "Email".localized
+        self.txtEmail.textField.label.text = "Email".localized
     }
 
     // ----------------------------------------------------
     // MARK: - Actions
     // ----------------------------------------------------
+    @IBAction func btnGoBack(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func btnResetPassword(_ sender: UIButton) {
 //        self.goBack()
         guard validations() else { return }
@@ -57,7 +64,7 @@ class ForgotPasswordViewController: BaseViewController {
     
     func validations() -> (Bool) {
         
-        let emailValidation = InputValidation.email.isValid(input: txtEmail.textField.unwrappedText, field: "email address")
+        let emailValidation = InputValidation.email.isValid(input: txtEmail.textField.unwrappedText, field: "email address".localized)
         txtEmail.textField.leadingAssistiveLabel.text = emailValidation.error
         txtEmail.textField.setOutlineColor(emailValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
         

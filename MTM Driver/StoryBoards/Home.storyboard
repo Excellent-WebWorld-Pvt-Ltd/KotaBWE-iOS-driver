@@ -303,7 +303,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OpZ-zf-e99" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7630" y="-1247"/>
+            <point key="canvasLocation" x="7900" y="-1319"/>
         </scene>
         <!--Side Menu Controller-->
         <scene sceneID="sHk-o9-YEz">
@@ -559,6 +559,7 @@
                     <connections>
                         <outlet property="deleteButton" destination="waN-YY-xOV" id="90W-Kl-xYe"/>
                         <outlet property="imgProfile" destination="EsT-Se-3zq" id="NOG-0I-UaZ"/>
+                        <outlet property="lblLogOut" destination="d48-AT-mM9" id="bGf-MZ-LEl"/>
                         <outlet property="lblName" destination="p0G-yQ-BZ0" id="ond-YY-s3z"/>
                         <outlet property="logoutTouchView" destination="Ah1-Rd-I1t" id="OgJ-DC-eJi"/>
                         <outlet property="profileView" destination="sjD-0J-krr" id="dkh-rt-yfs"/>
@@ -574,13 +575,86 @@
             </objects>
             <point key="canvasLocation" x="7000.8000000000002" y="-650.82458770614699"/>
         </scene>
+        <!--GalaryVC-->
+        <scene sceneID="u13-dv-IqV">
+            <objects>
+                <viewController storyboardIdentifier="GalaryVC" modalPresentationStyle="overFullScreen" hidesBottomBarWhenPushed="YES" id="qiT-bX-7vP" customClass="GalaryVC" customModule="MTM_Driver" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="S2h-mr-RIB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p6V-YS-3cs">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MUf-0C-RPs">
+                                        <rect key="frame" x="320" y="15" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="35" id="RFZ-jO-sNj"/>
+                                            <constraint firstAttribute="width" secondItem="MUf-0C-RPs" secondAttribute="height" multiplier="1:1" id="XXE-Gm-qSy"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="ic_close_circle"/>
+                                        <connections>
+                                            <action selector="btnCancelTap:" destination="qiT-bX-7vP" eventType="touchUpInside" id="bdZ-q9-yqv"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gcu-7c-Que">
+                                        <rect key="frame" x="10" y="58" width="355" height="589"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jHW-ks-7wX">
+                                        <rect key="frame" x="310" y="200" width="45" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="jHW-ks-7wX" secondAttribute="height" multiplier="1:1" id="7ar-5d-mDL"/>
+                                            <constraint firstAttribute="height" constant="45" id="acx-nd-IWZ"/>
+                                        </constraints>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.89951305650000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Gcu-7c-Que" firstAttribute="leading" secondItem="p6V-YS-3cs" secondAttribute="leading" constant="10" id="FBr-sO-Dj9"/>
+                                    <constraint firstItem="Gcu-7c-Que" firstAttribute="firstBaseline" secondItem="MUf-0C-RPs" secondAttribute="baseline" constant="8" symbolType="layoutAnchor" id="Qzw-v5-JKS"/>
+                                    <constraint firstAttribute="bottom" secondItem="Gcu-7c-Que" secondAttribute="bottom" constant="20" id="WSV-sX-iyr"/>
+                                    <constraint firstAttribute="trailing" secondItem="Gcu-7c-Que" secondAttribute="trailing" constant="10" id="Xpw-cS-64h"/>
+                                    <constraint firstAttribute="trailing" secondItem="MUf-0C-RPs" secondAttribute="trailing" constant="20" id="hlf-wz-TXI"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="jHW-ks-7wX"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="n9a-gW-iNk"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="p6V-YS-3cs" firstAttribute="top" secondItem="S2h-mr-RIB" secondAttribute="top" id="Bxt-qr-vfS"/>
+                            <constraint firstItem="MUf-0C-RPs" firstAttribute="top" secondItem="n9a-gW-iNk" secondAttribute="top" constant="15" id="Kau-i6-pOD"/>
+                            <constraint firstItem="n9a-gW-iNk" firstAttribute="trailing" secondItem="p6V-YS-3cs" secondAttribute="trailing" id="P6T-vC-9vb"/>
+                            <constraint firstItem="p6V-YS-3cs" firstAttribute="leading" secondItem="n9a-gW-iNk" secondAttribute="leading" id="eQn-bg-beV"/>
+                            <constraint firstAttribute="bottom" secondItem="p6V-YS-3cs" secondAttribute="bottom" id="u3j-s3-bl9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="Gcu-7c-Que" id="Z8S-WA-Q6K"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bCz-Yd-DkW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8582" y="70"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Moon" width="170" height="170"/>
+        <image name="ic_close_circle" width="16" height="16"/>
         <image name="ic_logout" width="24" height="24"/>
         <image name="ic_mn_history" width="20" height="20"/>
         <image name="ic_my_location_org" width="40" height="40"/>
-        <image name="iconSelectedstar" width="42" height="42"/>
+        <image name="iconSelectedstar" width="22" height="22"/>
         <namedColor name="themeSeperatorColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.15000000596046448" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -13,11 +13,9 @@ class HelpViewController: BaseViewController, UITextViewDelegate {
     // MARK: - Outlets
     
     @IBOutlet weak var txtSubject: CustomViewOutlinedTxtField!
-    
+    @IBOutlet weak var btnSubmit: ThemePrimaryButton!
     @IBOutlet weak var txtView: CustomViewOutlinedTxtView!
-    
-    
-    
+    @IBOutlet weak var btnViewTicket: ThemePrimaryButton!
     
 //    @IBOutlet weak var txtSubject: UITextField!
 //    @IBOutlet weak var txtView: UITextView!
@@ -27,7 +25,16 @@ class HelpViewController: BaseViewController, UITextViewDelegate {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupNavigation(.normal(title: "Support", leftItem: .back, hasNotification: false))
+        self.setupNavigation(.normal(title: "Support".localized, leftItem: .back, hasNotification: false))
+    }
+    
+    func setLocalization(){
+        btnSubmit.setTitle("Submit".localized, for: .normal)
+        btnViewTicket.setTitle("View Ticket".localized, for: .normal)
+        self.txtSubject.textField.placeholder = "Subject".localized
+        self.txtSubject.textField.label.text = "Subject".localized
+        self.txtView.textArea.placeholder = "Describe your issue".localized
+        self.txtView.textArea.label.text = "Describe your issue".localized
     }
     
     // MARK: - Actions
@@ -54,7 +61,7 @@ class HelpViewController: BaseViewController, UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textView.text = "Describe your issue"
+            textView.text = "Describe your issue".localized
             textView.textColor = UIColor.lightGray
         }
     }
@@ -62,13 +69,13 @@ class HelpViewController: BaseViewController, UITextViewDelegate {
     func validation() -> (status: Bool, message: String) {
         
         if txtSubject.textField.text?.trimmingCharacters(in: .whitespacesAndNewlines).count == 0 {
-            return (false, "Please enter subject")
+            return (false, "Please enter subject".localized)
         }
         else if txtView.textArea.textView.text.trimmingCharacters(in: .whitespacesAndNewlines).count == 0 {
-            return (false, "Please enter description")
+            return (false, "Please enter description".localized)
         }
         else if txtView.textArea.textView.text == "Description" {
-            return (false, "Please enter description")
+            return (false, "Please enter description".localized)
         }
         
         return (true, "")
@@ -76,9 +83,9 @@ class HelpViewController: BaseViewController, UITextViewDelegate {
     
     func validations() -> (Bool) {
         
-        let subjectValidation = InputValidation.nonEmpty.isValid(input: txtSubject.textField.unwrappedText, field: "subject")
+        let subjectValidation = InputValidation.nonEmpty.isValid(input: txtSubject.textField.unwrappedText, field: "subject".localized)
         
-        let descriptionValidation = InputValidation.nonEmpty.isValid(input: txtView.textArea.textView.unwrappedText, field: "description")
+        let descriptionValidation = InputValidation.nonEmpty.isValid(input: txtView.textArea.textView.unwrappedText, field: "description".localized)
         
         txtSubject.textField.leadingAssistiveLabel.text = subjectValidation.error
         txtSubject.textField.setOutlineColor(subjectValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
@@ -108,9 +115,9 @@ class HelpViewController: BaseViewController, UITextViewDelegate {
             if status {
                 self.txtSubject.textField.text = ""
                 self.txtView.textArea.textView.text = ""
-                UtilityClass.showAlert(message: response.dictionary?["message"]?.string ?? "Your ticket is generated successfully. We will contact to you soon.")
+                UtilityClass.showAlert(message: response.dictionary?["message"]?.string ?? "Your ticket is generated successfully. We will contact to you soon.".localized)
             } else {
-                UtilityClass.showAlert(message: response.dictionary?["message"]?.string ?? "Something went wrong.")
+                UtilityClass.showAlert(message: response.dictionary?["message"]?.string ?? "Something went wrong".localized)
             }
         }
     }

@@ -12,6 +12,7 @@ class CompleteView: UIView {
     //MARK:- ===== Outlets =======
     @IBOutlet weak var submitButton: ThemeButton!
     @IBOutlet weak var lblGrandTotal: ThemeLabel!
+    @IBOutlet weak var lblTitle: ThemeLabel!
     
     @IBOutlet weak var meesageLabel: ThemeLabel!
     @IBAction func btnOKAction(_ sender: UIButton) {
@@ -36,12 +37,12 @@ class CompleteView: UIView {
         guard let data = Singleton.shared.CompleteTrip else {
             return
         }
+        self.lblTitle.text = "Trip Completed!".localized
         meesageLabel.text = data.message
-        let title = "Rate Now" //data.paymentType == "cash" ? "Payment Received" : "Rate Now"
+        let title = "Rate Now".localized //data.paymentType == "cash" ? "Payment Received" : "Rate Now"
         submitButton.setTitle(title, for: .normal)
-        let totalAmmount = Double(data.grandTotal ?? "0")?.rounded(toPlaces: 2)
-        let str = Currency + " " + "\(totalAmmount ?? 0.0)"
-        self.lblGrandTotal.text = "Grand Total: " + str
+        let str = "\(Currency) \(data.grandTotal ?? "0.00")"
+        self.lblGrandTotal.text = "\("Grand Total".localized): \(str)"
 
     }
 

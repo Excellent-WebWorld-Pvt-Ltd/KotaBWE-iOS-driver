@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GPu-ce-T43">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GPu-ce-T43">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -248,169 +248,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cQJ-py-l64" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2385" y="995"/>
-        </scene>
-        <!--GalaryVC-->
-        <scene sceneID="TW4-zC-UNd">
-            <objects>
-                <viewController storyboardIdentifier="GalaryVC" modalPresentationStyle="overFullScreen" hidesBottomBarWhenPushed="YES" id="jmQ-4b-B7L" customClass="GalaryVC" customModule="MTM_Driver" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="IN8-nj-VG8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yLi-li-SHT">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CIZ-nI-681">
-                                        <rect key="frame" x="20" y="133.5" width="335" height="400"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="CEC-AU-jf8">
-                                            <size key="itemSize" width="374" height="306"/>
-                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        </collectionViewFlowLayout>
-                                        <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GalaryCell" id="N2W-ys-CIX" customClass="GalaryCell" customModule="MTM_Driver" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="47" width="374" height="306"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="bDw-82-QWQ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="306"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <subviews>
-                                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OW5-kd-1gh">
-                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="306"/>
-                                                            <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0U6-PX-jtI">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="306"/>
-                                                                </imageView>
-                                                            </subviews>
-                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="bottom" secondItem="0U6-PX-jtI" secondAttribute="bottom" id="NjV-TX-O8D"/>
-                                                                <constraint firstItem="0U6-PX-jtI" firstAttribute="leading" secondItem="OW5-kd-1gh" secondAttribute="leading" id="c2H-ip-tMd"/>
-                                                                <constraint firstItem="0U6-PX-jtI" firstAttribute="top" secondItem="OW5-kd-1gh" secondAttribute="top" id="esF-xC-8Kl"/>
-                                                                <constraint firstAttribute="trailing" secondItem="0U6-PX-jtI" secondAttribute="trailing" id="fBU-V0-QS0"/>
-                                                            </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <integer key="value" value="10"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </view>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="OW5-kd-1gh" firstAttribute="top" secondItem="bDw-82-QWQ" secondAttribute="top" id="Izj-Ez-vuX"/>
-                                                        <constraint firstAttribute="trailing" secondItem="OW5-kd-1gh" secondAttribute="trailing" id="Vm8-Df-FYK"/>
-                                                        <constraint firstItem="OW5-kd-1gh" firstAttribute="leading" secondItem="bDw-82-QWQ" secondAttribute="leading" id="X6A-Hz-HfA"/>
-                                                        <constraint firstAttribute="bottom" secondItem="OW5-kd-1gh" secondAttribute="bottom" id="nD1-qY-scb"/>
-                                                    </constraints>
-                                                </collectionViewCellContentView>
-                                                <size key="customSize" width="374" height="306"/>
-                                                <connections>
-                                                    <outlet property="imgGalary" destination="0U6-PX-jtI" id="8pt-N2-w3h"/>
-                                                </connections>
-                                            </collectionViewCell>
-                                        </cells>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <integer key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </collectionView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ob8-ZJ-zka">
-                                        <rect key="frame" x="315" y="15" width="40" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="Ob8-ZJ-zka" secondAttribute="height" multiplier="1:1" id="1QJ-Cg-o1p"/>
-                                            <constraint firstAttribute="width" constant="40" id="6lN-ZZ-lcL"/>
-                                        </constraints>
-                                        <state key="normal" image="iconClose"/>
-                                        <connections>
-                                            <action selector="btnCancelTap:" destination="jmQ-4b-B7L" eventType="touchUpInside" id="2j2-2a-94c"/>
-                                        </connections>
-                                    </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="vuT-qK-CjN">
-                                        <rect key="frame" x="127.5" y="555.5" width="120" height="30"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdd-xT-1ar">
-                                                <rect key="frame" x="0.0" y="0.0" width="40" height="30"/>
-                                                <state key="normal" image="iconGalaryLeft">
-                                                    <color key="titleColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btnPreviousTap:" destination="jmQ-4b-B7L" eventType="touchUpInside" id="61G-Id-v18"/>
-                                                </connections>
-                                            </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cys-UL-dcE">
-                                                <rect key="frame" x="40" y="0.0" width="40" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.95686274510000002" green="0.96078431369999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qET-9V-FI7">
-                                                <rect key="frame" x="80" y="0.0" width="40" height="30"/>
-                                                <state key="normal" image="iconGalaryRight">
-                                                    <color key="titleColor" red="0.95686274510000002" green="0.96078431369999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btnNextTap:" destination="jmQ-4b-B7L" eventType="touchUpInside" id="98T-4Q-OLG"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="120" id="Qj7-aE-r2O"/>
-                                            <constraint firstAttribute="height" constant="30" id="Twg-oM-FO6"/>
-                                        </constraints>
-                                    </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tWC-67-Qa9">
-                                        <rect key="frame" x="310" y="200" width="45" height="45"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="tWC-67-Qa9" secondAttribute="height" multiplier="1:1" id="Vfo-o9-50U"/>
-                                            <constraint firstAttribute="height" constant="45" id="WRA-0f-KLp"/>
-                                        </constraints>
-                                        <connections>
-                                            <action selector="btnTrashTap:" destination="jmQ-4b-B7L" eventType="touchUpInside" id="IS0-ki-yGj"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.89951305650000002" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="CIZ-nI-681" firstAttribute="leading" secondItem="yLi-li-SHT" secondAttribute="leading" constant="20" id="3W0-sE-1kB"/>
-                                    <constraint firstAttribute="trailing" secondItem="CIZ-nI-681" secondAttribute="trailing" constant="20" id="5te-bx-lyG"/>
-                                    <constraint firstAttribute="trailing" secondItem="Ob8-ZJ-zka" secondAttribute="trailing" constant="20" id="69b-22-0M6"/>
-                                    <constraint firstItem="vuT-qK-CjN" firstAttribute="centerX" secondItem="yLi-li-SHT" secondAttribute="centerX" id="MKa-B0-jXd"/>
-                                    <constraint firstItem="CIZ-nI-681" firstAttribute="centerY" secondItem="yLi-li-SHT" secondAttribute="centerY" id="Nzw-6c-lQn"/>
-                                    <constraint firstItem="vuT-qK-CjN" firstAttribute="top" secondItem="CIZ-nI-681" secondAttribute="bottom" constant="22" id="eol-Bf-fAD"/>
-                                    <constraint firstItem="tWC-67-Qa9" firstAttribute="trailing" secondItem="CIZ-nI-681" secondAttribute="trailing" id="ery-aa-4lP"/>
-                                    <constraint firstItem="tWC-67-Qa9" firstAttribute="top" secondItem="CIZ-nI-681" secondAttribute="top" id="s7C-mK-mz7"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="subviews">
-                                        <exclude reference="tWC-67-Qa9"/>
-                                    </mask>
-                                </variation>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="unL-eA-VHx"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="CIZ-nI-681" firstAttribute="height" secondItem="IN8-nj-VG8" secondAttribute="height" multiplier="0.6" id="1Dl-2h-lTI"/>
-                            <constraint firstItem="yLi-li-SHT" firstAttribute="top" secondItem="IN8-nj-VG8" secondAttribute="top" id="813-jj-uen"/>
-                            <constraint firstItem="yLi-li-SHT" firstAttribute="leading" secondItem="unL-eA-VHx" secondAttribute="leading" id="DYQ-GW-foZ"/>
-                            <constraint firstItem="unL-eA-VHx" firstAttribute="trailing" secondItem="yLi-li-SHT" secondAttribute="trailing" id="G51-XV-E3x"/>
-                            <constraint firstItem="Ob8-ZJ-zka" firstAttribute="top" secondItem="unL-eA-VHx" secondAttribute="top" constant="15" id="VG4-aE-GgS"/>
-                            <constraint firstAttribute="bottom" secondItem="yLi-li-SHT" secondAttribute="bottom" id="twU-PD-KOv"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="btnNext" destination="qET-9V-FI7" id="PKT-XR-UUY"/>
-                        <outlet property="btnPrevious" destination="tdd-xT-1ar" id="msf-0h-Oga"/>
-                        <outlet property="collectionGalary" destination="CIZ-nI-681" id="5Pc-h7-DYI"/>
-                        <outlet property="lblNumberofImage" destination="cys-UL-dcE" id="Inx-Zk-wOS"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0Fc-60-zyp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3545" y="134"/>
         </scene>
         <!--Trip DetailVC-->
         <scene sceneID="AKc-tW-jLB">
@@ -691,8 +528,8 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VKv-Qo-1cn">
                                                                 <rect key="frame" x="0.0" y="0.0" width="327" height="25.5"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Cargo weight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fJ-Nz-a4o" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
-                                                                        <rect key="frame" x="18" y="0.0" width="101.5" height="20.5"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Cargo Weight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fJ-Nz-a4o" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
+                                                                        <rect key="frame" x="18" y="0.0" width="104" height="20.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -1918,26 +1755,40 @@
                     <connections>
                         <outlet property="btnCall" destination="Jh1-dm-tto" id="qMt-4J-La0"/>
                         <outlet property="btnMessage" destination="QZe-ix-DlH" id="vAh-DO-3wp"/>
+                        <outlet property="btnNeedHelp" destination="lhd-Xc-vIk" id="Fku-hd-s5b"/>
                         <outlet property="collectionImages" destination="3yT-Np-CDT" id="YWY-S4-j0x"/>
                         <outlet property="driverRatingView" destination="xNW-mL-vwf" id="eNR-Lk-BMn"/>
                         <outlet property="lblCargoWeight" destination="z67-F9-hjW" id="BPb-2R-vPJ"/>
                         <outlet property="lblCustomerName" destination="BBg-EG-zz0" id="3ej-79-2w1"/>
                         <outlet property="lblDistance" destination="7M8-Mz-uiV" id="mLd-NO-6Xl"/>
                         <outlet property="lblDropoff" destination="jdL-sN-IFY" id="Cqe-h9-zV8"/>
+                        <outlet property="lblDropoffTitle" destination="nqo-HV-plK" id="y1e-jX-TkU"/>
                         <outlet property="lblEarnings" destination="Z6Q-GE-1aV" id="pIl-eX-TTc"/>
                         <outlet property="lblItemQty" destination="OQw-6U-XAq" id="B9a-AY-hzJ"/>
+                        <outlet property="lblItemQuantity" destination="Nt8-Up-nT3" id="uK4-BA-nRC"/>
                         <outlet property="lblNotes" destination="APg-34-q35" id="S50-l7-a2w"/>
+                        <outlet property="lblPickUpTitle" destination="EOO-ap-NGf" id="rwU-IA-QcC"/>
                         <outlet property="lblPickup" destination="rJh-OO-9uL" id="gar-62-PnP"/>
                         <outlet property="lblPlateNumber" destination="2MD-eE-JuB" id="07Q-pR-qC4"/>
                         <outlet property="lblTime" destination="Wbg-f2-VSC" id="rlK-9q-4Rb"/>
+                        <outlet property="lblTitleDistance" destination="Zux-1q-VFL" id="xYV-cx-Zw4"/>
+                        <outlet property="lblTitleEarning" destination="3gd-Lc-7kn" id="Hft-FS-L13"/>
+                        <outlet property="lblTitleNotes" destination="VoY-7y-ray" id="ar3-mN-ExP"/>
+                        <outlet property="lblTitleTotalTime" destination="LQ4-YO-x7x" id="qTL-KO-ya0"/>
+                        <outlet property="lblTitleTripPrice" destination="e76-NG-h2E" id="gMJ-jc-UaW"/>
+                        <outlet property="lblTitleTripTime" destination="zZb-qR-iZg" id="pwE-eg-WKk"/>
+                        <outlet property="lblTitleWaitingTime" destination="dbA-ft-4l9" id="peq-JV-HjT"/>
                         <outlet property="lblTotalTime" destination="yAa-0x-pom" id="1kh-Si-CIq"/>
                         <outlet property="lblTripId" destination="1QS-Nh-fav" id="hXV-ty-MTq"/>
                         <outlet property="lblTripPrice" destination="73g-Q3-TSU" id="6YY-cc-Yud"/>
                         <outlet property="lblTripTime" destination="EZF-Ce-JHk" id="ZH5-6c-Stt"/>
+                        <outlet property="lblTruckLoad" destination="ObP-qd-xkQ" id="xpb-qu-Zad"/>
+                        <outlet property="lblVehicleInfo" destination="UWp-6E-yC9" id="Hvu-lE-GST"/>
                         <outlet property="lblVehicleLoadType" destination="1YJ-Nw-yq6" id="VIU-9B-UsI"/>
                         <outlet property="lblVehicleName" destination="UUd-v3-4Ru" id="xA6-qo-cOJ"/>
                         <outlet property="lblWaitingTime" destination="WnO-he-Hf6" id="4lZ-1T-fmG"/>
                         <outlet property="lblYouRated" destination="7QU-9M-Vcc" id="3pz-aR-JoN"/>
+                        <outlet property="lblcargoWeight" destination="3fJ-Nz-a4o" id="KAj-VR-zBJ"/>
                         <outlet property="mapContainerView" destination="kw1-Wx-v8s" id="1gG-fe-pD7"/>
                         <outlet property="profileImg" destination="ava-AB-LKg" id="GYc-Pi-6UV"/>
                         <outlet property="viewAccept" destination="Now-CC-XRz" id="2kL-PW-Yz0"/>
@@ -2038,7 +1889,7 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="sender_chat_cell" rowHeight="185" id="gHf-X4-Ev1" customClass="MessageTableCell" customModule="MTM_Driver" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="50" width="375" height="185"/>
+                                                <rect key="frame" x="0.0" y="44.5" width="375" height="185"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gHf-X4-Ev1" id="TyQ-Dh-Z5M">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="185"/>
@@ -2139,7 +1990,7 @@
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="receiver_chat_cell" rowHeight="223" id="QTw-UT-H44" customClass="MessageTableCell" customModule="MTM_Driver" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="235" width="375" height="223"/>
+                                                <rect key="frame" x="0.0" y="229.5" width="375" height="223"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QTw-UT-H44" id="XrX-e7-cMT">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="223"/>
@@ -2305,6 +2156,7 @@
                         <outlet property="btnSend" destination="Edx-Ci-exn" id="oLr-Nm-LwE"/>
                         <outlet property="conBottomChatBox" destination="qCi-oh-Hdh" id="d1d-Bj-K72"/>
                         <outlet property="inputContrainerView" destination="JNh-jE-iHn" id="c7g-Ob-kY0"/>
+                        <outlet property="lblChatMassage" destination="5jw-Hh-xmm" id="WQV-1e-fEi"/>
                         <outlet property="tblChatHistory" destination="1Ag-Sa-i7C" id="NRF-8o-wq3"/>
                         <outlet property="textViewSendMsg" destination="SXs-PW-bfZ" id="1Vb-V3-4k0"/>
                         <outlet property="viewPastChat" destination="G1o-Zf-uo8" id="Id6-G8-Prv"/>
@@ -3448,19 +3300,32 @@
                         <outlet property="lblCargoWeight" destination="Vuw-4A-6g7" id="OFa-Ip-IG8"/>
                         <outlet property="lblDistance" destination="C4S-sX-ww0" id="3sZ-8z-FIH"/>
                         <outlet property="lblDropoff" destination="9qh-4C-VfW" id="HKb-dh-uUS"/>
+                        <outlet property="lblDropoffTitle" destination="wHz-pA-wRY" id="h6S-FD-HDZ"/>
                         <outlet property="lblEarnings" destination="esB-Xy-UMj" id="aoO-uK-1Kr"/>
                         <outlet property="lblItemQty" destination="O9V-Tp-0OM" id="ucq-80-cQS"/>
+                        <outlet property="lblItemQuantity" destination="Ijv-fD-GqZ" id="8lr-nz-avX"/>
                         <outlet property="lblNotes" destination="fFW-Ud-MgP" id="Xtd-Vh-kLq"/>
+                        <outlet property="lblPickUpTitle" destination="vbi-9q-LeF" id="zDi-HM-ba3"/>
                         <outlet property="lblPickup" destination="xFm-KY-NzZ" id="qlV-dB-Tcj"/>
                         <outlet property="lblPlateNumber" destination="qc6-Z2-I8w" id="A3A-qH-yre"/>
                         <outlet property="lblTime" destination="qaf-at-mKK" id="ag1-B5-OWa"/>
+                        <outlet property="lblTitleDistance" destination="Zxp-uA-7p2" id="Hds-cb-cEz"/>
+                        <outlet property="lblTitleEarning" destination="Xb7-SB-wY5" id="bwd-RJ-oep"/>
+                        <outlet property="lblTitleNotes" destination="Tkd-TD-Tqj" id="6q5-Py-zac"/>
+                        <outlet property="lblTitleTotalTime" destination="oOz-JX-8jJ" id="Hdr-4j-aad"/>
+                        <outlet property="lblTitleTripPrice" destination="rpj-MU-zdT" id="x2g-uv-SBJ"/>
+                        <outlet property="lblTitleTripTime" destination="zEx-uf-cCO" id="pnr-CN-D5T"/>
+                        <outlet property="lblTitleWaitingTime" destination="oVZ-jV-4Hc" id="aYF-6f-Vii"/>
                         <outlet property="lblTotalTime" destination="jxt-xz-cpU" id="x4T-gQ-oMM"/>
                         <outlet property="lblTripId" destination="Rs8-dq-FDu" id="l5J-JV-3fs"/>
                         <outlet property="lblTripPrice" destination="Ns6-2w-GvU" id="DmA-e1-UPQ"/>
                         <outlet property="lblTripTime" destination="g6B-ll-vb0" id="DOT-0d-czm"/>
+                        <outlet property="lblTruckLoad" destination="5if-4R-B9F" id="qNJ-UF-rdP"/>
+                        <outlet property="lblVehicleInfo" destination="10x-LD-uFn" id="RFz-7a-IGK"/>
                         <outlet property="lblVehicleLoadType" destination="0fa-a6-DRi" id="Q15-h6-YeK"/>
                         <outlet property="lblVehicleName" destination="BD8-BF-e5q" id="9Qs-PC-QJb"/>
                         <outlet property="lblWaitingTime" destination="6fm-jF-6qQ" id="aCT-bb-W7u"/>
+                        <outlet property="lblcargoWeight" destination="bpE-dI-czr" id="tqY-gW-aCd"/>
                         <outlet property="mapContainerView" destination="LdY-qr-cdo" id="Ezy-h5-uM0"/>
                         <outlet property="viewImages" destination="JuY-q3-OM9" id="pIu-nR-q8l"/>
                         <outlet property="viewNotes" destination="dFC-fb-dvI" id="spe-LY-3Z4"/>
@@ -3488,9 +3353,6 @@
         <image name="ic_remove" width="20" height="20"/>
         <image name="ic_star_empty" width="10" height="10"/>
         <image name="ic_star_filled_14px" width="10" height="10"/>
-        <image name="iconClose" width="16" height="16"/>
-        <image name="iconGalaryLeft" width="9" height="15.5"/>
-        <image name="iconGalaryRight" width="9" height="15.5"/>
         <image name="placeholder_man" width="75" height="75"/>
         <namedColor name="themeBlue">
             <color red="0.20000000298023224" green="0.0" blue="0.40000000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

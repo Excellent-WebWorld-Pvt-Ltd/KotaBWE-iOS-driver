@@ -23,7 +23,7 @@ extension HomeViewController {
             if status {
                 self.getFirstView()
             } else {
-                UtilityClass.showAlert(message: response.dictionary?["message"]?.stringValue ?? "Cancel trip is not possible due to some reason, \nPlease restart application.")
+                UtilityClass.showAlert(message: response.dictionary?["message"]?.stringValue ?? "\("Cancel trip is not possible due to some reason".localized), \n\("Please restart application.".localized)")
             }
         }
     }

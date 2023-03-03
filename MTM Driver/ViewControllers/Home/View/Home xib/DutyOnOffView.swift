@@ -15,6 +15,7 @@ class DutyOnOffView: UIView {
     @IBOutlet weak var switchBtn: UISwitch!
     @IBOutlet weak var lblEarning: ThemeLabel!
     @IBOutlet weak var lblTitle: ThemeLabel!
+    @IBOutlet weak var lblTodayEarning: ThemeLabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,7 +31,7 @@ class DutyOnOffView: UIView {
             .underlineStyle: NSUnderlineStyle.single.rawValue
         ]
         let attributeString = NSMutableAttributedString(
-            string: "See More",
+            string: "See More".localized,
             attributes: attr
         )
         btnSeeMore.setAttributedTitle(attributeString, for: .normal)
@@ -51,8 +52,7 @@ class DutyOnOffView: UIView {
 //        updateUI()
     }
     @IBAction func btnActionDutyOnOff(_ sender: UIButton) {
-        if let vc: UIViewController = self.parentViewController {
-    
+        if let vc: UIViewController = self.parentViewController {    
             if let hVc = vc as? HomeViewController {
                 hVc.GetBookingInfoData()
             }
@@ -65,7 +65,8 @@ class DutyOnOffView: UIView {
     
     func updateUI() {
         self.switchBtn.setOn(Singleton.shared.isDriverOnline, animated: true)
-        lblTitle.text = Singleton.shared.isDriverOnline ? "You're Online" : "You're Offline"
-        lblEarning.text = Singleton.shared.totalDriverEarning.toCurrencyString()
+        self.lblTodayEarning.text = "Your Today's Earning".localized
+        self.lblTitle.text = Singleton.shared.isDriverOnline ? "You're Online".localized : "You're Offline".localized
+        self.lblEarning.text = Singleton.shared.totalDriverEarning.toCurrencyString()
     }
 }

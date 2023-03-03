@@ -174,7 +174,7 @@ class HomeViewController: BaseViewController {
      func callAction() {
          let contactNumber = bookingData.customerInfo?.mobileNo
         if contactNumber == "" {
-            UtilityClass.showAlert(message: "Contact number is not available")
+            UtilityClass.showAlert(message: "Contact number is not available".localized)
         } else {
             UtilityClass.callNumber(phoneNumber: contactNumber ?? "")
         }
@@ -333,7 +333,7 @@ class HomeViewController: BaseViewController {
     func setNavbar(){
        // setupNavigation(.normal(title: "Home", leftItem: .menu, hasNotification: true))
         let userName = "\(Singleton.shared.userProfile?.responseObject.firstName ?? "")" +  " " + "\(Singleton.shared.userProfile?.responseObject.lastName  ?? "")"
-        setupNavigation(.normal(title: "Hi, \(userName)", leftItem: .menu, hasNotification: true))
+        setupNavigation(.normal(title: "\("Hi".localized), \(userName)", leftItem: .menu, hasNotification: true))
         
     }
 

@@ -289,7 +289,7 @@
 		849FA55427228A56000BF8D5 /* PastTripHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849FA55027228A56000BF8D5 /* PastTripHistoryVC.swift */; };
 		849FA55627228A56000BF8D5 /* TripHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849FA55227228A56000BF8D5 /* TripHistoryVC.swift */; };
 		849FA55727228A56000BF8D5 /* UpComingTripHistoryVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849FA55327228A56000BF8D5 /* UpComingTripHistoryVc.swift */; };
-		84A35AAD2726A0B0003078C1 /* EarningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A35AAB2726A0B0003078C1 /* EarningVC.swift */; };
+		84A35AAD2726A0B0003078C1 /* EarningSettlementVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A35AAB2726A0B0003078C1 /* EarningSettlementVC.swift */; };
 		84A35AAE2726A0B0003078C1 /* WeeklyUpdateCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A35AAC2726A0B0003078C1 /* WeeklyUpdateCollectionCell.swift */; };
 		84A35AB92726AF26003078C1 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A35AB02726AF26003078C1 /* BottomSheetViewController.swift */; };
 		84A35ABA2726AF26003078C1 /* SendMoneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A35AB22726AF26003078C1 /* SendMoneyView.swift */; };
@@ -335,7 +335,10 @@
 		84F7CB7A27266C89006C4C31 /* SupportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F7CB7927266C89006C4C31 /* SupportVC.swift */; };
 		88223B55297AAB08005E85C7 /* TruckTypeResponceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88223B54297AAB08005E85C7 /* TruckTypeResponceModel.swift */; };
 		882A2C63298BAB8200BCD08D /* TripFullDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A2C62298BAB8200BCD08D /* TripFullDetailVC.swift */; };
+		887DCEE729A8C35800EB16BD /* EarningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887DCEE629A8C35800EB16BD /* EarningVC.swift */; };
+		887DCEE929A8D04100EB16BD /* EarningSettlementResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887DCEE829A8D04100EB16BD /* EarningSettlementResponseModel.swift */; };
 		8887632F298CD85D00F24869 /* SplashVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8887632E298CD85D00F24869 /* SplashVideo.mp4 */; };
+		88E7FC6B29A75C4D00746C3A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 88E7FC6D29A75C4D00746C3A /* Localizable.strings */; };
 		88F2B7932983B7B900154438 /* MessageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F2B7922983B7B900154438 /* MessageTableCell.swift */; };
 		D8962B31CE66A30DC649DF47 /* Pods_MTM_Driver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAACF8175B8A2192471E8DB8 /* Pods_MTM_Driver.framework */; };
 /* End PBXBuildFile section */
@@ -634,7 +637,7 @@
 		849FA55027228A56000BF8D5 /* PastTripHistoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastTripHistoryVC.swift; sourceTree = "<group>"; };
 		849FA55227228A56000BF8D5 /* TripHistoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripHistoryVC.swift; sourceTree = "<group>"; };
 		849FA55327228A56000BF8D5 /* UpComingTripHistoryVc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpComingTripHistoryVc.swift; sourceTree = "<group>"; };
-		84A35AAB2726A0B0003078C1 /* EarningVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EarningVC.swift; sourceTree = "<group>"; };
+		84A35AAB2726A0B0003078C1 /* EarningSettlementVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EarningSettlementVC.swift; sourceTree = "<group>"; };
 		84A35AAC2726A0B0003078C1 /* WeeklyUpdateCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyUpdateCollectionCell.swift; sourceTree = "<group>"; };
 		84A35AB02726AF26003078C1 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 		84A35AB22726AF26003078C1 /* SendMoneyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendMoneyView.swift; sourceTree = "<group>"; };
@@ -682,7 +685,10 @@
 		87558BCFBA291754A6FBA4C5 /* Pods-DSP Driver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSP Driver.debug.xcconfig"; path = "Target Support Files/Pods-DSP Driver/Pods-DSP Driver.debug.xcconfig"; sourceTree = "<group>"; };
 		88223B54297AAB08005E85C7 /* TruckTypeResponceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckTypeResponceModel.swift; sourceTree = "<group>"; };
 		882A2C62298BAB8200BCD08D /* TripFullDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripFullDetailVC.swift; sourceTree = "<group>"; };
+		887DCEE629A8C35800EB16BD /* EarningVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EarningVC.swift; sourceTree = "<group>"; };
+		887DCEE829A8D04100EB16BD /* EarningSettlementResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningSettlementResponseModel.swift; sourceTree = "<group>"; };
 		8887632E298CD85D00F24869 /* SplashVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SplashVideo.mp4; sourceTree = "<group>"; };
+		88E7FC6C29A75C4D00746C3A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		88F2B7922983B7B900154438 /* MessageTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableCell.swift; sourceTree = "<group>"; };
 		B8EF87CD38D7536E40D11F30 /* Pods-MTM Driver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MTM Driver.debug.xcconfig"; path = "Target Support Files/Pods-MTM Driver/Pods-MTM Driver.debug.xcconfig"; sourceTree = "<group>"; };
 		BAACF8175B8A2192471E8DB8 /* Pods_MTM_Driver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MTM_Driver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -890,6 +896,7 @@
 		8470F4AB270AD61A00E05AF7 /* MTM Driver */ = {
 			isa = PBXGroup;
 			children = (
+				88E7FC6D29A75C4D00746C3A /* Localizable.strings */,
 				841414A828E599AE00791A35 /* AppDelegate */,
 				8470F4C2270AD61A00E05AF7 /* Libraries */,
 				8470F5E9270AD61B00E05AF7 /* Models */,
@@ -1612,6 +1619,7 @@
 				84CBA32128E41D2500921878 /* JSONParsable.swift */,
 				181B06B2291E1F020041BE74 /* InitResponse.swift */,
 				88223B54297AAB08005E85C7 /* TruckTypeResponceModel.swift */,
+				887DCEE829A8D04100EB16BD /* EarningSettlementResponseModel.swift */,
 			);
 			path = ResponseModel;
 			sourceTree = "<group>";
@@ -1736,8 +1744,9 @@
 		84A35AAA2726A0B0003078C1 /* Earning */ = {
 			isa = PBXGroup;
 			children = (
+				887DCEE629A8C35800EB16BD /* EarningVC.swift */,
 				845D9BE027574CC3007D684A /* TutorialChartView.swift */,
-				84A35AAB2726A0B0003078C1 /* EarningVC.swift */,
+				84A35AAB2726A0B0003078C1 /* EarningSettlementVC.swift */,
 				84A35AAC2726A0B0003078C1 /* WeeklyUpdateCollectionCell.swift */,
 				84023ED427564F9B0091499C /* CustomMarkerView.xib */,
 				84023ED62756606D0091499C /* GradientBarChart.swift */,
@@ -2022,6 +2031,7 @@
 				47953EF72959812300FE3965 /* Magdelin-Thin.otf in Resources */,
 				47953EF3295980FF00FE3965 /* Magdelin-SemiBold.otf in Resources */,
 				84023ED527564F9B0091499C /* CustomMarkerView.xib in Resources */,
+				88E7FC6B29A75C4D00746C3A /* Localizable.strings in Resources */,
 				84063ECE27881AE4005589EB /* PaymentMethodTableViewCell.xib in Resources */,
 				47953EFB2959815A00FE3965 /* Magdelin-Bold.otf in Resources */,
 				84C5163F2766FB81006942F2 /* collectionPhotos.xib in Resources */,
@@ -2114,6 +2124,7 @@
 				8437DE15270D656100016D6D /* LoginVC.swift in Sources */,
 				8470F66D270AD61C00E05AF7 /* Singleton.swift in Sources */,
 				8470F6FC270AD61D00E05AF7 /* QRCodeDetails.swift in Sources */,
+				887DCEE729A8C35800EB16BD /* EarningVC.swift in Sources */,
 				8470F6F5270AD61D00E05AF7 /* DriverData.swift in Sources */,
 				84023ED72756606D0091499C /* GradientBarChart.swift in Sources */,
 				8470F6B0270AD61C00E05AF7 /* ProfileSideMenuTVC.swift in Sources */,
@@ -2153,6 +2164,7 @@
 				8470F64E270AD61C00E05AF7 /* InputValidatable.swift in Sources */,
 				8470F631270AD61C00E05AF7 /* SwipeAnimator.swift in Sources */,
 				8470F64D270AD61C00E05AF7 /* InputValidator.swift in Sources */,
+				887DCEE929A8D04100EB16BD /* EarningSettlementResponseModel.swift in Sources */,
 				8470F723270AD61D00E05AF7 /* CustomerInfo.swift in Sources */,
 				8470F674270AD61C00E05AF7 /* IndexCollectionView.swift in Sources */,
 				8470F66B270AD61C00E05AF7 /* ColumnCollectionViewCell.swift in Sources */,
@@ -2264,7 +2276,7 @@
 				84C5793B27476A0500CD82E1 /* RootCompleteTrip.swift in Sources */,
 				8470F709270AD61D00E05AF7 /* TransferToBank.swift in Sources */,
 				84955A3127510D2C00F0AE07 /* ChatVC+Tableview.swift in Sources */,
-				84A35AAD2726A0B0003078C1 /* EarningVC.swift in Sources */,
+				84A35AAD2726A0B0003078C1 /* EarningSettlementVC.swift in Sources */,
 				8470F6F2270AD61D00E05AF7 /* AppTheme.swift in Sources */,
 				8470F63A270AD61C00E05AF7 /* SwipeFeedback.swift in Sources */,
 				88F2B7932983B7B900154438 /* MessageTableCell.swift in Sources */,
@@ -2390,6 +2402,17 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		88E7FC6D29A75C4D00746C3A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				88E7FC6C29A75C4D00746C3A /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		34E8B3FB22C3AAE100C33A94 /* Debug */ = {
@@ -2519,7 +2542,7 @@
 				CODE_SIGN_ENTITLEMENTS = "MTM Driver/MTM DriverDebug.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.3;
+				CURRENT_PROJECT_VERSION = 0.0.5;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = LNR2265795;
 				EXCLUDED_ARCHS = "";
@@ -2551,7 +2574,7 @@
 				CODE_SIGN_ENTITLEMENTS = "MTM Driver/MTM Driver.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.3;
+				CURRENT_PROJECT_VERSION = 0.0.5;
 				DEVELOPMENT_TEAM = LNR2265795;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/MTM Driver/Info.plist";

@@ -49,6 +49,20 @@ class TripDetailVC: BaseViewController {
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var lblNotes: ThemeLabel!
     @IBOutlet weak var viewNotes: UIView!
+    @IBOutlet weak var lblPickUpTitle: ThemeLabel!
+    @IBOutlet weak var lblDropoffTitle: ThemeLabel!
+    @IBOutlet weak var lblcargoWeight: ThemeLabel!
+    @IBOutlet weak var lblItemQuantity: ThemeLabel!
+    @IBOutlet weak var lblTruckLoad: ThemeLabel!
+    @IBOutlet weak var lblVehicleInfo: ThemeLabel!
+    @IBOutlet weak var lblTitleNotes: ThemeLabel!
+    @IBOutlet weak var lblTitleTripTime: ThemeLabel!
+    @IBOutlet weak var lblTitleWaitingTime: ThemeLabel!
+    @IBOutlet weak var lblTitleTotalTime: ThemeLabel!
+    @IBOutlet weak var lblTitleDistance: ThemeLabel!
+    @IBOutlet weak var lblTitleTripPrice: ThemeLabel!
+    @IBOutlet weak var lblTitleEarning: ThemeLabel!
+    @IBOutlet weak var btnNeedHelp: UIButton!
     
     var isFromPast: Bool = true
     var mapView: GMSMapView?
@@ -59,11 +73,12 @@ class TripDetailVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpSwipeView(vwSwipe: vwSlider)
-        self.setupNavigation(.normal(title: "Trip Detail", leftItem: .back, hasNotification: false))
+        self.setupNavigation(.normal(title: "Trip Detail".localized, leftItem: .back, hasNotification: false))
         setupUI()
         WebServiceCallTripDetail()
         setdata()
         setupData()
+        self.setLocalization()
     }
     
     private func setupUI() {
@@ -80,9 +95,26 @@ class TripDetailVC: BaseViewController {
         vwAcceptReject.isHidden = isFromPast
     }
 
+    func setLocalization(){
+        self.lblPickUpTitle.text = "Pickup".localized
+        self.lblDropoffTitle.text = "Drop-off".localized
+        self.lblcargoWeight.text = "Cargo weight".localized
+        self.lblItemQuantity.text = "Item Quantity".localized
+        self.lblTruckLoad.text = "Truck Load Type".localized
+        self.lblVehicleInfo.text = "Vehicle Info".localized
+        self.lblTitleNotes.text = "\("Notes".localized) :"
+        self.lblTitleTripTime.text = "\("Trip Time".localized):"
+        self.lblTitleWaitingTime.text = "\("Waiting Time".localized):"
+        self.lblTitleTotalTime.text = "\("Total Time".localized):"
+        self.lblTitleDistance.text = "\("Distance".localized):"
+        self.lblTitleTripPrice.text = "\("Trip Price".localized):"
+        self.lblTitleEarning.text = "\("Your Earning".localized):"
+        self.btnNeedHelp.setTitle("Need Help?".localized, for: .normal)
+    }
+    
     //MARK :- Other Function
     func setdata(){
-        lblYouRated.text = isFromPast ? "You Rated" : "Your Rider"
+        lblYouRated.text = isFromPast ? "You Rated".localized : "Your Rider".localized
         viewNotes.isHidden = objDetail?.notes != "" ? false : true
         lblNotes.text = objDetail?.notes
         if isFromPast{
@@ -197,7 +229,7 @@ class TripDetailVC: BaseViewController {
     
     func setUpSwipeView(vwSwipe : MTSlideToOpenView) {
         vwSwipe.applyThemeStyle()
-        vwSwipe.textLabel.text = "Slide To Go"
+        vwSwipe.textLabel.text = "Slide To Go".localized
         vwSwipe.delegate = self
         
     }
@@ -264,7 +296,7 @@ class TripDetailVC: BaseViewController {
     @IBAction func btnActionCall(_ sender: Any) {
         let contactNumber = objDetail?.customerMobileNumber
         if contactNumber == "" {
-            UtilityClass.showAlert(message: "Contact number is not available")
+            UtilityClass.showAlert(message: "Contact number is not available".localized)
         } else {
             UtilityClass.callNumber(phoneNumber: contactNumber ?? "")
         }
@@ -310,7 +342,7 @@ class TripDetailVC: BaseViewController {
                 self.btnCall.isHidden = false
                 self.btnMessage.isHidden = false
                 self.driverRatingView.isHidden = true
-                self.lblYouRated.text = "Your Rider"
+                self.lblYouRated.text = "Your Rider".localized
             }
             else {
                 AlertMessage.showMessageForError(response["message"].stringValue)
@@ -328,7 +360,7 @@ class TripDetailVC: BaseViewController {
                 let data = response["data"].dictionary
                 if !(data?["rating"]?.stringValue.isEmpty ?? false){
                     let rating = data?["rating"]?.stringValue
-                    self.driverRatingView.rating = rating?.toDouble() ?? 0.0
+                    self.driverRatingView.rating = Double(rating ?? "0.0") ?? 0.0//?.toDouble() ?? 0.0
                 }
                 else {
                     self.driverRatingView.rating = 0.0
@@ -358,7 +390,10 @@ extension TripDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Index:\(indexPath.row)")
-        self.openWebURL( arrTruckImages[indexPath.row].stringValue)
+        let galaryVC : GalaryVC = UIViewController.viewControllerInstance(storyBoard: .home)
+        galaryVC.Image = arrTruckImages[indexPath.row].stringValue
+        self.navigationController?.present(galaryVC, animated: true)
+//        self.openWebURL( arrTruckImages[indexPath.row].stringValue)
     }
     
     @objc func removeImage(sender: UIButton) {
@@ -390,18 +425,19 @@ class ImagesCell: UICollectionViewCell {
     @IBAction func btnRemoveImage(_ sender: UIButton) {
     }
 }
+
 extension TripDetailVC: MTSlideToOpenDelegate {
     
     func mtSlideToOpenDelegateDidFinish(_ sender: MTSlideToOpenView) {
         guard let bookingData = objDetail else { return }
         if Singleton.shared.isDriverOnline == false {
-            let message = "You're currenty offline, please get online before go for the ride."
+            let message = "You're currently offline, please get online before go for the ride.".localized
             ThemeAlertVC.present(from: self, ofType: .simple(message: message))
             sender.resetStateWithAnimation(true)
         } else if let bookingId = Singleton.shared.bookingInfo?.id,
                   bookingId.isEmpty == false,
                   bookingData.id != bookingId {
-            let message = "You're already on your trip, first finish your trip."
+            let message = "You're already on your trip, first finish your trip.".localized
             ThemeAlertVC.present(from: self, ofType: .simple(message: message))
             sender.resetStateWithAnimation(true)
         } else {
@@ -413,7 +449,7 @@ extension TripDetailVC: MTSlideToOpenDelegate {
                 self.navigationController?.popToRootViewController(animated: true)
             }else{
                 SocketIOManager.shared.establishConnection()
-                AlertMessage.showMessageForError("Something went wrong!")
+                AlertMessage.showMessageForError("Something went wrong".localized)
             }
         }
     }

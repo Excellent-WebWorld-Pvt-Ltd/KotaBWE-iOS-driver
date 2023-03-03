@@ -156,6 +156,7 @@
                 <outlet property="btnSeeMore" destination="zoK-UG-CmJ" id="5Mp-N5-vxs"/>
                 <outlet property="lblEarning" destination="5Cq-k1-vCj" id="wB3-Fx-6UY"/>
                 <outlet property="lblTitle" destination="4Hw-kk-8zS" id="4dY-EB-7B0"/>
+                <outlet property="lblTodayEarning" destination="YPO-Sc-4cQ" id="68H-VL-JhJ"/>
                 <outlet property="switchBtn" destination="m0m-Yj-Kwy" id="fyS-pi-GcF"/>
             </connections>
             <point key="canvasLocation" x="699.27536231884062" y="-167.07589285714286"/>

@@ -29,14 +29,19 @@ class TripHistoryVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setupNavigation(.normal(title: "My Trips", leftItem: .back))
+        self.setupNavigation(.normal(title: "My Trips".localized, leftItem: .back))
         viewUpComing.isHidden = false
         viewPast.isHidden = !viewUpComing.isHidden
         btnSetup()
         btnActionUpcoming(upcommingButton)
-       
+        self.setLocalization()
     }
     
+    func setLocalization(){
+        self.upcommingButton.setTitle("Upcoming".localized, for: .normal)
+        self.pastButton.setTitle("Past".localized, for: .normal)
+        
+    }
     
     func btnSetup(){
         upcommingButton.setTitleColor(UIColor.white, for: .normal)

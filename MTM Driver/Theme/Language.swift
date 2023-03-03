@@ -31,10 +31,10 @@ enum LanguageType: String{
     }
 }
 
+
 extension String {
     var localized: String {
-        let lang = UserDefaults.standard.string(forKey: "i18n_language")
-        print(lang ?? "")
+        let lang = UserDefaults.standard.string(forKey: LCLCurrentLanguageKey) ?? "en"
         let path = Bundle.main.path(forResource: lang, ofType: "lproj")
         let bundle = Bundle(path: path!)
         print(path ?? "")

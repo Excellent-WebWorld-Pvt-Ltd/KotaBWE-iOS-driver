@@ -104,6 +104,10 @@ enum ApiKey: String {
     case deleteAccount = "delete_account"
     case clearNotification = "notification_clear"
     case withdrawals
+    
+    case driverPendingEarningSettlement = "driver_pending_earning_settlement"
+    case driverCompletedEarningSettlement = "driver_completed_earning_settlement"
+    case withdraw = "request_earning_settlement"
 }
 
 enum ParameterKey{

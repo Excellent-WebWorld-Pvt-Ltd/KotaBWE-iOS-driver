@@ -79,11 +79,37 @@ class ProfileInfoVC: BaseViewController {
         if !isFromSetting {
             navigateToVC()
         }
-        self.btnNext.setTitle(isFromSetting ? "Save" : "Next", for: .normal)
+        self.btnNext.setTitle(isFromSetting ? "Save".localized : "Next".localized, for: .normal)
         self.navigationController?.navigationBar.isHidden = false
-        self.setupNavigation(.normal(title: isFromSetting ? "Edit Profile" : "Profile Details", leftItem: .back))
+        self.setupNavigation(.normal(title: isFromSetting ? "Edit Profile".localized : "Profile Details".localized, leftItem: .back))
     }
 
+    func setlocalization(){
+        self.txtFirstName.textField.placeholder = "First Name".localized
+        self.txtFirstName.textField.label.text = "First Name".localized
+        
+        self.txtLastName.textField.placeholder = "Last Name".localized
+        self.txtLastName.textField.label.text = "Last Name".localized
+        
+        self.txtEmail.textField.placeholder = "Email".localized
+        self.txtEmail.textField.label.text = "Email".localized
+        
+        self.txtCode.textField.placeholder = "Code".localized
+        self.txtCode.textField.label.text = "Code".localized
+        
+        self.txtMobileNumber.textField.placeholder = "Mobile Number".localized
+        self.txtMobileNumber.textField.label.text = "Mobile Number".localized
+        
+        self.txtDOB.textField.placeholder = "Date Of Birth".localized
+        self.txtDOB.textField.label.text = "Date Of Birth".localized
+        
+        self.txtAddress.textField.placeholder = "Address".localized
+        self.txtAddress.textField.label.text = "Address".localized
+        
+        self.txtPostalCode.textField.placeholder = "Postal Code".localized
+        self.txtPostalCode.textField.label.text = "Postal Code".localized
+    }
+    
     func imageSetup() {
         imgProfile.layer.borderColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1.0).cgColor
         imgProfile.layer.masksToBounds = true
@@ -173,7 +199,7 @@ class ProfileInfoVC: BaseViewController {
     
     func openDatePicker(){
         UIView.setAnimationsEnabled(true)
-        ThemeDatePickerViewController.open(from: self, title: "Select Birthdate", type: .birthDate, selectedDate: selectedBirthDate) { [unowned self] date in
+        ThemeDatePickerViewController.open(from: self, title: "Select Birthdate".localized, type: .birthDate, selectedDate: selectedBirthDate) { [unowned self] date in
             self.selectedBirthDate = date
             self.txtDOB.textField.text = self.selectedBirthDate?.getDateString(format: .fullDate) ?? ""
         }
@@ -239,7 +265,7 @@ class ProfileInfoVC: BaseViewController {
             objData.first_name = self.txtFirstName.textField.text ?? ""
             objData.last_name = self.txtLastName.textField.text ?? ""
             objData.mobile_no = self.txtMobileNumber.textField.text ?? ""
-            objData.payment_method = "cash"//"cash"
+            objData.payment_method = "cash".localized//"cash"
             objData.postal_code = txtPostalCode.textField.text!
             self.webserviceForSavePersonalProfile(uerData: objData)
         }else {
@@ -259,9 +285,9 @@ class ProfileInfoVC: BaseViewController {
     }
     
     private func isValidInputes() -> Bool {
-            let firstNameValidation = InputValidation.name.isValid(input: txtFirstName.textField.unwrappedText, field: "first name")
-            let lastNameValidation = InputValidation.name.isValid(input: txtLastName.textField.unwrappedText, field: "last name")
-            let postalValidation = InputValidation.nonEmpty.isValid(input: txtPostalCode.textField.unwrappedText, field: "Postal code")
+        let firstNameValidation = InputValidation.name.isValid(input: txtFirstName.textField.unwrappedText, field: "first name".localized)
+        let lastNameValidation = InputValidation.name.isValid(input: txtLastName.textField.unwrappedText, field: "last name".localized)
+        let postalValidation = InputValidation.nonEmpty.isValid(input: txtPostalCode.textField.unwrappedText, field: "Postal code".localized)
             txtFirstName.textField.leadingAssistiveLabel.text = firstNameValidation.error
             txtFirstName.textField.setOutlineColor(firstNameValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
             txtLastName.textField.leadingAssistiveLabel.text = lastNameValidation.error
@@ -273,13 +299,13 @@ class ProfileInfoVC: BaseViewController {
                 txtDOB.textField.leadingAssistiveLabel.text = ""
                 txtDOB.textField.setOutlineColor(.themeTextFieldDefaultBorderColor, for: .normal)
             }
-            let addressValidation = InputValidation.nonEmpty.isValid(input: txtAddress.textField.unwrappedText, field: "address")
+        let addressValidation = InputValidation.nonEmpty.isValid(input: txtAddress.textField.unwrappedText, field: "address".localized)
             txtAddress.textField.leadingAssistiveLabel.text = addressValidation.error
             txtAddress.textField.setOutlineColor(addressValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
             txtPostalCode.textField.leadingAssistiveLabel.text = postalValidation.error
             txtPostalCode.textField.setOutlineColor(postalValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
-        let emailValidation = InputValidation.email.isValid(input: txtEmail.textField.unwrappedText, field: "email address")
-        let mobileValidation = InputValidation.mobile.isValid(input: txtMobileNumber.textField.unwrappedText, field: "mobile number")
+        let emailValidation = InputValidation.email.isValid(input: txtEmail.textField.unwrappedText, field: "email address".localized)
+        let mobileValidation = InputValidation.mobile.isValid(input: txtMobileNumber.textField.unwrappedText, field: "mobile number".localized)
         if isFromSetting {
             txtEmail.textField.leadingAssistiveLabel.text = emailValidation.error
             txtEmail.textField.setOutlineColor(emailValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
@@ -288,7 +314,7 @@ class ProfileInfoVC: BaseViewController {
         }
         
         if !isFromSetting && RegistrationImageParameter.shared.profileImage == nil {
-            AlertMessage.showMessageForError("Please select profile image")
+            AlertMessage.showMessageForError("Please select profile image".localized)
         }
         
             if !isFromSetting && firstNameValidation.isValid && postalValidation.isValid && lastNameValidation.isValid  && RegistrationImageParameter.shared.profileImage != nil && txtDOB.textField.text != nil && addressValidation.isValid {
@@ -331,7 +357,7 @@ class ProfileInfoVC: BaseViewController {
             }
         }
         if !isFromSetting && RegistrationImageParameter.shared.profileImage == nil {
-            AlertMessage.showMessageForError("Please select profile image")
+            AlertMessage.showMessageForError("Please select profile image".localized)
             return false
         }
         return true
@@ -392,7 +418,7 @@ extension ProfileInfoVC : CountryPickerViewDelegate,CountryPickerViewDataSource 
         self.selectedCounty = country
     }
     func sectionTitleForPreferredCountries(in countryPickerView: CountryPickerView) -> String? {
-        return "Select country"
+        return "Select country".localized
     }
 }
 

@@ -47,6 +47,7 @@ class ChatVC: BaseViewController {
     @IBOutlet weak var inputContrainerView: UIView!
     @IBOutlet weak var viewPastChat: UIView!
     @IBOutlet weak var bottomConPastView: NSLayoutConstraint!
+    @IBOutlet weak var lblChatMassage: ThemeLabel!
     
     var strBookingId = ""
     var receiverId = ""
@@ -83,6 +84,11 @@ class ChatVC: BaseViewController {
     }
 
     //MARK:- =====UI Setup ========
+    
+    func setLocalization(){
+        self.lblChatMassage.text = "chat_massage".localized
+    }
+    
     func UISetup(){
         //hideKeyboardWhenTappedAround()
         if isComingFromPast {

@@ -35,9 +35,10 @@ class BankInfoVC: BaseViewController {
         if !isFromSetting {
             navigateToVC()
         }
-        self.btnNext.setTitle(isFromSetting ? "Save" : "Next", for: .normal)
+        self.setlocalization()
+        self.btnNext.setTitle(isFromSetting ? "Save".localized : "Next".localized, for: .normal)
         self.navigationController?.navigationBar.isHidden = false
-        setupNavigation(.normal(title: "Bank Info", leftItem: .back, hasNotification: false))
+        setupNavigation(.normal(title: "Bank Info".localized, leftItem: .back, hasNotification: false))
     }
     
     //MARK:- ===== Navigation  =======
@@ -45,6 +46,17 @@ class BankInfoVC: BaseViewController {
         if parameterArray.shouldAutomaticallyMoveToPage(from: .bank) {
             push(AppViewControllers.shared.vehicleInfo)
         }
+    }
+    
+    func setlocalization(){
+        self.txtBankName.textField.placeholder = "Bank Name".localized
+        self.txtBankName.textField.label.text = "Bank Name".localized
+        self.txtBankHolderName.textField.placeholder = "Account Holder Name".localized
+        self.txtBankHolderName.textField.label.text = "Account Holder Name".localized
+        self.txtAccountNumber.textField.placeholder = "Account Number".localized
+        self.txtAccountNumber.textField.label.text = "Account Number".localized
+        self.txtBranchCode.textField.placeholder = "Branch Code".localized
+        self.txtBranchCode.textField.label.text = "Branch Code".localized
     }
     
     //MARK:- ========= Setup Textfield =====
@@ -100,8 +112,8 @@ class BankInfoVC: BaseViewController {
     }
     private func isValidInputes() -> Bool {
       
-        let bankNameValidation = InputValidation.nonEmpty.isValid(input: txtBankName.textField.unwrappedText, field: "bank name")
-        let bankHolderNameValidation = InputValidation.nonEmpty.isValid(input: txtBankHolderName.textField.unwrappedText, field: "account holder name")
+        let bankNameValidation = InputValidation.nonEmpty.isValid(input: txtBankName.textField.unwrappedText, field: "bank name".localized)
+        let bankHolderNameValidation = InputValidation.nonEmpty.isValid(input: txtBankHolderName.textField.unwrappedText, field: "account holder name".localized)
         
         txtBankName.textField.leadingAssistiveLabel.text = bankNameValidation.error
         txtBankName.textField.setOutlineColor(bankNameValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
@@ -110,11 +122,11 @@ class BankInfoVC: BaseViewController {
         txtBankHolderName.textField.setOutlineColor(bankHolderNameValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
         
         
-        let accountValidation = InputValidation.nonEmpty.isValid(input: txtAccountNumber.textField.unwrappedText, field: "account number")
+        let accountValidation = InputValidation.nonEmpty.isValid(input: txtAccountNumber.textField.unwrappedText, field: "account number".localized)
          txtAccountNumber.textField.leadingAssistiveLabel.text = accountValidation.error
          txtAccountNumber.textField.setOutlineColor(accountValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
         
-        let brnachCodeValidation = InputValidation.nonEmpty.isValid(input: txtBranchCode.textField.unwrappedText, field: "branch code")
+        let brnachCodeValidation = InputValidation.nonEmpty.isValid(input: txtBranchCode.textField.unwrappedText, field: "branch code".localized)
         txtBranchCode.textField.leadingAssistiveLabel.text = brnachCodeValidation.error
         txtBranchCode.textField.setOutlineColor(brnachCodeValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
         

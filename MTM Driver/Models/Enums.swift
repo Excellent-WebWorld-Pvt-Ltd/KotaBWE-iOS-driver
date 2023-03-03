@@ -40,6 +40,8 @@ enum AppImages: String {
     case locationDropPulse = "ic_drop_circle"
     case userPlaceholder = "placeholder_man"
     case file           = "ic_File"
+    case privacy        = "ic_privacy"
+    case terms          = "ic_Terms"
 
 
     var image: UIImage {

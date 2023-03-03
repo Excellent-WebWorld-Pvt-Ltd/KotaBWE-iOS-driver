@@ -26,6 +26,8 @@ fileprivate enum SideMenuType: Int {
     case settings
     case support
     case privacy
+    case terms
+    case earningSettlement
 }
 
 class SideMenuCell: UITableViewCell {
@@ -34,7 +36,7 @@ class SideMenuCell: UITableViewCell {
     
     fileprivate func setValues(_ info: SideMenuItem) {
         iconImageView.image = info.icon.image.withTintColor(UIColor.themeBlue, renderingMode: .alwaysTemplate)
-        titleLabel.text = info.title
+        titleLabel.text = info.title.localized
     }
 }
 
@@ -45,6 +47,7 @@ class SideMenuTableViewController: UIViewController {
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var profileView: ThemeTouchableView!
     @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var lblLogOut: ThemeLabel!
     @IBOutlet weak var logoutTouchView: ThemeTouchableView!
     
     //MARK:- ===== Variables =======
@@ -55,11 +58,13 @@ class SideMenuTableViewController: UIViewController {
        // .init(icon: .menuIncome, title: "Meter", type: .meter),
         .init(icon: .menuHistory, title: "Trip history", type: .tripHistory),
         .init(icon: .menuIncome, title: "Earnings", type: .earnings),
+        .init(icon: .menuIncome, title: "Earning Settlement", type: .earningSettlement),
         //.init(icon: .subscription, title: "Membership", type: .subscription),
         //.init(icon: .menuIncome, title: "Wallet", type: .wallet),
         .init(icon: .menuSettings, title: "Settings", type: .settings),
         .init(icon: .menuHeadphones, title: "Support", type: .support),
-        .init(icon: .file, title: "Privacy Policy", type: .privacy),
+        .init(icon: .privacy, title: "Privacy Policy", type: .privacy),
+        .init(icon: .terms, title: "Terms & Condition", type: .terms)
     ]
     
     override func viewDidLoad() {
@@ -79,6 +84,11 @@ class SideMenuTableViewController: UIViewController {
             loginModelDetails = login
         }
         setData()
+    }
+    
+    func setLocalization(){
+        self.lblLogOut.text = "Log Out".localized
+        self.deleteButton.setTitle("Delete My Account".localized, for: .normal)
     }
     
     func setData() {
@@ -119,6 +129,11 @@ class SideMenuTableViewController: UIViewController {
             homeViewCtr.push(AppViewControllers.shared.subscription)
         case .privacy:
             openWebURL(Singleton.shared.privacyURL)
+        case .terms:
+            openWebURL(Singleton.shared.termsAndConditionURL)
+        case .earningSettlement:
+            let viewCtr = AppViewControllers.shared.earningSettlement
+            homeViewCtr.push(viewCtr)
         }
         sideMenuController?.hideMenu()
     }
@@ -139,40 +154,11 @@ class SideMenuTableViewController: UIViewController {
     }
     
     private func logoutUser() {
-        let alertCtr = UIAlertController(title: Helper.appName, message: "Are you sure to logout from \(Helper.appName) App?", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Logout", style: .destructive) { [unowned self] _ in
-            self.webserviceForLogout()
-        }
-        let cancelAction = UIAlertAction(title: "Not Now", style: .cancel, handler: nil)
-        alertCtr.addAction(okAction)
-        alertCtr.addAction(cancelAction)
-        self.sideMenuController?.hideMenu()
-        self.present(alertCtr, animated: true)
-        DispatchQueue.main.async {
-            UtilityClass.triggerHapticFeedback(.warning)
-        }
+        ThemeAlertVC.present(from: self, ofType: .logout)
     }
     
     @IBAction func deleteAccountAction() {
-        let okAction = UIAlertAction(title: "Delete", style: .destructive) { [unowned self] _ in
-            self.deleteAccountRequest()
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .default)
-        AppDelegate.showAlert(title: "Alert", message: "Are you sure you want to delete your \"\(Helper.appName)\" Account?", actions: [okAction, cancelAction])
-        Helper.triggerHapticFeedback(.warning)
-    }
-    
-    private func deleteAccountRequest() {
-        let param: [String: String] = ["driver_id": Singleton.shared.userProfile?.responseObject.id ?? ""]
-        WebServiceCalls.deleteAccountAPi(params: param) { json, status in
-            if status {
-                UtilityClass.showAlert(message: "\(json[ "message"])", isCancelShow: false) {
-                    SessionManager.shared.logout()
-                }
-            }else {
-                AlertMessage.showMessageForError(json.getApiMessage())
-            }
-        }
+        ThemeAlertVC.present(from: self, ofType: .deleteUser)
     }
 }
 

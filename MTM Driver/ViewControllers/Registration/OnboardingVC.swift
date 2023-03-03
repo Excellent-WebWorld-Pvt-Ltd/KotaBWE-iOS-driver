@@ -10,6 +10,9 @@ import UIKit
 
 class OnboardingVC: BaseViewController {
 
+    @IBOutlet weak var btnSignIn: ThemePrimaryButton!
+    @IBOutlet weak var lblTitle: ThemeLabel!
+    @IBOutlet weak var btnRegister: ThemePrimaryButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,5 +24,9 @@ class OnboardingVC: BaseViewController {
         self.navigationController?.navigationBar.isHidden = true
     }
     
-    
+    func localization(){
+        btnSignIn.setTitle("SIGN IN".localized, for: .normal)
+        btnRegister.setTitle("REGISTER".localized, for: .normal)
+        lblTitle.text = "Welcome to Kota".localized
+    }
 }

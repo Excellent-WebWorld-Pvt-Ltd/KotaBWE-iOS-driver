@@ -35,7 +35,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Johannes Smith" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOB-HE-YAf" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
-                                    <rect key="frame" x="77" y="25" width="490.5" height="17"/>
+                                    <rect key="frame" x="77" y="25" width="103.5" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -48,7 +48,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="saj-j5-qZe">
-                                    <rect key="frame" x="77" y="47" width="490.5" height="20"/>
+                                    <rect key="frame" x="77" y="47" width="103.5" height="20"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LlA-N0-v9N" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
                                             <rect key="frame" x="17" y="3" width="18.5" height="14.5"/>
@@ -80,10 +80,10 @@
                                     </constraints>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="jHM-W9-UT5">
-                                    <rect key="frame" x="577.5" y="25" width="69.5" height="34"/>
+                                    <rect key="frame" x="190.5" y="25" width="456.5" height="0.0"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 Jan 2020" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1tN-4U-1RO" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="69.5" height="14.5"/>
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 Jan 2020" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1tN-4U-1RO" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="69.5" height="0.0"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -95,8 +95,8 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5:15 pm" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwL-MR-x0X" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="19.5" width="69.5" height="14.5"/>
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5:15 pm" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwL-MR-x0X" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="69.5" height="0.0"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -147,7 +147,7 @@
                                 <constraint firstAttribute="trailing" secondItem="jHM-W9-UT5" secondAttribute="trailing" constant="15" id="teM-bg-rbP"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MHz-Sh-U1k">
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MHz-Sh-U1k">
                             <rect key="frame" x="0.0" y="122" width="662" height="200"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="puX-Mk-Yty">
@@ -547,6 +547,7 @@
             <connections>
                 <outlet property="ViewWithInMiles" destination="MNp-WF-NZF" id="VUl-Je-u41"/>
                 <outlet property="btnCancel" destination="9gi-oi-yZ9" id="jSR-W1-Q5p"/>
+                <outlet property="btnCancelBooking" destination="iXm-QH-U76" id="T02-Ui-q8y"/>
                 <outlet property="btnViewMore" destination="MgL-wk-OKL" id="kHX-CY-dUy"/>
                 <outlet property="heightBouttom" destination="L1f-ga-Rpx" id="vit-KA-ZqD"/>
                 <outlet property="iconDriverProfilePic" destination="9Jg-IU-cci" id="KRr-Sb-EUO"/>
@@ -576,7 +577,7 @@
     </objects>
     <resources>
         <image name="ic_Phone" width="15" height="15"/>
-        <image name="ic_Rating" width="23" height="23"/>
+        <image name="ic_Rating" width="22" height="22"/>
         <image name="ic_SOS" width="30" height="30"/>
         <image name="ic_message" width="15" height="13"/>
         <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>

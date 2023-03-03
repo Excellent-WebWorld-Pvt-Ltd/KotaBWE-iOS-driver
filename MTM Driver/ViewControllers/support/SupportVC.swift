@@ -12,11 +12,6 @@ class SupportVC: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupNavigation(.normal(title: "Support", leftItem: .back, hasNotification: false))
-
-        
     }
-    
-
 }

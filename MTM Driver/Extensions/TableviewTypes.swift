@@ -22,7 +22,6 @@ enum TableViewCellType: String {
     case subscription   = "SubscriptionCell"
     case vehicleDoc     = "VehicleDocTableViewCell"
 
-
     var cellId: String {
         switch self {
         case .trip:

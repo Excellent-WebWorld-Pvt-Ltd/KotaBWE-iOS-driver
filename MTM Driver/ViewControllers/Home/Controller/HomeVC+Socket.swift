@@ -205,7 +205,7 @@ extension HomeViewController: SocketConnected {
                 bookingView.setDriverData(status:.requestAccepted)
             }
             let message = json.first?.1.dictionary?["message"]?.stringValue
-            AlertMessage.showMessageForSuccess(message ?? "Booking Request Accepted")
+            AlertMessage.showMessageForSuccess(message ?? "Booking Request Accepted".localized)
         }
     }
     
@@ -247,7 +247,7 @@ extension HomeViewController: SocketConnected {
             self.presentView(forState: .requestAccepted)
             self.resetMap()
             let message = json.first?.1.dictionary?["message"]?.stringValue
-           AlertMessage.showMessageForSuccess(message ?? "Booking Request Accepted")
+            AlertMessage.showMessageForSuccess(message ?? "Booking Request Accepted".localized)
         }
         }
     
