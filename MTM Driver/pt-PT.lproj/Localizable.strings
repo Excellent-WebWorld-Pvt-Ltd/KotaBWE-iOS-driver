@@ -1,0 +1,301 @@
+/* 
+  Localizable.strings
+  MTM Driver
+
+  Created by Dhananjay  on 23/02/23.
+  Copyright © 2023 baps. All rights reserved.
+*/
+
+// Splash
+"Ok" = "OK";
+"Update" = "Atualizar";
+"Cancel" = "Cancelar";
+"Skip" = "Pular";
+"Register" = "Registro";
+"Login" = "Conecte-se";
+
+//Login
+
+"SIGN IN" = "ENTRAR";
+"REGISTER" = "REGISTRO";
+"Welcome to Kota" = "Bem vindo a Kota";
+"Sign In" = "Entrar";
+"Email" = "E-mail";
+"Password" = "Senha";
+"Forgot Password?" = "Esqueceu sua senha?";
+"Not a Kota user?  " = "Não é um usuário do Kota?  ";
+"Sign Up" = "Inscrever-se";
+"email" = "e-mail";
+"password" = "senha";
+"Alert" = "Alerta";
+"Select country" = "Selecione o pais";
+
+// Registration
+"Mobile Number" = "Número de telemóvel";
+"Code" = "Código";
+"Confirm Password" = "Confirme sua senha";
+"NEXT" = "PRÓXIMO";
+"Already a Kota user? " = "Já é um usuário Kota? ";
+"By creating an account, you agree to our" = "Ao criar uma conta, você concorda com nossos";
+"Terms of Service" = "Termos de serviço";
+"and" = "e";
+"Privacy Policy" = "política de Privacidade";
+"mobile number" = "número de telemóvel";
+"confirm password" = "Confirme sua senha";
+"Your password and confirmation password do not match." = "Sua senha e senha de confirmação não correspondem.";
+"Please accept terms & conditions and privacy policy" = "Aceite os termos e condições e a política de privacidade";
+"Already a Kota user? Sign In" = "Já é um usuário Kota? Entrar";
+
+//OTP
+"Enter 6 Digit Code That Has Been Sent To Your Registered Mail Id." = "Digite o código de 6 dígitos que foi enviado para o seu ID de e-mail registrado.";
+"Didn’t receive code? " = "Não recebeu código? ";
+"Resend" = "Reenviar";
+"Resend in" = "Reenviar";
+"Please enter otp." = "Por favor, digite otp.";
+"Please enter valid otp." = "Insira otp válido.";
+
+//bank info
+"Bank Name" = "Nome do banco";
+"Account Holder Name" = "nome do titular da conta";
+"Account Number" = "Número de conta";
+"Branch Code" = "Código da Agência";
+"Save" = "Salvar";
+"Next" = "Próximo";
+"Bank Info" = "Informações Bancárias";
+"bank name" = "nome do banco";
+"account holder name" = "nome do titular da conta";
+"account number" = "número de conta";
+"branch code" = "Código da Agência";
+
+//Profile
+"Edit Profile" = "Editar Perfil";
+"Profile Details" = "Detalhes de perfil";
+"Select Birthdate" = "Selecione a data de nascimento";
+"cash" = "dinheiro";
+"first name" = "primeiro nome";
+"last name" = "sobrenome";
+"Postal code" = "Código postal";
+"address" = "endereço";
+"email address" = "endereço de email";
+"Please select profile image" = "Selecione a imagem do perfil";
+"First Name" = "Primeiro nome";
+"Last Name" = "Sobrenome";
+"Date Of Birth" = "Data de nascimento";
+"Address" = "Endereço";
+"Postal Code" = "Código postal";
+
+//Vehicle Details
+"Vehicle Details" = "Detalhes do veículo";
+"Done" = "Feito";
+"Vehicle plate number" = "Número da placa do veículo";
+"Select truck load type" = "Selecione o tipo de carga do caminhão";
+"Select vehicle model" = "Selecione o modelo do veículo";
+"Select vehicle type" = "Selecione o tipo de veículo";
+"Select vehicle manufacture year" = "Selecione o ano de fabricação do veículo";
+"Enter vehicle color" = "Insira a cor do veículo";
+"vehicle_note" = "Nota:- Anexe fotos dos lados abaixo do seu caminhão";
+
+// Vehicle Document
+"Vehicle Document" = "Documento do veículo";
+"Submit" = "Enviar";
+"Document getting uploaded, please wait till finish the process" = "Documento sendo carregado, aguarde até terminar o processo";
+"Attach Document" = "Anexar Documento";
+"Driving license(front and back)" = "Carta de condução(frente e verso)";
+"Criminal record" = "Registro criminal";
+"Residence certificate" = "Certificado de residência";
+"Rental license" = "Licença de aluguel";
+"Booklet" = "Livrete";
+"Civil liability insurance" = "seguro de responsabilidade civil";
+"BI (front and back)" = "BI (frente e verso)";
+"Driver License Front Uploaded!!" = "Carteira de habilitação frontal carregada!!";
+"Driver License Back Uploaded!!" = "Carteira de habilitação de volta carregada!!";
+"Criminal Record Uploaded!!" = "Registo Criminal Carregado!!";
+"Residence Certificate Uploaded!!" = "Certificado de Residência Carregado!!";
+"Rental License Uploaded!!" = "Licença de aluguel carregada!!";
+"Booklet Uploaded!!" = "Livrete Carregado!!";
+"Civil Liability Insurance Uploaded!!" = "Seguro de Responsabilidade Civil Carregado!!";
+"BI Front Uploaded!!" = "Frente BI carregado!!";
+"BI Back Uploaded!!" = "BI de volta carregado!!";
+"Attach Document(Back)" = "Anexar Documento (Voltar)";
+"Attach Document(Front)" = "Anexar Documento (Frente)";
+"Select expiry date" = "Selecione a data de validade";
+"Expiry Date: " = "Data de validade: ";
+
+// side Menu
+"Log Out" = "Sair";
+"Delete My Account" = "Deletar minha conta";
+"Trip history" = "Histórico de viagem";
+"Earnings" = "Ganhos";
+"Earning Settlement" = "Ganhando Liquidação";
+"Settings" = "Configurações";
+"Support" = "Apoiar";
+"Privacy Policy" = "política de Privacidade";
+"Terms & Condition" = "Termos e Condições";
+
+//Home
+"Cancel trip is not possible due to some reason" = "Cancelar a viagem não é possível devido a algum motivo";
+"Please restart application." = "Reinicie o aplicativo.";
+"Contact number is not available" = "O número de contato não está disponível";
+"Hi" = "Oi";
+"Booking Request Accepted" = "Pedido de Reserva Aceito";
+"Slide To Accept" = "Deslize para aceitar";
+"Arrived" = "Chegado";
+"Start Ride" = "Iniciar viagem";
+"Complete" = "Completo";
+"accepted" = "aceitaram";
+"Pickup" = "Escolher";
+"Drop-off" = "Deixar";
+"Cargo weight" = "peso da carga";
+"Item quantity" = "Quantidade do item";
+"Truck load type" = "Tipo de carga do caminhão";
+"View Details" = "Ver detalhes";
+"Rate Now" = "Avalie agora";
+"Grand Total" = "Total geral";
+"Trip Completed!" = "Viagem concluída!";
+"You're Online" = "você está online";
+"You're Offline" = "você está offline";
+"See More" = "Ver mais";
+"Your Today's Earning" = "Seus ganhos de hoje";
+"Total Time" = "Tempo total";
+"Distance" = "Distância";
+"Your Earning" = "Seus ganhos";
+
+//Notification
+"Notification" = "Notificação";
+"Clear All" = "Limpar tudo";
+"Something went wrong" = "algo deu errado";
+"No data found." = "Nenhum dado encontrado.";
+
+//My Trips
+"My Trips" = "Minhas viagens";
+"Upcoming" = "Por vir";
+"Past" = "Passado";
+"No data found" = "Nenhum dado encontrado";
+
+//chat
+"chat_massage" = "Sua viagem foi encerrada, então você não pode enviar uma mensagem para este cliente.";
+
+//TripDetail
+"Trip Detail" = "Detalhe da viagem";
+"You Rated" = "você avaliou";
+"Your Rider" = "seu piloto";
+"Slide To Go" = "Deslize para ir";
+"You're currently offline, please get online before go for the ride." = "No momento, você está off-line, por favor, fique on-line antes de ir para o passeio.";
+"You're already on your trip, first finish your trip." = "Você já está em sua viagem, primeiro termine sua viagem.";
+"Cargo Weight" = "Peso da Carga";
+"Item Quantity" = "Quantidade do item";
+"Truck Load Type" = "Tipo de carga do caminhão";
+"Vehicle Info" = "Informações do veículo";
+"Notes" = "Notas";
+"Trip Time" = "Hora de viajar";
+"Waiting Time" = "Tempo de espera";
+"Trip Price" = "Preço da Viagem";
+"Need Help?" = "Preciso de ajuda?";
+
+//EARNING
+"Earnings" = "Ganhos";
+"No earning history found" = "Nenhum histórico de ganhos encontrado";
+"Mon" = "seg";
+"Tue" = "ter";
+"Wed" = "qua";
+"Thu" = "qui";
+"Fri" = "sex";
+"Sat" = "sab";
+"Sun" = "dom";
+"Rides" = "viajens";
+"Time" = "Tempo";
+"Tips" = "gorgeta";
+"History" = "História";
+"Daily" = "Diário";
+"Weekly" = "Semanalmente";
+"Pending" = "Pendente";
+"Completed" = "Concluído";
+"Total amount" = "Montante total";
+"Earning Settlement" = "Ganhando Liquidação";
+"You do not have any earning." = "Você não tem nenhum ganho.";
+"Withdraw" = "Retirar";
+"Are you sure you want to withdraw" = "Tem certeza que deseja retirar";
+"Withdraw Money" = "Retirar dinheiro";
+"Withdraw request pending..." = "Solicitação de saque pendente...";
+
+//Setting
+"Profile" = "Perfil";
+"Bank Details" = "Detalhes bancários";
+"Vehicle Details" = "Detalhes do veículo";
+"Vehicle Document" = "Documento do veículo";
+"Change Password" = "Alterar a senha";
+"Please complete your current trip first!" = "Conclua sua viagem atual primeiro!";
+
+//Change Password
+"Change Password" = "Alterar a senha";
+"old password" = "Senha Antiga";
+"new password" = "Nova Senha";
+"confirm new password" = "confirme a nova senha";
+"Your new password and confirmation new password do not match." = "Sua nova senha e a nova senha de confirmação não correspondem.";
+"Old Password" = "Senha Antiga";
+"Enter Old Password" = "Insira a senha antiga";
+"New Password" = "Nova Senha";
+"Enter New Password" = "Insira a nova senha";
+"Confirm New Password" = "Confirme a nova senha";
+"Enter Confirm New Password" = "Digite Confirmar Nova Senha";
+
+//"Support"
+"Support" = "Apoiar";
+"Describe your issue" = "descreva seu problema";
+"Please enter subject" = "Por favor, insira o assunto";
+"Please enter description" = "Insira a descrição";
+"subject" = "assunto";
+"Subject" = "Assunto";
+"description" = "descrição";
+"Your ticket is generated successfully. We will contact to you soon." = "Seu ticket foi gerado com sucesso. Entraremos em contato com você em breve.";
+"View Ticket" = "Ver Bilhete";
+"Tickets" = "Ingressos";
+"Ticket Id" = "Identificação do bilhete";
+"Processing" = "Em processamento";
+"Resolved" = "Resolvido";
+
+//Validation
+"Please enter minimum 2 characters in" = "Por favor insira no mínimo 2 caracteres em";
+"Please enter" = "Por favor, insira";
+"Please enter valid" = "Por favor, insira válido";
+"Special characters are not allowed in" = "Caracteres especiais não são permitidos em";
+"Username must be between 8 to 18 characters" = "O nome de usuário deve ter entre 8 e 18 caracteres";
+"Password must be between 8 to 25 characters" = "A senha deve ter entre 8 a 25 caracteres";
+"Unable to access the Camera" = "Não é possível acessar a câmera";
+"To enable access, go to Settings > Privacy > Camera and turn on Camera access for this app." = "Para ativar o acesso, vá para Configurações > Privacidade > Câmera e ative o acesso à câmera para este aplicativo.";
+"Unable to access the Photos" = "Não consigo acessar as fotos";
+"To enable access, go to Settings > Privacy > Photos and turn on Photos access for this app." = "Para habilitar o acesso, vá para Configurações > Privacidade > Fotos e ative o acesso de fotos para este aplicativo.";
+"Choose A Source" = "Escolha uma fonte";
+"Please select driver's license front" = "Selecione a frente da carteira de motorista";
+"Please select driver's license back" = "Selecione a carteira de motorista de volta";
+"Please select Criminal record" = "Selecione Registo Criminal";
+"Please select Residence certificate" = "Selecione Certificado de Residência";
+"Please select Rental license" = "Selecione a licença de aluguel";
+"Please select Booklet" = "Selecione o livreto";
+"Please select Civil liability insurance" = "Selecione Seguro de Responsabilidade Civil";
+"Please select BI front" = "Selecione a frente de BI";
+"Please select BI back" = "Selecione BI de volta";
+"Please select national id card" = "Selecione o cartão de identificação nacional";
+"Please enter national ID card number" = "Por favor, insira o número do cartão de identificação nacional";
+"Please select driver PSV license" = "Selecione a licença PSV do driver";
+
+"Please select good conduct certificate / Police clearance" = "Please select good conduct certificate / Police clearance";
+"Please select vehicle PSV license" = "Please select vehicle PSV license";
+"Please select vehicle logbook" = "Please select vehicle logbook";
+"Please select NTSA Inspection certificate" = "Please select NTSA Inspection certificate";
+"Please select PSV comprehensive insurance" = "Please select PSV comprehensive insurance";
+"Please enter driver's license expiry date" = "Please enter driver's license expiry date";
+"Please enter Rental license expiry date" = "Please enter Rental license expiry date";
+"Please enter Civil liability insurance expiry date" = "Please enter Civil liability insurance expiry date";
+"Please enter BI expiry date" = "Please enter BI expiry date";
+"Please enter PSV comprehensive insurance expiry date" = "Please enter PSV comprehensive insurance expiry date";
+
+//Picker file
+"Camera" = "Câmera";
+"Photo Library" = "Biblioteca de fotos";
+"PDF" = "PDF";
+
+//Forgot password
+"Forgot Password" = "Esqueceu sua senha";
+"Session expired" = "Sessão expirada";
+"Please Connect to Internet" = "Conecte-se à Internet";
