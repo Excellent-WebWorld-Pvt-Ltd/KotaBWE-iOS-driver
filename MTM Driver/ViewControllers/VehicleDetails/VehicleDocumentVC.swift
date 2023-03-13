@@ -206,7 +206,7 @@ extension VehicleDocumentVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        sections[section].title
+        sections[section].title.localized
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

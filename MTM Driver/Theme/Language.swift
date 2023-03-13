@@ -31,10 +31,36 @@ enum LanguageType: String{
     }
 }
 
+enum Languages : String {
+    case English = "en"
+    case Portugal = "pt-PT"
+}
+
+class Language :NSObject{
+    
+    open class func currentLanguage() -> String {
+        if let currentLanguage = UserDefaults.standard.object(forKey: LCLCurrentLanguageKey) as? String {
+            return currentLanguage
+        }
+        return defaultLanguage()
+    }
+    
+    open class func defaultLanguage() -> String {
+        return Languages.Portugal.rawValue
+    }
+    
+    open class func setCurrentLanguage(_ language: String) {
+        if (language != currentLanguage()){
+            UserDefaults.standard.set(language, forKey: LCLCurrentLanguageKey)
+            UserDefaults.standard.synchronize()
+        }
+        NotificationCenter.default.post(name: Notification.Name(rawValue: LCLLanguageChangeNotification), object: nil)
+    }
+}
 
 extension String {
     var localized: String {
-        let lang = UserDefaults.standard.string(forKey: LCLCurrentLanguageKey) ?? "en"
+        let lang = UserDefaults.standard.string(forKey: LCLCurrentLanguageKey) ?? Language.defaultLanguage()
         let path = Bundle.main.path(forResource: lang, ofType: "lproj")
         let bundle = Bundle(path: path!)
         print(path ?? "")

@@ -56,7 +56,7 @@ class ThemeAlertVC: UIViewController {
             attrString = NSAttributedString(string: message, attributes: [.font: font,
                                                                           .foregroundColor: UIColor.themeBlack,
                                                                           .paragraphStyle: paragraphStyle])
-            dismissButton.setTitle("OK", for: .normal)
+            dismissButton.setTitle("OK".localized, for: .normal)
         case .otp(let title, let message, let otp):
             textField.isHidden = true
             titleLabel.isHidden = title == nil
@@ -70,17 +70,17 @@ class ThemeAlertVC: UIViewController {
             mutableAttrStr.addAttribute(.foregroundColor, value: UIColor.themeBlack, range: otpRange)
             mutableAttrStr.addAttribute(.paragraphStyle, value: paragraphStyle, range: fullRange)
             attrString = mutableAttrStr
-            dismissButton.setTitle("OK", for: .normal)
+            dismissButton.setTitle("OK".localized, for: .normal)
         case .logout:
             textField.isHidden = true
-            titleLabel.text = "Logout"
+            titleLabel.text = "Log Out".localized
             let attribute: [NSAttributedString.Key: Any] = [.font: font,
                                                             .foregroundColor: UIColor.themeBlack,
                                                             .paragraphStyle: paragraphStyle]
-            attrString = NSAttributedString(string: "Are you sure you want to logout?", attributes: attribute)
-            dismissButton.setTitle("Cancel", for: .normal)
+            attrString = NSAttributedString(string: "Are you sure you want to logout?".localized, attributes: attribute)
+            dismissButton.setTitle("Cancel".localized, for: .normal)
             let logoutButton = ThemePrimaryButton(smallStyle: true)
-            logoutButton.setTitle("Logout", for: .normal)
+            logoutButton.setTitle("Logout".localized, for: .normal)
             logoutButton.addTarget(self, action: #selector(logoutTapped(_:)), for: .touchUpInside)
             buttonStackView.addArrangedSubview(logoutButton)
         case .confirmation(let title, let message, let onConfirmed):
@@ -91,9 +91,9 @@ class ThemeAlertVC: UIViewController {
                                                             .foregroundColor: UIColor.themeBlack,
                                                             .paragraphStyle: paragraphStyle]
             attrString = NSAttributedString(string: message, attributes: attribute)
-            dismissButton.setTitle("Cancel", for: .normal)
+            dismissButton.setTitle("Cancel".localized, for: .normal)
             let logoutButton = ThemePrimaryButton(smallStyle: true)
-            logoutButton.setTitle("Yes", for: .normal)
+            logoutButton.setTitle("Yes".localized, for: .normal)
             logoutButton.addTarget(self, action: #selector(confirmTapped), for: .touchUpInside)
             buttonStackView.addArrangedSubview(logoutButton)
         case .cardPin(let onPinSelected):
@@ -113,14 +113,14 @@ class ThemeAlertVC: UIViewController {
             return
         case .deleteUser:
             textField.isHidden = true
-            titleLabel.text = "Delete Account"
+            titleLabel.text = "Delete Account".localized
             let attribute: [NSAttributedString.Key: Any] = [.font: font,
                                                             .foregroundColor: UIColor.themeBlack,
                                                             .paragraphStyle: paragraphStyle]
-            attrString = NSAttributedString(string: "Are you sure you want to delete your \"\(Helper.appName)\" Account?", attributes: attribute)
-            dismissButton.setTitle("Not Now", for: .normal)
+            attrString = NSAttributedString(string: "\("Are you sure you want to delete your".localized) \"\(Helper.appName)\" \("Account".localized)?", attributes: attribute)
+            dismissButton.setTitle("Not Now".localized, for: .normal)
             let logoutButton = ThemePrimaryButton(smallStyle: true)
-            logoutButton.setTitle("Delete", for: .normal)
+            logoutButton.setTitle("Delete".localized, for: .normal)
             logoutButton.addTarget(self, action: #selector(deleteAccountRequest(_:)), for: .touchUpInside)
             buttonStackView.addArrangedSubview(logoutButton)
             Helper.triggerHapticFeedback(.warning)

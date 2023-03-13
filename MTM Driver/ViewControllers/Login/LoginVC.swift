@@ -23,6 +23,8 @@ class LoginVC: UIViewController {
    
     @IBOutlet weak var btnForgotPassword: UnderlineTextButton!
     
+    @IBOutlet weak var segmentLanguage: UISegmentedControl!
+    @IBOutlet weak var btnSignIn: ThemePrimaryButton!
     @IBOutlet weak var tvTermPrivacy: UITextView!
     @IBOutlet weak var viewCountryPicker: CountryPickerView!
     @IBOutlet weak var btnNotUser: UnderlineTextButton!
@@ -50,20 +52,30 @@ class LoginVC: UIViewController {
    //     setupCountryPicker()
         self.lblMessage.text = Singleton.shared.singinMsg
         setupTextfields()
-        formattedTextSetup()
         setupInitView()
         self.localization()
-    
+        self.setUpData()
 //        setupRegisterVC()
     
     }
     
+    func setUpData(){
+        NotificationCenter.default.addObserver(self, selector: #selector(changeLanguage), name: Notification.Name(rawValue: LCLLanguageChangeNotification), object: nil)
+    }
+    
+    @objc func changeLanguage(){
+        self.localization()
+    }
+    
     func localization(){
+        self.segmentLanguage.selectedSegmentIndex = Language.currentLanguage() == Languages.English.rawValue ? 1 : 0
         self.lblSignIn.text = "Sign In".localized
         self.txtEmail.textField.placeholder = "Email".localized
         self.txtEmail.textField.label.text = "Email".localized
         self.txtPassword.textField.placeholder = "Password".localized
         self.txtPassword.textField.label.text = "Password".localized
+        self.btnSignIn.setTitle("Sign In".localized, for: .normal)
+        formattedTextSetup()
     }
     
     func setupTextfields() {
@@ -118,10 +130,10 @@ class LoginVC: UIViewController {
     //MARK:- ===== Validation =======
     func validateFields() -> Bool{
         
-        let validationParameter :[(String?,String, ValidatiionType)] =  [(txtEmail.textField.text,emailEmptyErrorString,.isEmpty),
-                                                                         (txtEmail.textField.text,emailErrorString,.email),
-                                                                         (txtPassword.textField.text,passwordEmptyErrorString,.isEmpty),
-                                                                         (txtPassword.textField.text,passwordValidErrorString,.password)]
+        let validationParameter :[(String?,String, ValidatiionType)] =  [(txtEmail.textField.text,emailEmptyErrorString.localized,.isEmpty),
+                                                                         (txtEmail.textField.text,emailErrorString.localized,.email),
+                                                                         (txtPassword.textField.text,passwordEmptyErrorString.localized,.isEmpty),
+                                                                         (txtPassword.textField.text,passwordValidErrorString.localized,.password)]
         guard Validator.validate(validationParameter) else{
             return false
         }
@@ -151,7 +163,13 @@ class LoginVC: UIViewController {
         webServiceCallLogin()
     }
     
-    
+    @IBAction func languageChange(_ sender: Any) {
+        if segmentLanguage.selectedSegmentIndex == 0{
+            Language.setCurrentLanguage(Languages.Portugal.rawValue)
+        }else{
+            Language.setCurrentLanguage(Languages.English.rawValue)
+        }
+    }
     
     @IBAction func btnForgotPassword(_ sender: Any) {
         

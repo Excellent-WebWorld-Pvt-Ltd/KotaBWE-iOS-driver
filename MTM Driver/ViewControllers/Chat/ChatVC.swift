@@ -66,6 +66,7 @@ class ChatVC: BaseViewController {
         tblChatHistory.reloadData()
         webServiceForGetChatHistory()
         setSendButtonAppearance()
+        self.setLocalization()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -87,6 +88,7 @@ class ChatVC: BaseViewController {
     
     func setLocalization(){
         self.lblChatMassage.text = "chat_massage".localized
+        self.textViewSendMsg.placeholder = "\("Write message here".localized)..."
     }
     
     func UISetup(){

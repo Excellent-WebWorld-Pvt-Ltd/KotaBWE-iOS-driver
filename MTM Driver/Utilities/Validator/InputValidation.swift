@@ -117,7 +117,7 @@ extension InputValidation {
     // MARK: - None Empty
     func validateNoEmpty(input: String, field: String) -> ValidationResult {
         if input.isEmpty {
-            return (false, "\(Messages.pleaseEnter) \(field)")
+            return (false, "\(Messages.pleaseEnter.localized) \(field)")
         } else {
             return (true, nil)
         }
@@ -133,7 +133,7 @@ extension InputValidation {
             return (false, "\("Please enter minimum 2 characters in".localized) \(field).")
         }
         guard isValidForPattern(input: input) else {
-            return (false, "\(Messages.pleaseEnterValid) \(field)")
+            return (false, "\(Messages.pleaseEnterValid.localized) \(field)")
         }
         return (true, nil)
     }
@@ -145,7 +145,7 @@ extension InputValidation {
             return emptyValidation
         }
         guard isValidForPattern(input: input) else {
-            return (false, "\(Messages.pleaseEnterValid) \(field)")
+            return (false, "\(Messages.pleaseEnterValid.localized) \(field)")
         }
         return (true, nil)
     }
@@ -157,7 +157,7 @@ extension InputValidation {
             return emptyValidation
         }
         guard isValidForPattern(input: input) else {
-            return (false, "\(Messages.pleaseEnterValid) \(field)")
+            return (false, "\(Messages.pleaseEnterValid.localized) \(field)")
         }
         return (true, nil)
     }
@@ -168,7 +168,7 @@ extension InputValidation {
             return emptyValidation
         }
         guard isValidForPattern(input: input) else {
-            return (false, "\(Messages.pleaseEnterValid) \(field)")
+            return (false, "\(Messages.pleaseEnterValid.localized) \(field)")
         }
         return (true, nil)
     }
@@ -180,10 +180,10 @@ extension InputValidation {
             return emptyValidation
         }
         guard input.count >= 7 && input.count <= 18 else {
-            return (false, Messages.invalidUsernameRange)
+            return (false, Messages.invalidUsernameRange.localized)
         }
         guard isValidForPattern(input: input) else {
-            return (false, "\(Messages.specialCharacterNotAllowed) \(field)")
+            return (false, "\(Messages.specialCharacterNotAllowed.localized) \(field)")
         }
         return (true, nil)
     }
@@ -195,11 +195,11 @@ extension InputValidation {
             return emptyValidation
         }
         guard input.count >= 8 && input.count <= 25 else {
-            return (false, Messages.invalidPasswordRange)
+            return (false, Messages.invalidPasswordRange.localized)
         }
         
         guard isValidForPattern(input: input) else {
-            return (false, "\(Messages.pleaseEnterValid) \(field)")
+            return (false, "\(Messages.pleaseEnterValid.localized) \(field)")
         }
         return (true, nil)
     }
@@ -222,40 +222,29 @@ extension InputValidation {
 }
 
 enum Messages {
-    static let pleaseEnter = "Please enter".localized
-    static let pleaseEnterValid = "Please enter valid".localized
-    static let specialCharacterNotAllowed = "Special characters are not allowed in".localized
-    static let invalidUsernameRange = "Username must be between 8 to 18 characters".localized
-    static let invalidPasswordRange = "Password must be between 8 to 25 characters".localized
-    static let cameraAccess = "Unable to access the Camera".localized
-    static let cameraAccessMsg = "To enable access, go to Settings > Privacy > Camera and turn on Camera access for this app.".localized
-    static let photoAccess = "Unable to access the Photos".localized
-    static let photoAccessMsg = "To enable access, go to Settings > Privacy > Photos and turn on Photos access for this app.".localized
-    static let chooseSource = "Choose A Source".localized
+    static let pleaseEnter = "Please enter"
+    static let pleaseEnterValid = "Please enter valid"
+    static let specialCharacterNotAllowed = "Special characters are not allowed in"
+    static let invalidUsernameRange = "Username must be between 8 to 18 characters"
+    static let invalidPasswordRange = "Password must be between 8 to 25 characters"
+    static let cameraAccess = "Unable to access the Camera"
+    static let cameraAccessMsg = "To enable access, go to Settings > Privacy > Camera and turn on Camera access for this app."
+    static let photoAccess = "Unable to access the Photos"
+    static let photoAccessMsg = "To enable access, go to Settings > Privacy > Photos and turn on Photos access for this app."
+    static let chooseSource = "Choose A Source"
 
-    static let emptyDriverLicenseFront = "Please select driver's license front".localized
-    static let emptyDriverLicenseBack = "Please select driver's license back".localized
-    static let emptyCriminalRecord = "Please select Criminal record".localized
-    static let emptyResidenceCertificate = "Please select Residence certificate".localized
-    static let emptyRentalLicense = "Please select Rental license".localized
-    static let emptyBooklet = "Please select Booklet".localized
-    static let emptyCivilLiabilityInsurance = "Please select Civil liability insurance".localized
-    static let emptyBIFront = "Please select BI front".localized
-    static let emptyBIBack = "Please select BI back".localized
+    static let emptyDriverLicenseFront = "Please select driver's license front"
+    static let emptyDriverLicenseBack = "Please select driver's license back"
+    static let emptyCriminalRecord = "Please select Criminal record"
+    static let emptyResidenceCertificate = "Please select Residence certificate"
+    static let emptyRentalLicense = "Please select Rental license"
+    static let emptyBooklet = "Please select Booklet"
+    static let emptyCivilLiabilityInsurance = "Please select Civil liability insurance"
+    static let emptyBIFront = "Please select BI front"
+    static let emptyBIBack = "Please select BI back"
 
-    static let emptyNationalCard = "Please select national id card".localized
-    static let emptyNationalId = "Please enter national ID card number".localized
-    static let emptyDriverPSVLicense = "Please select driver PSV license".localized
-    static let emptyGoodConductCertificate = "Please select good conduct certificate / Police clearance".localized
-    static let emptyVehiclePSVLicense = "Please select vehicle PSV license".localized
-    static let emptyVehicleLogbook = "Please select vehicle logbook".localized
-    static let emptyNTSAInspectionCert = "Please select NTSA Inspection certificate".localized
-    static let emptyPSVComprehensiveInsurance = "Please select PSV comprehensive insurance".localized
-
-    static let emptyDriverLicenseExpire = "Please enter driver's license expiry date".localized
-    static let emptyRentalLicenseExpire = "Please enter Rental license expiry date".localized
-    static let emptyCivilLiabilityInsuranceExpire = "Please enter Civil liability insurance expiry date".localized
-    static let emptyBIExpire = "Please enter BI expiry date".localized
-    static let emptyPSVComprehensiveInsuranceExpire = "Please enter PSV comprehensive insurance expiry date".localized
-    
+    static let emptyDriverLicenseExpire = "Please enter driver's license expiry date"
+    static let emptyRentalLicenseExpire = "Please enter Rental license expiry date"
+    static let emptyCivilLiabilityInsuranceExpire = "Please enter Civil liability insurance expiry date"
+    static let emptyBIExpire = "Please enter BI expiry date"
 }

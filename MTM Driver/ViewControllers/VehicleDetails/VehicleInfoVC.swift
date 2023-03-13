@@ -88,6 +88,7 @@ class VehicleInfoVC: BaseViewController {
         webserviceForVehicleMenufactureYearList()
         dismissPickerView()
         assignDelegate()
+        self.setLocalization()
         let buttonTitle = isFromSetting ? "Save".localized : "Next".localized
         btnNext.setTitle(buttonTitle, for: .normal)
     }
@@ -325,8 +326,7 @@ class VehicleInfoVC: BaseViewController {
     private func isValidInputes() -> Bool {
         
         if txtVehicleNumber.textField.text == nil || txtVehicleNumber.textField.text == ""  {
-            
-            txtVehicleNumber.textField.leadingAssistiveLabel.text = vehicleNumberErrorString
+            txtVehicleNumber.textField.leadingAssistiveLabel.text = vehicleNumberErrorString.localized
             txtVehicleNumber.textField.setOutlineColor(UIColor.red, for: .normal)
         }else {
             txtVehicleNumber.textField.leadingAssistiveLabel.text = ""
@@ -334,7 +334,7 @@ class VehicleInfoVC: BaseViewController {
         }
         if txtCompanyName.textField.text == nil || txtCompanyName.textField.text == ""  {
             
-            txtCompanyName.textField.leadingAssistiveLabel.text = companyNameErrorString
+            txtCompanyName.textField.leadingAssistiveLabel.text = companyNameErrorString.localized
             txtCompanyName.textField.setOutlineColor(UIColor.red, for: .normal)
         }else {
             txtCompanyName.textField.leadingAssistiveLabel.text = ""
@@ -343,7 +343,7 @@ class VehicleInfoVC: BaseViewController {
         
         if txtVehicleModel.textField.text == nil || txtVehicleModel.textField.text == ""  {
             
-            txtVehicleModel.textField.leadingAssistiveLabel.text = vehicleModelErrorString
+            txtVehicleModel.textField.leadingAssistiveLabel.text = vehicleModelErrorString.localized 
             txtVehicleModel.textField.setOutlineColor(UIColor.red, for: .normal)
         }else {
             txtVehicleModel.textField.leadingAssistiveLabel.text = ""
@@ -352,7 +352,7 @@ class VehicleInfoVC: BaseViewController {
         
         if txtCarType.textField.text == nil || txtCarType.textField.text == ""  {
             
-            txtCarType.textField.leadingAssistiveLabel.text = vehicleModelErrorString
+            txtCarType.textField.leadingAssistiveLabel.text = vehicleModelErrorString.localized 
             txtCarType.textField.setOutlineColor(UIColor.red, for: .normal)
         } else {
             txtCarType.textField.leadingAssistiveLabel.text = ""
@@ -361,7 +361,7 @@ class VehicleInfoVC: BaseViewController {
         
         if txtVehicleManufactureYear.textField.text == nil || txtVehicleManufactureYear.textField.text == ""  {
             
-            txtVehicleManufactureYear.textField.leadingAssistiveLabel.text = manufactureYearErrorString
+            txtVehicleManufactureYear.textField.leadingAssistiveLabel.text = manufactureYearErrorString.localized
             txtVehicleManufactureYear.textField.setOutlineColor(UIColor.red, for: .normal)
         } else {
             txtVehicleManufactureYear.textField.leadingAssistiveLabel.text = ""
@@ -369,7 +369,7 @@ class VehicleInfoVC: BaseViewController {
         }
         if txtVehicleColor.textField.text == nil || txtVehicleColor.textField.text == ""  {
             
-            txtVehicleColor.textField.leadingAssistiveLabel.text = vehicleColoErrorString
+            txtVehicleColor.textField.leadingAssistiveLabel.text = vehicleColoErrorString.localized
             txtVehicleColor.textField.setOutlineColor(UIColor.red, for: .normal)
         }else {
             txtVehicleColor.textField.leadingAssistiveLabel.text = ""
@@ -381,17 +381,17 @@ class VehicleInfoVC: BaseViewController {
             self.saveRegisterParams()
             return true
         } else if imagesTypes.first?.image == #imageLiteral(resourceName: "car-1") {
-            AlertMessage.showMessageForError(vehicleLeftImageErrorString)
+            AlertMessage.showMessageForError(vehicleLeftImageErrorString.localized)
             return false
         } else if imagesTypes[1].image == #imageLiteral(resourceName: "car-2") {
-            AlertMessage.showMessageForError(vehicleRightImageErrorString)
+            AlertMessage.showMessageForError(vehicleRightImageErrorString.localized)
             return false
         } else if imagesTypes[2].image == #imageLiteral(resourceName: "car-3") {
-            AlertMessage.showMessageForError(vehicleFrontImageErrorString)
+            AlertMessage.showMessageForError(vehicleFrontImageErrorString.localized)
             
             return false
         } else if imagesTypes[3].image == #imageLiteral(resourceName: "car-4") {
-            AlertMessage.showMessageForError(vehicleBackImageErrorString)
+            AlertMessage.showMessageForError(vehicleBackImageErrorString.localized)
             return false
         }else {
             return false
@@ -427,10 +427,10 @@ class VehicleInfoVC: BaseViewController {
         
         let validationParameter :[(String?,String, ValidatiionType)] =
         
-        [(txtVehicleNumber.textField.text,vehicleNumberErrorString, .isEmpty),
-         (txtCompanyName.textField.text,companyNameErrorString, .isEmpty),
-         (txtVehicleModel.textField.text,vehicleModelErrorString, .isEmpty),
-         (txtVehicleManufactureYear.textField.text,manufactureYearErrorString, .isEmpty)]
+        [(txtVehicleNumber.textField.text,vehicleNumberErrorString.localized, .isEmpty),
+         (txtCompanyName.textField.text,companyNameErrorString.localized, .isEmpty),
+         (txtVehicleModel.textField.text,vehicleModelErrorString.localized , .isEmpty),
+         (txtVehicleManufactureYear.textField.text,manufactureYearErrorString.localized, .isEmpty)]
         
         
         //        (txtCarType.text,carTypeErrorString, .isEmpty),
@@ -443,22 +443,22 @@ class VehicleInfoVC: BaseViewController {
         
         
         if imagesTypes.first?.image == #imageLiteral(resourceName: "car-1") {
-            AlertMessage.showMessageForError(vehicleLeftImageErrorString)
+            AlertMessage.showMessageForError(vehicleLeftImageErrorString.localized)
             status = false
             completion(false)
             return
         } else if imagesTypes[1].image == #imageLiteral(resourceName: "car-2") {
-            AlertMessage.showMessageForError(vehicleRightImageErrorString)
+            AlertMessage.showMessageForError(vehicleRightImageErrorString.localized)
             status = false
             completion(false)
             return
         } else if imagesTypes[2].image == #imageLiteral(resourceName: "car-3") {
-            AlertMessage.showMessageForError(vehicleFrontImageErrorString)
+            AlertMessage.showMessageForError(vehicleFrontImageErrorString.localized)
             status = false
             completion(false)
             return
         } else if imagesTypes[3].image == #imageLiteral(resourceName: "car-4") {
-            AlertMessage.showMessageForError(vehicleBackImageErrorString)
+            AlertMessage.showMessageForError(vehicleBackImageErrorString.localized)
             status = false
             completion(false)
             return

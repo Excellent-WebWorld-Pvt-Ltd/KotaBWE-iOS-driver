@@ -96,7 +96,7 @@ class DriverInfoView: UIView
     
     var driverState : DriverState = .duty {
         didSet {
-            strTripStatusTitle = driverState.setTitle()
+            strTripStatusTitle = driverState.setTitle().localized
             switch driverState {
             case .request:
                // ViewSOS.isHidden = true
@@ -300,7 +300,7 @@ class DriverInfoView: UIView
     func setDriverData(status:DriverState){
         let loginData = SessionManager.shared.userProfile
         let parameter = loginData?.responseObject
-
+        self.setLocalization()
         secondView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         secondView.layer.cornerRadius = 30
         driverState = status

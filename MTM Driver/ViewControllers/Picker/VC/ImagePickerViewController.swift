@@ -10,6 +10,10 @@ import UIKit
 import SkyFloatingLabelTextField
 class ImagePickerViewController: UIViewController {
     
+    @IBOutlet weak var lblTitle: ThemeLabel!
+    @IBOutlet weak var lblCamera: UILabel!
+    @IBOutlet weak var lblGallery: UILabel!
+    
     static func open(from viewCtr: UIViewController, allowEditing: Bool, completion: @escaping (_ image: UIImage) -> Void) {
         let imageVC : ImagePickerViewController = UIViewController.viewControllerInstance(storyBoard: .picker)
         imageVC.onDismiss = completion
@@ -30,6 +34,13 @@ class ImagePickerViewController: UIViewController {
         bluryView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         bluryView.layer.cornerRadius = 16
         bluryView.clipsToBounds = true
+        self.localization()
+    }
+    
+    func localization(){
+        self.lblTitle.text = "Select source".localized
+        self.lblCamera.text = "Take From Camera".localized
+        self.lblGallery.text = "Select From Gallery".localized
     }
     
     var pickedImage = UIImage()
@@ -52,7 +63,7 @@ class ImagePickerViewController: UIViewController {
             
             if fromCamera {
                 if !UIImagePickerController.isSourceTypeAvailable(.camera){
-                    AlertMessage.showMessageForError("Your device does not have camera")
+                    AlertMessage.showMessageForError("Your device does not have camera".localized)
                     return
                 }
             }

@@ -354,10 +354,10 @@
                                 <rect key="frame" x="60" y="0.0" width="315" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sjD-0J-krr" customClass="ThemeTouchableView" customModule="MTM_Driver" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="315" height="80"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="235" height="80"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="mKW-WN-pgQ">
-                                                <rect key="frame" x="25" y="15" width="265" height="50"/>
+                                                <rect key="frame" x="25" y="15" width="185" height="50"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EsT-Se-3zq">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -371,8 +371,8 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Johannes Smith" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p0G-yQ-BZ0" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
-                                                        <rect key="frame" x="68" y="0.0" width="197" height="50"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Johannes SmithJohannes Smith" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p0G-yQ-BZ0" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
+                                                        <rect key="frame" x="68" y="0.0" width="117" height="50"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -389,23 +389,46 @@
                                                     <constraint firstAttribute="height" constant="50" id="Jl9-5e-Zxl"/>
                                                 </constraints>
                                             </stackView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v3l-DG-1SQ">
-                                                <rect key="frame" x="0.0" y="79" width="315" height="1"/>
-                                                <color key="backgroundColor" name="themeSeperatorColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="1" id="9b6-3K-akv"/>
-                                                </constraints>
-                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="4TZ-wO-oOr"/>
-                                            <constraint firstAttribute="bottom" secondItem="v3l-DG-1SQ" secondAttribute="bottom" id="98q-1b-H8E"/>
                                             <constraint firstItem="mKW-WN-pgQ" firstAttribute="centerY" secondItem="sjD-0J-krr" secondAttribute="centerY" id="Box-pd-s5u"/>
-                                            <constraint firstAttribute="trailing" secondItem="v3l-DG-1SQ" secondAttribute="trailing" id="S2D-fa-Yk2"/>
                                             <constraint firstAttribute="trailing" secondItem="mKW-WN-pgQ" secondAttribute="trailing" constant="25" id="p0g-7M-YaT"/>
                                             <constraint firstItem="mKW-WN-pgQ" firstAttribute="leading" secondItem="sjD-0J-krr" secondAttribute="leading" constant="25" id="quC-ef-stb"/>
-                                            <constraint firstItem="v3l-DG-1SQ" firstAttribute="leading" secondItem="sjD-0J-krr" secondAttribute="leading" id="vvi-Tg-02q"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Yc-qZ-XB7">
+                                        <rect key="frame" x="240" y="24.5" width="60" height="31"/>
+                                        <subviews>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Nh0-85-vUH">
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="32"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="ya6-RZ-V56"/>
+                                                </constraints>
+                                                <segments>
+                                                    <segment title="PT"/>
+                                                    <segment title="EN"/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="languageChange:" destination="adH-E3-n0B" eventType="valueChanged" id="JFC-oH-lew"/>
+                                                </connections>
+                                            </segmentedControl>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="Nh0-85-vUH" firstAttribute="centerY" secondItem="4Yc-qZ-XB7" secondAttribute="centerY" id="5ca-ti-Jh5"/>
+                                            <constraint firstAttribute="trailing" secondItem="Nh0-85-vUH" secondAttribute="trailing" id="MaA-5Y-Acp"/>
+                                            <constraint firstAttribute="bottom" secondItem="Nh0-85-vUH" secondAttribute="bottom" id="Q4v-gW-fT7"/>
+                                            <constraint firstItem="Nh0-85-vUH" firstAttribute="leading" secondItem="4Yc-qZ-XB7" secondAttribute="leading" id="RMD-ej-oEm"/>
+                                            <constraint firstItem="Nh0-85-vUH" firstAttribute="top" secondItem="4Yc-qZ-XB7" secondAttribute="top" id="qFI-Ci-aY1"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v3l-DG-1SQ">
+                                        <rect key="frame" x="0.0" y="79" width="300" height="1"/>
+                                        <color key="backgroundColor" name="themeSeperatorColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="9b6-3K-akv"/>
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="waF-wI-Hxt">
@@ -533,8 +556,10 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="sjD-0J-krr" secondAttribute="trailing" id="Gdq-tY-xEY"/>
+                                    <constraint firstAttribute="trailing" secondItem="4Yc-qZ-XB7" secondAttribute="trailing" constant="15" id="7R7-RE-IV8"/>
                                     <constraint firstItem="sjD-0J-krr" firstAttribute="top" secondItem="F9Z-W6-qec" secondAttribute="top" id="HYk-XO-aYt"/>
+                                    <constraint firstItem="v3l-DG-1SQ" firstAttribute="leading" secondItem="sjD-0J-krr" secondAttribute="leading" id="Jhi-Zl-sbQ"/>
+                                    <constraint firstItem="4Yc-qZ-XB7" firstAttribute="leading" secondItem="sjD-0J-krr" secondAttribute="trailing" constant="5" id="L8s-we-jRL"/>
                                     <constraint firstItem="waF-wI-Hxt" firstAttribute="leading" secondItem="F9Z-W6-qec" secondAttribute="leading" id="ONx-n4-3JZ"/>
                                     <constraint firstAttribute="trailing" secondItem="waF-wI-Hxt" secondAttribute="trailing" id="Ox1-iw-9Ek"/>
                                     <constraint firstAttribute="trailing" secondItem="9fX-jy-7xx" secondAttribute="trailing" constant="55" id="T4P-LN-gvF"/>
@@ -542,7 +567,10 @@
                                     <constraint firstItem="waF-wI-Hxt" firstAttribute="top" secondItem="sjD-0J-krr" secondAttribute="bottom" constant="16" id="ecy-dA-ubb"/>
                                     <constraint firstItem="sjD-0J-krr" firstAttribute="leading" secondItem="F9Z-W6-qec" secondAttribute="leading" id="iC0-fT-gbU"/>
                                     <constraint firstItem="9fX-jy-7xx" firstAttribute="leading" secondItem="F9Z-W6-qec" secondAttribute="leading" constant="55" id="k1Q-38-KS2"/>
+                                    <constraint firstItem="v3l-DG-1SQ" firstAttribute="trailing" secondItem="4Yc-qZ-XB7" secondAttribute="trailing" id="kiQ-qf-Rka"/>
                                     <constraint firstAttribute="bottom" secondItem="9fX-jy-7xx" secondAttribute="bottom" constant="20" id="mhk-XJ-nN6"/>
+                                    <constraint firstItem="4Yc-qZ-XB7" firstAttribute="centerY" secondItem="sjD-0J-krr" secondAttribute="centerY" id="wYj-ht-0GX"/>
+                                    <constraint firstItem="v3l-DG-1SQ" firstAttribute="bottom" secondItem="sjD-0J-krr" secondAttribute="bottom" id="zot-gD-lmE"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -563,6 +591,7 @@
                         <outlet property="lblName" destination="p0G-yQ-BZ0" id="ond-YY-s3z"/>
                         <outlet property="logoutTouchView" destination="Ah1-Rd-I1t" id="OgJ-DC-eJi"/>
                         <outlet property="profileView" destination="sjD-0J-krr" id="dkh-rt-yfs"/>
+                        <outlet property="segmentLanguage" destination="Nh0-85-vUH" id="M6g-MH-AE6"/>
                         <outlet property="tableView" destination="waF-wI-Hxt" id="SXo-mi-OuB"/>
                     </connections>
                 </viewController>

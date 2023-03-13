@@ -63,6 +63,7 @@ class EarningVC: BaseViewController {
         setupNavigation(.normal(title: "Earnings".localized, leftItem: .back, hasNotification: false))
         tblEarning.registerNibCell(type: .walletHistory)
         tblEarning.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tblEarning.frame.size.width, height: 1))
+        self.setLocalization()
     }
     
     //MARK:- Add Shimmer effect  ====

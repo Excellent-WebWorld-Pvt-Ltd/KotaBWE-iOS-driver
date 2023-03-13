@@ -191,6 +191,9 @@
 "Waiting Time" = "Waiting Time";
 "Trip Price" = "Trip Price";
 "Need Help?" = "Need Help?";
+"Waiting Fees" = "Waiting Fees";
+"Earning" = "Earning";
+"Rate your Shipper" = "Rate your Shipper";
 
 //EARNING
 "Earnings" = "Earnings";
@@ -298,3 +301,60 @@
 "Forgot Password" = "Forgot Password";
 "Session expired" = "Session expired";
 "Please Connect to Internet" = "Please Connect to Internet";
+
+"Are you sure you want to logout?" = "Are you sure you want to logout?";
+"Logout" = "Logout";
+"Yes" = "Yes";
+"Delete Account" = "Delete Account";
+"Are you sure you want to delete your" = "Are you sure you want to delete your";
+"Account" = "Account";
+"Not Now" = "Not Now";
+"Delete" = "Delete";
+"Driver Details" = "Driver Details";
+"Vehicle Details" = "Vehicle Details";
+
+"Please enter mobile number" = "Please enter mobile number";
+"Please enter valid mobile number" = "Please enter valid mobile number";
+"Please enter email" = "Please enter email";
+"Please enter valid email" = "Please enter valid email";
+"Please enter password" = "Please enter password";
+"Please enter confirm password" = "Please enter confirm password";
+"Password must be have minimum 6 character." = "Password must be have minimum 6 character.";
+"Confirm password must be have minimum 6 character." = "Confirm password must be have minimum 6 character.";
+"Please enter vehicle plate number" = "Please enter vehicle plate number";
+"Please select vehicle model" = "Please select vehicle model";
+"Please select year of manufacture" = "Please select year of manufacture";
+"Please enter company name" = "Please enter company name";
+"Please enter vehicle color" = "Please enter vehicle color";
+"Please enter first name" = "Please enter first name";
+"Please enter Postal code" = "Please enter Postal code";
+"Please enter last name" = "Please enter last name";
+"Please enter phone number" = "Please enter phone number";
+"Please enter your date of birth" = "Please enter your date of birth";
+"Please enter address" = "Please enter address";
+"Please select left side of vehicle image" = "Please select left side of vehicle image";
+"Please select right side of vehicle image" = "Please select right side of vehicle image";
+"Please select front side of vehicle image" = "Please select front side of vehicle image";
+"Please select back side of vehicle image" = "Please select back side of vehicle image";
+"Account Verification" = "Account Verification";
+
+"Your device does not have camera" = "Your device does not have camera";
+
+"Select source" = "Select source";
+"Take From Camera" = "Take From Camera";
+"Select From Gallery" = "Select From Gallery";
+"Confirm" = "Confirm";
+"Slide To Accept" = "Slide To Accept";
+"Start Ride" = "Start Ride";
+"Completed" = "Completed";
+"Arrived" = "Arrived";
+
+
+"Trip Completed" = "Trip Completed";
+"Your Shipper" = "Your Shipper";
+"Additional Note" = "Additional Note";
+"Pending" = "Pending";
+"Cancelled" = "Cancelled";
+"Completed" = "Completed";
+"Accepted" = "Accepted";
+"Write message here" = "Write message here";

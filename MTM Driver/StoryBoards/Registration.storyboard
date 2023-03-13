@@ -420,12 +420,28 @@
                                     <constraint firstAttribute="trailing" secondItem="S1b-I4-8Is" secondAttribute="trailing" id="z8g-1n-BZc"/>
                                 </constraints>
                             </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="DIB-jw-6Gm">
+                                <rect key="frame" x="305" y="5" width="60" height="32"/>
+                                <color key="backgroundColor" name="themeGrayColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="Yda-zA-6ng"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="PT"/>
+                                    <segment title="EN"/>
+                                </segments>
+                                <connections>
+                                    <action selector="languageChange:" destination="qrZ-BL-uVQ" eventType="valueChanged" id="L40-xX-VEy"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="J3A-0S-36X"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="DIB-jw-6Gm" firstAttribute="top" secondItem="J3A-0S-36X" secondAttribute="top" constant="5" id="FIr-uq-pFI"/>
                             <constraint firstItem="yxi-of-cIc" firstAttribute="trailing" secondItem="J3A-0S-36X" secondAttribute="trailing" id="HB3-7R-QHC"/>
                             <constraint firstItem="yxi-of-cIc" firstAttribute="leading" secondItem="J3A-0S-36X" secondAttribute="leading" id="Q5j-vX-3b4"/>
+                            <constraint firstItem="J3A-0S-36X" firstAttribute="trailing" secondItem="DIB-jw-6Gm" secondAttribute="trailing" constant="10" id="R6U-l4-4sd"/>
                             <constraint firstAttribute="bottom" secondItem="yxi-of-cIc" secondAttribute="bottom" id="jV5-ee-jYq"/>
                             <constraint firstItem="yxi-of-cIc" firstAttribute="top" secondItem="yJ2-gy-0VF" secondAttribute="top" id="xDp-lD-7tq"/>
                         </constraints>
@@ -440,6 +456,7 @@
                         <outlet property="btnHidePassword" destination="wE9-Ry-eaH" id="8b2-4D-vnB"/>
                         <outlet property="btnNext" destination="K0Z-G4-UqF" id="aKR-u1-waO"/>
                         <outlet property="lblTitle" destination="2ms-8c-HkI" id="34n-fe-BeC"/>
+                        <outlet property="segmentLanguage" destination="DIB-jw-6Gm" id="XAd-zz-pfo"/>
                         <outlet property="tvTermPrivacy" destination="4sa-nY-5w5" id="mlF-mQ-2In"/>
                         <outlet property="txtConformPassword" destination="En5-wf-Att" id="ObP-fr-ptB"/>
                         <outlet property="txtEmail" destination="C2Q-EE-Jq2" id="hIx-iX-HzO"/>
@@ -821,6 +838,22 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="bold" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="akn-Fo-i1a" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
+                                        <rect key="frame" x="24" y="119.00000000000001" width="327" height="40.666666666666671"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="white" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="semibold" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="objAlpha">
+                                                <real key="value" value="0.5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HQ4-6H-fSa">
                                         <rect key="frame" x="0.0" y="187.66666666666669" width="375" height="792.33333333333326"/>
                                         <subviews>
@@ -953,22 +986,6 @@
                                             <constraint firstItem="iUl-MN-S8l" firstAttribute="leading" secondItem="HQ4-6H-fSa" secondAttribute="leading" id="v0e-mP-p5O"/>
                                         </constraints>
                                     </scrollView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="akn-Fo-i1a" customClass="ThemeLabel" customModule="MTM_Driver" customModuleProvider="target">
-                                        <rect key="frame" x="24" y="119.00000000000001" width="327" height="40.666666666666671"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                                <real key="value" value="12"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="white" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="semibold" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="objAlpha">
-                                                <real key="value" value="0.5"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -987,10 +1004,26 @@
                                     <constraint firstItem="efE-em-Omw" firstAttribute="leading" secondItem="MPV-YN-Lri" secondAttribute="leading" constant="24" id="yFv-Mp-iH8"/>
                                 </constraints>
                             </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="KjM-aZ-ALX">
+                                <rect key="frame" x="300" y="5" width="60" height="32"/>
+                                <color key="backgroundColor" name="themeGrayColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="4nJ-qH-mv9"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="PT"/>
+                                    <segment title="EN"/>
+                                </segments>
+                                <connections>
+                                    <action selector="languageChange:" destination="3ZA-21-3R4" eventType="valueChanged" id="qgT-6i-9bw"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BMh-H1-jIg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="KjM-aZ-ALX" firstAttribute="top" secondItem="BMh-H1-jIg" secondAttribute="top" constant="5" id="28V-Yc-xdL"/>
+                            <constraint firstItem="BMh-H1-jIg" firstAttribute="trailing" secondItem="KjM-aZ-ALX" secondAttribute="trailing" constant="15" id="RQC-bB-FWP"/>
                             <constraint firstAttribute="bottom" secondItem="VbK-NQ-XeP" secondAttribute="bottom" id="Ybj-mh-iAK"/>
                             <constraint firstItem="VbK-NQ-XeP" firstAttribute="top" secondItem="Bqj-zK-n8A" secondAttribute="top" id="Zah-Nj-erk"/>
                             <constraint firstItem="VbK-NQ-XeP" firstAttribute="leading" secondItem="BMh-H1-jIg" secondAttribute="leading" id="aRs-2h-PL6"/>
@@ -1004,8 +1037,10 @@
                         <outlet property="btnForgotPassword" destination="oVT-Sk-9Dt" id="erb-t8-sTY"/>
                         <outlet property="btnHidePassword" destination="zS4-Tw-8D3" id="5pB-1z-z6r"/>
                         <outlet property="btnNotUser" destination="dGC-65-KRx" id="rrr-HX-N3h"/>
+                        <outlet property="btnSignIn" destination="JDK-Bc-kIC" id="cfb-YP-ILs"/>
                         <outlet property="lblMessage" destination="akn-Fo-i1a" id="ERo-A3-9Kf"/>
                         <outlet property="lblSignIn" destination="efE-em-Omw" id="On2-lI-BRb"/>
+                        <outlet property="segmentLanguage" destination="KjM-aZ-ALX" id="GbS-Pn-sgd"/>
                         <outlet property="txtEmail" destination="eY3-Pm-hSZ" id="tjr-Cd-WN8"/>
                         <outlet property="txtPassword" destination="FmK-G1-IFX" id="iXg-Dg-5rb"/>
                     </connections>
@@ -1339,6 +1374,7 @@
                         <outlet property="lblOTPTitle" destination="cwB-Or-eif" id="hss-9e-xXT"/>
                         <outlet property="lblSubTitle" destination="OA3-el-SeJ" id="3L1-Xk-gus"/>
                         <outlet property="lblTimer" destination="qkb-7y-FNs" id="vig-mN-6NS"/>
+                        <outlet property="lblTitle" destination="eoc-aM-Uxx" id="iMz-ZT-1Uq"/>
                         <outlet property="viewResendCode" destination="Wi6-5e-FbJ" id="TFU-i9-X7b"/>
                         <outlet property="viewTimer" destination="yda-4d-uAd" id="8V4-e5-Lu7"/>
                         <outletCollection property="txtOTPCollection" destination="SHe-6B-nNR" collectionClass="NSMutableArray" id="8gX-fy-Edq"/>
@@ -4062,6 +4098,9 @@
         <image name="redio-button-unselect" width="85" height="85"/>
         <namedColor name="themeBlue">
             <color red="0.20000000298023224" green="0.0" blue="0.40000000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="themeGrayColor">
+            <color red="0.4779999852180481" green="0.4779999852180481" blue="0.4779999852180481" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="themeRed">
             <color red="0.80000001192092896" green="0.20000000298023224" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

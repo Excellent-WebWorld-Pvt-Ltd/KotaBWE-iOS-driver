@@ -32,10 +32,10 @@ extension AppDelegate {
                 }
             }
         case .restricted:
-            openSettingsDialog(title: Messages.cameraAccess, message: Messages.cameraAccessMsg)
+            openSettingsDialog(title: Messages.cameraAccess.localized, message: Messages.cameraAccessMsg.localized)
             result(false)
         case .denied:
-            openSettingsDialog(title: Messages.cameraAccess, message: Messages.cameraAccessMsg)
+            openSettingsDialog(title: Messages.cameraAccess.localized, message: Messages.cameraAccessMsg.localized)
                 result(false)
 
         case .authorized:
@@ -56,7 +56,7 @@ extension AppDelegate {
                 }
             }
         case .restricted, .denied:
-            openSettingsDialog(title: Messages.photoAccess, message: Messages.photoAccessMsg)
+            openSettingsDialog(title: Messages.photoAccess.localized, message: Messages.photoAccessMsg.localized)
             DispatchQueue.main.async {
                 result(false)
             }

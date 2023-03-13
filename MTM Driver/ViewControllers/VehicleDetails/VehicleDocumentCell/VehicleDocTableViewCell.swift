@@ -111,6 +111,7 @@ class VehicleDocTableViewCell: UITableViewCell {
                                           for: self.type, side: false)
             }
         }
+        self.uploadingLabel.text = "\("Uploading".localized)...".localized
     }
     
     func configure(type: VehicleDoc,

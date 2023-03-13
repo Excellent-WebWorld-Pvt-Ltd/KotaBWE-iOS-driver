@@ -22,7 +22,15 @@ class RiderRatingReviewVC: BaseViewController {
     @IBOutlet weak var lblTripTime: ThemeLabel!
     @IBOutlet weak var lblRiderName: ThemeLabel!
     @IBOutlet weak var lblCustomerReting: ThemeLabel!
+    @IBOutlet weak var lblShipperTitle: ThemeLabel!
+    @IBOutlet weak var lvlTripTimeTitle: ThemeLabel!
     @IBOutlet weak var txtvReview: CustomViewOutlinedTxtView!
+    @IBOutlet weak var lblWaitingTimeTitle: ThemeLabel!
+    @IBOutlet weak var lblWaitingFeesTitle: ThemeLabel!
+    @IBOutlet weak var lblDistanceTitle: ThemeLabel!
+    @IBOutlet weak var lblEarningTitle: ThemeLabel!
+    @IBOutlet weak var lblRateTitle: ThemeLabel!
+    @IBOutlet weak var btnSubmit: ThemePrimaryButton!
     
     var completeTrip: CompeteTripData?
     private var bookingInfo: BookingInfo?
@@ -38,11 +46,25 @@ class RiderRatingReviewVC: BaseViewController {
         Singleton.shared.CompleteTrip = nil
         setNavbar()
         dataSetup()
+        self.localization()
       }
     
     //MARK:- ==== Set navigationBar ======
     func setNavbar(){
-        setupNavigation(.normal(title: "Trip Completed", leftItem: .back, hasNotification: false))
+        setupNavigation(.normal(title: "Trip Completed".localized, leftItem: .back, hasNotification: false))
+    }
+    
+    func localization(){
+        self.lblShipperTitle.text = "\("Your Shipper".localized):"
+        self.lvlTripTimeTitle.text = "\("Trip Time".localized):"
+        self.lblWaitingTimeTitle.text = "\("Waiting Time".localized):"
+        self.lblDistanceTitle.text = "\("Distance".localized):"
+        self.lblWaitingFeesTitle.text = "\("Waiting Fees".localized):"
+        self.lblEarningTitle.text = "\("Earning".localized):"
+        self.lblRateTitle.text = "Rate your Shipper".localized
+        self.btnSubmit.setTitle("Submit".localized, for: .normal)
+        self.txtvReview.textArea.placeholder = "Additional Note".localized
+        self.txtvReview.textArea.label.text = "Additional Note".localized
     }
     
     //MARK:- ====== btn Action Submit ======

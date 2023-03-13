@@ -49,6 +49,7 @@ class SideMenuTableViewController: UIViewController {
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var lblLogOut: ThemeLabel!
     @IBOutlet weak var logoutTouchView: ThemeTouchableView!
+    @IBOutlet weak var segmentLanguage: UISegmentedControl!
     
     //MARK:- ===== Variables =======
     var ProfileData = NSDictionary()
@@ -76,6 +77,7 @@ class SideMenuTableViewController: UIViewController {
         profileView.setOnClickListener { [weak self] in
             self?.naviate(to: .settings)
         }
+        self.setLocalization()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -87,6 +89,7 @@ class SideMenuTableViewController: UIViewController {
     }
     
     func setLocalization(){
+        self.segmentLanguage.selectedSegmentIndex = Language.currentLanguage() == Languages.English.rawValue ? 1 : 0
         self.lblLogOut.text = "Log Out".localized
         self.deleteButton.setTitle("Delete My Account".localized, for: .normal)
     }
@@ -147,6 +150,16 @@ class SideMenuTableViewController: UIViewController {
             Loader.hideHUD()
             SessionManager.shared.logout()
         }
+    }
+    
+    @IBAction func languageChange(_ sender: Any) {
+        if segmentLanguage.selectedSegmentIndex == 0{
+            Language.setCurrentLanguage(Languages.Portugal.rawValue)
+        }else{
+            Language.setCurrentLanguage(Languages.English.rawValue)
+        }
+        SocketIOManager.shared.closeConnection()
+        AppDelegate.shared.setHome()
     }
     
     @IBAction func btnActionLogout(_ sender: UIButton) {

@@ -143,6 +143,7 @@
 "Start Ride" = "Iniciar viagem";
 "Complete" = "Completo";
 "accepted" = "aceitaram";
+"Accepted" = "Aceitaram";
 "Pickup" = "Escolher";
 "Drop-off" = "Deixar";
 "Cargo weight" = "peso da carga";
@@ -152,6 +153,7 @@
 "Rate Now" = "Avalie agora";
 "Grand Total" = "Total geral";
 "Trip Completed!" = "Viagem concluída!";
+"Trip Completed" = "Viagem concluída";
 "You're Online" = "você está online";
 "You're Offline" = "você está offline";
 "See More" = "Ver mais";
@@ -191,7 +193,9 @@
 "Waiting Time" = "Tempo de espera";
 "Trip Price" = "Preço da Viagem";
 "Need Help?" = "Preciso de ajuda?";
-
+"Waiting Fees" = "Taxas de espera";
+"Earning" = "Earning";
+"Rate your Shipper" = "Avalie seu destinatário";
 //EARNING
 "Earnings" = "Ganhos";
 "No earning history found" = "Nenhum histórico de ganhos encontrado";
@@ -279,16 +283,10 @@
 "Please enter national ID card number" = "Por favor, insira o número do cartão de identificação nacional";
 "Please select driver PSV license" = "Selecione a licença PSV do driver";
 
-"Please select good conduct certificate / Police clearance" = "Please select good conduct certificate / Police clearance";
-"Please select vehicle PSV license" = "Please select vehicle PSV license";
-"Please select vehicle logbook" = "Please select vehicle logbook";
-"Please select NTSA Inspection certificate" = "Please select NTSA Inspection certificate";
-"Please select PSV comprehensive insurance" = "Please select PSV comprehensive insurance";
 "Please enter driver's license expiry date" = "Please enter driver's license expiry date";
 "Please enter Rental license expiry date" = "Please enter Rental license expiry date";
 "Please enter Civil liability insurance expiry date" = "Please enter Civil liability insurance expiry date";
 "Please enter BI expiry date" = "Please enter BI expiry date";
-"Please enter PSV comprehensive insurance expiry date" = "Please enter PSV comprehensive insurance expiry date";
 
 //Picker file
 "Camera" = "Câmera";
@@ -299,3 +297,56 @@
 "Forgot Password" = "Esqueceu sua senha";
 "Session expired" = "Sessão expirada";
 "Please Connect to Internet" = "Conecte-se à Internet";
+
+"Are you sure you want to logout?" = "Are you sure you want to logout?";
+"Logout" = "Sair";
+"Yes" = "Yes";
+"Delete Account" = "Deletar conta";
+"Are you sure you want to delete your" = "Tem certeza que deseja deletar seu";
+"Account" = "Conta";
+"Not Now" = "Agora não";
+"Delete" = "Excluir";
+"Driver Details" = "Detalhes do motorista";
+"Vehicle Details" = "Detalhes do veículo";
+
+"Please enter mobile number" = "Por favor, insira o número do celular";
+"Please enter valid mobile number" = "Insira um número de celular válido";
+"Please enter email" = "Por favor, insira o e-mail";
+"Please enter valid email" = "Por favor insira um e-mail válido";
+"Please enter password" = "Por favor, digite a senha";
+"Please enter confirm password" = "Por favor, digite a senha Confirmar";
+"Password must be have minimum 6 character." = "Password must be have minimum 6 character.";
+"Confirm password must be have minimum 6 character." = "Confirm password must be have minimum 6 character.";
+"Please enter vehicle plate number" = "Por favor, insira o número da placa do veículo";
+"Please select vehicle model" = "Selecione o modelo do veículo";
+"Please select year of manufacture" = "Selecione o ano de fabricação";
+"Please enter company name" = "Please enter company name";
+"Please enter vehicle color" = "Por favor, insira a cor do veículo";
+"Please enter first name" = "Por favor, insira o primeiro nome";
+"Please enter Postal code" = "Por favor, insira o código postal";
+"Please enter last name" = "Por favor, insira o sobrenome";
+"Please enter phone number" = "Por favor insira o número de telefone";
+"Please enter your date of birth" = "Por favor insira sua data de nascimento";
+"Please enter address" = "Por favor, insira o endereço";
+"Please select left side of vehicle image" = "Selecione a imagem esquerda do veículo.";
+"Please select right side of vehicle image" = "Selecione a imagem correta do veículo.";
+"Please select front side of vehicle image" = "Selecione a imagem frontal do veículo.";
+"Please select back side of vehicle image" = "Selecione a imagem traseira do veículo.";
+"Account Verification" = "Verificação de conta";
+"Your device does not have camera" = "Seu dispositivo não possui câmera";
+"Select source" = "Selecione a fonte";
+"Take From Camera" = "Tirar da câmera";
+"Select From Gallery" = "Selecione da galeria";
+"Confirm" = "Confirme";
+"Uploading" = "Enviando";
+"Slide To Accept" = "Deslize para aceitar";
+"Start Ride" = "Iniciar viagem";
+"Completed" = "Concluído";
+"Arrived" = "Chegado";
+
+"Your Shipper" = "Your Shipper";
+"Additional Note" = "Nota adicional";
+"Pending" = "Pendente";
+"Cancelled" = "Cancelado";
+"Completed" = "Concluído";
+"Write message here" = "Write message here";

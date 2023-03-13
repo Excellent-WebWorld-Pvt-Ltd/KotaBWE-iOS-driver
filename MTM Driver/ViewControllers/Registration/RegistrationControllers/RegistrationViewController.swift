@@ -31,6 +31,7 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
     
     @IBOutlet weak var btnNext: ThemeButton!
     @IBOutlet weak var txtEmail: CustomViewOutlinedTxtField!
+    @IBOutlet weak var segmentLanguage: UISegmentedControl!
     @IBOutlet weak var btnCheckBoxTerms: UIButton!
     
     
@@ -50,15 +51,26 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
         txtPhone.textField.text = Singleton.shared.countryCode
         txtPhone.textField.isUserInteractionEnabled = false
         setupTextfields()
-        TermsAndCondtionSetup()
         setupRegisterVC()
         self.isPasswordSecure(isSecure: true)
         self.isConformPasswordSecure(isSecure: true)
         txtPassword.textField.setRightPaddingPoints(25)
         txtConformPassword.textField.setRightPaddingPoints(25)
+        self.localization()
+        self.setUpData()
+    }
+    
+    func setUpData(){
+        NotificationCenter.default.addObserver(self, selector: #selector(changeLanguage), name: Notification.Name(rawValue: LCLLanguageChangeNotification), object: nil)
+    }
+    
+    @objc func changeLanguage(){
+        self.localization()
     }
     
     func localization(){
+        self.TermsAndCondtionSetup()
+        self.segmentLanguage.selectedSegmentIndex = Language.currentLanguage() == Languages.English.rawValue ? 1 : 0
         self.lblTitle.text = "Welcome to Kota".localized
         self.txtEmail.textField.placeholder = "Email".localized
         self.txtEmail.textField.label.text = "Email".localized
@@ -70,7 +82,7 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
         self.txtPassword.textField.label.text = "Password".localized
         self.txtConformPassword.textField.placeholder = "Confirm Password".localized
         self.txtConformPassword.textField.label.text = "Confirm Password".localized
-        self.btnNext.setTitle("NEXT", for: .normal)
+        self.btnNext.setTitle("NEXT".localized, for: .normal)
     }
     
     func setupTextfields() {
@@ -113,20 +125,18 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
     func validateFields() -> Bool{
         
         let validationParameter :[(String?,String, ValidatiionType)] =  [
-            (txtEmail.textField.text,emailEmptyErrorString,.isEmpty),(txtEmail.textField.text,emailErrorString,.email),
-            (txtPhoneNumber.textField.text,phoneNumberEmptyErrorString,.isEmpty),
-            (txtPassword.textField.text,passwordEmptyErrorString,.isEmpty),
-            (txtPassword.textField.text,passwordValidErrorString,.password),
-            (txtConformPassword.textField.text,confirmPasswordEmptyErrorString,.isEmpty),
-            (txtConformPassword.textField.text,confirmPasswordValidErrorString,.password),
-            (txtPhoneNumber.textField.text,phoneNumberErrorString, .isPhoneNumber)]
+            (txtEmail.textField.text,emailEmptyErrorString.localized,.isEmpty),(txtEmail.textField.text,emailErrorString.localized,.email),
+            (txtPhoneNumber.textField.text,phoneNumberEmptyErrorString.localized,.isEmpty),
+            (txtPassword.textField.text,passwordEmptyErrorString.localized,.isEmpty),
+            (txtPassword.textField.text,passwordValidErrorString.localized,.password),
+            (txtConformPassword.textField.text,confirmPasswordEmptyErrorString.localized,.isEmpty),
+            (txtConformPassword.textField.text,confirmPasswordValidErrorString.localized,.password),
+            (txtPhoneNumber.textField.text,phoneNumberErrorString.localized, .isPhoneNumber)]
         guard Validator.validate(validationParameter) else{
             return false
         }
         return true
     }
-    
-    
     
     //MARK:- ====== Country Picker setup ===
     func setupCountryPicker(){
@@ -140,7 +150,6 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
         viewCountryPicker.showCountryCodeInView = false
         viewCountryPicker.isUserInteractionEnabled = false
     }
-    
     
     func TermsAndCondtionSetup(){
         let FormattedText = NSMutableAttributedString()
@@ -221,6 +230,14 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
         }
     }
     
+    @IBAction func languageChange(_ sender: Any) {
+        if segmentLanguage.selectedSegmentIndex == 0{
+            Language.setCurrentLanguage(Languages.Portugal.rawValue)
+        }else{
+            Language.setCurrentLanguage(Languages.English.rawValue)
+        }
+    }
+    
     @IBAction func btnActionSignIn(_ sender: UnderlineTextButton) {
         if navigationViewController(contains: LoginVC.self) {
             self.goBack()
@@ -253,19 +270,6 @@ class RegistrationViewController: BaseViewController, UIScrollViewDelegate , UII
     @IBAction func btnActionConformPasswordShow(_ sender: Any) {
         iconConformPasswordClick = !iconConformPasswordClick
         self.isConformPasswordSecure(isSecure:iconConformPasswordClick)
-    }
-    
-    
-    func setupViews(){
-        let main_string = "Already a Kota user? Sign In".localized
-        let string_to_color = "Sign In".localized
-        let range = (main_string as NSString).range(of: string_to_color)
-        let attribute = NSMutableAttributedString.init(string: main_string)
-        attribute.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.themeBlack.withAlphaComponent(0.7) , range: range)
-        attribute.addAttribute(NSAttributedString.Key.font, value: FontBook.regular.font(ofSize: 14.0) , range: range)
-        btnAlreadyhaveAccount.setAttributedTitle(attribute, for: .normal)
-        btnAlreadyhaveAccount.isUserInteractionEnabled = false
-        btnAlreadyhaveAccount.backgroundColor =  UIColor.clear
     }
     
     //MARK: - ====== Webservice call Register OTP ========

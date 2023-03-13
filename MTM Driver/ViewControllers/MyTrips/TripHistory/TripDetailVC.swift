@@ -18,6 +18,7 @@ class TripDetailVC: BaseViewController {
     @IBOutlet weak var collectionImages: UICollectionView!
     @IBOutlet weak var viewPastInvoice: UIView!
     
+    @IBOutlet weak var btnAccepted: ThemeButton!
     @IBOutlet weak var vwSlide: UIView!
     @IBOutlet weak var vwAcceptReject: UIView!
     @IBOutlet weak var vwHelp: UIView!
@@ -110,6 +111,7 @@ class TripDetailVC: BaseViewController {
         self.lblTitleTripPrice.text = "\("Trip Price".localized):"
         self.lblTitleEarning.text = "\("Your Earning".localized):"
         self.btnNeedHelp.setTitle("Need Help?".localized, for: .normal)
+        self.btnAccepted.setTitle("Accepted".localized, for: .normal)
     }
     
     //MARK :- Other Function

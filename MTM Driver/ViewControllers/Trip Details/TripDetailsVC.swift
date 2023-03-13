@@ -93,7 +93,7 @@ class TripDetailsVC: BaseViewController {
     }
     func setUpSwipeView(vwSwipe : MTSlideToOpenView) {
         vwSwipe.applyThemeStyle()
-        vwSwipe.textLabel.text = "Slide To Go"
+        vwSwipe.textLabel.text = "Slide To Go".localized
         vwSwipe.delegate = self
         
     }

@@ -61,7 +61,7 @@ class TripTableViewCell: UITableViewCell , ShimmeringViewProtocol{
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        self.setLocalization()
         selectionStyle = .none
     }
 
@@ -77,7 +77,7 @@ class TripTableViewCell: UITableViewCell , ShimmeringViewProtocol{
         
         mapContainerView.isHidden = !hasMap
         bottomStack.isHidden = (info.status == .cancelled || isFRomUpcoming)
-        lblStatus.text = info.status.title
+        lblStatus.text = info.status.title.localized
         lblStatus.textColor = info.status.color
         pickupLabel.text = info.pickupLocation
         dropLabel.text = info.dropoffLocation

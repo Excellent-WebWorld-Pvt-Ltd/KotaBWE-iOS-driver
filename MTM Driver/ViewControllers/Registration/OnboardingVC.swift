@@ -16,7 +16,16 @@ class OnboardingVC: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        self.localization()
+        self.setUpData()
+    }
+    
+    func setUpData(){
+        NotificationCenter.default.addObserver(self, selector: #selector(changeLanguage), name: Notification.Name(rawValue: LCLLanguageChangeNotification), object: nil)
+    }
+    
+    @objc func changeLanguage(){
+        self.localization()
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -573,15 +573,23 @@
                     </view>
                     <navigationItem key="navigationItem" id="HLi-e6-oCt"/>
                     <connections>
+                        <outlet property="btnSubmit" destination="bYF-sp-DsB" id="MuJ-HD-L29"/>
                         <outlet property="imgRider" destination="dBS-T9-Q5r" id="n84-ZQ-f1S"/>
                         <outlet property="lblCustomerReting" destination="1h0-Ox-c5P" id="UBF-8c-JJp"/>
                         <outlet property="lblDistance" destination="pT0-Zl-JnF" id="eQd-Za-sHp"/>
+                        <outlet property="lblDistanceTitle" destination="vug-67-6Ig" id="JmP-ly-lhH"/>
+                        <outlet property="lblEarningTitle" destination="rBm-wN-Usg" id="g6t-wv-C47"/>
+                        <outlet property="lblRateTitle" destination="84m-ip-OLZ" id="cyB-fQ-ill"/>
                         <outlet property="lblRiderName" destination="nTd-HI-yw6" id="b8G-uO-kOQ"/>
+                        <outlet property="lblShipperTitle" destination="Z47-jF-XjI" id="SFb-iZ-s0e"/>
                         <outlet property="lblTotalPrice" destination="Xbh-JD-arD" id="HTT-Db-p7s"/>
                         <outlet property="lblTotalTime" destination="tdn-H5-M61" id="8Dd-NS-MnZ"/>
                         <outlet property="lblTripTime" destination="zXg-qo-Bah" id="3Cw-gw-TG4"/>
                         <outlet property="lblWaitingFees" destination="JiA-G1-5Vq" id="TNY-lx-9Ij"/>
+                        <outlet property="lblWaitingFeesTitle" destination="AOg-xi-Up4" id="l6s-Ro-JxU"/>
                         <outlet property="lblWaitingTime" destination="nVD-uW-OSI" id="UdV-dg-p4f"/>
+                        <outlet property="lblWaitingTimeTitle" destination="AtK-bg-MxD" id="0ee-IP-mz0"/>
+                        <outlet property="lvlTripTimeTitle" destination="vhN-j9-eme" id="yLt-GQ-NeH"/>
                         <outlet property="txtvReview" destination="JvA-VR-vSR" id="Owo-tz-WJN"/>
                         <outlet property="viewRating" destination="0Sg-WK-NhT" id="5Ct-IQ-9M6"/>
                     </connections>

@@ -26,6 +26,7 @@ class OTPVC: BaseViewController , OTPTextFieldDelegate{
     @IBOutlet weak var viewTimer: UIView!
     @IBOutlet weak var lblTimer: ThemeLabel!
     @IBOutlet weak var viewResendCode: UIView!
+    @IBOutlet weak var lblTitle: ThemeLabel!
     
     
     //MARK:- ======= Variables ======
@@ -53,6 +54,7 @@ class OTPVC: BaseViewController , OTPTextFieldDelegate{
         buttonSetup()
         UISetup()
         filledOTP()
+        self.setUpData()
         self.setLocalisation()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
             self.txtOTPCollection.first?.becomeFirstResponder()
@@ -60,15 +62,23 @@ class OTPVC: BaseViewController , OTPTextFieldDelegate{
         
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.navigationBar.isHidden = true
     }
     
+    func setUpData(){
+        NotificationCenter.default.addObserver(self, selector: #selector(changeLanguage), name: Notification.Name(rawValue: LCLLanguageChangeNotification), object: nil)
+    }
+    
+    @objc func changeLanguage(){
+        self.setLocalisation()
+    }
+    
     func setLocalisation(){
         self.lblSubTitle.text = "Enter 6 Digit Code That Has Been Sent To Your Registered Mail Id.".localized
         self.btnNext.setTitle("NEXT".localized, for: .normal)
+        self.lblTitle.text = "Account Verification".localized
     }
     
     func filledOTP(){

@@ -54,8 +54,8 @@ class ForgotPasswordViewController: BaseViewController {
     //MARK:- ===== Validation =======
     func validateFields() -> Bool{
         
-        let validationParameter :[(String?,String, ValidatiionType)] =  [(txtEmail.textField.text,emailEmptyErrorString,.isEmpty),
-                                                                         (txtEmail.textField.text,emailErrorString,.email)]
+        let validationParameter :[(String?,String, ValidatiionType)] =  [(txtEmail.textField.text,emailEmptyErrorString.localized,.isEmpty),
+                                                                         (txtEmail.textField.text,emailErrorString.localized,.email)]
         guard Validator.validate(validationParameter) else{
             return false
         }

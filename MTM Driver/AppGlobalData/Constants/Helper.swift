@@ -26,6 +26,7 @@ let PaymentSuccessURL = "https://showfaride.com/panel/flutterwave/payment_succes
 let PaymentFailureURL = "https://showfaride.com/panel/flutterwave/payment_failed"
 
 let LCLCurrentLanguageKey = "LCLCurrentLanguageKey"
+public let LCLLanguageChangeNotification = "LCLLanguageChangeNotification"
 
 let baseURLDirections = "https://maps.googleapis.com/maps/api/directions/json?"
 

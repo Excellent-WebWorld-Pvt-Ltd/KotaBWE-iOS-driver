@@ -72,6 +72,7 @@ class EarningSettlementVC: BaseViewController {
         
         tblEarning.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tblEarning.frame.size.width, height: 1))
         self.btnSetup()
+        self.setLocalization()
     }
     
     //MARK:- Add Shimmer effect  ====

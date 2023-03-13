@@ -26,6 +26,7 @@ class HelpViewController: BaseViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupNavigation(.normal(title: "Support".localized, leftItem: .back, hasNotification: false))
+        self.setLocalization()
     }
     
     func setLocalization(){

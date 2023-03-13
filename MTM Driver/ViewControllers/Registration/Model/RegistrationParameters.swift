@@ -226,26 +226,19 @@ extension RegistrationParameter {
     
     func isValidDocuments() -> Bool {
         let validator = BunchEmptyValidator()
-
-        validator.append(input: driver_licence_image_front, message: Messages.emptyDriverLicenseFront)
-        validator.append(input: driver_licence_image_back, message: Messages.emptyDriverLicenseBack)
-        validator.append(input: driver_licence_exp_date, message: Messages.emptyDriverLicenseExpire)
-        
-        validator.append(input: criminal_record_image, message: Messages.emptyCriminalRecord)
-        validator.append(input: residence_certificate, message: Messages.emptyResidenceCertificate)
-        
-        validator.append(input: rental_license_image, message: Messages.emptyRentalLicense)
-        validator.append(input: rental_license_exp_date, message: Messages.emptyRentalLicenseExpire)
-        
-        validator.append(input: booklet_image, message: Messages.emptyBooklet)
-        validator.append(input: civil_liability_insurance_image, message: Messages.emptyCivilLiabilityInsurance)
-        
-        validator.append(input: civil_liability_insurance_exp_date, message: Messages.emptyCivilLiabilityInsuranceExpire)
-        
-        validator.append(input: bi_image_front, message: Messages.emptyBIFront)
-        validator.append(input: bi_image_back, message: Messages.emptyBIBack)
-        validator.append(input: bi_exp_date, message: Messages.emptyBIExpire)
-        
+        validator.append(input: driver_licence_image_front, message: Messages.emptyDriverLicenseFront.localized)
+        validator.append(input: driver_licence_image_back, message: Messages.emptyDriverLicenseBack.localized)
+        validator.append(input: driver_licence_exp_date, message: Messages.emptyDriverLicenseExpire.localized)
+        validator.append(input: criminal_record_image, message: Messages.emptyCriminalRecord.localized)
+        validator.append(input: residence_certificate, message: Messages.emptyResidenceCertificate.localized)
+        validator.append(input: rental_license_image, message: Messages.emptyRentalLicense.localized)
+        validator.append(input: rental_license_exp_date, message: Messages.emptyRentalLicenseExpire.localized)
+        validator.append(input: booklet_image, message: Messages.emptyBooklet.localized)
+        validator.append(input: civil_liability_insurance_image, message: Messages.emptyCivilLiabilityInsurance.localized)
+        validator.append(input: civil_liability_insurance_exp_date, message: Messages.emptyCivilLiabilityInsuranceExpire.localized)
+        validator.append(input: bi_image_front, message: Messages.emptyBIFront.localized)
+        validator.append(input: bi_image_back, message: Messages.emptyBIBack.localized)
+        validator.append(input: bi_exp_date, message: Messages.emptyBIExpire.localized)
         let result = validator.validate()
         if result.isValid == false, let message = result.error {
             AlertMessage.showMessageForError(message)

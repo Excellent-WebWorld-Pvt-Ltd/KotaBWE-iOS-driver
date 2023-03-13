@@ -106,7 +106,7 @@ class HomeViewController: BaseViewController {
         self.setupCurrentLocation()
         updateLocation()
         Loader.showHUD()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             Loader.hideHUD()
             self.checkLicenseExpiry()
         }

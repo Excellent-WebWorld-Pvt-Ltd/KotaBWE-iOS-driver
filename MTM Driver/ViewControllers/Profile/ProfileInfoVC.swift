@@ -79,12 +79,15 @@ class ProfileInfoVC: BaseViewController {
         if !isFromSetting {
             navigateToVC()
         }
-        self.btnNext.setTitle(isFromSetting ? "Save".localized : "Next".localized, for: .normal)
+        self.setlocalization()
+        
         self.navigationController?.navigationBar.isHidden = false
-        self.setupNavigation(.normal(title: isFromSetting ? "Edit Profile".localized : "Profile Details".localized, leftItem: .back))
-    }
+      }
 
     func setlocalization(){
+        self.btnNext.setTitle(isFromSetting ? "Save".localized : "Next".localized, for: .normal)
+        self.setupNavigation(.normal(title: isFromSetting ? "Edit Profile".localized : "Profile Details".localized, leftItem: .back))
+
         self.txtFirstName.textField.placeholder = "First Name".localized
         self.txtFirstName.textField.label.text = "First Name".localized
         
@@ -293,7 +296,7 @@ class ProfileInfoVC: BaseViewController {
             txtLastName.textField.leadingAssistiveLabel.text = lastNameValidation.error
             txtLastName.textField.setOutlineColor(lastNameValidation.isValid ? .themeTextFieldDefaultBorderColor : .red, for: .normal)
             if txtDOB.textField.text == "" {
-                txtDOB.textField.leadingAssistiveLabel.text = dobErrorString
+                txtDOB.textField.leadingAssistiveLabel.text = dobErrorString.localized
                 txtDOB.textField.setOutlineColor(UIColor.red, for: .normal)
             }else {
                 txtDOB.textField.leadingAssistiveLabel.text = ""
@@ -337,20 +340,20 @@ class ProfileInfoVC: BaseViewController {
     private func validation() -> Bool {
         
         let validationParameter2: [(String?,String, ValidatiionType)] = [
-            (txtFirstName.textField.text,firstNameErrorString, .isEmpty),
-            (txtLastName.textField.text,lastNameErrorString, .isEmpty),
+            (txtFirstName.textField.text,firstNameErrorString.localized, .isEmpty),
+            (txtLastName.textField.text,lastNameErrorString.localized, .isEmpty),
             
-            (selectedBirthDate?.getDateString(format: .digitDate), dobErrorString, .isEmpty),
-            (txtPostalCode.textField.text,postalCodeErrorString, .isEmpty),
-            (txtAddress.textField.text,addressErrorString, .isEmpty)]
+            (selectedBirthDate?.getDateString(format: .digitDate), dobErrorString.localized, .isEmpty),
+            (txtPostalCode.textField.text,postalCodeErrorString.localized, .isEmpty),
+            (txtAddress.textField.text,addressErrorString.localized, .isEmpty)]
         
         guard Validator.validate(validationParameter2) else {
             return false
         }
         if isFromSetting {
-            let validationMobileNumber : [(String?,String, ValidatiionType)] = [(txtMobileNumber.textField.text,numberErrorString, .isPhoneNumber),
-                                                                                (txtEmail.textField.text,emailEmptyErrorString, .isEmpty),
-                                                                                (txtEmail.textField.text,emailErrorString, .email),
+            let validationMobileNumber : [(String?,String, ValidatiionType)] = [(txtMobileNumber.textField.text,numberErrorString.localized, .isPhoneNumber),
+                                                                                (txtEmail.textField.text,emailEmptyErrorString.localized, .isEmpty),
+                                                                                (txtEmail.textField.text,emailErrorString.localized, .email),
             ]
             guard Validator.validate(validationMobileNumber) else {
                 return false

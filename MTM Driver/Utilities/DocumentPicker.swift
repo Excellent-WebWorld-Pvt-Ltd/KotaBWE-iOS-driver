@@ -78,7 +78,7 @@ class DocumentPickerController: NSObject {
     }
 
     public func present(from sourceView: UIView) {
-        let alertController = UIAlertController(title: Messages.chooseSource,
+        let alertController = UIAlertController(title: Messages.chooseSource.localized,
                                                 message: nil,
                                                 preferredStyle: .actionSheet)
         for type in fileType {

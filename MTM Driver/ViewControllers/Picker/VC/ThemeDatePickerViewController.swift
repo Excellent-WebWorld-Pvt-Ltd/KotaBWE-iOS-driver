@@ -30,6 +30,8 @@ class ThemeDatePickerViewController: UIViewController {
         viewController.present(pickerVC, animated: true)
     }
     
+    @IBOutlet weak var btnCancel: ThemePrimaryButton!
+    @IBOutlet weak var btnConfirm: ThemePrimaryButton!
     @IBOutlet weak var blurryView: UIVisualEffectView!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var titleLabel: UILabel!
@@ -55,6 +57,12 @@ class ThemeDatePickerViewController: UIViewController {
         blurryView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         blurryView.layer.cornerRadius = 16
         blurryView.clipsToBounds = true
+        self.localization()
+    }
+    
+    func localization(){
+        self.btnCancel.setTitle("Cancel".localized, for: .normal)
+        self.btnConfirm.setTitle("Confirm".localized, for: .normal)
     }
     
     @IBAction func dismissAction() {

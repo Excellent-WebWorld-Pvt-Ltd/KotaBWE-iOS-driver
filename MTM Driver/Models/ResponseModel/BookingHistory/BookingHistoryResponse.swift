@@ -182,12 +182,10 @@ enum TripCompletedStatus: String {
     var title: String {
         if self == .pending {
             return  "Pending"
-        } else if self == .cancelled {
+        }else if self == .cancelled {
             return "Cancelled"
-        }
-        else if self == .completed{
+        }else if self == .completed{
             return "Completed"
-        
         } else {
             return rawValue.capitalized
         }
